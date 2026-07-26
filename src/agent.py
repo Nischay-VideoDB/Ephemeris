@@ -222,6 +222,30 @@ def resolve_body(scene_body: str, dominant: str, share: float, counts: dict[str,
     return scene_body, "scene"
 
 
+# Never worth preferring in retrieval: `unknown` says nothing, and Earth and its immediate
+# surroundings are where the archive is made rather than a subject that narrows anything.
+NEVER_TARGETED = frozenset({"unknown", "ground", "earth", "earth_orbit"})
+
+
+def body_coverage(lookup: dict[str, list[dict]]) -> dict[str, int]:
+    """How many scenes the archive actually holds for each world, after body resolution.
+
+    This is a property of the corpus, not of any query, so it answers a question retrieval
+    cannot: whether there is anything here at all. Semantic search always returns its best
+    matches, and "a probe descends through an atmosphere under parachutes" scores well on a
+    Venus question using Artemis reentry footage.
+    """
+    counts: dict[str, int] = {}
+    for rows in lookup.values():
+        dominant, share, profile = body_profile(rows)
+        for row in rows:
+            body, _ = resolve_body(
+                row.get("celestial_body") or "unknown", dominant, share, profile
+            )
+            counts[body] = counts.get(body, 0) + 1
+    return counts
+
+
 # A mission that orbits, lands on or drives across exactly one world. If a scene set somewhere
 # else carries one of these, the label is wrong: the compilation clip "1971 Aeronautics and Space
 # Highlights" stamps `Mariner 9`, a Mars orbiter, on 62 of its 88 scenes including thirteen of the
@@ -253,6 +277,18 @@ NEUTRAL_BODIES = {"earth", "earth_orbit", "ground", "unknown", "deep_space"}
 SYSTEM_OF = {"titan": "saturn", "moon": "earth"}
 
 
+def in_system(body: str, target: str | None) -> bool:
+    """Whether a moment counts as being about the world asked for.
+
+    A moon belongs to the system it orbits: asked about Saturn and its moons, a Titan
+    descent is the answer rather than a digression, and ranking it as off-topic pushed
+    Cassini's Huygens footage out of a question that named it.
+    """
+    if target is None:
+        return False
+    return body == target or SYSTEM_OF.get(body) == target
+
+
 def resolve_mission(mission: str | None, body: str) -> tuple[str | None, str]:
     """Drop a mission label that belongs to a different world than the scene is set on.
 
@@ -271,6 +307,71 @@ def resolve_mission(mission: str | None, body: str) -> tuple[str | None, str]:
     if home is None or home == body or SYSTEM_OF.get(body) == home:
         return mission, "scene"
     return None, "dropped"
+
+
+# When a mission could have been doing anything at all. Bounds are deliberately generous: the
+# point is to catch a date that is impossible, not to insist on the exact operating period. The
+# upper bound is open for anything still flying.
+OPEN = 2030
+MISSION_WINDOWS: list[tuple[str, int, int]] = [
+    (r"\bnaca\b", 1915, 1958), (r"\bx-\s?15\b", 1959, 1970),
+    (r"explorer 1|explorer i\b", 1958, 1965), (r"\bmercury\b", 1958, 1963),
+    (r"\bgemini\b", 1961, 1966), (r"apollo", 1961, 1975), (r"skylab", 1973, 1979),
+    (r"mariner 4|mariner iv", 1964, 1967), (r"mariner 9|mariner ix", 1971, 1973),
+    (r"mariner 10", 1973, 1975), (r"\bmariner\b", 1962, 1975),
+    (r"\branger\b", 1961, 1965), (r"surveyor", 1966, 1968),
+    (r"viking", 1975, 1983), (r"voyager", 1977, OPEN), (r"pioneer", 1958, 2003),
+    (r"space shuttle|columbia|challenger|discovery|atlantis|endeavour|sts-", 1981, 2011),
+    (r"magellan", 1989, 1994), (r"galileo", 1989, 2003),
+    (r"hubble", 1990, OPEN), (r"soho", 1995, OPEN), (r"cassini|huygens", 1997, 2017),
+    (r"mars global surveyor", 1996, 2007), (r"chandra", 1999, OPEN),
+    (r"stardust", 1999, 2011), (r"terra\b", 1999, OPEN),
+    (r"mars odyssey|\bodyssey\b", 2001, OPEN), (r"aqua\b", 2002, OPEN),
+    (r"spirit\b|opportunity", 2003, 2019), (r"deep impact", 2005, 2013),
+    (r"mars reconnaissance", 2005, OPEN), (r"new horizons", 2006, OPEN),
+    (r"phoenix", 2007, 2009), (r"dawn\b", 2007, 2018),
+    (r"lunar reconnaissance|\blro\b", 2009, OPEN), (r"kepler", 2009, 2018),
+    (r"\bwise\b|neowise", 2009, OPEN), (r"\bsdo\b|solar dynamics", 2010, OPEN),
+    (r"curiosity|mars science laboratory", 2011, OPEN), (r"juno", 2011, OPEN),
+    (r"maven", 2013, OPEN), (r"osiris", 2016, OPEN), (r"artemis", 2017, OPEN),
+    (r"perseverance|ingenuity", 2020, OPEN), (r"webb|jwst", 2021, OPEN),
+    (r"international space station", 1998, OPEN), (r"landsat", 1972, OPEN),
+]
+
+# The date came from the scene's own content, so it outranks anything inferred about it.
+FIRM_ERA_AXIS = "scene"
+
+
+def mission_window(mission: str | None) -> tuple[int, int] | None:
+    if not mission:
+        return None
+    for pattern, low, high in MISSION_WINDOWS:
+        if re.search(pattern, mission, re.I):
+            return low, high
+    return None
+
+
+def resolve_era(era_start: int | None, era_axis: str | None,
+                mission: str | None) -> tuple[int | None, str | None, str | None]:
+    """Correct a date that its own mission could not have been part of.
+
+    `era_start` is only sometimes read from what a scene says. When the extractor found no
+    date it falls back to the clip as a whole, and a compilation dated once at the top carries
+    that year into every scene under it: a Curiosity segment came back as 1990, which put a
+    2012 rover before Hubble on the timeline. The mission's operating window is firmer than
+    that fallback, so it wins, and the axis says so.
+
+    A date the scene itself stated is never overruled. Archive footage is full of retrospect,
+    and a Perseverance clip recounting Viking is not a mistake to fix.
+    """
+    span = mission_window(mission)
+    if era_start is None or span is None or era_axis == FIRM_ERA_AXIS:
+        return era_start, era_axis, None
+    low, high = span
+    if low <= era_start <= high:
+        return era_start, era_axis, None
+    corrected = low if era_start < low else high
+    return corrected, "mission", f"{era_start} is outside {mission}'s {low}-{high}"
 
 
 def attach_era(evidence: Evidence, lookup: dict[str, list[dict]]) -> Evidence:
@@ -303,6 +404,13 @@ def attach_era(evidence: Evidence, lookup: dict[str, list[dict]]) -> Evidence:
     evidence.mission, evidence.mission_axis = resolve_mission(
         evidence.mission, evidence.celestial_body
     )
+    # And after the mission, because a label dropped as belonging elsewhere must not then be
+    # used to date the moment it was just found not to describe.
+    evidence.era_start, evidence.era_axis, correction = resolve_era(
+        evidence.era_start, evidence.era_axis, evidence.mission
+    )
+    if correction:
+        evidence.era_basis = correction
     return evidence
 
 
@@ -340,12 +448,14 @@ Rules:
   asked. If the subject is real but the archive may simply not cover it, answerable is still
   true: that is for the evidence to settle, not you.
 - When answerable is false, return empty lists and say why in rationale.
-- target_body is set only when the question is plainly about one world, and must be one of:
-  mars, moon, earth, earth_orbit, sun, venus, mercury, jupiter, saturn, titan,
-  comet_asteroid, deep_space. "Missions to explore the moon" is moon. "How did our
-  understanding of water change" is null, because the answer spans several worlds. Guessing
-  here narrows the search for no reason; leaving it null when the question does name one world
-  lets material about somewhere else take a place in the answer.
+- target_body is where the footage should be SET, not the subject it discusses, and must be one
+  of: mars, moon, sun, venus, mercury, jupiter, saturn, titan, comet_asteroid, deep_space.
+  "Missions to explore the moon" is moon. "How did our understanding of water change" is null,
+  because the answer spans several worlds. Work carried out on Earth about another world is
+  null: rehearsals in a Mars yard, mission control simulations, hardware testing and briefings
+  are all filmed here, and a question about them wants that footage rather than the surface it
+  prepares for. Guessing narrows the search for no reason; leaving it null when the question
+  does name one setting lets material about somewhere else take a place in the answer.
 """
 
 SYNTHESIS_PROMPT = """You are answering a research question using only the evidence below.
@@ -355,22 +465,37 @@ discusses and how that year was determined.
 
 Question: {question}
 
-Evidence:
+Evidence ({count} moments, numbered [1] to [{count}]):
 {evidence}
 
 Return JSON only:
 {{
-  "answer": "3 to 6 sentences. Cite evidence inline as [1], [2]. Say something the",
+  "answer": "4 to 8 sentences. Cite evidence inline as [1], [2]. Say something the",
   "citations": [1, 2],
   "chronology": [{{"era": 1965, "claim": "what the archive shows about this period", "citations": [1]}}],
   "caveats": "what the evidence does not establish, or empty string"
 }}
 
 Rules:
-- Every factual claim must carry a citation.
+- Account for every one of the {count} moments. Each is cut into a reel the reader watches
+  beside your answer, so a moment you never cite plays as footage nothing explains. Group
+  related moments on one claim rather than writing a sentence each. If a moment genuinely does
+  not bear on the question, cite it once in caveats saying what it shows instead. Answers that
+  used 2 of 8 moments and left six unexplained on screen are the failure to avoid.
+- Every factual claim must carry a citation, the opening sentence included. A sentence that
+  summarises the answer is still asserting it, and carries the citations of everything it
+  summarises.
 - The answer must state something no single clip states on its own.
+- chronology carries the dated spine of the answer and is drawn as a timeline, so one point
+  is not a chronology. Give a point for each distinct era the evidence covers, in order,
+  whenever the moments span more than one.
 - If evidence dates rest on `era_axis: video` or `published`, say so in caveats
   rather than presenting them as certain.
+- Evidence set on one world is not evidence about another. If the question asks about a
+  particular world and a clip is set somewhere else, do not reason from what that footage
+  implies or suggests about the world asked for. Say plainly that the archive does not show
+  it. An answer that concedes "neither clip shows Venus" and then describes Venus exploration
+  anyway is worse than a short answer that stops at what the clips hold.
 - Do not use knowledge beyond the evidence.
 """
 
@@ -406,7 +531,12 @@ def decompose(coll, question: str, trace: Trace) -> dict:
 
     answerable = bool(plan.get("answerable", True))
     target = str(plan.get("target_body") or "").strip().lower() or None
-    if target not in schema.CELESTIAL_BODIES or target in ("unknown", "ground"):
+    # Earth is the archive's default backdrop: 473 of 1,484 scenes, plus 139 `ground` and 114
+    # `earth_orbit`. Preferring it sorts nothing into order and quietly promotes whatever
+    # happens to be filmed here, so a question about rehearsing Mars operations on Earth took
+    # X-15 flight-test footage at 0.639 over the mission control rehearsal it was asking for.
+    # Those runs rank on score alone.
+    if target not in schema.CELESTIAL_BODIES or target in NEVER_TARGETED:
         target = None
 
     plan = {
@@ -539,8 +669,7 @@ def diversify(evidence: list[Evidence], trace: Trace, cap: int = PER_VIDEO_CAP,
     # This is a preference and not a filter: when there is not enough on-topic material the
     # slots still fill, rather than the answer quietly shrinking.
     def rank(item: Evidence) -> tuple[int, float]:
-        on_topic = target_body is not None and item.celestial_body == target_body
-        return (0 if on_topic else 1, -item.score)
+        return (0 if in_system(item.celestial_body, target_body) else 1, -item.score)
 
     by_clip: dict[str, list[Evidence]] = {}
     for item in evidence:
@@ -548,24 +677,33 @@ def diversify(evidence: list[Evidence], trace: Trace, cap: int = PER_VIDEO_CAP,
     for shots in by_clip.values():
         shots.sort(key=rank)
 
-    # Clips whose best shot ranks highest go first, so ties in coverage break on quality.
-    order = sorted(by_clip, key=lambda nid: rank(by_clip[nid][0]))
+    # Each clip offers up to `cap` shots, ranked. A shot is chosen on three things in order:
+    # whether it is set on the world asked about, how many shots its clip has already given
+    # (so breadth still beats depth), and its score. Ordering the rounds ahead of the target
+    # was wrong: asked about Saturn and its moons, two ring passages at 0.731 and 0.730 were
+    # dropped as second shots while off-topic clips contributed first shots at lower scores.
+    candidates = [
+        (0 if in_system(shot.celestial_body, target_body) else 1, round_index, -shot.score,
+         nasa_id, shot)
+        for nasa_id, shots in by_clip.items()
+        for round_index, shot in enumerate(shots[:cap])
+    ]
+    candidates.sort(key=lambda c: c[:3])
 
     per_video: dict[str, int] = {}
     kept: list[Evidence] = []
-
-    for round_index in range(cap):
-        for nasa_id in order:
-            shots = by_clip[nasa_id]
-            if round_index >= len(shots) or len(kept) >= limit:
-                continue
-            kept.append(shots[round_index])
-            per_video[nasa_id] = per_video.get(nasa_id, 0) + 1
+    for _, _, _, nasa_id, shot in candidates[:limit]:
+        kept.append(shot)
+        per_video[nasa_id] = per_video.get(nasa_id, 0) + 1
 
     chosen = {item.key for item in kept}
+    # The body travels with the drop so it can be checked afterwards that nothing set on the
+    # world asked about was passed over for something that was not. Without it a preference
+    # that silently stopped working would look identical to one with nothing on-topic to find.
     dropped = [
         {"reason": "per_video_cap" if per_video.get(item.nasa_id, 0) >= cap else "evidence_limit",
-         "nasa_id": item.nasa_id, "start": round(item.start, 1), "score": item.score, "cap": cap}
+         "nasa_id": item.nasa_id, "start": round(item.start, 1), "score": item.score, "cap": cap,
+         "celestial_body": item.celestial_body}
         for item in evidence if item.key not in chosen
     ]
     kept.sort(key=lambda e: -e.score)
@@ -576,7 +714,7 @@ def diversify(evidence: list[Evidence], trace: Trace, cap: int = PER_VIDEO_CAP,
         + (f", preferring {target_body}" if target_body else ""),
         per_video_cap=cap,
         **({"target_body": target_body,
-            "on_target": sum(1 for k in kept if k.celestial_body == target_body)}
+            "on_target": sum(1 for k in kept if in_system(k.celestial_body, target_body))}
            if target_body else {}),
         kept_per_clip=per_video,
         dropped=dropped[:12],
@@ -786,10 +924,13 @@ def format_evidence(evidence: list[Evidence]) -> str:
         # matched text plus whatever was cut off mid-clause by the grid. It is a superset of
         # `text`, so it is the better thing to reason over when it exists.
         body = item.spoken or item.text
+        # `set on` is here so the rule against reasoning across worlds has something to read.
+        # Without it the model had to infer the setting from the title, and inferred wrongly.
         lines.append(
             f"[{i}] {item.title or item.nasa_id} | {item.nasa_id} | {item.start:.0f}-{item.end:.0f}s "
-            f"| era {era} | mission {item.mission or 'unknown'} | via {item.index} "
-            f"score {item.score}\n     {body[:400] or '(no transcript text; visual match)'}"
+            f"| era {era} | mission {item.mission or 'unknown'} | set on {item.celestial_body} "
+            f"| {item.event_type} | via {item.index} score {item.score}\n"
+            f"     {body[:700] or '(no transcript text; visual match)'}"
         )
     return "\n".join(lines)
 
@@ -820,7 +961,8 @@ def synthesize(coll, question: str, evidence: list[Evidence], trace: Trace) -> d
                 "caveats": "No evidence passed the relevance threshold."}
 
     raw = coll.generate_text(
-        prompt=SYNTHESIS_PROMPT.format(question=question, evidence=format_evidence(evidence)),
+        prompt=SYNTHESIS_PROMPT.format(question=question, evidence=format_evidence(evidence),
+                                       count=len(evidence)),
         model_name="pro",
         response_type="json",
     )
@@ -836,11 +978,21 @@ def synthesize(coll, question: str, evidence: list[Evidence], trace: Trace) -> d
         chronology.append({**point, "citations": _clean_citations(point.get("citations"), count)})
 
     dropped = len(result.get("citations") or []) - len(citations)
+    # Every moment is cut into the reel, so one the answer never refers to plays as footage
+    # nothing explains. Counting it here makes that visible in the trace instead of only
+    # showing up as a viewer wondering why a clip is there.
+    referenced = set(citations)
+    for point in chronology:
+        referenced.update(point["citations"])
+    uncited = [n for n in range(1, count + 1) if n not in referenced]
     trace.add(
         "synthesize",
-        f"{len(answer.split())} words, {len(citations)} citations",
+        f"{len(answer.split())} words, {len(referenced)} of {count} moments cited"
+        + (f", {len(uncited)} unexplained" if uncited else ""),
         chronology_points=len(chronology),
         caveats=result.get("caveats") or "",
+        cited_moments=sorted(referenced),
+        uncited_moments=uncited,
         **({"dropped_citations": dropped} if dropped > 0 else {}),
     )
     return {
@@ -867,27 +1019,55 @@ def ask(question: str, *, top_k: int = DEFAULT_TOP_K, threshold: float = DEFAULT
 
     plan = decompose(coll, question, trace)
 
-    if not plan["answerable"]:
-        # Retrieval always returns something. Nonsense decomposed into plausible spacecraft
-        # operations matched real launch footage at higher scores than a genuine question
-        # about hurricanes did, and the answer read as authoritative. Refusing here is the
-        # only place the distinction can still be made honestly.
+    def unsearched(caveats: str) -> dict:
         return {
             "question": question,
             "plan": plan,
-            "answer": {
-                "answer": "",
-                "citations": [],
-                "chronology": [],
-                "caveats": "This question was not searched: "
-                           + (plan["rationale"] or "it does not describe anything this archive holds."),
-            },
+            "answer": {"answer": "", "citations": [], "chronology": [], "caveats": caveats},
             "evidence": [],
             "rejected": {"below_threshold": [], "diversity": [],
                          "counts": {"below_threshold": 0, "diversity": 0}},
             "timeline": timeline_histogram(coll, trace),
             "trace": trace.to_list(),
         }
+
+    if not plan["answerable"]:
+        # Retrieval always returns something. Nonsense decomposed into plausible spacecraft
+        # operations matched real launch footage at higher scores than a genuine question
+        # about hurricanes did, and the answer read as authoritative. Refusing here is the
+        # only place the distinction can still be made honestly.
+        return unsearched(
+            "This question was not searched: "
+            + (plan["rationale"] or "it does not describe anything this archive holds.")
+        )
+
+    # A real subject the archive simply does not hold. `answerable` cannot catch this: Venus is
+    # plainly spaceflight, so the plan is right to proceed, and the target-body preference in
+    # `diversify` is a preference rather than a filter, so with nothing on the target it falls
+    # back to score. Asked how NASA explored Venus, the archive returned Artemis reentry and
+    # Mars descent footage and the synthesis reasoned from it that entry-and-descent engineering
+    # was used "for other planetary missions, including Venus". Saying there is nothing here is
+    # the honest answer, and only the corpus can say so.
+    target = plan["target_body"]
+    if target:
+        coverage = body_coverage(lookup)
+        if not coverage.get(target):
+            held = ", ".join(
+                f"{body} ({count})"
+                for body, count in sorted(coverage.items(), key=lambda kv: -kv[1])
+                if body not in ("unknown", "ground") and count
+            )
+            trace.add(
+                "coverage",
+                f"archive holds no scenes set on {target}, refusing before retrieval",
+                target_body=target,
+                bodies_held=coverage,
+            )
+            return unsearched(
+                f"This archive holds no footage set on {target}, so the question was not "
+                f"searched: any clips returned would have been about somewhere else. "
+                f"The 87 clips cover {held}."
+            )
 
     evidence, rejects = retrieve(coll, plan, trace, top_k, threshold, id_by_video)
     # Join runs of touching cells before the cap sees them, so what it chooses between is

@@ -1,4 +1,4 @@
-# Prompt: 3D interface for Mission Control
+# Prompt: 3D interface for Ephemeris
 
 **Status: built.** This was the handoff spec; the interface described here now lives in
 `web/`, so read it as the design record rather than as work to do. Two requirements changed

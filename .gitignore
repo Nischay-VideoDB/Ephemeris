@@ -8,3 +8,13 @@ node_modules/
 tsconfig.tsbuildinfo
 web/.tmp-check-*/
 data/answers/
+
+# AI tooling, not part of the project
+.agents/
+.claude/
+skills-lock.json
+
+# Working notes, not part of the deliverable
+docs/demo-script.md
+docs/architecture.excalidraw
+docs/ui-3d-prompt.md
