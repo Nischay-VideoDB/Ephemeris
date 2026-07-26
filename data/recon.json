@@ -1,0 +1,1153 @@
+{
+  "video_id": "m-z-019f980b-ae2e-7073-88e7-1db2cf36aae7",
+  "nasa": {
+    "nasa_id": "ksc_102504_marsdrill",
+    "title": "KSC-04-S-00339",
+    "description": "A unique drill is being tested by NASA. The futuristic drill is in development at Johnson Space Center and is designed to be used on the Moon or Mars. For now, testing is taking place at JSC's 'Mars Yard,' where a lunar-type landscape was created for testing space-bound technology. The lightweight drill package can fit in a container about the size of a suitcase and is attached to a control box to record data. A research team is also testing the specialized drilling rig in the frozen Canadian tundra. The core samples that are extricated there will help scientists understand the geology and biology of the high Arctic, and give the Mars drill a thorough workout. As testing progresses, the drill could ultimately be able to bore several hundred meters in the planetary soil to search for evidence of water.",
+    "date_created": "2004-10-26T00:00:00Z",
+    "published_year": 2004,
+    "center": "KSC",
+    "keywords": [
+      "moon",
+      "terrain",
+      "drills",
+      "core_sampling",
+      "Mars",
+      "water",
+      "soil"
+    ],
+    "media_type": "video",
+    "mp4_url": "https://images-assets.nasa.gov/video/ksc_102504_marsdrill/ksc_102504_marsdrill~mobile.mp4",
+    "vtt_url": "https://images-assets.nasa.gov/video/ksc_102504_marsdrill/ksc_102504_marsdrill.vtt",
+    "thumb_url": "https://images-assets.nasa.gov/video/ksc_102504_marsdrill/ksc_102504_marsdrill~thumb.jpg"
+  },
+  "understanding_id": "und_10a10204739f49a2",
+  "report": {
+    "video_id": "m-z-019f980b-ae2e-7073-88e7-1db2cf36aae7",
+    "video_length": 53.0,
+    "nasa_id": "ksc_102504_marsdrill",
+    "segmentation": {
+      "type": "shot",
+      "threshold": 30
+    },
+    "analyzers": {
+      "scene": {
+        "status": "done",
+        "sdk_type": "vlm",
+        "successful": true,
+        "output": {
+          "scene_count": 2,
+          "samples": [
+            {
+              "start": 0.0,
+              "end": 52.667,
+              "data_keys": [
+                "celestial_body",
+                "event_type",
+                "evidence_shown",
+                "on_screen_text",
+                "scene_description"
+              ],
+              "data": {
+                "celestial_body": "earth",
+                "event_type": "surface_ops",
+                "evidence_shown": "instrument",
+                "on_screen_text": "",
+                "scene_description": "Archival NASA footage showing engineers at Johnson Space Center\u2019s Mars Yard assembling and operating a lightweight, suitcase\u2011sized planetary drill connected to a control/data box on a terrestrial testbed. Cuts show the same specialized drill rig being run in a frozen High Arctic tundra to extract core samples. Narration and visuals emphasize the drill is being developed for use on the Moon or Mars and is being exercised to depths of potentially several hundred meters to search for subsurface water."
+              }
+            },
+            {
+              "start": 52.667,
+              "end": 52.867,
+              "data_keys": [
+                "celestial_body",
+                "event_type",
+                "evidence_shown",
+                "on_screen_text",
+                "scene_description"
+              ],
+              "data": {
+                "celestial_body": "mars",
+                "event_type": "surface_ops",
+                "evidence_shown": "surface_imagery",
+                "on_screen_text": "",
+                "scene_description": "Low-contrast, reddish-brown surface view showing cracked, rocky ground in the foreground and a distant flat-topped hill or mesa on the horizon beneath a hazy sky. No on-screen text or instruments visible."
+              }
+            }
+          ]
+        },
+        "field_probe": {
+          "analyzer": "scene",
+          "type": "vlm",
+          "error": "InvalidRequestError: Invalid request: fields.filter names not present in any scene's data (dotted paths are resolved, e.g. score.weight): ['__does_not_exist__']. Available top-level fields: ['celestial_body', 'event_type', 'evidence_shown', 'on_screen_text', 'scene_description'] "
+        }
+      },
+      "ocr": {
+        "status": "done",
+        "sdk_type": "ocr",
+        "successful": true,
+        "output": {
+          "scene_count": 2,
+          "samples": [
+            {
+              "start": 0.0,
+              "end": 52.667,
+              "data_keys": [
+                "text"
+              ],
+              "data": {
+                "text": ""
+              }
+            },
+            {
+              "start": 52.667,
+              "end": 52.867,
+              "data_keys": [
+                "text"
+              ],
+              "data": {
+                "text": ""
+              }
+            }
+          ]
+        },
+        "field_probe": {
+          "analyzer": "ocr",
+          "type": "ocr",
+          "error": "InvalidRequestError: Invalid request: fields.filter names not present in any scene's data (dotted paths are resolved, e.g. score.weight): ['__does_not_exist__']. Available top-level fields: ['text'] "
+        }
+      },
+      "transcript": {
+        "status": "done",
+        "sdk_type": "speech_transcription",
+        "successful": true,
+        "output": {
+          "scene_count": 2,
+          "samples": [
+            {
+              "start": 0.0,
+              "end": 52.667,
+              "data_keys": [
+                "text",
+                "words"
+              ],
+              "data": {
+                "text": "A unique drill is being tested by NASA. The futuristic drill is in development at Johnson Space center and is designed to be used on the Moon or Mars. For now, testing is taking place at JSC's Mars yard, where a lunar type landscape was created for testing space bound technology. The lightweight drill package can fit in a container about the size of a suitcase and is attached to a control box to record data. A research team is also testing the specialized drilling rig in the frozen Canadian tundra. The core samples that are extricated there will help scientists understand the geology and biology of the High Arctic and give the Mars drill a thorough workout. As testing progresses, the drill could ultimately be able to bore several hundred meters into planetary soil to search for evidence of water.",
+                "words": [
+                  {
+                    "confidence": 0.87353516,
+                    "end": 7.24,
+                    "speaker": "A",
+                    "start": 7.12,
+                    "text": "A"
+                  },
+                  {
+                    "confidence": 0.9998372,
+                    "end": 7.56,
+                    "speaker": "A",
+                    "start": 7.24,
+                    "text": "unique"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 7.8,
+                    "speaker": "A",
+                    "start": 7.56,
+                    "text": "drill"
+                  },
+                  {
+                    "confidence": 0.9604492,
+                    "end": 8.0,
+                    "speaker": "A",
+                    "start": 7.8,
+                    "text": "is"
+                  },
+                  {
+                    "confidence": 0.9970703,
+                    "end": 8.24,
+                    "speaker": "A",
+                    "start": 8.0,
+                    "text": "being"
+                  },
+                  {
+                    "confidence": 0.99975586,
+                    "end": 8.6,
+                    "speaker": "A",
+                    "start": 8.24,
+                    "text": "tested"
+                  },
+                  {
+                    "confidence": 0.99853516,
+                    "end": 8.8,
+                    "speaker": "A",
+                    "start": 8.6,
+                    "text": "by"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 9.36,
+                    "speaker": "A",
+                    "start": 8.8,
+                    "text": "NASA."
+                  },
+                  {
+                    "confidence": 0.97998047,
+                    "end": 9.84,
+                    "speaker": "A",
+                    "start": 9.52,
+                    "text": "The"
+                  },
+                  {
+                    "confidence": 0.99975586,
+                    "end": 10.44,
+                    "speaker": "A",
+                    "start": 9.84,
+                    "text": "futuristic"
+                  },
+                  {
+                    "confidence": 0.8461914,
+                    "end": 10.72,
+                    "speaker": "A",
+                    "start": 10.44,
+                    "text": "drill"
+                  },
+                  {
+                    "confidence": 0.9921875,
+                    "end": 10.92,
+                    "speaker": "A",
+                    "start": 10.72,
+                    "text": "is"
+                  },
+                  {
+                    "confidence": 0.9970703,
+                    "end": 11.08,
+                    "speaker": "A",
+                    "start": 10.92,
+                    "text": "in"
+                  },
+                  {
+                    "confidence": 0.9980469,
+                    "end": 11.32,
+                    "speaker": "A",
+                    "start": 11.08,
+                    "text": "development"
+                  },
+                  {
+                    "confidence": 0.9863281,
+                    "end": 11.56,
+                    "speaker": "A",
+                    "start": 11.32,
+                    "text": "at"
+                  },
+                  {
+                    "confidence": 0.99853516,
+                    "end": 12.0,
+                    "speaker": "A",
+                    "start": 11.56,
+                    "text": "Johnson"
+                  },
+                  {
+                    "confidence": 0.99853516,
+                    "end": 12.28,
+                    "speaker": "A",
+                    "start": 12.0,
+                    "text": "Space"
+                  },
+                  {
+                    "confidence": 0.99560547,
+                    "end": 12.64,
+                    "speaker": "A",
+                    "start": 12.28,
+                    "text": "center"
+                  },
+                  {
+                    "confidence": 0.9863281,
+                    "end": 12.84,
+                    "speaker": "A",
+                    "start": 12.64,
+                    "text": "and"
+                  },
+                  {
+                    "confidence": 0.9140625,
+                    "end": 13.04,
+                    "speaker": "A",
+                    "start": 12.84,
+                    "text": "is"
+                  },
+                  {
+                    "confidence": 0.99902344,
+                    "end": 13.4,
+                    "speaker": "A",
+                    "start": 13.04,
+                    "text": "designed"
+                  },
+                  {
+                    "confidence": 0.9980469,
+                    "end": 13.52,
+                    "speaker": "A",
+                    "start": 13.4,
+                    "text": "to"
+                  },
+                  {
+                    "confidence": 0.9980469,
+                    "end": 13.64,
+                    "speaker": "A",
+                    "start": 13.52,
+                    "text": "be"
+                  },
+                  {
+                    "confidence": 0.9970703,
+                    "end": 13.84,
+                    "speaker": "A",
+                    "start": 13.64,
+                    "text": "used"
+                  },
+                  {
+                    "confidence": 0.99560547,
+                    "end": 14.0,
+                    "speaker": "A",
+                    "start": 13.84,
+                    "text": "on"
+                  },
+                  {
+                    "confidence": 0.9946289,
+                    "end": 14.12,
+                    "speaker": "A",
+                    "start": 14.0,
+                    "text": "the"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 14.36,
+                    "speaker": "A",
+                    "start": 14.12,
+                    "text": "Moon"
+                  },
+                  {
+                    "confidence": 0.74560547,
+                    "end": 14.56,
+                    "speaker": "A",
+                    "start": 14.36,
+                    "text": "or"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 15.04,
+                    "speaker": "A",
+                    "start": 14.56,
+                    "text": "Mars."
+                  },
+                  {
+                    "confidence": 0.9902344,
+                    "end": 15.8,
+                    "speaker": "A",
+                    "start": 15.52,
+                    "text": "For"
+                  },
+                  {
+                    "confidence": 0.99902344,
+                    "end": 16.079,
+                    "speaker": "A",
+                    "start": 15.8,
+                    "text": "now,"
+                  },
+                  {
+                    "confidence": 0.99975586,
+                    "end": 16.52,
+                    "speaker": "A",
+                    "start": 16.079,
+                    "text": "testing"
+                  },
+                  {
+                    "confidence": 0.9921875,
+                    "end": 16.68,
+                    "speaker": "A",
+                    "start": 16.52,
+                    "text": "is"
+                  },
+                  {
+                    "confidence": 0.99853516,
+                    "end": 16.92,
+                    "speaker": "A",
+                    "start": 16.68,
+                    "text": "taking"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 17.2,
+                    "speaker": "A",
+                    "start": 16.92,
+                    "text": "place"
+                  },
+                  {
+                    "confidence": 0.9506836,
+                    "end": 17.4,
+                    "speaker": "A",
+                    "start": 17.2,
+                    "text": "at"
+                  },
+                  {
+                    "confidence": 0.98901,
+                    "end": 18.08,
+                    "speaker": "A",
+                    "start": 17.4,
+                    "text": "JSC's"
+                  },
+                  {
+                    "confidence": 0.998291,
+                    "end": 18.44,
+                    "speaker": "A",
+                    "start": 18.08,
+                    "text": "Mars"
+                  },
+                  {
+                    "confidence": 0.9602051,
+                    "end": 18.88,
+                    "speaker": "A",
+                    "start": 18.44,
+                    "text": "yard,"
+                  },
+                  {
+                    "confidence": 0.9926758,
+                    "end": 19.28,
+                    "speaker": "A",
+                    "start": 18.96,
+                    "text": "where"
+                  },
+                  {
+                    "confidence": 0.98583984,
+                    "end": 19.44,
+                    "speaker": "A",
+                    "start": 19.28,
+                    "text": "a"
+                  },
+                  {
+                    "confidence": 0.9980469,
+                    "end": 19.72,
+                    "speaker": "A",
+                    "start": 19.44,
+                    "text": "lunar"
+                  },
+                  {
+                    "confidence": 0.9362793,
+                    "end": 20.04,
+                    "speaker": "A",
+                    "start": 19.72,
+                    "text": "type"
+                  },
+                  {
+                    "confidence": 0.9996745,
+                    "end": 20.48,
+                    "speaker": "A",
+                    "start": 20.04,
+                    "text": "landscape"
+                  },
+                  {
+                    "confidence": 0.99658203,
+                    "end": 20.68,
+                    "speaker": "A",
+                    "start": 20.48,
+                    "text": "was"
+                  },
+                  {
+                    "confidence": 0.9992676,
+                    "end": 21.04,
+                    "speaker": "A",
+                    "start": 20.68,
+                    "text": "created"
+                  },
+                  {
+                    "confidence": 0.9941406,
+                    "end": 21.24,
+                    "speaker": "A",
+                    "start": 21.04,
+                    "text": "for"
+                  },
+                  {
+                    "confidence": 0.810791,
+                    "end": 21.52,
+                    "speaker": "A",
+                    "start": 21.24,
+                    "text": "testing"
+                  },
+                  {
+                    "confidence": 0.99902344,
+                    "end": 21.84,
+                    "speaker": "A",
+                    "start": 21.52,
+                    "text": "space"
+                  },
+                  {
+                    "confidence": 0.86157227,
+                    "end": 22.24,
+                    "speaker": "A",
+                    "start": 21.84,
+                    "text": "bound"
+                  },
+                  {
+                    "confidence": 0.99560547,
+                    "end": 22.56,
+                    "speaker": "A",
+                    "start": 22.24,
+                    "text": "technology."
+                  },
+                  {
+                    "confidence": 0.95410156,
+                    "end": 23.8,
+                    "speaker": "A",
+                    "start": 23.52,
+                    "text": "The"
+                  },
+                  {
+                    "confidence": 0.9968262,
+                    "end": 24.24,
+                    "speaker": "A",
+                    "start": 23.8,
+                    "text": "lightweight"
+                  },
+                  {
+                    "confidence": 0.9987793,
+                    "end": 24.52,
+                    "speaker": "A",
+                    "start": 24.24,
+                    "text": "drill"
+                  },
+                  {
+                    "confidence": 0.9980469,
+                    "end": 24.88,
+                    "speaker": "A",
+                    "start": 24.52,
+                    "text": "package"
+                  },
+                  {
+                    "confidence": 0.96972656,
+                    "end": 25.08,
+                    "speaker": "A",
+                    "start": 24.88,
+                    "text": "can"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 25.28,
+                    "speaker": "A",
+                    "start": 25.08,
+                    "text": "fit"
+                  },
+                  {
+                    "confidence": 0.98095703,
+                    "end": 25.4,
+                    "speaker": "A",
+                    "start": 25.28,
+                    "text": "in"
+                  },
+                  {
+                    "confidence": 0.9946289,
+                    "end": 25.52,
+                    "speaker": "A",
+                    "start": 25.4,
+                    "text": "a"
+                  },
+                  {
+                    "confidence": 0.9998372,
+                    "end": 25.92,
+                    "speaker": "A",
+                    "start": 25.52,
+                    "text": "container"
+                  },
+                  {
+                    "confidence": 0.9951172,
+                    "end": 26.12,
+                    "speaker": "A",
+                    "start": 25.92,
+                    "text": "about"
+                  },
+                  {
+                    "confidence": 0.9980469,
+                    "end": 26.28,
+                    "speaker": "A",
+                    "start": 26.12,
+                    "text": "the"
+                  },
+                  {
+                    "confidence": 0.99975586,
+                    "end": 26.48,
+                    "speaker": "A",
+                    "start": 26.28,
+                    "text": "size"
+                  },
+                  {
+                    "confidence": 0.99609375,
+                    "end": 26.6,
+                    "speaker": "A",
+                    "start": 26.48,
+                    "text": "of"
+                  },
+                  {
+                    "confidence": 0.96777344,
+                    "end": 26.72,
+                    "speaker": "A",
+                    "start": 26.6,
+                    "text": "a"
+                  },
+                  {
+                    "confidence": 0.9321289,
+                    "end": 27.28,
+                    "speaker": "A",
+                    "start": 26.72,
+                    "text": "suitcase"
+                  },
+                  {
+                    "confidence": 0.8774414,
+                    "end": 27.76,
+                    "speaker": "A",
+                    "start": 27.64,
+                    "text": "and"
+                  },
+                  {
+                    "confidence": 0.97021484,
+                    "end": 27.92,
+                    "speaker": "A",
+                    "start": 27.76,
+                    "text": "is"
+                  },
+                  {
+                    "confidence": 0.99902344,
+                    "end": 28.24,
+                    "speaker": "A",
+                    "start": 27.92,
+                    "text": "attached"
+                  },
+                  {
+                    "confidence": 0.99902344,
+                    "end": 28.36,
+                    "speaker": "A",
+                    "start": 28.24,
+                    "text": "to"
+                  },
+                  {
+                    "confidence": 0.99365234,
+                    "end": 28.44,
+                    "speaker": "A",
+                    "start": 28.36,
+                    "text": "a"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 28.68,
+                    "speaker": "A",
+                    "start": 28.44,
+                    "text": "control"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 29.04,
+                    "speaker": "A",
+                    "start": 28.68,
+                    "text": "box"
+                  },
+                  {
+                    "confidence": 0.9980469,
+                    "end": 29.16,
+                    "speaker": "A",
+                    "start": 29.04,
+                    "text": "to"
+                  },
+                  {
+                    "confidence": 0.99853516,
+                    "end": 29.4,
+                    "speaker": "A",
+                    "start": 29.16,
+                    "text": "record"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 29.8,
+                    "speaker": "A",
+                    "start": 29.4,
+                    "text": "data."
+                  },
+                  {
+                    "confidence": 0.8300781,
+                    "end": 30.8,
+                    "speaker": "A",
+                    "start": 30.52,
+                    "text": "A"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 31.08,
+                    "speaker": "A",
+                    "start": 30.8,
+                    "text": "research"
+                  },
+                  {
+                    "confidence": 1.0,
+                    "end": 31.4,
+                    "speaker": "A",
+                    "start": 31.08,
+                    "text": "team"
+                  },
+                  {
+                    "confidence": 0.9951172,
+                    "end": 31.6,
+                    "speaker": "A",
+                    "start": 31.4,
+                    "text": "is"
+                  },
+                  {
+                    "confidence": 0.9980469,
+                    "end": 31.8,
+                    "speaker": "A",
+                    "start": 31.6,
+                    "text": "also"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 32.16,
+                    "speaker": "A",
+                    "start": 31.8,
+                    "text": "testing"
+                  },
+                  {
+                    "confidence": 0.93896484,
+                    "end": 32.32,
+                    "speaker": "A",
+                    "start": 32.16,
+                    "text": "the"
+                  },
+                  {
+                    "confidence": 0.9941406,
+                    "end": 32.84,
+                    "speaker": "A",
+                    "start": 32.32,
+                    "text": "specialized"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 33.2,
+                    "speaker": "A",
+                    "start": 32.84,
+                    "text": "drilling"
+                  },
+                  {
+                    "confidence": 0.9992676,
+                    "end": 33.44,
+                    "speaker": "A",
+                    "start": 33.2,
+                    "text": "rig"
+                  },
+                  {
+                    "confidence": 0.9736328,
+                    "end": 33.56,
+                    "speaker": "A",
+                    "start": 33.44,
+                    "text": "in"
+                  },
+                  {
+                    "confidence": 0.9824219,
+                    "end": 33.68,
+                    "speaker": "A",
+                    "start": 33.56,
+                    "text": "the"
+                  },
+                  {
+                    "confidence": 0.92993164,
+                    "end": 34.08,
+                    "speaker": "A",
+                    "start": 33.68,
+                    "text": "frozen"
+                  },
+                  {
+                    "confidence": 0.99902344,
+                    "end": 34.44,
+                    "speaker": "A",
+                    "start": 34.08,
+                    "text": "Canadian"
+                  },
+                  {
+                    "confidence": 0.9998372,
+                    "end": 35.0,
+                    "speaker": "A",
+                    "start": 34.44,
+                    "text": "tundra."
+                  },
+                  {
+                    "confidence": 0.9897461,
+                    "end": 35.76,
+                    "speaker": "A",
+                    "start": 35.48,
+                    "text": "The"
+                  },
+                  {
+                    "confidence": 0.9406738,
+                    "end": 36.12,
+                    "speaker": "A",
+                    "start": 35.76,
+                    "text": "core"
+                  },
+                  {
+                    "confidence": 0.99934894,
+                    "end": 36.48,
+                    "speaker": "A",
+                    "start": 36.12,
+                    "text": "samples"
+                  },
+                  {
+                    "confidence": 0.9902344,
+                    "end": 36.6,
+                    "speaker": "A",
+                    "start": 36.48,
+                    "text": "that"
+                  },
+                  {
+                    "confidence": 0.99560547,
+                    "end": 36.72,
+                    "speaker": "A",
+                    "start": 36.6,
+                    "text": "are"
+                  },
+                  {
+                    "confidence": 0.99316406,
+                    "end": 37.24,
+                    "speaker": "A",
+                    "start": 36.72,
+                    "text": "extricated"
+                  },
+                  {
+                    "confidence": 0.9916992,
+                    "end": 37.48,
+                    "speaker": "A",
+                    "start": 37.24,
+                    "text": "there"
+                  },
+                  {
+                    "confidence": 0.9980469,
+                    "end": 37.68,
+                    "speaker": "A",
+                    "start": 37.48,
+                    "text": "will"
+                  },
+                  {
+                    "confidence": 0.9975586,
+                    "end": 37.88,
+                    "speaker": "A",
+                    "start": 37.68,
+                    "text": "help"
+                  },
+                  {
+                    "confidence": 0.9973958,
+                    "end": 38.4,
+                    "speaker": "A",
+                    "start": 37.88,
+                    "text": "scientists"
+                  },
+                  {
+                    "confidence": 1.0,
+                    "end": 38.76,
+                    "speaker": "A",
+                    "start": 38.4,
+                    "text": "understand"
+                  },
+                  {
+                    "confidence": 0.9790039,
+                    "end": 39.04,
+                    "speaker": "A",
+                    "start": 38.76,
+                    "text": "the"
+                  },
+                  {
+                    "confidence": 0.9995117,
+                    "end": 39.44,
+                    "speaker": "A",
+                    "start": 39.04,
+                    "text": "geology"
+                  },
+                  {
+                    "confidence": 0.9975586,
+                    "end": 39.72,
+                    "speaker": "A",
+                    "start": 39.44,
+                    "text": "and"
+                  },
+                  {
+                    "confidence": 0.990625,
+                    "end": 40.28,
+                    "speaker": "A",
+                    "start": 39.72,
+                    "text": "biology"
+                  },
+                  {
+                    "confidence": 0.99560547,
+                    "end": 40.48,
+                    "speaker": "A",
+                    "start": 40.28,
+                    "text": "of"
+                  },
+                  {
+                    "confidence": 0.9946289,
+                    "end": 40.64,
+                    "speaker": "A",
+                    "start": 40.48,
+                    "text": "the"
+                  },
+                  {
+                    "confidence": 0.99560547,
+                    "end": 40.84,
+                    "speaker": "A",
+                    "start": 40.64,
+                    "text": "High"
+                  },
+                  {
+                    "confidence": 0.9905599,
+                    "end": 41.36,
+                    "speaker": "A",
+                    "start": 40.84,
+                    "text": "Arctic"
+                  },
+                  {
+                    "confidence": 0.99316406,
+                    "end": 41.6,
+                    "speaker": "A",
+                    "start": 41.36,
+                    "text": "and"
+                  },
+                  {
+                    "confidence": 0.9951172,
+                    "end": 41.76,
+                    "speaker": "A",
+                    "start": 41.6,
+                    "text": "give"
+                  },
+                  {
+                    "confidence": 0.9951172,
+                    "end": 41.88,
+                    "speaker": "A",
+                    "start": 41.76,
+                    "text": "the"
+                  },
+                  {
+                    "confidence": 0.9741211,
+                    "end": 42.16,
+                    "speaker": "A",
+                    "start": 41.88,
+                    "text": "Mars"
+                  },
+                  {
+                    "confidence": 0.9963379,
+                    "end": 42.48,
+                    "speaker": "A",
+                    "start": 42.16,
+                    "text": "drill"
+                  },
+                  {
+                    "confidence": 0.9951172,
+                    "end": 42.6,
+                    "speaker": "A",
+                    "start": 42.48,
+                    "text": "a"
+                  },
+                  {
+                    "confidence": 0.9978841,
+                    "end": 42.88,
+                    "speaker": "A",
+                    "start": 42.6,
+                    "text": "thorough"
+                  },
+                  {
+                    "confidence": 0.9934082,
+                    "end": 43.4,
+                    "speaker": "A",
+                    "start": 42.88,
+                    "text": "workout."
+                  },
+                  {
+                    "confidence": 0.99853516,
+                    "end": 44.04,
+                    "speaker": "A",
+                    "start": 43.72,
+                    "text": "As"
+                  },
+                  {
+                    "confidence": 0.99975586,
+                    "end": 44.44,
+                    "speaker": "A",
+                    "start": 44.04,
+                    "text": "testing"
+                  },
+                  {
+                    "confidence": 0.9788411,
+                    "end": 44.88,
+                    "speaker": "A",
+                    "start": 44.44,
+                    "text": "progresses,"
+                  },
+                  {
+                    "confidence": 0.99609375,
+                    "end": 45.04,
+                    "speaker": "A",
+                    "start": 44.88,
+                    "text": "the"
+                  },
+                  {
+                    "confidence": 0.9951172,
+                    "end": 45.32,
+                    "speaker": "A",
+                    "start": 45.04,
+                    "text": "drill"
+                  },
+                  {
+                    "confidence": 0.98583984,
+                    "end": 45.52,
+                    "speaker": "A",
+                    "start": 45.32,
+                    "text": "could"
+                  },
+                  {
+                    "confidence": 0.9993164,
+                    "end": 45.92,
+                    "speaker": "A",
+                    "start": 45.52,
+                    "text": "ultimately"
+                  },
+                  {
+                    "confidence": 0.9975586,
+                    "end": 46.04,
+                    "speaker": "A",
+                    "start": 45.92,
+                    "text": "be"
+                  },
+                  {
+                    "confidence": 0.99902344,
+                    "end": 46.16,
+                    "speaker": "A",
+                    "start": 46.04,
+                    "text": "able"
+                  },
+                  {
+                    "confidence": 0.99560547,
+                    "end": 46.32,
+                    "speaker": "A",
+                    "start": 46.16,
+                    "text": "to"
+                  },
+                  {
+                    "confidence": 0.9902344,
+                    "end": 46.64,
+                    "speaker": "A",
+                    "start": 46.32,
+                    "text": "bore"
+                  },
+                  {
+                    "confidence": 0.9975586,
+                    "end": 46.92,
+                    "speaker": "A",
+                    "start": 46.64,
+                    "text": "several"
+                  },
+                  {
+                    "confidence": 0.9902344,
+                    "end": 47.2,
+                    "speaker": "A",
+                    "start": 46.92,
+                    "text": "hundred"
+                  },
+                  {
+                    "confidence": 0.8310547,
+                    "end": 47.64,
+                    "speaker": "A",
+                    "start": 47.2,
+                    "text": "meters"
+                  },
+                  {
+                    "confidence": 0.89208984,
+                    "end": 48.2,
+                    "speaker": "A",
+                    "start": 47.88,
+                    "text": "into"
+                  },
+                  {
+                    "confidence": 0.9996745,
+                    "end": 48.76,
+                    "speaker": "A",
+                    "start": 48.2,
+                    "text": "planetary"
+                  },
+                  {
+                    "confidence": 0.92578125,
+                    "end": 49.08,
+                    "speaker": "A",
+                    "start": 48.76,
+                    "text": "soil"
+                  },
+                  {
+                    "confidence": 0.98828125,
+                    "end": 49.28,
+                    "speaker": "A",
+                    "start": 49.08,
+                    "text": "to"
+                  },
+                  {
+                    "confidence": 1.0,
+                    "end": 49.48,
+                    "speaker": "A",
+                    "start": 49.28,
+                    "text": "search"
+                  },
+                  {
+                    "confidence": 0.9980469,
+                    "end": 49.6,
+                    "speaker": "A",
+                    "start": 49.48,
+                    "text": "for"
+                  },
+                  {
+                    "confidence": 0.99975586,
+                    "end": 49.88,
+                    "speaker": "A",
+                    "start": 49.6,
+                    "text": "evidence"
+                  },
+                  {
+                    "confidence": 0.9975586,
+                    "end": 50.08,
+                    "speaker": "A",
+                    "start": 49.88,
+                    "text": "of"
+                  },
+                  {
+                    "confidence": 1.0,
+                    "end": 50.36,
+                    "speaker": "A",
+                    "start": 50.08,
+                    "text": "water."
+                  }
+                ]
+              }
+            },
+            {
+              "start": 52.667,
+              "end": 52.867,
+              "data_keys": [
+                "text",
+                "words"
+              ],
+              "data": {
+                "text": "",
+                "words": []
+              }
+            }
+          ]
+        },
+        "field_probe": {
+          "analyzer": "transcript",
+          "type": "speech_transcription",
+          "error": "InvalidRequestError: Invalid request: fields.filter names not present in any scene's data (dotted paths are resolved, e.g. score.weight): ['__does_not_exist__']. Available top-level fields: ['text', 'words'] "
+        }
+      }
+    },
+    "credit_used": {
+      "before": 0.023658,
+      "after": 0.056364
+    }
+  }
+}

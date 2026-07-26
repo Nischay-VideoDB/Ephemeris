@@ -1,0 +1,314 @@
+{
+  "video_id": "m-z-019f980b-ae2e-7073-88e7-1db2cf36aae7",
+  "video_length": 53.0,
+  "credit_delta": 0.0,
+  "results": [
+    {
+      "label": "shot/30 (baseline)",
+      "segmentation": {
+        "type": "shot",
+        "threshold": 30
+      },
+      "understanding_id": "und_ab11f6fa1f6d4000",
+      "scene_count": 2,
+      "spans": [
+        52.67,
+        0.2
+      ],
+      "median_span": 52.67,
+      "max_span": 52.67,
+      "scenes_with_speech": 1,
+      "boundaries": [
+        [
+          0.0,
+          52.67
+        ],
+        [
+          52.67,
+          52.87
+        ]
+      ]
+    },
+    {
+      "label": "shot/20",
+      "segmentation": {
+        "type": "shot",
+        "threshold": 20
+      },
+      "understanding_id": "und_c4e207db0f644043",
+      "scene_count": 3,
+      "spans": [
+        33.2,
+        14.67,
+        5.0
+      ],
+      "median_span": 14.67,
+      "max_span": 33.2,
+      "scenes_with_speech": 3,
+      "boundaries": [
+        [
+          0.0,
+          33.2
+        ],
+        [
+          33.2,
+          47.87
+        ],
+        [
+          47.87,
+          52.87
+        ]
+      ]
+    },
+    {
+      "label": "shot/10",
+      "segmentation": {
+        "type": "shot",
+        "threshold": 10
+      },
+      "understanding_id": "und_9d356e910804421d",
+      "scene_count": 13,
+      "spans": [
+        6.0,
+        3.0,
+        21.0,
+        3.4,
+        1.6,
+        2.07,
+        1.33,
+        2.27,
+        1.33,
+        1.2,
+        4.8,
+        4.53,
+        0.33
+      ],
+      "median_span": 2.27,
+      "max_span": 21.0,
+      "scenes_with_speech": 11,
+      "boundaries": [
+        [
+          0.0,
+          6.0
+        ],
+        [
+          6.0,
+          9.0
+        ],
+        [
+          9.0,
+          30.0
+        ],
+        [
+          30.0,
+          33.4
+        ],
+        [
+          33.4,
+          35.0
+        ],
+        [
+          35.0,
+          37.07
+        ],
+        [
+          37.07,
+          38.4
+        ],
+        [
+          38.4,
+          40.67
+        ],
+        [
+          40.67,
+          42.0
+        ],
+        [
+          42.0,
+          43.2
+        ],
+        [
+          43.2,
+          48.0
+        ],
+        [
+          48.0,
+          52.53
+        ],
+        [
+          52.53,
+          52.87
+        ]
+      ]
+    },
+    {
+      "label": "shot/12+min4",
+      "segmentation": {
+        "type": "shot",
+        "threshold": 12,
+        "min_scene_len": 4
+      },
+      "understanding_id": "und_ae6656d1a8684974",
+      "scene_count": 14,
+      "spans": [
+        1.13,
+        4.87,
+        0.47,
+        0.4,
+        1.8,
+        0.33,
+        21.13,
+        2.87,
+        0.4,
+        3.53,
+        3.87,
+        2.53,
+        4.4,
+        5.13
+      ],
+      "median_span": 2.87,
+      "max_span": 21.13,
+      "scenes_with_speech": 10,
+      "boundaries": [
+        [
+          0.0,
+          1.13
+        ],
+        [
+          1.13,
+          6.0
+        ],
+        [
+          6.0,
+          6.47
+        ],
+        [
+          6.47,
+          6.87
+        ],
+        [
+          6.87,
+          8.67
+        ],
+        [
+          8.67,
+          9.0
+        ],
+        [
+          9.0,
+          30.13
+        ],
+        [
+          30.13,
+          33.0
+        ],
+        [
+          33.0,
+          33.4
+        ],
+        [
+          33.4,
+          36.93
+        ],
+        [
+          36.93,
+          40.8
+        ],
+        [
+          40.8,
+          43.33
+        ],
+        [
+          43.33,
+          47.73
+        ],
+        [
+          47.73,
+          52.87
+        ]
+      ]
+    },
+    {
+      "label": "time/10s",
+      "segmentation": {
+        "type": "time",
+        "seconds": 10
+      },
+      "understanding_id": "und_7d4d5ea7c6604072",
+      "scene_count": 6,
+      "spans": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        3.59
+      ],
+      "median_span": 10.0,
+      "max_span": 10.0,
+      "scenes_with_speech": 6,
+      "boundaries": [
+        [
+          0.0,
+          10.0
+        ],
+        [
+          10.0,
+          20.0
+        ],
+        [
+          20.0,
+          30.0
+        ],
+        [
+          30.0,
+          40.0
+        ],
+        [
+          40.0,
+          50.0
+        ],
+        [
+          50.0,
+          53.59
+        ]
+      ]
+    },
+    {
+      "label": "time/15s",
+      "segmentation": {
+        "type": "time",
+        "seconds": 15
+      },
+      "understanding_id": "und_b04d96a105684811",
+      "scene_count": 4,
+      "spans": [
+        15.0,
+        15.0,
+        15.0,
+        8.59
+      ],
+      "median_span": 15.0,
+      "max_span": 15.0,
+      "scenes_with_speech": 4,
+      "boundaries": [
+        [
+          0.0,
+          15.0
+        ],
+        [
+          15.0,
+          30.0
+        ],
+        [
+          30.0,
+          45.0
+        ],
+        [
+          45.0,
+          53.59
+        ]
+      ]
+    }
+  ]
+}

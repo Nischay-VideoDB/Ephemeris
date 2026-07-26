@@ -1,0 +1,1237 @@
+{
+  "selection": [
+    {
+      "nasa_id": "ksc_112904_why_kennedy",
+      "domain": "moon",
+      "profile": "visual",
+      "score": 57,
+      "size_mb": 8.0,
+      "title": "KSC-04-S-00378",
+      "published_year": 2004,
+      "missions": [
+        "apollo",
+        "apollo 11",
+        "international space station",
+        "space shuttle"
+      ],
+      "historical_years": [
+        1950,
+        1969
+      ],
+      "silent": false,
+      "note": "moon coverage, discovery score 57"
+    },
+    {
+      "nasa_id": "GSFC_20190513_m4714_Lee_Lincoln_Scarp_Moon_Flyover",
+      "domain": "moon",
+      "profile": "visual",
+      "score": 48,
+      "size_mb": 7.9,
+      "title": "Lee Lincoln Scarp at the Apollo 17 Landing Site",
+      "published_year": 2019,
+      "missions": [
+        "apollo",
+        "apollo 17",
+        "lunar reconnaissance orbiter",
+        "reconnaissance orbiter"
+      ],
+      "historical_years": [
+        1969,
+        1977
+      ],
+      "silent": false,
+      "note": "moon coverage, discovery score 48"
+    },
+    {
+      "nasa_id": "ksc_080504_apollo",
+      "domain": "moon",
+      "profile": "visual",
+      "score": 45,
+      "size_mb": 5.1,
+      "title": "KSC-04-S-00294",
+      "published_year": 2004,
+      "missions": [
+        "apollo",
+        "apollo 11",
+        "lunar module"
+      ],
+      "historical_years": [
+        1969
+      ],
+      "silent": false,
+      "note": "moon coverage, discovery score 45"
+    },
+    {
+      "nasa_id": "jsc2026m000089_Artemis II Moments Around the Moon_1080p_AVAIL",
+      "domain": "moon",
+      "profile": "visual",
+      "score": 39,
+      "size_mb": 33.8,
+      "title": "Artemis II: Moments Around the Moon",
+      "published_year": 2026,
+      "missions": [
+        "apollo",
+        "apollo 13",
+        "artemis",
+        "discovery"
+      ],
+      "historical_years": [
+        1970
+      ],
+      "silent": false,
+      "note": "moon coverage, discovery score 39"
+    },
+    {
+      "nasa_id": "ksc_073004_lunar_rocks",
+      "domain": "moon",
+      "profile": "visual",
+      "score": 35,
+      "size_mb": 3.0,
+      "title": "KSC-04-S-00284",
+      "published_year": 2004,
+      "missions": [
+        "apollo",
+        "apollo 11"
+      ],
+      "historical_years": [
+        1979
+      ],
+      "silent": false,
+      "note": "moon coverage, discovery score 35"
+    },
+    {
+      "nasa_id": "Buzz_Descends_Comparison__720p",
+      "domain": "moon",
+      "profile": "visual",
+      "score": 33,
+      "size_mb": 17.4,
+      "title": "Buzz_Descends_Comparison__720p",
+      "published_year": 2017,
+      "missions": [
+        "apollo",
+        "apollo 11",
+        "lunar module"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "moon coverage, discovery score 33"
+    },
+    {
+      "nasa_id": "Apollo_11_Plaque_Comparison_720p",
+      "domain": "moon",
+      "profile": "visual",
+      "score": 33,
+      "size_mb": 13.1,
+      "title": "Apollo_11_Plaque_Comparison_720p",
+      "published_year": 2017,
+      "missions": [
+        "apollo",
+        "apollo 11",
+        "lunar module"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "moon coverage, discovery score 33"
+    },
+    {
+      "nasa_id": "Earthrise - A Conversation with Apollo 8 Astronaut Bill Anders (Official NASA Video)",
+      "domain": "moon",
+      "profile": "visual",
+      "score": 33,
+      "size_mb": 108.0,
+      "title": "Earthrise: A Conversation with Apollo 8 Astronaut Bill Anders (Official NASA Video)",
+      "published_year": 2023,
+      "missions": [
+        "apollo",
+        "apollo 8"
+      ],
+      "historical_years": [
+        1968
+      ],
+      "silent": false,
+      "note": "moon coverage, discovery score 33"
+    },
+    {
+      "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+      "domain": "moon",
+      "profile": "visual",
+      "score": 32,
+      "size_mb": 47.8,
+      "title": "Jack Schmitt: From Apollo 17 to LRO",
+      "published_year": 2017,
+      "missions": [
+        "apollo",
+        "apollo 17",
+        "lunar reconnaissance orbiter",
+        "reconnaissance orbiter"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "moon coverage, discovery score 32"
+    },
+    {
+      "nasa_id": "Welcome Home, Artemis II (Official NASA Recap)",
+      "domain": "moon",
+      "profile": "visual",
+      "score": 31,
+      "size_mb": 29.8,
+      "title": "Welcome Home, Artemis II (Official NASA Recap)",
+      "published_year": 2026,
+      "missions": [
+        "apollo",
+        "apollo 13",
+        "artemis",
+        "discovery"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "moon coverage, discovery score 31"
+    },
+    {
+      "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+      "domain": "moon",
+      "profile": "visual",
+      "score": 29,
+      "size_mb": 32.4,
+      "title": "Water on the Moon",
+      "published_year": 2013,
+      "missions": [
+        "discovery",
+        "lunar reconnaissance orbiter",
+        "reconnaissance orbiter"
+      ],
+      "historical_years": [
+        1960
+      ],
+      "silent": false,
+      "note": "moon coverage, discovery score 29"
+    },
+    {
+      "nasa_id": "ksc_082404_newmoons",
+      "domain": "moon",
+      "profile": "visual",
+      "score": 29,
+      "size_mb": 2.9,
+      "title": "KSC-04-S-00310",
+      "published_year": 2004,
+      "missions": [
+        "cassini",
+        "huygens",
+        "voyager"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "moon coverage, discovery score 29"
+    },
+    {
+      "nasa_id": "NASA Remembers Apollo Astronaut Michael Collins",
+      "domain": "human_spaceflight",
+      "profile": "visual",
+      "score": 66,
+      "size_mb": 26.9,
+      "title": "NASA Remembers Apollo Astronaut Michael Collins",
+      "published_year": 2021,
+      "missions": [
+        "apollo",
+        "apollo 11",
+        "gemini"
+      ],
+      "historical_years": [
+        1963,
+        1966,
+        1969
+      ],
+      "silent": false,
+      "note": "human_spaceflight coverage, discovery score 66"
+    },
+    {
+      "nasa_id": "ksc_031605_leinbach",
+      "domain": "human_spaceflight",
+      "profile": "visual",
+      "score": 61,
+      "size_mb": 11.9,
+      "title": "KSC-05-S-00067",
+      "published_year": 2005,
+      "missions": [
+        "discovery",
+        "mercury",
+        "mir",
+        "opportunity",
+        "space shuttle",
+        "trace"
+      ],
+      "historical_years": [
+        1961
+      ],
+      "silent": false,
+      "note": "human_spaceflight coverage, discovery score 61"
+    },
+    {
+      "nasa_id": "KSC-201904016-MH-GEB01_0001-Wreath_Laying_Ceremony_for_Astronaut_Owen_ Garriott-3218032",
+      "domain": "human_spaceflight",
+      "profile": "briefing",
+      "score": 45,
+      "size_mb": 47.7,
+      "title": "Wreath Laying Ceremony for Astronaut Owen Garriott",
+      "published_year": 2019,
+      "missions": [
+        "columbia",
+        "skylab",
+        "space shuttle",
+        "spacelab"
+      ],
+      "historical_years": [
+        1965
+      ],
+      "silent": false,
+      "note": "human_spaceflight coverage, discovery score 45"
+    },
+    {
+      "nasa_id": "ksc_062708_ssm",
+      "domain": "human_spaceflight",
+      "profile": "visual",
+      "score": 37,
+      "size_mb": 19.0,
+      "title": "KSC-08-S-00054",
+      "published_year": 2008,
+      "missions": [
+        "atlantis",
+        "discovery",
+        "endeavour",
+        "hubble",
+        "international space station",
+        "space shuttle"
+      ],
+      "historical_years": [
+        2001
+      ],
+      "silent": false,
+      "note": "human_spaceflight coverage, discovery score 37"
+    },
+    {
+      "nasa_id": "ksc_070110_mcc_demo",
+      "domain": "human_spaceflight",
+      "profile": "visual",
+      "score": 37,
+      "size_mb": 19.0,
+      "title": "KSC-10-S-00068",
+      "published_year": 2010,
+      "missions": [
+        "gemini",
+        "mercury",
+        "pioneer"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "human_spaceflight coverage, discovery score 37"
+    },
+    {
+      "nasa_id": "ksc_011607_sssr",
+      "domain": "human_spaceflight",
+      "profile": "visual",
+      "score": 36,
+      "size_mb": 37.4,
+      "title": "KSC-07-S-00002",
+      "published_year": 2007,
+      "missions": [
+        "atlantis",
+        "columbia",
+        "discovery",
+        "endeavour",
+        "international space station",
+        "space shuttle"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "human_spaceflight coverage, discovery score 36"
+    },
+    {
+      "nasa_id": "Honoring the 50th Anniversary of NASA\u2019s Skylab",
+      "domain": "human_spaceflight",
+      "profile": "visual",
+      "score": 34,
+      "size_mb": 19.0,
+      "title": "Honoring the 50th Anniversary of NASA\u2019s Skylab",
+      "published_year": 2023,
+      "missions": [
+        "international space station",
+        "skylab"
+      ],
+      "historical_years": [
+        1973,
+        1974
+      ],
+      "silent": false,
+      "note": "human_spaceflight coverage, discovery score 34"
+    },
+    {
+      "nasa_id": "GSFC_20190511_HST_m13186_SM4_Overview",
+      "domain": "human_spaceflight",
+      "profile": "visual",
+      "score": 26,
+      "size_mb": 40.1,
+      "title": "Servicing Mission 4 Overview",
+      "published_year": 2019,
+      "missions": [
+        "atlantis",
+        "hubble",
+        "international space station",
+        "space shuttle"
+      ],
+      "historical_years": [
+        2009
+      ],
+      "silent": false,
+      "note": "human_spaceflight coverage, discovery score 26"
+    },
+    {
+      "nasa_id": "AFRC-2021-13558-1-STS-1_40th",
+      "domain": "human_spaceflight",
+      "profile": "visual",
+      "score": 26,
+      "size_mb": 17.6,
+      "title": "STS-1 Columbia 40th Anniversary",
+      "published_year": 2021,
+      "missions": [
+        "columbia",
+        "space shuttle"
+      ],
+      "historical_years": [
+        1981
+      ],
+      "silent": false,
+      "note": "human_spaceflight coverage, discovery score 26"
+    },
+    {
+      "nasa_id": "ksc_062805_114_briefing",
+      "domain": "human_spaceflight",
+      "profile": "visual",
+      "score": 26,
+      "size_mb": 9.5,
+      "title": "KSC-05-S-00166",
+      "published_year": 2005,
+      "missions": [
+        "columbia",
+        "discovery",
+        "expedition",
+        "international space station",
+        "space shuttle"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "human_spaceflight coverage, discovery score 26"
+    },
+    {
+      "nasa_id": "ksc_080406_sssr",
+      "domain": "human_spaceflight",
+      "profile": "visual",
+      "score": 25,
+      "size_mb": 37.9,
+      "title": "KSC-06-S-00186",
+      "published_year": 2006,
+      "missions": [
+        "atlantis",
+        "discovery",
+        "international space station",
+        "space shuttle"
+      ],
+      "historical_years": [
+        2002
+      ],
+      "silent": false,
+      "note": "human_spaceflight coverage, discovery score 25"
+    },
+    {
+      "nasa_id": "ksc_040805_sssr",
+      "domain": "human_spaceflight",
+      "profile": "visual",
+      "score": 24,
+      "size_mb": 8.4,
+      "title": "KSC-05-S-00079",
+      "published_year": 2005,
+      "missions": [
+        "atlantis",
+        "discovery",
+        "international space station",
+        "space shuttle"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "human_spaceflight coverage, discovery score 24"
+    },
+    {
+      "nasa_id": "GSFC_20150915_SOHO_m11975_comets",
+      "domain": "outer_planets",
+      "profile": "visual",
+      "score": 25,
+      "size_mb": 64.9,
+      "title": "3,000 Comets for SOHO",
+      "published_year": 2015,
+      "missions": [
+        "helios",
+        "soho"
+      ],
+      "historical_years": [
+        1998,
+        2000,
+        2010
+      ],
+      "silent": false,
+      "note": "outer_planets coverage, discovery score 25"
+    },
+    {
+      "nasa_id": "JPL-20240801-NEOWISf-0001-NEOWISE Legacy of NASAs Asteroid Hunting Telescope",
+      "domain": "outer_planets",
+      "profile": "visual",
+      "score": 24,
+      "size_mb": 52.9,
+      "title": "NEOWISE: Legacy of NASA\u2019s Asteroid-Hunting Telescope",
+      "published_year": 2024,
+      "missions": [
+        "international space station",
+        "parker solar probe",
+        "surveyor"
+      ],
+      "historical_years": [
+        2009,
+        2011,
+        2013,
+        2014
+      ],
+      "silent": false,
+      "note": "outer_planets coverage, discovery score 24"
+    },
+    {
+      "nasa_id": "GSFC_20180313_Jupiter_m12878_GreatRedSpot",
+      "domain": "outer_planets",
+      "profile": "visual",
+      "score": 20,
+      "size_mb": 38.2,
+      "title": "Jupiter's Great Red Spot Shrinks and Grows",
+      "published_year": 2018,
+      "missions": [
+        "hubble",
+        "juno",
+        "voyager"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "outer_planets coverage, discovery score 20"
+    },
+    {
+      "nasa_id": "ksc_121304_comet_history",
+      "domain": "outer_planets",
+      "profile": "visual",
+      "score": 19,
+      "size_mb": 5.7,
+      "title": "KSC-04-S-00395",
+      "published_year": 2004,
+      "missions": [
+        "curiosity",
+        "deep impact",
+        "discovery",
+        "insight"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "outer_planets coverage, discovery score 19"
+    },
+    {
+      "nasa_id": "ksc_012805_touchdown",
+      "domain": "outer_planets",
+      "profile": "visual",
+      "score": 19,
+      "size_mb": 3.3,
+      "title": "KSC-05-S-00034",
+      "published_year": 2005,
+      "missions": [
+        "cassini",
+        "huygens",
+        "terra"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "outer_planets coverage, discovery score 19"
+    },
+    {
+      "nasa_id": "ksc_110404_cassini_flyby",
+      "domain": "outer_planets",
+      "profile": "visual",
+      "score": 19,
+      "size_mb": 4.6,
+      "title": "KSC-04-S-00352",
+      "published_year": 2004,
+      "missions": [
+        "cassini",
+        "huygens",
+        "terra"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "outer_planets coverage, discovery score 19"
+    },
+    {
+      "nasa_id": "GSFC_20200918_M13719_OREx_Superlatives",
+      "domain": "outer_planets",
+      "profile": "visual",
+      "score": 17,
+      "size_mb": 41.5,
+      "title": "OSIRIS-REx: Above and Beyond",
+      "published_year": 2020,
+      "missions": [
+        "apollo",
+        "osiris-rex"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "outer_planets coverage, discovery score 17"
+    },
+    {
+      "nasa_id": "ksc_061404_cassini",
+      "domain": "outer_planets",
+      "profile": "visual",
+      "score": 16,
+      "size_mb": 3.1,
+      "title": "KSC-04-S-00195",
+      "published_year": 2004,
+      "missions": [
+        "cassini",
+        "huygens"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "outer_planets coverage, discovery score 16"
+    },
+    {
+      "nasa_id": "JPL-20190601-WHATSUf-0001-Whats Up June 2019",
+      "domain": "outer_planets",
+      "profile": "visual",
+      "score": 16,
+      "size_mb": 49.5,
+      "title": "What's Up: June 2019 Skywatching Tips from NASA",
+      "published_year": 2019,
+      "missions": [
+        "juno",
+        "mercury"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "outer_planets coverage, discovery score 16"
+    },
+    {
+      "nasa_id": "GSFC_20191210_M13429_SelectionTrailer",
+      "domain": "outer_planets",
+      "profile": "visual",
+      "score": 15,
+      "size_mb": 23.8,
+      "title": "OSIRIS-REx Sample Site Selection Trailer",
+      "published_year": 2019,
+      "missions": [
+        "apollo",
+        "osiris-rex"
+      ],
+      "historical_years": [
+        2016
+      ],
+      "silent": false,
+      "note": "outer_planets coverage, discovery score 15"
+    },
+    {
+      "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+      "domain": "outer_planets",
+      "profile": "visual",
+      "score": 13,
+      "size_mb": 73.1,
+      "title": "To Bennu and Back",
+      "published_year": 2016,
+      "missions": [
+        "apollo",
+        "osiris-rex"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "outer_planets coverage, discovery score 13"
+    },
+    {
+      "nasa_id": "GSFC_20181217_Saturn_m12672_Rings",
+      "domain": "outer_planets",
+      "profile": "visual",
+      "score": 11,
+      "size_mb": 30.4,
+      "title": "Saturn's Rings Are Disappearing",
+      "published_year": 2018,
+      "missions": [
+        "voyager"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "outer_planets coverage, discovery score 11"
+    },
+    {
+      "nasa_id": "van_050905_noaanhalt",
+      "domain": "earth_science",
+      "profile": "visual",
+      "score": 35,
+      "size_mb": 10.3,
+      "title": "KSC-05-S-00133",
+      "published_year": 2005,
+      "missions": [
+        "mariner",
+        "tiros"
+      ],
+      "historical_years": [
+        1998,
+        2000
+      ],
+      "silent": false,
+      "note": "earth_science coverage, discovery score 35"
+    },
+    {
+      "nasa_id": "GSFC_20160613_Medal_m12275_Piers_Sellers_Nomination",
+      "domain": "earth_science",
+      "profile": "visual",
+      "score": 32,
+      "size_mb": 26.9,
+      "title": "Piers Sellers Media Resources: Nomination Video for NASA's Distinguished Service Medal",
+      "published_year": 2016,
+      "missions": [
+        "international space station",
+        "terra"
+      ],
+      "historical_years": [
+        1982,
+        1996,
+        1998,
+        2002,
+        2006,
+        2010
+      ],
+      "silent": false,
+      "note": "earth_science coverage, discovery score 32"
+    },
+    {
+      "nasa_id": "GSFC_20160613_JSC_m12275_Piers_Sellers",
+      "domain": "earth_science",
+      "profile": "briefing",
+      "score": 32,
+      "size_mb": 38.6,
+      "title": "Piers Sellers Media Resources: JSC Interview",
+      "published_year": 2016,
+      "missions": [
+        "international space station",
+        "terra"
+      ],
+      "historical_years": [
+        1982,
+        1996,
+        1998,
+        2002,
+        2006,
+        2010
+      ],
+      "silent": false,
+      "note": "earth_science coverage, discovery score 32"
+    },
+    {
+      "nasa_id": "GSFC_20180427_Landsat_m12051_Forest_Dynamics",
+      "domain": "earth_science",
+      "profile": "visual",
+      "score": 18,
+      "size_mb": 65.3,
+      "title": "25 Years of Forest Dynamics",
+      "published_year": 2018,
+      "missions": [
+        "landsat"
+      ],
+      "historical_years": [
+        1986,
+        2010
+      ],
+      "silent": false,
+      "note": "earth_science coverage, discovery score 18"
+    },
+    {
+      "nasa_id": "GSFC_20160602_Arctic_m12225_Greening",
+      "domain": "earth_science",
+      "profile": "visual",
+      "score": 18,
+      "size_mb": 26.2,
+      "title": "Details of Arctic Greening in North America",
+      "published_year": 2016,
+      "missions": [
+        "landsat"
+      ],
+      "historical_years": [
+        1984,
+        2012
+      ],
+      "silent": false,
+      "note": "earth_science coverage, discovery score 18"
+    },
+    {
+      "nasa_id": "GSFC_20150216_Arctic_m11779_Swath",
+      "domain": "earth_science",
+      "profile": "visual",
+      "score": 18,
+      "size_mb": 77.8,
+      "title": "Landsat 8 Crosses the Arctic",
+      "published_year": 2015,
+      "missions": [
+        "columbia",
+        "landsat"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "earth_science coverage, discovery score 18"
+    },
+    {
+      "nasa_id": "JPL-20220425-SHIFTf-0000-SHIFT Media Reel",
+      "domain": "earth_science",
+      "profile": "visual",
+      "score": 15,
+      "size_mb": 14.4,
+      "title": "SHIFT Campaign Helps NASA\u2019s Jet Propulsion Laboratory and Research Partners Study\u00a0 Diverse Ecosystems",
+      "published_year": 2022,
+      "missions": [
+        "aqua",
+        "pathfinder"
+      ],
+      "historical_years": [],
+      "silent": true,
+      "note": "earth_science coverage, discovery score 15"
+    },
+    {
+      "nasa_id": "GSFC_20110526_Barrier_m10774_Islands",
+      "domain": "earth_science",
+      "profile": "visual",
+      "score": 14,
+      "size_mb": 33.9,
+      "title": "Landsat Observes Barrier Islands",
+      "published_year": 2011,
+      "missions": [
+        "landsat"
+      ],
+      "historical_years": [
+        2000
+      ],
+      "silent": false,
+      "note": "earth_science coverage, discovery score 14"
+    },
+    {
+      "nasa_id": "GSFC_20181210_BlackMarble_m12616_PuertoRico",
+      "domain": "earth_science",
+      "profile": "visual",
+      "score": 13,
+      "size_mb": 37.5,
+      "title": "Black Marble View of Puerto Rico After Hurricane Maria",
+      "published_year": 2018,
+      "missions": [
+        "landsat",
+        "suomi"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "earth_science coverage, discovery score 13"
+    },
+    {
+      "nasa_id": "GSFC_20180322_GPM_m12897_LandslidesLHASA",
+      "domain": "earth_science",
+      "profile": "visual",
+      "score": 13,
+      "size_mb": 38.6,
+      "title": "New NASA Model Finds Landslide Threats in Near Real-Time During Heavy Rains",
+      "published_year": 2018,
+      "missions": [
+        "opportunity"
+      ],
+      "historical_years": [
+        2001,
+        2007
+      ],
+      "silent": false,
+      "note": "earth_science coverage, discovery score 13"
+    },
+    {
+      "nasa_id": "GSFC_20110207_STEREO_m10720_Stonehenge",
+      "domain": "sun",
+      "profile": "visual",
+      "score": 26,
+      "size_mb": 21.7,
+      "title": "From Stonehenge to STEREO: A One Minute History of How We See the Sun",
+      "published_year": 2011,
+      "missions": [
+        "soho",
+        "solar dynamics observatory",
+        "stereo",
+        "yohkoh"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "sun coverage, discovery score 26"
+    },
+    {
+      "nasa_id": "GSFC_20130206_SDO_m11156_SungrazingComets",
+      "domain": "sun",
+      "profile": "visual",
+      "score": 23,
+      "size_mb": 47.1,
+      "title": "Sungrazers Galore",
+      "published_year": 2013,
+      "missions": [
+        "soho",
+        "solar dynamics observatory",
+        "stereo"
+      ],
+      "historical_years": [
+        1979
+      ],
+      "silent": false,
+      "note": "sun coverage, discovery score 23"
+    },
+    {
+      "nasa_id": "GSFC_20170817_m12693_FirstCMEDuringEclipse",
+      "domain": "sun",
+      "profile": "visual",
+      "score": 23,
+      "size_mb": 59.4,
+      "title": "A Total Solar Eclipse Revealed Solar Storms 100 Years Before Satellites",
+      "published_year": 2017,
+      "missions": [
+        "skylab",
+        "soho",
+        "solar dynamics observatory"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "sun coverage, discovery score 23"
+    },
+    {
+      "nasa_id": "GSFC_20160509_Mercury_m12235_Transit2016",
+      "domain": "sun",
+      "profile": "visual",
+      "score": 22,
+      "size_mb": 35.1,
+      "title": "2016 Mercury Transit Timelapse",
+      "published_year": 2016,
+      "missions": [
+        "mercury",
+        "opportunity",
+        "solar dynamics observatory"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "sun coverage, discovery score 22"
+    },
+    {
+      "nasa_id": "GSFC_20120307_SDO_m10925_Flare",
+      "domain": "sun",
+      "profile": "visual",
+      "score": 21,
+      "size_mb": 22.9,
+      "title": "HD Close up of March 6th X5.4 Flare",
+      "published_year": 2012,
+      "missions": [
+        "soho",
+        "solar dynamics observatory",
+        "stereo"
+      ],
+      "historical_years": [
+        2006,
+        2007
+      ],
+      "silent": false,
+      "note": "sun coverage, discovery score 21"
+    },
+    {
+      "nasa_id": "GSFC_20170725_m12179_EclipseJets",
+      "domain": "sun",
+      "profile": "visual",
+      "score": 20,
+      "size_mb": 21.0,
+      "title": "NASA Jets Chase The Total Solar Eclipse",
+      "published_year": 2017,
+      "missions": [
+        "mercury",
+        "mir"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "sun coverage, discovery score 20"
+    },
+    {
+      "nasa_id": "GSFC_20151201_SOHO_m12052_20th",
+      "domain": "sun",
+      "profile": "visual",
+      "score": 18,
+      "size_mb": 96.4,
+      "title": "SOHO Celebrates 20 Years of Space-based Science",
+      "published_year": 2015,
+      "missions": [
+        "helios",
+        "soho"
+      ],
+      "historical_years": [
+        1995
+      ],
+      "silent": false,
+      "note": "sun coverage, discovery score 18"
+    },
+    {
+      "nasa_id": "ksc_121004_soho_anniv",
+      "domain": "sun",
+      "profile": "visual",
+      "score": 16,
+      "size_mb": 4.4,
+      "title": "KSC-04-S-00392",
+      "published_year": 2004,
+      "missions": [
+        "helios",
+        "international space station",
+        "soho"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "sun coverage, discovery score 16"
+    },
+    {
+      "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
+      "domain": "astronomy",
+      "profile": "visual",
+      "score": 39,
+      "size_mb": 26.7,
+      "title": "NASA Telescopes Reveal an Invisible Infrared Universe",
+      "published_year": 2023,
+      "missions": [
+        "insight",
+        "iras",
+        "pioneer",
+        "spitzer",
+        "webb"
+      ],
+      "historical_years": [
+        1983,
+        2003
+      ],
+      "silent": false,
+      "note": "astronomy coverage, discovery score 39"
+    },
+    {
+      "nasa_id": "ksc_042310_hubble",
+      "domain": "astronomy",
+      "profile": "visual",
+      "score": 25,
+      "size_mb": 94.0,
+      "title": "KSC-10-S-00043",
+      "published_year": 2010,
+      "missions": [
+        "discovery",
+        "hubble",
+        "space shuttle"
+      ],
+      "historical_years": [
+        1990
+      ],
+      "silent": false,
+      "note": "astronomy coverage, discovery score 25"
+    },
+    {
+      "nasa_id": "GSFC_20190327_TESS_m13155_Voyager",
+      "domain": "astronomy",
+      "profile": "visual",
+      "score": 20,
+      "size_mb": 49.9,
+      "title": "Going Interstellar with TESS and Kepler",
+      "published_year": 2019,
+      "missions": [
+        "helios",
+        "kepler",
+        "voyager"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "astronomy coverage, discovery score 20"
+    },
+    {
+      "nasa_id": "GSFC_20190701_HST_m13244_Eta_Carinae",
+      "domain": "astronomy",
+      "profile": "visual",
+      "score": 18,
+      "size_mb": 39.8,
+      "title": "Hubble\u2019s Brand New Image of Eta Carinae",
+      "published_year": 2019,
+      "missions": [
+        "hubble",
+        "mariner"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "astronomy coverage, discovery score 18"
+    },
+    {
+      "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
+      "domain": "astronomy",
+      "profile": "visual",
+      "score": 14,
+      "size_mb": 99.4,
+      "title": "#AskNASA\u2503 What is Hubble revealing about the universe?",
+      "published_year": 2020,
+      "missions": [
+        "discovery",
+        "hubble"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "astronomy coverage, discovery score 14"
+    },
+    {
+      "nasa_id": "ksc_012505_black_holes",
+      "domain": "astronomy",
+      "profile": "visual",
+      "score": 13,
+      "size_mb": 3.9,
+      "title": "KSC-05-S-00032",
+      "published_year": 2005,
+      "missions": [
+        "chandra",
+        "discovery"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "astronomy coverage, discovery score 13"
+    },
+    {
+      "nasa_id": "ksc_042507_chandra_2",
+      "domain": "astronomy",
+      "profile": "visual",
+      "score": 11,
+      "size_mb": 37.4,
+      "title": "KSC-07-S-00077",
+      "published_year": 2007,
+      "missions": [
+        "chandra"
+      ],
+      "historical_years": [
+        1999
+      ],
+      "silent": false,
+      "note": "astronomy coverage, discovery score 11"
+    },
+    {
+      "nasa_id": "ksc_082604_chandra",
+      "domain": "astronomy",
+      "profile": "visual",
+      "score": 11,
+      "size_mb": 4.7,
+      "title": "KSC-04-S-00307",
+      "published_year": 2004,
+      "missions": [
+        "chandra"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "astronomy coverage, discovery score 11"
+    },
+    {
+      "nasa_id": "NASA names headquarters after Engineer  Mary W. Jackson",
+      "domain": "aeronautics",
+      "profile": "visual",
+      "score": 67,
+      "size_mb": 26.9,
+      "title": "NASA names headquarters after Engineer  Mary W. Jackson",
+      "published_year": 2020,
+      "missions": [
+        "wind tunnel"
+      ],
+      "historical_years": [
+        1942,
+        1951,
+        1958,
+        1979,
+        1985,
+        2016
+      ],
+      "silent": false,
+      "note": "aeronautics coverage, discovery score 67"
+    },
+    {
+      "nasa_id": "ARC-20100115-AAV2328-ShouldersOfGiants-Part01-1930s-NASAWeb",
+      "domain": "aeronautics",
+      "profile": "visual",
+      "score": 42,
+      "size_mb": 66.1,
+      "title": "Before NASA, Before Silicon Valley: The 1939 Founding of Ames Aeronautical Laboratory",
+      "published_year": 2010,
+      "missions": [
+        "naca",
+        "wind tunnel"
+      ],
+      "historical_years": [
+        1939
+      ],
+      "silent": false,
+      "note": "aeronautics coverage, discovery score 42"
+    },
+    {
+      "nasa_id": "GSFC_20190429_Goddard_m13184_60",
+      "domain": "aeronautics",
+      "profile": "visual",
+      "score": 38,
+      "size_mb": 89.8,
+      "title": "Goddard at 60",
+      "published_year": 2019,
+      "missions": [
+        "naca"
+      ],
+      "historical_years": [
+        1958,
+        1959
+      ],
+      "silent": false,
+      "note": "aeronautics coverage, discovery score 38"
+    },
+    {
+      "nasa_id": "ksc_121704_b52_retires",
+      "domain": "aeronautics",
+      "profile": "briefing",
+      "score": 26,
+      "size_mb": 2.7,
+      "title": "KSC-04-S-00402",
+      "published_year": 2004,
+      "missions": [
+        "x-1",
+        "x-15"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "aeronautics coverage, discovery score 26"
+    },
+    {
+      "nasa_id": "AFRC-2021-13626-10-AFRC75th_Episode10FlightLoads",
+      "domain": "aeronautics",
+      "profile": "visual",
+      "score": 19,
+      "size_mb": 104.4,
+      "title": "AFRC 75th Anniversary Series Episode 10- Flight Loads",
+      "published_year": 2022,
+      "missions": [
+        "x-1"
+      ],
+      "historical_years": [],
+      "silent": false,
+      "note": "aeronautics coverage, discovery score 19"
+    },
+    {
+      "nasa_id": "AFRC-2021-13626-2-AFRC75th_Episode2Control",
+      "domain": "aeronautics",
+      "profile": "visual",
+      "score": 6,
+      "size_mb": 109.1,
+      "title": "AFRC 75th Anniversary Series- Episode 2 Control",
+      "published_year": 2021,
+      "missions": [],
+      "historical_years": [],
+      "silent": false,
+      "note": "aeronautics coverage, discovery score 6"
+    }
+  ]
+}
