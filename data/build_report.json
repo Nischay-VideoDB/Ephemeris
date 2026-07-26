@@ -1,0 +1,921 @@
+{
+  "clips": {
+    "GSFC_20110526_Barrier_m10774_Islands": {
+      "video_id": "m-z-019f9a80-1d60-7b80-9c67-fc44eadf79b7",
+      "analyzers": {
+        "scene": "done",
+        "transcript": "done"
+      },
+      "indexes": [
+        {
+          "name": "scene_semantic",
+          "status": "building",
+          "use_for": [
+            "semantic"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "filter": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "semantic": [
+              "scene_description",
+              "on_screen_text"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "scene_facets",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis"
+            ],
+            "filter": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis",
+              "era_year"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "mission_meta",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "filter": [
+              "nasa_id",
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "sort": [
+              "published_year",
+              "era_start"
+            ]
+          },
+          "error": null
+        }
+      ]
+    },
+    "GSFC_20120307_SDO_m10925_Flare": {
+      "video_id": "m-z-019f9a82-a0f1-74c0-b194-f1228a518072",
+      "analyzers": {
+        "transcript": "done",
+        "scene": "done"
+      },
+      "indexes": [
+        {
+          "name": "scene_semantic",
+          "status": "building",
+          "use_for": [
+            "semantic"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "filter": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "semantic": [
+              "scene_description",
+              "on_screen_text"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "scene_facets",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis"
+            ],
+            "filter": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis",
+              "era_year"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "mission_meta",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "filter": [
+              "nasa_id",
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "sort": [
+              "published_year",
+              "era_start"
+            ]
+          },
+          "error": null
+        }
+      ]
+    },
+    "GSFC_20160602_Arctic_m12225_Greening": {
+      "video_id": "m-z-019f9a7f-1201-7eb0-bbe5-2377beb1e922",
+      "analyzers": {
+        "transcript": "done",
+        "scene": "done"
+      },
+      "indexes": [
+        {
+          "name": "scene_semantic",
+          "status": "building",
+          "use_for": [
+            "semantic"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "filter": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "semantic": [
+              "scene_description",
+              "on_screen_text"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "scene_facets",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis"
+            ],
+            "filter": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis",
+              "era_year"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "mission_meta",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "filter": [
+              "nasa_id",
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "sort": [
+              "published_year",
+              "era_start"
+            ]
+          },
+          "error": null
+        }
+      ]
+    },
+    "GSFC_20160613_Medal_m12275_Piers_Sellers_Nomination": {
+      "video_id": "m-z-019f9a7e-0d3c-7620-b501-2bc1242746e0",
+      "analyzers": {
+        "scene": "done",
+        "transcript": "done"
+      },
+      "indexes": [
+        {
+          "name": "scene_semantic",
+          "status": "building",
+          "use_for": [
+            "semantic"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "filter": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "semantic": [
+              "scene_description",
+              "on_screen_text"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "scene_facets",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis"
+            ],
+            "filter": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis",
+              "era_year"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "mission_meta",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "filter": [
+              "nasa_id",
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "sort": [
+              "published_year",
+              "era_start"
+            ]
+          },
+          "error": null
+        }
+      ]
+    },
+    "GSFC_20181210_BlackMarble_m12616_PuertoRico": {
+      "video_id": "m-z-019f9a80-75ad-7660-ac9f-43f18c281d57",
+      "analyzers": {
+        "scene": "done",
+        "transcript": "done"
+      },
+      "indexes": [
+        {
+          "name": "scene_semantic",
+          "status": "building",
+          "use_for": [
+            "semantic"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "filter": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "semantic": [
+              "scene_description",
+              "on_screen_text"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "scene_facets",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis"
+            ],
+            "filter": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis",
+              "era_year"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "mission_meta",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "filter": [
+              "nasa_id",
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "sort": [
+              "published_year",
+              "era_start"
+            ]
+          },
+          "error": null
+        }
+      ]
+    },
+    "GSFC_20190513_m4714_Lee_Lincoln_Scarp_Moon_Flyover": {
+      "video_id": "m-z-019f9a70-f2f6-71d3-bfb7-d60d2e7b7551",
+      "analyzers": {
+        "scene": "done",
+        "transcript": "done"
+      },
+      "indexes": [
+        {
+          "name": "scene_semantic",
+          "status": "building",
+          "use_for": [
+            "semantic"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "filter": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "semantic": [
+              "scene_description",
+              "on_screen_text"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "scene_facets",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis"
+            ],
+            "filter": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis",
+              "era_year"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "mission_meta",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "filter": [
+              "nasa_id",
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "sort": [
+              "published_year",
+              "era_start"
+            ]
+          },
+          "error": null
+        }
+      ]
+    },
+    "JPL-20220425-SHIFTf-0000-SHIFT Media Reel": {
+      "video_id": "m-z-019f9a7f-c4c6-78f2-b37d-30262e22a60a",
+      "analyzers": {
+        "transcript": "done",
+        "scene": "done"
+      },
+      "indexes": [
+        {
+          "name": "scene_semantic",
+          "status": "building",
+          "use_for": [
+            "semantic"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "filter": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "semantic": [
+              "scene_description",
+              "on_screen_text"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "scene_facets",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis"
+            ],
+            "filter": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis",
+              "era_year"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "mission_meta",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "filter": [
+              "nasa_id",
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "sort": [
+              "published_year",
+              "era_start"
+            ]
+          },
+          "error": null
+        }
+      ]
+    },
+    "Welcome Home, Artemis II (Official NASA Recap)": {
+      "video_id": "m-z-019f9a73-f010-73d0-ba84-2296442a0494",
+      "analyzers": {
+        "transcript": "done",
+        "scene": "done"
+      },
+      "indexes": [
+        {
+          "name": "scene_semantic",
+          "status": "building",
+          "use_for": [
+            "semantic"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "filter": [
+              "celestial_body",
+              "era_basis",
+              "era_year",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "on_screen_text"
+            ],
+            "semantic": [
+              "scene_description",
+              "on_screen_text"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "scene_facets",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis"
+            ],
+            "filter": [
+              "celestial_body",
+              "event_type",
+              "evidence_shown",
+              "mission_ref",
+              "era_basis",
+              "era_year"
+            ],
+            "sort": [
+              "era_year"
+            ]
+          },
+          "error": null
+        },
+        {
+          "name": "mission_meta",
+          "status": "building",
+          "use_for": [
+            "query",
+            "aggregate"
+          ],
+          "record_count": null,
+          "fields": {
+            "aggregate": [
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "filter": [
+              "nasa_id",
+              "center",
+              "published_year",
+              "primary_mission",
+              "era_start",
+              "era_basis",
+              "era_axis",
+              "water_relevance",
+              "celestial_body",
+              "event_type"
+            ],
+            "sort": [
+              "published_year",
+              "era_start"
+            ]
+          },
+          "error": null
+        }
+      ]
+    }
+  },
+  "credit_used": {
+    "before": 35.3618624,
+    "after": 35.4138624,
+    "delta": 0.052
+  }
+}
