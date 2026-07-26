@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "sync": "node scripts/sync-answers.mjs"
+    "sync": "node scripts/sync-answers.mjs",
+    "test": "node scripts/check-scene.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

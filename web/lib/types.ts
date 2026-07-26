@@ -78,21 +78,31 @@ export interface Answer {
   caveats: string;
 }
 
+export interface Shot {
+  at: number;
+  duration: number;
+  /** Which evidence item this shot is. Absent on answers compiled before the field existed,
+   *  where shot order and evidence order are the same thing. Always read it through
+   *  `lib/reel.ts` rather than assuming shot i is evidence i. */
+  evidence_index?: number;
+  /** The source timestamp had to move back to land inside the clip. */
+  clamped?: boolean;
+  nasa_id: string;
+  era_start: number | null;
+  era_axis: EraAxis;
+  mission: string | null;
+  source_start: number;
+  caption: string;
+}
+
 export interface Reel {
   stream_url: string | null;
   player_url?: string | null;
   total_seconds?: number;
   error?: string;
-  shots: {
-    at: number;
-    duration: number;
-    nasa_id: string;
-    era_start: number | null;
-    era_axis: EraAxis;
-    mission: string | null;
-    source_start: number;
-    caption: string;
-  }[];
+  /** Evidence that produced no footage, with the reason. */
+  dropped?: { evidence_index: number; nasa_id: string; reason: string }[];
+  shots: Shot[];
 }
 
 export interface Rejected {

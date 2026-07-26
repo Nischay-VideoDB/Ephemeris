@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { indexReel } from "@/lib/reel";
 import { useStore } from "@/lib/store";
 import type { AskResult, CelestialBody } from "@/lib/types";
 
@@ -34,9 +35,11 @@ const LABELS: Partial<Record<CelestialBody, string>> = {
 };
 
 export function BodyPanel({ result }: { result: AskResult | null }) {
-  const { focusBody, setFocusBody, selectShot, activeShotIndex } = useStore();
+  const { focusBody, setFocusBody, selectMoment, activeEvidenceIndex } = useStore();
   const [facts, setFacts] = useState<Record<string, BodyFacts> | null>(null);
   const [factsError, setFactsError] = useState(false);
+  const evidence = useMemo(() => result?.evidence ?? [], [result]);
+  const reelIndex = useMemo(() => indexReel(result?.reel, evidence.length), [result, evidence.length]);
 
   useEffect(() => {
     if (facts || factsError) return;
@@ -53,7 +56,7 @@ export function BodyPanel({ result }: { result: AskResult | null }) {
   if (!focusBody) return null;
 
   const fact = facts?.[focusBody];
-  const here = (result?.evidence ?? [])
+  const here = evidence
     .map((ev, index) => ({ ev, index }))
     .filter((row) => row.ev.celestial_body === focusBody);
 
@@ -113,11 +116,8 @@ export function BodyPanel({ result }: { result: AskResult | null }) {
               <li key={`${ev.nasa_id}-${ev.start}`}>
                 <button
                   className="bp-moment"
-                  data-active={index === activeShotIndex}
-                  onClick={() => {
-                    const shot = result?.reel?.shots?.[index];
-                    if (shot) selectShot(index, shot.at);
-                  }}
+                  data-active={index === activeEvidenceIndex}
+                  onClick={() => selectMoment(index, reelIndex.shotFor(index)?.at ?? null)}
                 >
                   <b>[{index + 1}]</b> <span>{ev.era_start ?? "undated"}</span>
                   <em>{ev.mission ?? "mission unknown"}</em>

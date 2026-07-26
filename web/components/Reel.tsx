@@ -2,13 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Reel as ReelData } from "@/lib/types";
+import { evidenceIndexOfShot, shotIndexAt } from "@/lib/reel";
 import { useStore } from "@/lib/store";
 
 /** HLS playback. Safari plays .m3u8 natively; everywhere else needs hls.js, which is
  *  imported dynamically so it never runs during server rendering. */
 export function Reel({ reel }: { reel?: ReelData }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const { activeShotIndex, setActiveShotIndex, seekTarget, setSeekTarget, setEngaged, selectShot } = useStore();
+  const { activeEvidenceIndex, setActiveEvidenceIndex, seekTarget, setSeekTarget, setEngaged, selectMoment } =
+    useStore();
   const [ready, setReady] = useState(false);
 
   const url = reel?.stream_url ?? null;
@@ -40,19 +42,17 @@ export function Reel({ reel }: { reel?: ReelData }) {
     return () => destroy?.();
   }, [url]);
 
-  // Keep the shot list in step with playback so the burned-in caption and the
-  // highlighted row always agree.
+  // Keep the selection in step with playback so the burned-in caption, the highlighted row
+  // and the camera always agree. What is published is the *evidence* index the playing shot
+  // belongs to, which is not its position in the shot list once a moment has been dropped.
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !reel?.shots?.length) return;
     const onTime = () => {
-      const t = video.currentTime;
-      let index = 0;
-      reel.shots.forEach((shot, i) => {
-        if (t >= shot.at) index = i;
-      });
-      if (useStore.getState().activeShotIndex !== index) {
-        setActiveShotIndex(index);
+      const shotIndex = Math.max(0, shotIndexAt(reel, video.currentTime));
+      const index = evidenceIndexOfShot(reel.shots[shotIndex], shotIndex);
+      if (useStore.getState().activeEvidenceIndex !== index) {
+        setActiveEvidenceIndex(index);
       }
     };
     // Pressing play is what hands the camera over to the reel; before that it holds the wide shot.
@@ -63,7 +63,7 @@ export function Reel({ reel }: { reel?: ReelData }) {
       video.removeEventListener("timeupdate", onTime);
       video.removeEventListener("play", onPlay);
     };
-  }, [reel, setActiveShotIndex, setEngaged]);
+  }, [reel, setActiveEvidenceIndex, setEngaged]);
 
   useEffect(() => {
     if (seekTarget !== null && videoRef.current) {
@@ -73,8 +73,8 @@ export function Reel({ reel }: { reel?: ReelData }) {
     }
   }, [seekTarget, setSeekTarget]);
 
-  function seekLocal(index: number, seconds: number) {
-    selectShot(index, seconds);
+  function seekLocal(shotIndex: number, seconds: number) {
+    selectMoment(evidenceIndexOfShot(reel?.shots?.[shotIndex], shotIndex), seconds);
   }
 
   if (!url) {
@@ -98,7 +98,7 @@ export function Reel({ reel }: { reel?: ReelData }) {
           <div
             key={`${shot.nasa_id}-${shot.at}`}
             className="shot"
-            data-active={i === activeShotIndex}
+            data-active={evidenceIndexOfShot(shot, i) === activeEvidenceIndex}
             onClick={() => seekLocal(i, shot.at)}
             role="button"
             tabIndex={0}
@@ -108,7 +108,11 @@ export function Reel({ reel }: { reel?: ReelData }) {
               {String(Math.floor(shot.at / 60)).padStart(2, "0")}:
               {String(shot.at % 60).padStart(2, "0")}
             </span>
-            <span>{shot.caption}</span>
+            {/* The number is burned into the frame too, so it is stripped from the caption here
+                rather than shown twice. Older answers carry no number in theirs. */}
+            <span>
+              [{evidenceIndexOfShot(shot, i) + 1}] {shot.caption.replace(/^\[\d+\]\s*/, "")}
+            </span>
           </div>
         ))}
       </div>
@@ -116,6 +120,12 @@ export function Reel({ reel }: { reel?: ReelData }) {
       <p className="note" style={{ marginTop: 8, marginBottom: 0 }}>
         {reel?.shots.length ?? 0} shots{reel?.total_seconds ? `, ${Math.round(reel.total_seconds)}s` : ""}. Provenance is
         burned into the frame, so it survives an export.
+        {reel?.dropped?.length
+          ? ` ${reel.dropped.length} moment${reel.dropped.length > 1 ? "s" : ""} could not be cut from
+             ${reel.dropped.length > 1 ? "their sources" : "its source"} and ${
+              reel.dropped.length > 1 ? "are" : "is"
+            } marked in the scene instead.`
+          : ""}
       </p>
     </section>
   );

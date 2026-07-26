@@ -4,6 +4,7 @@ import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html, OrbitControls, Preload } from "@react-three/drei";
 import * as THREE from "three";
+import { indexReel } from "@/lib/reel";
 import { useStore } from "@/lib/store";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import type { Evidence, Reel } from "@/lib/types";
@@ -123,6 +124,7 @@ function Marker({
   labelled,
   cited,
   animate,
+  hasFootage,
   onSelect,
 }: {
   placement: Placement;
@@ -133,6 +135,9 @@ function Marker({
   labelled: boolean;
   cited: boolean;
   animate: boolean;
+  /** False when the compiler could cut no clip for this moment. The moment is real and stays in
+   *  the scene; the card says so rather than leaving a marker that does nothing when clicked. */
+  hasFootage: boolean;
   onSelect: () => void;
 }) {
   const { ev, index, craft, normal, pos } = placement;
@@ -195,6 +200,7 @@ function Marker({
             </div>
             <div className="mc-stage">
               {placement.stageLabel} · {CRAFT_LABEL[craft]}
+              {!hasFootage && " · no footage in the reel"}
             </div>
             {ev.text && <div className="mc-text">{ev.text}</div>}
             <div className="mc-meta">
@@ -345,8 +351,9 @@ function Scene({
   cited: number[];
   animate: boolean;
 }) {
-  const { activeShotIndex, selectShot, engaged } = useStore();
+  const { activeEvidenceIndex, selectMoment, engaged } = useStore();
   const placements = useMemo(() => placeEvidence(evidence), [evidence]);
+  const reelIndex = useMemo(() => indexReel(reel, evidence.length), [reel, evidence.length]);
   const hasUnplaced = placements.some((p) => p.stageKey === "unknown");
   const hasDeepSpace = placements.some((p) => p.stageKey === "deep_space");
 
@@ -396,14 +403,14 @@ function Scene({
         <Marker
           key={`${placement.ev.nasa_id}-${placement.ev.start}`}
           placement={placement}
-          active={placement.index === activeShotIndex}
-          labelled={placement.index === activeShotIndex && engaged}
+          active={placement.index === activeEvidenceIndex}
+          labelled={placement.index === activeEvidenceIndex && engaged}
           cited={cited.includes(placement.index + 1)}
           animate={animate}
-          onSelect={() => {
-            const shot = reel?.shots?.[placement.index];
-            if (shot) selectShot(placement.index, shot.at);
-          }}
+          hasFootage={!reelIndex.missing.has(placement.index)}
+          // A moment with no compiled footage is still selectable: the camera flies to it and
+          // its card opens, there is simply nothing to seek the player to.
+          onSelect={() => selectMoment(placement.index, reelIndex.shotFor(placement.index)?.at ?? null)}
         />
       ))}
 
@@ -418,7 +425,7 @@ function Scene({
         maxDistance={420}
         zoomSpeed={0.8}
       />
-      <CameraRig placements={placements} activeIndex={activeShotIndex} />
+      <CameraRig placements={placements} activeIndex={activeEvidenceIndex} />
       <Preload all />
     </>
   );

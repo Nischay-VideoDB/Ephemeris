@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { Answer } from "@/components/Answer";
 import { BodyPanel } from "@/components/BodyPanel";
@@ -9,6 +9,7 @@ import { Reel } from "@/components/Reel";
 import { Discarded, Timeline } from "@/components/Sidebar";
 import { Trace } from "@/components/Trace";
 import type { AskResult } from "@/lib/types";
+import { indexReel } from "@/lib/reel";
 import { useStore } from "@/lib/store";
 
 const Orrery = dynamic(() => import("@/components/Orrery"), { ssr: false });
@@ -24,7 +25,7 @@ const PRESETS = [
 ];
 
 export default function Page() {
-  const { result, setResult, cameraMode, setCameraMode, autoFollow, setAutoFollow, selectShot, activeShotIndex, resetView } =
+  const { result, setResult, cameraMode, setCameraMode, autoFollow, setAutoFollow, selectMoment, activeEvidenceIndex, resetView } =
     useStore();
   const [preset, setPreset] = useState("water-elsewhere");
   const [question, setQuestion] = useState("");
@@ -141,13 +142,19 @@ export default function Page() {
     }
   }
 
+  // A citation [n] is the nth evidence item, not the nth shot. The reel drops a moment whose
+  // source yields no usable clip, so the two lists are not interchangeable.
+  const evidence = useMemo(() => result?.evidence ?? [], [result]);
+  const reelIndex = useMemo(() => indexReel(result?.reel, evidence.length), [result, evidence.length]);
+
   function handleCite(n: number) {
-    const shot = result?.reel?.shots?.[n - 1];
-    if (shot) selectShot(n - 1, shot.at);
+    const index = n - 1;
+    if (index < 0 || index >= evidence.length) return;
+    selectMoment(index, reelIndex.shotFor(index)?.at ?? null);
   }
 
   const cited = result?.answer?.citations ?? [];
-  const activeShot = result?.reel?.shots?.[activeShotIndex];
+  const activeMoment = evidence[activeEvidenceIndex];
 
   return (
     <main className="stage-shell">
@@ -336,23 +343,19 @@ export default function Page() {
                 </details>
               </div>
 
-              {activeShot && (
+              {activeMoment && (
                 <div className="slug">
-                  <i className={`swatch ${activeShot.era_axis ?? "published"}`} />
-                  <b>{activeShot.era_start ?? "undated"}</b>
-                  <span>{activeShot.mission ?? "mission unknown"}</span>
-                  <em>{activeShot.nasa_id}</em>
+                  <i className={`swatch ${activeMoment.era_axis ?? "published"}`} />
+                  <b>{activeMoment.era_start ?? "undated"}</b>
+                  <span>{activeMoment.mission ?? "mission unknown"}</span>
+                  <em>{activeMoment.nasa_id}</em>
                 </div>
               )}
 
               <BodyPanel result={result} />
 
               <div className="ruler-dock">
-                <Timeline
-                  timeline={result.timeline}
-                  evidence={result.evidence}
-                  reelShots={result.reel?.shots ?? []}
-                />
+                <Timeline timeline={result.timeline} evidence={result.evidence} reel={result.reel} />
               </div>
             </>
           )}

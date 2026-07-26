@@ -146,10 +146,14 @@ def main() -> None:
         result["reel"] = compiled
         if compiled.get("error"):
             print(f"  compile failed: {compiled['error']}")
+        for row in compiled.get("dropped") or []:
+            print(f"  no clip  [{row['evidence_index'] + 1}] {row['nasa_id']}: {row['reason']}")
         if compiled.get("stream_url"):
             print(f"  {len(compiled['shots'])} shots, {compiled['total_seconds']:.0f}s")
             for shot in compiled["shots"]:
-                print(f"    {shot['at']:4d}s  +{shot['duration']:5.1f}s  {shot['caption']}")
+                moved = "  (source window moved back)" if shot.get("clamped") else ""
+                print(f"    {shot['at']:4d}s  +{shot['duration']:5.1f}s  "
+                      f"[{shot['evidence_index'] + 1}] {shot['caption']}{moved}")
             print(f"\n  {compiled['stream_url']}")
             print(f"  {compiled['player_url']}")
 

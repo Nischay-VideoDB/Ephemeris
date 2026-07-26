@@ -4,8 +4,11 @@ import type { AskResult, CelestialBody } from './types';
 interface StoreState {
   result: AskResult | null;
   setResult: (result: AskResult | null) => void;
-  activeShotIndex: number;
-  setActiveShotIndex: (i: number) => void;
+  /** The selected moment, as an index into `result.evidence`. Evidence is the canonical
+   *  ordering: the reel can be shorter than it when a source yields no usable footage, so a
+   *  shot index would drift out of step with the beacons, the needles and the citations. */
+  activeEvidenceIndex: number;
+  setActiveEvidenceIndex: (i: number) => void;
   cameraMode: "era" | "space";
   setCameraMode: (m: "era" | "space") => void;
   autoFollow: boolean;
@@ -14,8 +17,9 @@ interface StoreState {
   setSeekTarget: (t: number | null) => void;
   /** Pick a moment: highlights it, flies the camera, and seeks the reel. The index is set here
    *  rather than waiting for the video's timeupdate, so a click still moves the camera when the
-   *  stream is slow to load or paused. */
-  selectShot: (index: number, at: number) => void;
+   *  stream is slow to load or paused. `at` is null for a moment with no footage in the reel:
+   *  the camera still flies to it, there is just nothing to seek to. */
+  selectMoment: (evidenceIndex: number, at: number | null) => void;
   /** False until the reel plays or the user picks a moment. Until then the camera holds a wide
    *  establishing shot instead of snapping to shot 1, which would hide the rest of the scene
    *  before the viewer has seen what is in it. */
@@ -34,17 +38,18 @@ interface StoreState {
 export const useStore = create<StoreState>((set) => ({
   result: null,
   setResult: (result) =>
-    set({ result, activeShotIndex: 0, autoFollow: true, seekTarget: null, engaged: false }),
-  activeShotIndex: 0,
-  setActiveShotIndex: (i) => set({ activeShotIndex: i }),
+    set({ result, activeEvidenceIndex: 0, autoFollow: true, seekTarget: null, engaged: false,
+          focusBody: null }),
+  activeEvidenceIndex: 0,
+  setActiveEvidenceIndex: (i) => set({ activeEvidenceIndex: i }),
   cameraMode: "era",
   setCameraMode: (cameraMode) => set({ cameraMode, autoFollow: true }),
   autoFollow: true,
   setAutoFollow: (autoFollow) => set({ autoFollow }),
   seekTarget: null,
   setSeekTarget: (seekTarget) => set({ seekTarget, autoFollow: true, engaged: true }),
-  selectShot: (index, at) =>
-    set({ activeShotIndex: index, seekTarget: at, autoFollow: true, engaged: true,
+  selectMoment: (evidenceIndex, at) =>
+    set({ activeEvidenceIndex: evidenceIndex, seekTarget: at, autoFollow: true, engaged: true,
           focusBody: null }),
   engaged: false,
   setEngaged: (engaged) => set({ engaged }),

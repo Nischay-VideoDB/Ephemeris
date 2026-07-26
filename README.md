@@ -198,7 +198,11 @@ density behind it.
 - The era scrubber spans the years the moments **discuss**, with the whole archive's
   decade histogram behind it and undated moments binned rather than dropped.
 - Inline `[n]` markers, timeline nodes, shot rows and craft all select the same moment:
-  the camera flies, the reel seeks, the highlight follows.
+  the camera flies, the reel seeks, the highlight follows. `n` is the moment's place in the
+  evidence, which is not its place in the reel: a moment whose source yields no usable clip
+  has no shot, so every shot carries the evidence index it came from and every lookup goes
+  through it. Without that, one missing clip shifts every citation, needle and camera move
+  after it by one, silently. The number is burned into the frame as well.
 - Trace and discards are collapsible panels, still first-class, not a debug view.
 - `prefers-reduced-motion` replaces every camera tween with a cut and stops the pulsing.
 

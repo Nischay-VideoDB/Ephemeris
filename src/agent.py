@@ -447,6 +447,25 @@ def format_evidence(evidence: list[Evidence]) -> str:
     return "\n".join(lines)
 
 
+def _clean_citations(raw: Any, count: int) -> list[int]:
+    """Keep only citations that point at a real evidence item.
+
+    The numbers come back from a language model, so they can be strings, floats, repeats,
+    or an index past the end of the list. The UI turns a citation straight into a seek and
+    a camera move, so an out-of-range number would play the wrong clip rather than fail
+    loudly. Order is preserved: it is the reading order of the answer.
+    """
+    cleaned: list[int] = []
+    for value in raw or []:
+        try:
+            n = int(value)
+        except (TypeError, ValueError):
+            continue
+        if 1 <= n <= count and n not in cleaned:
+            cleaned.append(n)
+    return cleaned
+
+
 def synthesize(coll, question: str, evidence: list[Evidence], trace: Trace) -> dict:
     if not evidence:
         trace.add("synthesize", "no evidence, refusing to answer")
@@ -460,16 +479,27 @@ def synthesize(coll, question: str, evidence: list[Evidence], trace: Trace) -> d
     )
     result = _parse_json(raw)
     answer = str(result.get("answer") or "")
+    count = len(evidence)
+
+    citations = _clean_citations(result.get("citations"), count)
+    chronology = []
+    for point in result.get("chronology") or []:
+        if not isinstance(point, dict):
+            continue
+        chronology.append({**point, "citations": _clean_citations(point.get("citations"), count)})
+
+    dropped = len(result.get("citations") or []) - len(citations)
     trace.add(
         "synthesize",
-        f"{len(answer.split())} words, {len(result.get('citations') or [])} citations",
-        chronology_points=len(result.get("chronology") or []),
+        f"{len(answer.split())} words, {len(citations)} citations",
+        chronology_points=len(chronology),
         caveats=result.get("caveats") or "",
+        **({"dropped_citations": dropped} if dropped > 0 else {}),
     )
     return {
         "answer": answer,
-        "citations": result.get("citations") or [],
-        "chronology": result.get("chronology") or [],
+        "citations": citations,
+        "chronology": chronology,
         "caveats": result.get("caveats") or "",
     }
 

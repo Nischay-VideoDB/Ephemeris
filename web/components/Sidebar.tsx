@@ -1,7 +1,10 @@
 "use client";
 
-import type { AskResult } from "@/lib/types";
+import { useMemo } from "react";
 
+import type { AskResult, Reel } from "@/lib/types";
+
+import { indexReel } from "@/lib/reel";
 import { useStore } from "@/lib/store";
 
 /** The era axis: the year each moment *discusses*, which is not the upload date and differs from
@@ -10,13 +13,14 @@ import { useStore } from "@/lib/store";
 export function Timeline({
   timeline,
   evidence,
-  reelShots,
+  reel,
 }: {
   timeline: AskResult["timeline"];
   evidence: AskResult["evidence"];
-  reelShots: { at: number }[];
+  reel?: Reel;
 }) {
-  const { activeShotIndex, selectShot } = useStore();
+  const { activeEvidenceIndex, selectMoment } = useStore();
+  const reelIndex = useMemo(() => indexReel(reel, evidence.length), [reel, evidence.length]);
 
   const decades = timeline.map((b) => b.decade);
   const maxScenes = Math.max(1, ...timeline.map((b) => b.scenes));
@@ -37,11 +41,10 @@ export function Timeline({
   const minorTicks: number[] = [];
   for (let y = lo; y <= hi; y += 2) if (y % 10 !== 0) minorTicks.push(y);
 
-  const activeYear = evidence[activeShotIndex]?.era_start ?? null;
+  const activeYear = evidence[activeEvidenceIndex]?.era_start ?? null;
 
   function seek(index: number) {
-    const shot = reelShots[index];
-    if (shot) selectShot(index, shot.at);
+    selectMoment(index, reelIndex.shotFor(index)?.at ?? null);
   }
 
   return (
@@ -83,7 +86,7 @@ export function Timeline({
 
         {dated.map((ev) => {
           const index = evidence.indexOf(ev);
-          const isActive = index === activeShotIndex;
+          const isActive = index === activeEvidenceIndex;
           return (
             <button
               key={`${ev.nasa_id}-${ev.start}`}
