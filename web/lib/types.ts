@@ -50,6 +50,11 @@ export interface Evidence {
   /** Where `celestial_body` came from: the scene's own extraction, or the clip as a whole when
    *  the scene said nowhere or contradicted everything around it. Absent on older answers. */
   body_axis?: "scene" | "video";
+  /** The words inside the played window once it was snapped to sentence bounds. A superset of
+   *  `text`, which is only the part the search matched. Empty when the moment has no speech. */
+  spoken?: string;
+  /** Whether speech or the ten-second indexing grid decided this clip's bounds. */
+  clip_axis?: "sentence" | "scene";
 }
 
 export interface TraceStep {

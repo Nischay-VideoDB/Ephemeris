@@ -41,7 +41,11 @@ from videodb.editor import (
 
 RESOLUTION = "1280x720"
 BACKGROUND = "#05070d"
-MAX_CLIP_SECONDS = 12
+# A shot is a passage: a run of consecutive matching cells, cut to sentence bounds by
+# `speech.sentence_window` rather than to the ten-second indexing grid. So a shot lasts as long
+# as the passage it carries. This ceiling is a backstop above `agent.MAX_PASSAGE_SECONDS`,
+# which is where the real limit lives; the floor keeps a fragment watchable.
+MAX_CLIP_SECONDS = 48
 MIN_CLIP_SECONDS = 4
 FADE = 0.4
 
@@ -162,9 +166,14 @@ def build(conn, coll, evidence: list[dict], *, max_clip: int = MAX_CLIP_SECONDS,
 
         # Whole seconds, because `add_clip` places on whole seconds. A 9.6s clip in a 10s slot
         # left 0.4s of background between every shot: a black flash on most cuts, and enough to
-        # read as a broken stream rather than an edit. Losing under a second off the tail of a
-        # shot is the cheaper trade.
-        duration = float(int(duration))
+        # read as a broken stream rather than an edit.
+        #
+        # Rounded rather than floored. The window now ends just after a full stop, and flooring
+        # a 7.6s sentence to 7s clips the last word; rounding up spends the difference on the
+        # pause after it. Re-clamped, because rounding up can pass the end of the source.
+        duration = float(round(duration))
+        if source_length:
+            duration = min(duration, float(int(source_length - start)))
 
         if duration < 1:
             # Nothing usable in the source at all. Reported rather than silently skipped:

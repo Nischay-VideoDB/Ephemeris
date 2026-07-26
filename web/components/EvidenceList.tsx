@@ -35,10 +35,15 @@ export function EvidenceList({
               <span className="tag">{item.score.toFixed(3)}</span>
             </div>
 
-            {item.text && <div className="ev-text">{item.text}</div>}
+            {/* What the clip says, which is what plays. `text` is only the fragment the search
+                matched, and on the indexing grid that fragment usually begins mid-clause. */}
+            {(item.spoken || item.text) && (
+              <div className="ev-text">{item.spoken || item.text}</div>
+            )}
 
             <div className="ev-meta">
               {item.nasa_id} · {item.start.toFixed(0)}–{item.end.toFixed(0)}s
+              {item.clip_axis === "sentence" ? " · cut to sentence" : ""}
               {item.published_year ? ` · published ${item.published_year}` : ""}
               {item.era_basis ? ` · basis ${item.era_basis}` : ""}
             </div>

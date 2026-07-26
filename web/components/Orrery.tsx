@@ -204,7 +204,7 @@ function Marker({
               {ev.body_axis === "video" && " · world from clip context"}
               {!hasFootage && " · no footage in the reel"}
             </div>
-            {ev.text && <div className="mc-text">{ev.text}</div>}
+            {(ev.spoken || ev.text) && <div className="mc-text">{ev.spoken || ev.text}</div>}
             <div className="mc-meta">
               {ev.title}
               <br />

@@ -31,11 +31,14 @@ import json
 import re
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field, asdict
 from pathlib import Path
 from typing import Any
 
 import indexing
+import reel
+import speech
 import videodb_client as vc
 
 ERA_LOOKUP_PATH = Path(__file__).resolve().parent.parent / "data" / "era_lookup.json"
@@ -50,8 +53,14 @@ TEXT_ON_SCREEN_INDEXES = [indexing.OCR]
 # visual case `martian-terrain-mesa` fell to rank 26 and needed 30.
 DEFAULT_TOP_K = 30
 DEFAULT_THRESHOLD = 0.35
-PER_VIDEO_CAP = 3
-MAX_EVIDENCE = 14
+# Two passages from one clip is a clip that genuinely covers the subject twice. Three was the
+# old cap and never once bound, because a moment was a ten-second cell and there were always
+# more clips than slots.
+PER_VIDEO_CAP = 2
+# Moments are passages now, tens of seconds each, so fourteen of them runs to eight minutes.
+# Eight passages at twenty to forty seconds is a piece long enough to follow and short enough
+# to watch, still drawn from eight separate productions across the decades.
+MAX_EVIDENCE = 8
 
 # One threshold across indexes is wrong, because their scores are not on the same
 # scale. OCR records are short, fragmentary strings (a lower-third, a mission clock),
@@ -92,6 +101,13 @@ class Evidence:
     # "video" when it was overruled by what the rest of the clip is plainly about. Same
     # contract as era_axis: an inferred placement is never presented as an extracted one.
     body_axis: str = "scene"
+    # The words actually inside the played window, once it has been snapped to sentences, and
+    # whether speech or the indexing grid decided its bounds.
+    spoken: str = ""
+    clip_axis: str = "scene"
+    # How many consecutive indexed cells this moment covers. More than one means retrieval
+    # matched a continuous passage rather than an isolated ten seconds.
+    cells: int = 1
 
     @property
     def key(self) -> tuple[str, float]:
@@ -484,6 +500,148 @@ def diversify(evidence: list[Evidence], trace: Trace, cap: int = PER_VIDEO_CAP,
     return kept, dropped
 
 
+# ----------------------------------------------------------------- passages
+
+# A moment longer than this stops being a moment and becomes the clip. Runs of matching cells go
+# well past it: one Curiosity clip returned seventeen touching cells, 170 seconds unbroken.
+MAX_PASSAGE_SECONDS = 40.0
+# Cells are ten seconds on a grid, so touching cells differ by ten. Allow a little slack for the
+# ragged 6% and for a single missing cell in the middle of an otherwise continuous run.
+CELL_GAP_TOLERANCE = 12.0
+
+
+def build_passages(evidence: list[Evidence], trace: Trace,
+                   max_seconds: float = MAX_PASSAGE_SECONDS) -> list[Evidence]:
+    """Join consecutive matching cells from one clip into a single passage.
+
+    Retrieval works on ten-second cells, and when a clip really covers a subject it returns a
+    run of them. The diversity cap then kept exactly one cell per clip and discarded the rest,
+    so an answer was fourteen unrelated ten-second fragments: nothing long enough to develop a
+    point, and consecutive shots from unrelated productions.
+
+    Merging first means the cap chooses between *passages*. Breadth across the archive is
+    unchanged, because a passage still counts as one contribution from one clip; what changes is
+    that the contribution is long enough to say something.
+    """
+    by_clip: dict[str, list[Evidence]] = {}
+    for item in evidence:
+        by_clip.setdefault(item.nasa_id, []).append(item)
+
+    passages: list[Evidence] = []
+    merged_cells = 0
+
+    for items in by_clip.values():
+        items.sort(key=lambda e: e.start)
+        run: list[Evidence] = []
+
+        def flush(run: list[Evidence]) -> None:
+            nonlocal merged_cells
+            if not run:
+                return
+            # The strongest cell carries the passage's identity: its score is what the cap ranks
+            # on, and its index is the one that found it.
+            best = max(run, key=lambda e: e.score)
+            head = run[0]
+            head.end = run[-1].end
+            head.score = best.score
+            head.index = best.index
+            head.query = best.query
+            head.cells = len(run)
+            head.text = " ".join(dict.fromkeys(e.text for e in run if e.text)).strip()
+            if len(run) > 1:
+                merged_cells += len(run)
+            passages.append(head)
+
+        for item in items:
+            if not run:
+                run = [item]
+                continue
+            touching = item.start - run[-1].end <= CELL_GAP_TOLERANCE
+            within_budget = item.end - run[0].start <= max_seconds
+            if touching and within_budget:
+                run.append(item)
+            else:
+                flush(run)
+                run = [item]
+        flush(run)
+
+    passages.sort(key=lambda e: -e.score)
+
+    lengths = [round(p.end - p.start) for p in passages if p.cells > 1]
+    trace.add(
+        "passages",
+        f"{len(evidence)} cells joined into {len(passages)} passages, "
+        f"{sum(1 for p in passages if p.cells > 1)} of them continuous runs",
+        cells_merged=merged_cells,
+        longest_seconds=max(lengths) if lengths else 0,
+    )
+    return passages
+
+
+# --------------------------------------------------------------- clip windows
+
+def refine_windows(coll, evidence: list[Evidence], trace: Trace) -> list[Evidence]:
+    """Move each moment's bounds off the indexing grid and onto sentence boundaries.
+
+    Retrieval works on ten-second cells because that is what the corpus was segmented into.
+    Playback should not: a cell opens wherever ten seconds happened to land, so clips began
+    mid-clause and carried whatever else shared the cell. `speech.sentence_window` reads the
+    word timings and returns the sentences the cell sits in.
+
+    Transcripts are fetched concurrently. Fourteen sequential round trips would add most of a
+    minute to a run that already takes ninety seconds.
+    """
+    if not evidence:
+        return evidence
+
+    def fetch(video_id: str):
+        try:
+            video = coll.get_video(video_id)
+            return video_id, video, speech.load_words(video)
+        except Exception:  # noqa: BLE001 - one unreadable source must not lose the answer
+            return video_id, None, []
+
+    video_ids = list({item.video_id for item in evidence})
+    with ThreadPoolExecutor(max_workers=min(8, len(video_ids))) as pool:
+        fetched = {vid: (video, words) for vid, video, words in pool.map(fetch, video_ids)}
+
+    counts: dict[str, int] = {}
+    widened = 0
+    for item in evidence:
+        video, words = fetched.get(item.video_id, (None, []))
+        length = 0.0
+        if video is not None:
+            try:
+                length = float(video.length or 0.0)
+            except (TypeError, ValueError):
+                length = 0.0
+
+        # The ceiling is the passage budget plus room to finish the sentence it lands in,
+        # not the single-cell clip length.
+        start, end, axis, spoken = speech.sentence_window(
+            words, item.start, item.end,
+            min_seconds=reel.MIN_CLIP_SECONDS,
+            max_seconds=MAX_PASSAGE_SECONDS + speech.MAX_REACH_FORWARD,
+            source_length=length,
+        )
+        if axis == "sentence":
+            if end - start > item.end - item.start:
+                widened += 1
+            item.start, item.end = start, end
+            item.spoken = spoken
+        item.clip_axis = axis
+        counts[axis] = counts.get(axis, 0) + 1
+
+    trace.add(
+        "window",
+        f"{counts.get('sentence', 0)} of {len(evidence)} cut to sentence bounds, "
+        f"{counts.get('scene', 0)} left on the grid",
+        clip_axis_counts=counts,
+        widened=widened,
+    )
+    return evidence
+
+
 # -------------------------------------------------------------------- ordering
 
 def order_chronologically(evidence: list[Evidence], trace: Trace) -> list[Evidence]:
@@ -535,10 +693,14 @@ def format_evidence(evidence: list[Evidence]) -> str:
     lines = []
     for i, item in enumerate(evidence, 1):
         era = f"{item.era_start} ({item.era_axis})" if item.era_start else "undated"
+        # `spoken` is what the clip actually says once its bounds were snapped to sentences: the
+        # matched text plus whatever was cut off mid-clause by the grid. It is a superset of
+        # `text`, so it is the better thing to reason over when it exists.
+        body = item.spoken or item.text
         lines.append(
             f"[{i}] {item.title or item.nasa_id} | {item.nasa_id} | {item.start:.0f}-{item.end:.0f}s "
             f"| era {era} | mission {item.mission or 'unknown'} | via {item.index} "
-            f"score {item.score}\n     {item.text[:320] or '(no transcript text; visual match)'}"
+            f"score {item.score}\n     {body[:400] or '(no transcript text; visual match)'}"
         )
     return "\n".join(lines)
 
@@ -639,8 +801,14 @@ def ask(question: str, *, top_k: int = DEFAULT_TOP_K, threshold: float = DEFAULT
         }
 
     evidence, rejects = retrieve(coll, plan, trace, top_k, threshold, id_by_video)
+    # Join runs of touching cells before the cap sees them, so what it chooses between is
+    # passages rather than isolated ten-second fragments.
+    evidence = build_passages(evidence, trace)
     evidence = [attach_era(e, lookup) for e in evidence]
     kept, dropped = diversify(evidence, trace, cap=cap)
+    # After the era join, which matches a moment to the scene row containing its start: snapping
+    # first could move a start into the previous cell and take that cell's date with it.
+    kept = refine_windows(coll, kept, trace)
     ordered = order_chronologically(kept, trace)
     histogram = timeline_histogram(coll, trace)
     answer = synthesize(coll, question, ordered, trace)
