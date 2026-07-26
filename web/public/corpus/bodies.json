@@ -1,0 +1,329 @@
+{
+  "generated": "2026-07-26T11:06:35",
+  "bodies": {
+    "earth": {
+      "scenes": 465,
+      "clips": 57,
+      "minutes": 76.2,
+      "era_range": [
+        1958,
+        2024
+      ],
+      "missions": [
+        "X-15",
+        "Landsat",
+        "Mariner 9",
+        "Landsat 8",
+        "Apollo",
+        "NOAA-N",
+        "NACA",
+        "Phoenix",
+        "International Space Station",
+        "Suomi NPP"
+      ],
+      "events": {
+        "data_visualization": 134,
+        "briefing": 97,
+        "other": 87,
+        "launch": 80,
+        "landing": 30,
+        "instrument_readout": 14,
+        "animation": 12,
+        "surface_ops": 11
+      }
+    },
+    "mars": {
+      "scenes": 214,
+      "clips": 21,
+      "minutes": 35.0,
+      "era_range": [
+        1958,
+        2025
+      ],
+      "missions": [
+        "Curiosity",
+        "Mariner 4",
+        "Perseverance",
+        "Mars Reconnaissance Orbiter",
+        "Spirit",
+        "Opportunity",
+        "Mars Odyssey",
+        "MAVEN",
+        "Mariner 9",
+        "Phoenix"
+      ],
+      "events": {
+        "animation": 71,
+        "briefing": 58,
+        "surface_ops": 36,
+        "data_visualization": 27,
+        "other": 12,
+        "launch": 7,
+        "instrument_readout": 3
+      }
+    },
+    "deep_space": {
+      "scenes": 198,
+      "clips": 26,
+      "minutes": 32.6,
+      "era_range": [
+        1958,
+        2023
+      ],
+      "missions": [
+        "Hubble Space Telescope",
+        "Chandra X-ray Observatory",
+        "SOHO",
+        "Voyager 1",
+        "OAO",
+        "XMM-Newton",
+        "WISE",
+        "International Space Station",
+        "Deep Impact",
+        "Infrared Astronomical Satellite (IRAS)"
+      ],
+      "events": {
+        "data_visualization": 87,
+        "briefing": 64,
+        "animation": 28,
+        "other": 13,
+        "launch": 4,
+        "surface_ops": 1,
+        "instrument_readout": 1
+      }
+    },
+    "ground": {
+      "scenes": 138,
+      "clips": 33,
+      "minutes": 22.4,
+      "era_range": [
+        1958,
+        2020
+      ],
+      "missions": [
+        "Mercury",
+        "Skylab",
+        "X-15",
+        "Terra",
+        "STS-114",
+        "OAO",
+        "Space Shuttle",
+        "Atlantis",
+        "Apollo",
+        "STS-116"
+      ],
+      "events": {
+        "briefing": 75,
+        "other": 40,
+        "surface_ops": 9,
+        "launch": 8,
+        "instrument_readout": 3,
+        "data_visualization": 2,
+        "landing": 1
+      }
+    },
+    "earth_orbit": {
+      "scenes": 114,
+      "clips": 48,
+      "minutes": 18.1,
+      "era_range": [
+        1957,
+        2023
+      ],
+      "missions": [
+        "Hubble Space Telescope",
+        "Skylab",
+        "SOHO",
+        "OSIRIS-REx",
+        "Artemis",
+        "Apollo",
+        "Voyager 1",
+        "International Space Station",
+        "Space Shuttle",
+        "Mars Reconnaissance Orbiter"
+      ],
+      "events": {
+        "briefing": 35,
+        "other": 34,
+        "launch": 14,
+        "data_visualization": 10,
+        "surface_ops": 9,
+        "animation": 8,
+        "eva": 4
+      }
+    },
+    "sun": {
+      "scenes": 106,
+      "clips": 12,
+      "minutes": 17.4,
+      "era_range": [
+        1958,
+        2019
+      ],
+      "missions": [
+        "SOHO",
+        "Solar Dynamics Observatory",
+        "Skylab",
+        "Mariner 9",
+        "WB-57F eclipse chase (Aug 21, 2017)",
+        "OAO",
+        "SOLRAD",
+        "OSO 7",
+        "TRACE",
+        "Juno"
+      ],
+      "events": {
+        "data_visualization": 87,
+        "briefing": 11,
+        "other": 5,
+        "animation": 2,
+        "instrument_readout": 1
+      }
+    },
+    "moon": {
+      "scenes": 97,
+      "clips": 20,
+      "minutes": 15.9,
+      "era_range": [
+        1958,
+        2021
+      ],
+      "missions": [
+        "Apollo",
+        "Mariner 9",
+        "Mars Reconnaissance Orbiter",
+        "Juno",
+        "Lunar Reconnaissance Orbiter",
+        "Modified V-2 rocket flight",
+        "X-15",
+        "Artemis",
+        "Cassini-Huygens",
+        "Mariner 4"
+      ],
+      "events": {
+        "briefing": 23,
+        "data_visualization": 19,
+        "eva": 17,
+        "surface_ops": 14,
+        "other": 9,
+        "launch": 5,
+        "landing": 5,
+        "instrument_readout": 3,
+        "animation": 2
+      }
+    },
+    "unknown": {
+      "scenes": 49,
+      "clips": 34,
+      "minutes": 6.3,
+      "era_range": [
+        1961,
+        2022
+      ],
+      "missions": [
+        "Apollo",
+        "Terra",
+        "Gemini",
+        "Spirit",
+        "Curiosity",
+        "Mariner 4",
+        "SOFIA",
+        "MAVEN",
+        "Hubble Space Telescope",
+        "Artemis"
+      ],
+      "events": {
+        "other": 28,
+        "briefing": 13,
+        "animation": 4,
+        "data_visualization": 2,
+        "instrument_readout": 1,
+        "eva": 1
+      }
+    },
+    "comet_asteroid": {
+      "scenes": 42,
+      "clips": 9,
+      "minutes": 6.8,
+      "era_range": [
+        1969,
+        2020
+      ],
+      "missions": [
+        "OSIRIS-REx",
+        "Deep Impact",
+        "WISE",
+        "SOHO",
+        "Apollo",
+        "XMM-Newton"
+      ],
+      "events": {
+        "data_visualization": 25,
+        "animation": 6,
+        "surface_ops": 6,
+        "briefing": 4,
+        "other": 1
+      }
+    },
+    "saturn": {
+      "scenes": 28,
+      "clips": 5,
+      "minutes": 4.4,
+      "era_range": [
+        1979,
+        2005
+      ],
+      "missions": [
+        "Cassini-Huygens",
+        "Voyager 1",
+        "Voyager",
+        "Hubble Space Telescope"
+      ],
+      "events": {
+        "data_visualization": 16,
+        "animation": 6,
+        "briefing": 5,
+        "other": 1
+      }
+    },
+    "jupiter": {
+      "scenes": 22,
+      "clips": 4,
+      "minutes": 3.7,
+      "era_range": [
+        1979,
+        2020
+      ],
+      "missions": [
+        "Voyager",
+        "Hubble Space Telescope",
+        "Juno",
+        "Galileo"
+      ],
+      "events": {
+        "data_visualization": 18,
+        "animation": 2,
+        "other": 1,
+        "briefing": 1
+      }
+    },
+    "titan": {
+      "scenes": 11,
+      "clips": 3,
+      "minutes": 1.8,
+      "era_range": [
+        1997,
+        2005
+      ],
+      "missions": [
+        "Cassini-Huygens"
+      ],
+      "events": {
+        "animation": 4,
+        "landing": 3,
+        "data_visualization": 3,
+        "briefing": 1
+      }
+    }
+  }
+}

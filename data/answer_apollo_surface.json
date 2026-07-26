@@ -1,0 +1,859 @@
+{
+  "question": "What did Apollo astronauts actually do on the lunar surface, and what did they bring back?",
+  "plan": {
+    "sub_questions": [
+      "What surface activities and field tasks did Apollo astronauts perform during lunar EVAs?",
+      "What kinds of samples and other material did they collect and return to Earth?",
+      "What equipment, experiments and vehicles did they deploy, use, or leave on the Moon?"
+    ],
+    "phrasings": [
+      "What did Apollo astronauts actually do on the lunar surface, and what did they bring back?",
+      "Apollo astronauts performed extravehicular activities on the lunar surface conducting geology fieldwork and exploration.",
+      "Astronauts collected rock and soil samples and returned them to Earth for laboratory analysis.",
+      "Astronauts deployed scientific experiments and emplaced the Apollo Lunar Surface Experiments Package and other instrumentation.",
+      "Astronauts used the Lunar Module for landing and ascent and wore portable life\u2011support suits during surface operations.",
+      "On later Apollo missions astronauts used the Lunar Roving Vehicle to extend surface traverses and carry equipment.",
+      "Returned manifest included rock and core samples, film and photographic records, and experiment hardware recovered from the lunar surface."
+    ],
+    "visual_phrasings": [
+      "Astronauts in bulky extravehicular suits walking on the gray dusty lunar surface carrying sample bags, scoops and rock cores.",
+      "Crew members deploying instruments, planting a flag, and assembling/placing experiment packages on the regolith.",
+      "Close-ups of bagged rock and core samples, camera film magazines, and equipment being loaded into the Lunar Module or rover."
+    ],
+    "needs_chronology": true,
+    "rationale": "I split the query into surface activities, returned materials, and equipment/experiments to match how NASA narration separates EVA tasks, sample return, and hardware deployment over successive Apollo missions."
+  },
+  "answer": {
+    "answer": "The archive shows Apollo crew descending to and walking on the lunar surface during EVAs (for example Buzz Aldrin\u2019s descent) [2].  While on the surface they collected and photographed lunar rocks and soil\u2014material explicitly shown in the archive as lunar rocks [5].  The record also shows that at least some missions left one crewmember in lunar orbit while others went down to the surface (Michael Collins stayed in orbit while others landed) [4].  Taken together, these clips imply a mission pattern in which teammates descended to conduct surface EVAs, collect samples, and return physical lunar material to Earth while others remained in orbit [2][5][4].",
+    "citations": [
+      2,
+      5,
+      4,
+      9
+    ],
+    "chronology": [
+      {
+        "citations": [
+          2,
+          5,
+          4
+        ],
+        "claim": "Video-era Apollo clips show surface EVAs (descent and walks) and sample collection, and also note that a crewmember could remain in lunar orbit while others landed",
+        "era": 1969
+      },
+      {
+        "citations": [
+          9
+        ],
+        "claim": "Later Apollo-era material (Apollo 17) emphasizes field geology and systematic sampling by astronaut-geologists",
+        "era": 1972
+      }
+    ],
+    "caveats": "Dates are taken from the archive era labels (some items are marked as era_axis: video/published in the metadata, e.g. [2]) rather than being independently verified by on-screen content; the clips do not establish totals of samples returned, a complete inventory of tools or experiments, or the full procedures used on every mission."
+  },
+  "evidence": [
+    {
+      "nasa_id": "ksc_020105_why_jpl",
+      "video_id": "m-z-019f9831-d344-7b83-8045-f4eed9ab7dcb",
+      "start": 40.0,
+      "end": 50.0,
+      "score": 0.5449,
+      "index": "scene_semantic",
+      "query": "Crew members deploying instruments, planting a flag, and assembling/placing experiment packages on the regolith.",
+      "text": "",
+      "era_start": 1958,
+      "era_axis": "video",
+      "era_basis": "video_context",
+      "mission": "Explorer 1",
+      "title": "KSC-05-S-00036",
+      "published_year": 2005,
+      "celestial_body": "earth",
+      "event_type": "other"
+    },
+    {
+      "nasa_id": "Buzz_Descends_Comparison__720p",
+      "video_id": "m-z-019f9a72-638c-7a82-be15-db8a8f415cdb",
+      "start": 20.0,
+      "end": 30.0,
+      "score": 0.6335,
+      "index": "scene_semantic",
+      "query": "Astronauts in bulky extravehicular suits walking on the gray dusty lunar surface carrying sample bags, scoops and rock cores.",
+      "text": "",
+      "era_start": 1969,
+      "era_axis": "video",
+      "era_basis": "video_context",
+      "mission": "Apollo",
+      "title": "Buzz_Descends_Comparison__720p",
+      "published_year": 2017,
+      "celestial_body": "moon",
+      "event_type": "eva"
+    },
+    {
+      "nasa_id": "GSFC_20160613_JSC_m12275_Piers_Sellers",
+      "video_id": "m-z-019f9a7e-6606-7431-9776-08bf89f325ff",
+      "start": 10.0,
+      "end": 20.0,
+      "score": 0.544,
+      "index": "scene_semantic",
+      "query": "Astronauts in bulky extravehicular suits walking on the gray dusty lunar surface carrying sample bags, scoops and rock cores.",
+      "text": "",
+      "era_start": 1969,
+      "era_axis": "scene",
+      "era_basis": "stated_in_speech",
+      "mission": "Apollo",
+      "title": "Piers Sellers Media Resources: JSC Interview",
+      "published_year": 2016,
+      "celestial_body": "moon",
+      "event_type": "briefing"
+    },
+    {
+      "nasa_id": "NASA Remembers Apollo Astronaut Michael Collins",
+      "video_id": "m-z-019f9a74-e1f1-7bd2-b86c-3d727358827a",
+      "start": 40.0,
+      "end": 50.0,
+      "score": 0.5803,
+      "index": "transcript",
+      "query": "Astronauts deployed scientific experiments and emplaced the Apollo Lunar Surface Experiments Package and other instrumentation.",
+      "text": "",
+      "era_start": 1969,
+      "era_axis": "scene",
+      "era_basis": "stated_in_speech",
+      "mission": "Apollo",
+      "title": "NASA Remembers Apollo Astronaut Michael Collins",
+      "published_year": 2021,
+      "celestial_body": "moon",
+      "event_type": "briefing"
+    },
+    {
+      "nasa_id": "ksc_073004_lunar_rocks",
+      "video_id": "m-z-019f9a72-062b-7f90-8a5e-3485e710a23e",
+      "start": 40.0,
+      "end": 50.0,
+      "score": 0.701,
+      "index": "scene_semantic",
+      "query": "Astronauts in bulky extravehicular suits walking on the gray dusty lunar surface carrying sample bags, scoops and rock cores.",
+      "text": "",
+      "era_start": 1969,
+      "era_axis": "video",
+      "era_basis": "video_context",
+      "mission": "Apollo",
+      "title": "KSC-04-S-00284",
+      "published_year": 2004,
+      "celestial_body": "moon",
+      "event_type": "surface_ops"
+    },
+    {
+      "nasa_id": "ksc_080504_apollo",
+      "video_id": "m-z-019f9a71-5a35-7063-8e8d-9a1ed525fcf2",
+      "start": 20.0,
+      "end": 30.0,
+      "score": 0.6387,
+      "index": "transcript",
+      "query": "What did Apollo astronauts actually do on the lunar surface, and what did they bring back?",
+      "text": "",
+      "era_start": 1969,
+      "era_axis": "scene",
+      "era_basis": "inferred_from_mission",
+      "mission": "Apollo",
+      "title": "KSC-04-S-00294",
+      "published_year": 2004,
+      "celestial_body": "moon",
+      "event_type": "launch"
+    },
+    {
+      "nasa_id": "ksc_112904_why_kennedy",
+      "video_id": "m-z-019f9a70-89e0-71f3-8c4d-11c873d931ab",
+      "start": 70.0,
+      "end": 80.0,
+      "score": 0.5485,
+      "index": "scene_semantic",
+      "query": "Close-ups of bagged rock and core samples, camera film magazines, and equipment being loaded into the Lunar Module or rover.",
+      "text": "",
+      "era_start": 1969,
+      "era_axis": "scene",
+      "era_basis": "stated_in_speech",
+      "mission": "Modified V-2 rocket flight",
+      "title": "KSC-04-S-00378",
+      "published_year": 2004,
+      "celestial_body": "moon",
+      "event_type": "landing"
+    },
+    {
+      "nasa_id": "1971 Aeronautics and Space Highlights",
+      "video_id": "m-z-019f9831-1df8-74b1-a57e-ed97adef2389",
+      "start": 790.0,
+      "end": 800.0,
+      "score": 0.7011,
+      "index": "transcript",
+      "query": "Astronauts deployed scientific experiments and emplaced the Apollo Lunar Surface Experiments Package and other instrumentation.",
+      "text": "",
+      "era_start": 1971,
+      "era_axis": "scene",
+      "era_basis": "inferred_from_mission",
+      "mission": "Apollo",
+      "title": "1971 Aeronautics and Space Highlights",
+      "published_year": 2020,
+      "celestial_body": "earth",
+      "event_type": "landing"
+    },
+    {
+      "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+      "video_id": "m-z-019f9a73-9a25-7632-b14c-aa28ea1acdc8",
+      "start": 70.0,
+      "end": 80.0,
+      "score": 0.7441,
+      "index": "transcript",
+      "query": "Astronauts collected rock and soil samples and returned them to Earth for laboratory analysis.",
+      "text": "",
+      "era_start": 1972,
+      "era_axis": "video",
+      "era_basis": "video_context",
+      "mission": "Apollo",
+      "title": "Jack Schmitt: From Apollo 17 to LRO",
+      "published_year": 2017,
+      "celestial_body": "ground",
+      "event_type": "surface_ops"
+    },
+    {
+      "nasa_id": "ksc_080805_mro_smrekar9",
+      "video_id": "m-z-019f9832-289d-7043-a792-a3f86873e12e",
+      "start": 40.0,
+      "end": 50.0,
+      "score": 0.5932,
+      "index": "transcript",
+      "query": "Astronauts collected rock and soil samples and returned them to Earth for laboratory analysis.",
+      "text": "",
+      "era_start": 1976,
+      "era_axis": "video",
+      "era_basis": "video_context",
+      "mission": "Mars Reconnaissance Orbiter",
+      "title": "KSC-05-S-00258",
+      "published_year": 2005,
+      "celestial_body": "mars",
+      "event_type": "briefing"
+    },
+    {
+      "nasa_id": "ksc_042310_hubble",
+      "video_id": "m-z-019f9a84-8e8d-7fd0-8c88-cd33d1907611",
+      "start": 270.0,
+      "end": 280.0,
+      "score": 0.5513,
+      "index": "transcript",
+      "query": "Astronauts deployed scientific experiments and emplaced the Apollo Lunar Surface Experiments Package and other instrumentation.",
+      "text": "",
+      "era_start": 1990,
+      "era_axis": "video",
+      "era_basis": "video_context",
+      "mission": "Hubble Space Telescope",
+      "title": "KSC-10-S-00043",
+      "published_year": 2010,
+      "celestial_body": "earth_orbit",
+      "event_type": "eva"
+    },
+    {
+      "nasa_id": "ksc_062805_114_briefing",
+      "video_id": "m-z-019f9a78-12b4-7da1-9627-0a4e57515420",
+      "start": 120.0,
+      "end": 130.0,
+      "score": 0.5434,
+      "index": "scene_semantic",
+      "query": "Close-ups of bagged rock and core samples, camera film magazines, and equipment being loaded into the Lunar Module or rover.",
+      "text": "",
+      "era_start": 2003,
+      "era_axis": "video",
+      "era_basis": "video_context",
+      "mission": "Space Shuttle",
+      "title": "KSC-05-S-00166",
+      "published_year": 2005,
+      "celestial_body": "ground",
+      "event_type": "other"
+    },
+    {
+      "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+      "video_id": "m-z-019f9a7c-b193-7f92-872a-6e3eba81fe43",
+      "start": 130.0,
+      "end": 140.0,
+      "score": 0.567,
+      "index": "transcript",
+      "query": "Astronauts collected rock and soil samples and returned them to Earth for laboratory analysis.",
+      "text": "",
+      "era_start": 2020,
+      "era_axis": "scene",
+      "era_basis": "stated_in_speech",
+      "mission": "OSIRIS-REx",
+      "title": "To Bennu and Back",
+      "published_year": 2016,
+      "celestial_body": "comet_asteroid",
+      "event_type": "surface_ops"
+    },
+    {
+      "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+      "video_id": "m-z-019f980d-f764-7911-9952-73f7238c777d",
+      "start": 90.0,
+      "end": 100.0,
+      "score": 0.5509,
+      "index": "transcript",
+      "query": "Astronauts collected rock and soil samples and returned them to Earth for laboratory analysis.",
+      "text": "",
+      "era_start": 2021,
+      "era_axis": "video",
+      "era_basis": "video_context",
+      "mission": "Perseverance",
+      "title": "Perseverance Explores Ancient River Channel (Mars Report)",
+      "published_year": 2024,
+      "celestial_body": "mars",
+      "event_type": "instrument_readout"
+    }
+  ],
+  "rejected": {
+    "below_threshold": [],
+    "diversity": [
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "1971 Aeronautics and Space Highlights",
+        "start": 770.0,
+        "score": 0.6994,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_073004_lunar_rocks",
+        "start": 30.0,
+        "score": 0.6974,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "1971 Aeronautics and Space Highlights",
+        "start": 760.0,
+        "score": 0.6939,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_073004_lunar_rocks",
+        "start": 60.0,
+        "score": 0.6886,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "1971 Aeronautics and Space Highlights",
+        "start": 670.0,
+        "score": 0.6688,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_073004_lunar_rocks",
+        "start": 50.0,
+        "score": 0.6598,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "Buzz_Descends_Comparison__720p",
+        "start": 50.0,
+        "score": 0.6328,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_073004_lunar_rocks",
+        "start": 10.0,
+        "score": 0.6325,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "1971 Aeronautics and Space Highlights",
+        "start": 740.0,
+        "score": 0.6257,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "1971 Aeronautics and Space Highlights",
+        "start": 780.0,
+        "score": 0.6223,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_073004_lunar_rocks",
+        "start": 0.0,
+        "score": 0.6189,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_080504_apollo",
+        "start": 80.0,
+        "score": 0.6166,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_080504_apollo",
+        "start": 50.0,
+        "score": 0.6154,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "1971 Aeronautics and Space Highlights",
+        "start": 850.0,
+        "score": 0.6125,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_080504_apollo",
+        "start": 90.0,
+        "score": 0.6044,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "1971 Aeronautics and Space Highlights",
+        "start": 750.0,
+        "score": 0.6036,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+        "start": 20.0,
+        "score": 0.6026,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "Buzz_Descends_Comparison__720p",
+        "start": 40.0,
+        "score": 0.5927,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_080504_apollo",
+        "start": 30.0,
+        "score": 0.5924,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "1971 Aeronautics and Space Highlights",
+        "start": 660.0,
+        "score": 0.5918,
+        "cap": 3
+      }
+    ],
+    "counts": {
+      "below_threshold": 0,
+      "diversity": 149
+    }
+  },
+  "timeline": [
+    {
+      "decade": 1950,
+      "scenes": 68
+    },
+    {
+      "decade": 1960,
+      "scenes": 320
+    },
+    {
+      "decade": 1970,
+      "scenes": 100
+    },
+    {
+      "decade": 1980,
+      "scenes": 69
+    },
+    {
+      "decade": 1990,
+      "scenes": 198
+    },
+    {
+      "decade": 2000,
+      "scenes": 368
+    },
+    {
+      "decade": 2010,
+      "scenes": 265
+    },
+    {
+      "decade": 2020,
+      "scenes": 96
+    }
+  ],
+  "trace": [
+    {
+      "n": 1,
+      "kind": "question",
+      "summary": "What did Apollo astronauts actually do on the lunar surface, and what did they bring back?",
+      "at": 0.0
+    },
+    {
+      "n": 2,
+      "kind": "decompose",
+      "summary": "3 sub-questions, 7 spoken phrasings, 3 visual",
+      "at": 13.67,
+      "sub_questions": [
+        "What surface activities and field tasks did Apollo astronauts perform during lunar EVAs?",
+        "What kinds of samples and other material did they collect and return to Earth?",
+        "What equipment, experiments and vehicles did they deploy, use, or leave on the Moon?"
+      ],
+      "phrasings": [
+        "What did Apollo astronauts actually do on the lunar surface, and what did they bring back?",
+        "Apollo astronauts performed extravehicular activities on the lunar surface conducting geology fieldwork and exploration.",
+        "Astronauts collected rock and soil samples and returned them to Earth for laboratory analysis.",
+        "Astronauts deployed scientific experiments and emplaced the Apollo Lunar Surface Experiments Package and other instrumentation.",
+        "Astronauts used the Lunar Module for landing and ascent and wore portable life\u2011support suits during surface operations.",
+        "On later Apollo missions astronauts used the Lunar Roving Vehicle to extend surface traverses and carry equipment.",
+        "Returned manifest included rock and core samples, film and photographic records, and experiment hardware recovered from the lunar surface."
+      ],
+      "visual_phrasings": [
+        "Astronauts in bulky extravehicular suits walking on the gray dusty lunar surface carrying sample bags, scoops and rock cores.",
+        "Crew members deploying instruments, planting a flag, and assembling/placing experiment packages on the regolith.",
+        "Close-ups of bagged rock and core samples, camera film magazines, and equipment being loaded into the Lunar Module or rover."
+      ],
+      "needs_chronology": true,
+      "rationale": "I split the query into surface activities, returned materials, and equipment/experiments to match how NASA narration separates EVA tasks, sample return, and hardware deployment over successive Apollo missions."
+    },
+    {
+      "n": 3,
+      "kind": "retrieve",
+      "summary": "163 distinct moments from 49 clips",
+      "at": 31.04,
+      "queries_run": 12,
+      "hits_by_index": {
+        "transcript": 210,
+        "scene_semantic": 90,
+        "ocr": 60
+      },
+      "rejected_below_threshold": 0,
+      "thresholds": {
+        "transcript": 0.35,
+        "scene_semantic": 0.35,
+        "ocr": 0.28
+      }
+    },
+    {
+      "n": 4,
+      "kind": "diversify",
+      "summary": "kept 14 across 14 clips, dropped 149",
+      "at": 31.04,
+      "per_video_cap": 3,
+      "kept_per_clip": {
+        "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO": 1,
+        "1971 Aeronautics and Space Highlights": 1,
+        "ksc_073004_lunar_rocks": 1,
+        "ksc_080504_apollo": 1,
+        "Buzz_Descends_Comparison__720p": 1,
+        "ksc_080805_mro_smrekar9": 1,
+        "NASA Remembers Apollo Astronaut Michael Collins": 1,
+        "GSFC_20160906_M12360_ToBennuAndBack": 1,
+        "ksc_042310_hubble": 1,
+        "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report": 1,
+        "ksc_112904_why_kennedy": 1,
+        "ksc_020105_why_jpl": 1,
+        "GSFC_20160613_JSC_m12275_Piers_Sellers": 1,
+        "ksc_062805_114_briefing": 1
+      },
+      "dropped": [
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 770.0,
+          "score": 0.6994,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "ksc_073004_lunar_rocks",
+          "start": 30.0,
+          "score": 0.6974,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 760.0,
+          "score": 0.6939,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "ksc_073004_lunar_rocks",
+          "start": 60.0,
+          "score": 0.6886,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 670.0,
+          "score": 0.6688,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "ksc_073004_lunar_rocks",
+          "start": 50.0,
+          "score": 0.6598,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "Buzz_Descends_Comparison__720p",
+          "start": 50.0,
+          "score": 0.6328,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "ksc_073004_lunar_rocks",
+          "start": 10.0,
+          "score": 0.6325,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 740.0,
+          "score": 0.6257,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 780.0,
+          "score": 0.6223,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "ksc_073004_lunar_rocks",
+          "start": 0.0,
+          "score": 0.6189,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "ksc_080504_apollo",
+          "start": 80.0,
+          "score": 0.6166,
+          "cap": 3
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "kind": "order",
+      "summary": "ordered by era 1958-2021",
+      "at": 31.04,
+      "era_axis_counts": {
+        "video": 8,
+        "scene": 6
+      },
+      "note": "era_axis 'scene' is stated in the footage; 'video' is inferred from clip context; 'published' is the upload date and carries no historical claim"
+    },
+    {
+      "n": 6,
+      "kind": "aggregate",
+      "summary": "archive spans 8 decades",
+      "at": 32.14,
+      "histogram": [
+        {
+          "decade": 1950,
+          "scenes": 68
+        },
+        {
+          "decade": 1960,
+          "scenes": 320
+        },
+        {
+          "decade": 1970,
+          "scenes": 100
+        },
+        {
+          "decade": 1980,
+          "scenes": 69
+        },
+        {
+          "decade": 1990,
+          "scenes": 198
+        },
+        {
+          "decade": 2000,
+          "scenes": 368
+        },
+        {
+          "decade": 2010,
+          "scenes": 265
+        },
+        {
+          "decade": 2020,
+          "scenes": 96
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "kind": "synthesize",
+      "summary": "104 words, 4 citations",
+      "at": 57.26,
+      "chronology_points": 2,
+      "caveats": "Dates are taken from the archive era labels (some items are marked as era_axis: video/published in the metadata, e.g. [2]) rather than being independently verified by on-screen content; the clips do not establish totals of samples returned, a complete inventory of tools or experiments, or the full procedures used on every mission."
+    }
+  ],
+  "reel": {
+    "stream_url": "https://play.videodb.io/v1/4c274cdb-f136-456c-ad04-ec8daf528f6e.m3u8",
+    "player_url": "https://player.videodb.io/watch?v=bjOfbcQaNdw",
+    "shots": [
+      {
+        "at": 0,
+        "duration": 10.0,
+        "nasa_id": "ksc_020105_why_jpl",
+        "era_start": 1958,
+        "era_axis": "video",
+        "mission": "Explorer 1",
+        "source_start": 40.0,
+        "caption": "1958 (from clip context)  \u00b7  Explorer 1  \u00b7  NASA ksc_020105_why_jpl"
+      },
+      {
+        "at": 10,
+        "duration": 10.0,
+        "nasa_id": "Buzz_Descends_Comparison__720p",
+        "era_start": 1969,
+        "era_axis": "video",
+        "mission": "Apollo",
+        "source_start": 20.0,
+        "caption": "1969 (from clip context)  \u00b7  Apollo  \u00b7  NASA Buzz_Descends_Comparison__720p"
+      },
+      {
+        "at": 20,
+        "duration": 10.0,
+        "nasa_id": "GSFC_20160613_JSC_m12275_Piers_Sellers",
+        "era_start": 1969,
+        "era_axis": "scene",
+        "mission": "Apollo",
+        "source_start": 10.0,
+        "caption": "1969  \u00b7  Apollo  \u00b7  NASA GSFC_20160613_JSC_m12275_Piers_Sellers"
+      },
+      {
+        "at": 30,
+        "duration": 10.0,
+        "nasa_id": "NASA Remembers Apollo Astronaut Michael Collins",
+        "era_start": 1969,
+        "era_axis": "scene",
+        "mission": "Apollo",
+        "source_start": 40.0,
+        "caption": "1969  \u00b7  Apollo  \u00b7  NASA NASA Remembers Apollo Astronaut Michael Coll"
+      },
+      {
+        "at": 40,
+        "duration": 10.0,
+        "nasa_id": "ksc_073004_lunar_rocks",
+        "era_start": 1969,
+        "era_axis": "video",
+        "mission": "Apollo",
+        "source_start": 40.0,
+        "caption": "1969 (from clip context)  \u00b7  Apollo  \u00b7  NASA ksc_073004_lunar_rocks"
+      },
+      {
+        "at": 50,
+        "duration": 10.0,
+        "nasa_id": "ksc_080504_apollo",
+        "era_start": 1969,
+        "era_axis": "scene",
+        "mission": "Apollo",
+        "source_start": 20.0,
+        "caption": "1969  \u00b7  Apollo  \u00b7  NASA ksc_080504_apollo"
+      },
+      {
+        "at": 60,
+        "duration": 10.0,
+        "nasa_id": "ksc_112904_why_kennedy",
+        "era_start": 1969,
+        "era_axis": "scene",
+        "mission": "Modified V-2 rocket flight",
+        "source_start": 70.0,
+        "caption": "1969  \u00b7  Modified V-2 rocket flight  \u00b7  NASA ksc_112904_why_kennedy"
+      },
+      {
+        "at": 70,
+        "duration": 10.0,
+        "nasa_id": "1971 Aeronautics and Space Highlights",
+        "era_start": 1971,
+        "era_axis": "scene",
+        "mission": "Apollo",
+        "source_start": 790.0,
+        "caption": "1971  \u00b7  Apollo  \u00b7  NASA 1971 Aeronautics and Space Highlights"
+      },
+      {
+        "at": 80,
+        "duration": 10.0,
+        "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+        "era_start": 1972,
+        "era_axis": "video",
+        "mission": "Apollo",
+        "source_start": 70.0,
+        "caption": "1972 (from clip context)  \u00b7  Apollo  \u00b7  NASA GSFC_20171120_JSchmitt_m12705_Apollo17toLRO"
+      },
+      {
+        "at": 90,
+        "duration": 10.0,
+        "nasa_id": "ksc_080805_mro_smrekar9",
+        "era_start": 1976,
+        "era_axis": "video",
+        "mission": "Mars Reconnaissance Orbiter",
+        "source_start": 40.0,
+        "caption": "1976 (from clip context)  \u00b7  Mars Reconnaissance Orbiter  \u00b7  NASA ksc_080805_mro_smrekar9"
+      },
+      {
+        "at": 100,
+        "duration": 10.0,
+        "nasa_id": "ksc_042310_hubble",
+        "era_start": 1990,
+        "era_axis": "video",
+        "mission": "Hubble Space Telescope",
+        "source_start": 270.0,
+        "caption": "1990 (from clip context)  \u00b7  Hubble Space Telescope  \u00b7  NASA ksc_042310_hubble"
+      },
+      {
+        "at": 110,
+        "duration": 10.0,
+        "nasa_id": "ksc_062805_114_briefing",
+        "era_start": 2003,
+        "era_axis": "video",
+        "mission": "Space Shuttle",
+        "source_start": 120.0,
+        "caption": "2003 (from clip context)  \u00b7  Space Shuttle  \u00b7  NASA ksc_062805_114_briefing"
+      },
+      {
+        "at": 120,
+        "duration": 10.0,
+        "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+        "era_start": 2020,
+        "era_axis": "scene",
+        "mission": "OSIRIS-REx",
+        "source_start": 130.0,
+        "caption": "2020  \u00b7  OSIRIS-REx  \u00b7  NASA GSFC_20160906_M12360_ToBennuAndBack"
+      },
+      {
+        "at": 130,
+        "duration": 10.0,
+        "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+        "era_start": 2021,
+        "era_axis": "video",
+        "mission": "Perseverance",
+        "source_start": 90.0,
+        "caption": "2021 (from clip context)  \u00b7  Perseverance  \u00b7  NASA JPL-20240710-Perseverance_Rover_Spots_an_Unu"
+      }
+    ],
+    "total_seconds": 140.0
+  }
+}
