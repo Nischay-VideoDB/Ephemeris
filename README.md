@@ -137,6 +137,14 @@ clip is densest on the topic. On the lead question, 95 retrieved moments collaps
 across 9 clips under a per-clip cap of 3; without it the chronology would be built from
 one source and would be fiction.
 
+**A question that means nothing is refused before it is searched.** Retrieval always
+returns something. Asked `zxqw plorbnak fleeming vootrix`, the planner split the gibberish
+into "the zxqw subsystem was powered on", matched real launch footage at scores *higher*
+than a genuine question about hurricanes reached, and answered it with confidence. The
+planner now reports whether the question is answerable at all, and a false there ends the
+run before retrieval, with the reason. Not knowing whether the archive covers a real
+subject is still the evidence's job to settle, not the planner's.
+
 ### The trace shows rejects
 
 Anything can render a spinner and call it reasoning. The trace records the sub-questions
@@ -148,7 +156,13 @@ it. Rejects are what make the loop checkable.
 
 `src/reel.py` uses the **v2 editor** exclusively. Matched moments are laid out on an
 integer-second timeline in era order, each with a `TextAsset` lower-third carrying the
-year, how that year was determined, the mission, and the NASA identifier.
+citation number, the year, how that year was determined, the mission, and the NASA
+identifier.
+
+Durations are whole seconds because `add_clip` places on whole seconds. A 9.6s clip in a
+10s slot leaves 0.4s of background between shots, which reads as a broken stream rather
+than an edit; losing under a second off the tail of a shot is the cheaper trade. A moment
+whose source cannot yield a clip at all is reported, never silently skipped.
 
 An inferred date is labelled in the burned-in text, not only in the interface: a scene
 dated from clip context reads `1965 (from clip context)`, and one dated only by upload
@@ -195,6 +209,12 @@ density behind it.
   `scene` (stated in the footage), amber `video` (inferred from clip context), red
   `published` (upload date only). Hover also shows the matched text, so a viewer can
   catch a mistagged scene instead of trusting the placement.
+- **Which world a moment sits on has provenance too.** The scene-level tag is used as given,
+  except where it is the only one of its kind in a clip that is plainly about somewhere else,
+  or where the scene named nowhere at all: 32 of the archive's 1,484 scenes. Those fall back
+  to what the clip as a whole is about and the hover card says so. Bodies that orbit each
+  other, and Earth-based footage about elsewhere, are never overruled: a Titan scene inside a
+  Cassini clip and a briefing inside a Mars clip are both correct as tagged.
 - The era scrubber spans the years the moments **discuss**, with the whole archive's
   decade histogram behind it and undated moments binned rather than dropped.
 - Inline `[n]` markers, timeline nodes, shot rows and craft all select the same moment:

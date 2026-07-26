@@ -200,6 +200,9 @@ function Marker({
             </div>
             <div className="mc-stage">
               {placement.stageLabel} · {CRAFT_LABEL[craft]}
+              {/* The world is model-extracted like the date, so where it came from is said out
+                  loud rather than left for the placement to imply. */}
+              {ev.body_axis === "video" && " · world from clip context"}
               {!hasFootage && " · no footage in the reel"}
             </div>
             {ev.text && <div className="mc-text">{ev.text}</div>}

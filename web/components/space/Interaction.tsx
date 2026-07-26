@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 import * as THREE from "three";
@@ -126,18 +126,24 @@ export function FreeRoam() {
     camera.position.add(move.current);
     controls.target.add(move.current);
     controls.update();
-    setAutoFollow(false);
+    // Only on the first frame of a movement. Writing it every frame published a store update
+    // sixty times a second and re-rendered everything subscribed to it for as long as a key
+    // was held.
+    if (useStore.getState().autoFollow) setAutoFollow(false);
   });
 
   return null;
 }
 
 /** Key state as a ref rather than React state: this updates every frame and must not
- *  re-render the scene graph. */
-function useFrameKeys(keys: React.MutableRefObject<Record<string, boolean>>) {
-  const bound = useRef(false);
-  if (typeof window !== "undefined" && !bound.current) {
-    bound.current = true;
+ *  re-render the scene graph.
+ *
+ *  Bound in an effect with a teardown, not during render. Registering them during render left
+ *  a set of window listeners behind on every remount of the canvas, each one writing into the
+ *  ref of a component that no longer exists, and under StrictMode two sets were added the
+ *  moment the scene first appeared. */
+function useFrameKeys(keys: React.RefObject<Record<string, boolean>>) {
+  useEffect(() => {
     const typing = () => {
       const el = document.activeElement;
       return !!el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA");
@@ -148,9 +154,21 @@ function useFrameKeys(keys: React.MutableRefObject<Record<string, boolean>>) {
       if (["w", "a", "s", "d", "r", "f"].includes(key)) keys.current[key] = value;
       if (key === "shift") keys.current.shift = value;
     };
-    window.addEventListener("keydown", (e) => set(e, true));
-    window.addEventListener("keyup", (e) => set(e, false));
+    const down = (e: KeyboardEvent) => set(e, true);
+    const up = (e: KeyboardEvent) => set(e, false);
     // Losing focus mid-press would otherwise leave the camera drifting forever.
-    window.addEventListener("blur", () => (keys.current = {}));
-  }
+    const clear = () => {
+      for (const key of Object.keys(keys.current)) keys.current[key] = false;
+    };
+
+    window.addEventListener("keydown", down);
+    window.addEventListener("keyup", up);
+    window.addEventListener("blur", clear);
+    return () => {
+      window.removeEventListener("keydown", down);
+      window.removeEventListener("keyup", up);
+      window.removeEventListener("blur", clear);
+      clear();
+    };
+  }, [keys]);
 }

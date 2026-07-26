@@ -25,11 +25,13 @@ export function Answer({
   onCite: (n: number) => void;
 }) {
   if (!answer.answer) {
+    // Two different silences: nothing retrieved cleared the threshold, or the question was
+    // never searched because it describes nothing this archive holds. The caveat says which.
     return (
       <section className="panel">
         <h2>Answer</h2>
         <div className="err">
-          No evidence cleared the relevance threshold, so no answer was produced.
+          {answer.caveats || "No evidence cleared the relevance threshold, so no answer was produced."}
         </div>
       </section>
     );

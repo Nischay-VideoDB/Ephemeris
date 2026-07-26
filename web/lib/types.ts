@@ -47,6 +47,9 @@ export interface Evidence {
   published_year: number | null;
   celestial_body: CelestialBody;
   event_type: EventType;
+  /** Where `celestial_body` came from: the scene's own extraction, or the clip as a whole when
+   *  the scene said nowhere or contradicted everything around it. Absent on older answers. */
+  body_axis?: "scene" | "video";
 }
 
 export interface TraceStep {

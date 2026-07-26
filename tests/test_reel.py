@@ -107,11 +107,13 @@ def main() -> None:
     assert shots[0]["clamped"] is False
 
     # Positions are assigned after the drop decisions, so the stream holds no black gap where a
-    # dropped moment would have been.
+    # dropped moment would have been, and durations tile the timeline exactly: `add_clip` places
+    # on whole seconds, so a fractional duration would leave background showing on every cut.
     cursor, expected = 0, []
     for shot in shots:
+        assert shot["duration"] == math.floor(shot["duration"]), shot
         expected.append(cursor)
-        cursor += int(math.ceil(shot["duration"]))
+        cursor += int(shot["duration"])
     assert [s["at"] for s in shots] == expected, [s["at"] for s in shots]
     assert out["total_seconds"] == sum(s["duration"] for s in shots)
 
