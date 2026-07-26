@@ -2,7 +2,7 @@
 
 ## Description (200 words max)
 
-**Mission Control** is a research agent over NASA's archival video. Ask a question in
+**Ephemeris** is a research agent over NASA's archival video. Ask a question in
 plain English and it returns a cited answer plus an auto-edited evidence reel stitched
 from the exact moments that support it, every clip timestamped and sourced.
 
@@ -35,7 +35,7 @@ Measured: 36/36 retrieval evals, recall 0.941, ground truth from NASA's own capt
 python - <<'PY'
 import re, pathlib
 t = pathlib.Path('SUBMISSION.md').read_text()
-body = t[t.index('**Mission Control**'):t.index('\n---')]
+body = t[t.index('**Ephemeris**'):t.index('\n---')]
 print(len(re.sub(r'[`*_#]', '', body).split()))
 PY
 ```
@@ -43,7 +43,8 @@ PY
 ## Checklist
 
 - [x] Working demo on real archived media, no synthetic data, no mocked output
-- [ ] Public GitHub repository — **not created yet, must be pushed before submitting**
+- [ ] Public GitHub repository: `git@github.com:crypticsaiyan/Ephemeris.git` created and
+      set as `origin`, **nothing pushed yet**. Push and confirm the repo is public.
 - [x] Description, 200 words max, covering what was built and how VideoDB is used
 - [x] Collection made public via `coll.make_public()` so judges can play evidence
       streams without our key

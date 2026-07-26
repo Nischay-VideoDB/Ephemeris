@@ -22,7 +22,7 @@ const serif = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "Mission Control — NASA archive research agent",
+  title: "Ephemeris: NASA archive research agent",
   description:
     "Ask a question, get a cited answer and an auto-edited evidence reel stitched from real NASA archival footage.",
 };

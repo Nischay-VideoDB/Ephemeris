@@ -1,34 +1,40 @@
-# Mission Control
+<div align="center">
 
-A research agent over NASA's archival video: ask a question in plain English, get a
-cited answer plus an auto-edited evidence reel stitched from the exact moments that
-support it, every clip timestamped and sourced.
+# Ephemeris
 
-Built on VideoDB for the VideoDB "Unlock the Footage" hackathon. All footage is real
-NASA public-domain video pulled live from the
-[NASA Image and Video Library](https://images-api.nasa.gov). Nothing is synthetic and
-no output is mocked.
+**A research agent over NASA's archival video.**
+Ask a question in plain English. Get a cited answer, ordered by when things actually happened,
+plus an auto-edited evidence reel cut from the exact seconds that support it.
+
+[![VideoDB](https://img.shields.io/badge/built%20on-VideoDB-5b4ee9?style=flat-square)](https://videodb.io)
+[![Python](https://img.shields.io/badge/python-3.12-3776ab?style=flat-square&logo=python&logoColor=white)](https://www.python.org)
+[![Next.js](https://img.shields.io/badge/next.js-15-000000?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![Three.js](https://img.shields.io/badge/three.js-r3f-049ef4?style=flat-square&logo=threedotjs&logoColor=white)](https://docs.pmnd.rs/react-three-fiber)
+[![Licence](https://img.shields.io/badge/licence-MIT-16a34a?style=flat-square)](LICENSE)
+
+</div>
+
+---
 
 ## Why this is not a search box
 
-A search box takes a query and returns clips. This takes a question, decomposes it,
-retrieves across five indexes and two time axes, orders the evidence chronologically,
-and returns a synthesised answer that no single clip contains, together with the reel
-that proves it.
+A search box takes a query and returns clips. Ephemeris takes a **question**, decomposes it,
+retrieves across five indexes and two time axes, orders the evidence by the era each moment
+discusses, and returns an answer no single clip contains, together with the reel that proves it.
+"Show me Mars footage" is retrieval; "trace how our understanding of water on Mars changed over
+time" is the query the whole system is built around.
 
-Corpus: **87 NASA clips, 240 minutes, 1,484 scenes**, spanning **1957-2025** by extracted
-era, across Mars, the Moon, human spaceflight, the outer planets, Earth science, the Sun,
-astronomy and aeronautics. Retrieval quality gate: **36/36, recall 0.941**, graded against
-NASA's own published captions.
+Built for VideoDB's "Unlock the Footage" hackathon. All footage is real NASA public-domain video
+pulled live from the [NASA Image and Video Library](https://images-api.nasa.gov). Nothing is
+synthetic and no output is mocked.
 
-The distinction shows up in what the corpus can answer. "Show me Mars footage" is
-retrieval. "Trace how our understanding of water on Mars changed over time" requires
-reasoning across missions and decades, and it is the query the whole system is built
-around.
+**Corpus:** 87 clips, 240 minutes, 1,484 scenes, 1957 to 2025. Earth 473 scenes, mars 227, deep
+space 199, ground 139, earth orbit 114, sun 107, moon 99, then comets, saturn, jupiter, titan.
+Venus and mercury are **zero**, and the agent knows it: see [refusing to answer](#refusing-to-answer).
 
 ## How VideoDB is used
 
-| Layer | VideoDB surface |
+| Layer | Surface |
 |---|---|
 | Ingest | `coll.upload(url=...)` straight from NASA asset URLs |
 | Understanding | `video.understand()` with a chained analyzer graph |
@@ -36,29 +42,27 @@ around.
 | Structured extraction | `vlm` `config.schema` with enums, so scenes carry typed fields |
 | Artifact reuse | one VLM artifact backing **two** indexes with different `use_for` |
 | Custom index | `video.index(source=[records])` for NASA metadata VideoDB never saw |
-| Retrieval | `semantic_search`, `query`, `aggregate`, `ask`, `search(mode="deepsearch")` |
+| Retrieval | `semantic_search`, `query`, `aggregate` |
 | Field-level search | `index_names=["scene_semantic.scene_description"]` |
 | Synthesis | `coll.generate_text(response_type="json")` |
-| Evidence streams | `generate_stream(timeline=[...])`, `SearchResult.compile()` |
+| Word timings | `video.get_transcript()` on v1, deliberately |
+| Evidence reels | v2 editor `Timeline` / `Track` / `Clip` / `TextAsset`, `generate_stream()` |
+| Sharing | `coll.make_public()` so reels play without a key |
 
-Reasoning runs on VideoDB's own LLM rather than a second provider, so the project
-needs exactly one API key.
+Reasoning runs on VideoDB's own LLM, so the project needs exactly one API key.
 
 ### The analyzer graph
 
 ```
 spoken_words ──┐
-               ├──> vlm  (inputs, schema, prompt interpolation)
+               ├──> vlm   (inputs · schema · {{inputs.*}})
 ocr ───────────┘
 ```
 
-The VLM describes each scene while reading what was said and what was printed during
-it, so fusion happens at ingestion rather than as a merge of three separate searches
-at query time.
-
-`ocr` is load-bearing rather than decorative. NASA footage carries burned-in speaker
-lower-thirds, mission clocks and caption text, and OCR recovers it. On clips where
-narration is sparse it is the only textual signal there is.
+The VLM describes each scene while reading what was said and printed during it, so fusion happens
+at ingestion rather than as a merge of three searches at query time. `ocr` is load-bearing: NASA
+footage carries burned-in lower-thirds and mission clocks, and where narration is sparse it is the
+only textual signal there is.
 
 ### The indexes
 
@@ -70,178 +74,121 @@ narration is sparse it is the only textual signal there is.
 | `ocr` | `ocr` | semantic, query, aggregate | what is printed on screen |
 | `mission_meta` | custom records | query, aggregate, sort | who, where, and when |
 
-`scene_semantic` and `scene_facets` come from a single VLM pass. One model call, two
-retrieval surfaces, no extra inference cost.
+One VLM pass, two retrieval surfaces, no extra inference cost.
 
-### Two time axes
+## Four ways to know a date
 
-NASA's video library holds essentially nothing published before 2000, so ordering
-evidence by publication date cannot express how understanding changed across earlier
-missions. A 2015 explainer may discuss a 1976 result.
-
-Every scene therefore carries a date resolved through three tiers, and records which
-tier won:
+NASA's library holds almost nothing published before 2000, so publication date cannot express how
+understanding changed across earlier missions: a 2015 explainer routinely discusses a 1976 result.
+Every scene carries a date **and a record of how it was known**.
 
 | `era_axis` | Source | Trust |
 |---|---|---|
-| `scene` | the scene states a year in speech or on screen | highest |
-| `video` | the clip as a whole is anchored to an era (`src/era.py`) | medium |
+| `scene` | the scene states a year, in speech or on screen | highest |
+| `mission` | the year was impossible for the mission, so its operating window decided | corrected |
+| `video` | the clip as a whole is anchored to an era | medium |
 | `published` | NASA's publication date | always correct, rarely interesting |
 
-`era_basis` records *how* the year was determined (`stated_in_speech`,
-`on_screen_text`, `inferred_from_mission`, `video_context`, `not_determinable`). That
-is checkable against the transcript and OCR indexes in a way a bare confidence score
-is not, and the agent surfaces it so an inferred chronology is never presented as
-metadata.
+A compilation dated once at the top hands that year to every scene beneath it; a Curiosity segment
+came back as 1990, twenty-one years before launch. **20.7%** of dated scenes with a known mission
+fell outside its window, and **15.7%** of the archive is re-dated. A date the scene stated itself
+is never overruled, because archive footage is full of retrospect. Three more provenance axes work
+the same way: `body_axis`, `clip_axis` and `mission_axis`.
 
 ## Asking a question
 
 ```bash
 python scripts/ask.py --preset water-mars
 python scripts/ask.py "How did the instruments used to look for water on Mars change?"
-python scripts/ask.py --preset water-mars --json out.json --cap 2 --threshold 0.4
+python scripts/ask.py "..." --json out.json --cap 2 --threshold 0.4 --no-stream
 ```
 
-Output is the reasoning trace, the cited answer, the evidence in era order, everything
-that was **discarded and why**, the archive's decade histogram, and one compiled reel.
-
-### The loop
+Output is the reasoning trace, the cited answer, the evidence in era order, everything discarded
+and why, the archive's decade histogram, and one compiled reel.
 
 | Step | What happens |
 |---|---|
 | decompose | `generate_text` produces sub-questions **and alternate phrasings** |
+| gate | is the question answerable at all |
+| gate | does the corpus hold the world it names |
 | retrieve | each index queried separately, once per phrasing |
-| join | every moment joined to its `mission_meta` row for date and mission |
-| diversify | per-clip cap applied before ordering |
+| passages | runs of touching cells joined, so the cap chooses between passages |
+| era join | every moment joined to its `mission_meta` row, date resolved four ways |
+| diversify | two per clip, preferring the world the question named |
+| refine | windows snapped to sentence bounds using word-level timings |
 | order | sorted by the era each moment discusses |
 | aggregate | decade histogram computed server-side |
 | synthesize | cited answer plus a chronology, with caveats |
 | compile | one reel, era order, provenance burned into the frame |
 
-Three design choices are forced by measurements in
-[docs/quality-gate.md](docs/quality-gate.md), not by preference:
+Choices forced by measurement, not preference:
 
-**Query expansion is load bearing.** Asking for "twin rovers landing in 2004 to search
-for signs of a watery history" retrieves nothing, because the archive says "the first
-of two rovers". The same claim in the archive's wording hits rank 1 at 0.783. So
-decomposition must produce alternate phrasings, and it does: on the lead question it
-generated *"The first of two rovers examined layered rocks interpreted as formed in
-water"* unprompted.
+- **Query expansion is load bearing.** "Twin rovers landing in 2004..." retrieves nothing; the
+  archive says "the first of two rovers", and that phrasing hits rank 1 at 0.783.
+- **Indexes are queried one at a time.** Scores are not comparable across indexes, and a combined
+  call dropped a 0.6899 transcript hit out of 20 results.
+- **Diversity is enforced.** Without a per-clip cap the chronology comes from one dense clip.
+- **Clips are cut to sentences.** Indexing uses a ten-second grid that cuts speech mid-word; v1
+  `get_transcript()` word timings are what land a clip on a boundary.
 
-**Indexes are queried one at a time.** Scores across indexes are not comparable, and a
-combined call let one index crowd out another so badly that a 0.6899 transcript hit
-vanished from 20 results.
+The trace records every moment dropped with its reason, `below_threshold` with the score or
+`per_video_cap` with the cap. Rejects are what make the loop checkable.
 
-**Diversity is enforced, not assumed.** Collection search concentrates on whichever
-clip is densest on the topic. On the lead question, 95 retrieved moments collapse to 14
-across 9 clips under a per-clip cap of 3; without it the chronology would be built from
-one source and would be fiction.
+### Refusing to answer
 
-**A question that means nothing is refused before it is searched.** Retrieval always
-returns something. Asked `zxqw plorbnak fleeming vootrix`, the planner split the gibberish
-into "the zxqw subsystem was powered on", matched real launch footage at scores *higher*
-than a genuine question about hurricanes reached, and answered it with confidence. The
-planner now reports whether the question is answerable at all, and a false there ends the
-run before retrieval, with the reason. Not knowing whether the archive covers a real
-subject is still the evidence's job to settle, not the planner's.
-
-### The trace shows rejects
-
-Anything can render a spinner and call it reasoning. The trace records the sub-questions
-issued, the phrasings tried, hits per index, and every moment that was dropped with the
-reason: `below_threshold` with its score, or `per_video_cap` with the cap that excluded
-it. Rejects are what make the loop checkable.
+Retrieval always returns something, so two gates run first. **Answerability:** given `zxqw
+plorbnak fleeming vootrix` the planner once split the gibberish into plausible sub-questions and
+answered with confidence; it now reports answerability, and a false ends the run. **Coverage:**
+asked how NASA explored Venus, the agent once reasoned from Artemis reentry footage while
+conceding no clip showed Venus. There are zero Venus scenes, and the check now ends the run in
+**19 seconds** with what the archive does cover.
 
 ### The reel
 
-`src/reel.py` uses the **v2 editor** exclusively. Matched moments are laid out on an
-integer-second timeline in era order, each with a `TextAsset` lower-third carrying the
-citation number, the year, how that year was determined, the mission, and the NASA
-identifier.
-
-Durations are whole seconds because `add_clip` places on whole seconds. A 9.6s clip in a
-10s slot leaves 0.4s of background between shots, which reads as a broken stream rather
-than an edit; losing under a second off the tail of a shot is the cheaper trade. A moment
-whose source cannot yield a clip at all is reported, never silently skipped.
-
-An inferred date is labelled in the burned-in text, not only in the interface: a scene
-dated from clip context reads `1965 (from clip context)`, and one dated only by upload
-reads `2015 (published)`. The reel is the artefact people keep, so the qualifier travels
-with it.
+`src/reel.py` uses the **v2 editor** exclusively. Moments are laid out on an integer-second
+timeline in era order, each with a `TextAsset` lower-third carrying the citation number, the year,
+how that year was determined, the mission and the NASA identifier. Provenance is burned into the
+frame, so it survives an export.
 
 ## Interface
 
-```bash
-cd web
-pnpm install
-node scripts/sync-answers.mjs   # copy pipeline output into public/answers
-pnpm dev
+A navigable solar system. Each retrieved moment stands on the body its scene concerns, rendered as
+the hardware the mission actually flew, and the camera moves through the decades as the reel plays.
+
+- **One `activeEvidenceIndex` is the entire sync bus**, shared by inline `[n]` markers, timeline
+  needles, shot rows, craft in the scene and the reel's playhead.
+- **Beacon colour is the date's provenance**, repeated in words on hover.
+- **The era scrubber** spans the years the moments *discuss*, over the archive's decade histogram.
+  Undated moments are binned, not dropped.
+- **Every question asked is kept**, answered or refused, and reloads from a file read.
+
+## Quality gates
+
+**Retrieval**, `evals/run.py`, against ground truth in `evals/gold.json` built from NASA's own
+published `.vtt` captions, so the eval does not grade the pipeline on its own output.
+
+```
+35 / 36 cases · mean recall 0.909
 ```
 
-A 3D scene, not a dashboard. Every retrieved moment is a piece of hardware standing in
-the place its scene concerns, and the camera flies from moment to moment as the reel
-plays. `H` clears the overlay for a clean recording.
+| kind | n | recall | | kind | n | recall |
+|---|---:|---:|---|---|---:|---:|
+| spoken_only | 12 | 1.000 | | historical | 8 | 0.812 |
+| visual_only | 4 | 1.000 | | cross_modal | 1 | 0.667 |
+| filter | 5 | 0.900 | | vocabulary_gap | 1 | 0.500 |
 
-The overlay is set like an archive document rather than a control panel: serif for prose
-a person reads, mono for every machine-produced value (ids, scores, timecodes, years),
-ruled sheets instead of cards, one accent colour reserved for citations and the active
-state. The era axis is a measuring ruler with decade labels and two-year ticks, one
-needle per retrieved moment coloured by date provenance, and the whole archive's decade
-density behind it.
+An earlier run recorded 36/36 at 0.941 and does not reproduce: the index is intact and the
+expected windows are present, but ANN ranking has drifted. The number above reproduces today.
 
-- **Bodies are textured from mission data**: the Viking/MOLA Mars mosaic with its
-  elevation map as relief, Blue Marble Earth with a cloud layer and an inverted specular
-  mask so the ocean catches a sun glint, the Clementine Moon. One light at the Sun, so
-  every body carries a real terminator. See `web/public/textures/CREDITS.md`.
-  Relative sizes are true; distances are not and cannot be.
-- **Each `event_type` gets a craft built from primitives**: a six-wheel rover with a
-  camera mast for `surface_ops`, a foil bus with two cell-textured arrays and a
-  high-gain dish for `instrument_readout`, a dish-and-pad ground station for `briefing`,
-  a legged lander, a launch vehicle with a plume, a crewed capsule with a tethered
-  astronaut for `eva`, a wireframe panel for `data_visualization`.
-- **The camera follows the reel**, flying stage to stage as it advances through the decades.
-  One mode, deliberately: a second mode that framed the whole body instead of the moment was
-  honest but nearly static, because consecutive shots usually share a world. Clicking a body
-  still frames it. Manual orbit suspends the follow and says so.
-- Before playback the camera holds a wide shot with Earth and Mars both in frame,
-  rather than snapping to shot 1 before the viewer has seen the layout.
-- **Beacon colour is the date's provenance**, and hovering repeats it in words: green
-  `scene` (stated in the footage), amber `video` (inferred from clip context), red
-  `published` (upload date only). Hover also shows the matched text, so a viewer can
-  catch a mistagged scene instead of trusting the placement.
-- **Which world a moment sits on has provenance too.** The scene-level tag is used as given,
-  except where it is the only one of its kind in a clip that is plainly about somewhere else,
-  or where the scene named nowhere at all: 32 of the archive's 1,484 scenes. Those fall back
-  to what the clip as a whole is about and the hover card says so. Bodies that orbit each
-  other, and Earth-based footage about elsewhere, are never overruled: a Titan scene inside a
-  Cassini clip and a briefing inside a Mars clip are both correct as tagged.
-- The era scrubber spans the years the moments **discuss**, with the whole archive's
-  decade histogram behind it and undated moments binned rather than dropped.
-- Inline `[n]` markers, timeline nodes, shot rows and craft all select the same moment:
-  the camera flies, the reel seeks, the highlight follows. `n` is the moment's place in the
-  evidence, which is not its place in the reel: a moment whose source yields no usable clip
-  has no shot, so every shot carries the evidence index it came from and every lookup goes
-  through it. Without that, one missing clip shifts every citation, needle and camera move
-  after it by one, silently. The number is burned into the frame as well.
-- Trace and discards are collapsible panels, still first-class, not a debug view.
-- `prefers-reduced-motion` replaces every camera tween with a cut and stops the pulsing.
-
-Presets serve JSON produced by the real pipeline and copied to `public/answers`. A
-custom question calls `/api/ask`, which spawns the Python agent with argv-passed
-arguments and no shell, and takes about a minute.
-
-## Results
-
-See [docs/quality-gate.md](docs/quality-gate.md) for the current numbers, the failure
-analysis, and the cost model.
-
-Ground truth in `evals/gold.json` comes from NASA's own published `.vtt` caption
-files, so the eval does not grade the pipeline against its own output.
+**Answers**, `evals/answers.py`, grades saved runs without spending an API call. Seven checks,
+each from a failure seen in a real run: `cited`, `grounded`, `on_setting`, `snapped`,
+`varied_lengths`, `chronology`, and that a refusal explains itself and shows nothing.
 
 ```bash
-python evals/run.py                 # full gate
-python evals/run.py --kind visual_only
-python evals/run.py --threshold 0.25
+python evals/run.py                        # retrieval gate
+python evals/answers.py data/answers       # answer gate
+python tests/test_era.py                   # and six more suites
+cd web && npm test                         # scene placement, craft mapping
 ```
 
 ## Setup
@@ -249,6 +196,7 @@ python evals/run.py --threshold 0.25
 ```bash
 uv venv .venv --python 3.12
 uv pip install --python .venv "videodb>=0.5.1" python-dotenv requests
+cd web && npm install && npm run dev       # http://localhost:3000
 ```
 
 `.env` at the project root:
@@ -258,9 +206,8 @@ VIDEO_DB_API_KEY=your-key
 VIDEODB_COLLECTION_ID=c-...
 ```
 
-The collection id is required, not optional. `conn.get_collection()` with no argument
-returns the account default, and collection-scoped search fans out over every indexed
-video in scope, which would mix unrelated footage into every result.
+The collection id is required. `conn.get_collection()` with no argument returns the account
+default, and collection-scoped search then fans out over every indexed video in scope.
 
 ## Pipeline
 
@@ -273,59 +220,44 @@ python scripts/repair_indexes.py --apply   # rebuild anything a schema change dr
 python scripts/dump_era.py          # cache mission_meta rows for the agent join
 python scripts/dump_bodies.py       # per-body corpus facts for the interface
 python scripts/corpus_report.py     # era coverage, body spread, index health
-python evals/run.py                 # quality gate
-python scripts/ask.py --preset water-elsewhere
+python scripts/refresh_answers.py --saved  # regenerate shipped answers after a pipeline change
 ```
 
-`repair_indexes.py` exists because an index name is a schema contract across the whole
-collection: change the record structure and every video carrying the old structure has
-its index dropped. Rebuilding is free, since understanding artifacts survive index
-deletion, but something has to do it.
-
-Every step is idempotent. Understanding ids and index names are recorded in
-`data/manifest.json`, so a re-run resumes rather than repeating paid work.
-
-Diagnostics, run once each:
-
-```bash
-python scripts/recon.py             # observed field names, docs/field-schema.md
-python scripts/probe_segmentation.py
-```
+An index name is a schema contract across the collection: change the record structure and every
+video carrying the old one loses its index, which is what `repair_indexes.py` rebuilds. Presets are
+generated output, not source, which is what `refresh_answers.py` keeps current. Every step is
+idempotent; understanding ids and index names live in `data/manifest.json`, so a re-run resumes
+rather than repeating paid work.
 
 ## Layout
 
 ```
-src/
-  nasa.py            NASA Image and Video Library client, .vtt parsing
-  videodb_client.py  connection and collection helpers
-  manifest.py        local record of uploads and artifacts
-  schema.py          VLM output contract and prompt
-  understanding.py   analyzer graph, segmentation, safe polling
-  indexing.py        the five index definitions
-  era.py             clip-level era extraction
-  mission_meta.py    custom records and the three-tier date resolution
-  agent.py           decompose, retrieve, diversify, order, synthesize, trace
-  reel.py            v2 editor timeline with burned-in provenance
-scripts/             discover, ingest, build, ask, recon, probes, reporting
-evals/               gold.json ground truth, run.py scorer
-docs/                field-schema.md, quality-gate.md
-NOTES.md             verified VideoDB API behaviour and doc mismatches
-PLAN.md              product thesis and build order
+src/     nasa, videodb_client, manifest, schema, understanding, indexing,
+         era, mission_meta, speech, agent, reel
+web/     Next.js app, react-three-fiber orrery, SSE progress
+scripts/ discover, ingest, build, ask, refresh, probes, reporting
+evals/   gold.json, run.py retrieval gate, answers.py answer gate
+tests/   body, mission, era, coverage, passages, speech, reel
+docs/    architecture.svg, field-schema.md, quality-gate.md
 ```
+
+## Architecture
+
+![Architecture](docs/architecture.svg)
+
+Three bands: build it once, query it per question, show it. Purple is a VideoDB call, green is
+this project's own logic, blue is data, grey is a local cache, yellow is the browser, and red is
+the path a refused question takes.
 
 ## Notes on VideoDB behaviour
 
-[NOTES.md](NOTES.md) records what was verified against the live API rather than taken
-from documentation, including several places where the two disagree. Findings that
-cost real debugging time:
+Verified against the live API rather than taken from the docs, including where the two
+disagree: `object_detection` has no hosted model, VLM schema fields
+declared `"required": False` vanish from scene data when omitted, shot segmentation is erratic on
+archival footage, numeric fields are not aggregatable by default, there are two Editor APIs, and
+`Shot.text` is always `None` (the match lives in `metadata["embedded_text"]`).
 
-- `object_detection` has no hosted model and requires a sandbox
-  (`No active sandbox compatible with model 'rtdetr-v2-r50vd'`).
-- A VLM schema field declared `"required": False` that the model omits is absent from
-  scene data entirely, and absent fields cannot be indexed or filtered at all.
-- Shot segmentation is erratic on archival footage: threshold 30 found 2 boundaries in
-  a clip where threshold 10 found 13.
-- Numeric fields default to `filter`+`sort` but **not** `aggregate`, so a histogram
-  over a year field needs the group declared explicitly.
-- There are two Editor APIs, `videodb.timeline` and `videodb.editor`, with different
-  constructors and different keyword names for the same concept.
+## Licence
+
+[MIT](LICENSE). The NASA footage is public domain, from the
+[NASA Image and Video Library](https://images.nasa.gov). NASA does not endorse this project.
