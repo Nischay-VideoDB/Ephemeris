@@ -2,37 +2,39 @@
   "question": "Trace how our understanding of water on Mars changed over time.",
   "plan": {
     "sub_questions": [
-      "What early observations (telescopes and first flybys) suggested water or ice on Mars?",
-      "What geological and mineralogical evidence showed that liquid water once flowed on Mars?",
-      "Where and in what form does water exist on modern Mars (ice, permafrost, transient flows)?",
-      "How did discoveries about water change assessments of past habitability and the search for organics?"
+      "How did early telescopic and flyby observations shape hypotheses about water on Mars?",
+      "What orbital remote\u2011sensing evidence established that Mars once had flowing surface water?",
+      "What in\u2011situ rover and lander discoveries revealed past habitable watery environments and present near\u2011surface ice?",
+      "How did later radar and seasonal observations change ideas about present\u2011day water (subsurface ice, transient flows)?"
     ],
     "phrasings": [
       "Trace how our understanding of water on Mars changed over time.",
-      "Telescopic observations and early Mariner images showed bright polar caps and seasonal changes consistent with water frost and ice.",
-      "Orbital imagery revealed valley networks and outflow channels carved by ancient flowing water.",
-      "The twin rovers Spirit and Opportunity explored sedimentary outcrops and found mineralogical signs of past aqueous environments.",
-      "Mars Odyssey neutron measurements and the Phoenix lander confirmed near\u2011surface water ice at high latitudes.",
-      "Mars Reconnaissance Orbiter discovered hydrated minerals and layered deposits consistent with ancient lakes and groundwater alteration.",
-      "Curiosity in Gale Crater identified sedimentary rocks and organic-bearing compounds indicating a once habitable, neutral-pH lake environment."
+      "Early telescopic and Mariner observations suggested seasonal caps and the possibility of water on Mars",
+      "Viking and early orbiters painted Mars as a cold, dry planet with no standing liquid water",
+      "Orbiting spacecraft mapped valley networks and outflow channels carved by ancient flowing water",
+      "The twin rovers Spirit and Opportunity found hematite spherules and sulfates indicating past liquid water",
+      "Landers and orbiters detected shallow ground ice and buried ice layers beneath the Martian surface",
+      "Curiosity documented lakebed mudstones and clay minerals, evidence of a once habitable watery environment",
+      "Later radar and spectrometer data and recurring slope lineae studies revised ideas about present\u2011day subsurface ice and transient liquid activity"
     ],
     "visual_phrasings": [
-      "Wide orbital views of branching valley networks, outflow channels and layered basin deposits",
-      "Rover close-ups of cross\u2011bedded sedimentary layers, concretions and sulfate/hematite veins",
-      "Phoenix scoop exposing bright subsurface ice and soil interaction scenes",
-      "HiRISE images showing recurring slope lineae, polygonal permafrost patterns and exposed ice cliffs"
+      "Orbiter images of branching valley networks, outflow channels and delta deposits on the Martian surface",
+      "Rover close\u2011ups of layered sedimentary rocks, mudstones, rounded pebbles and 'blueberry' spherules in situ",
+      "Radargrams and subsurface cross sections showing bright reflections from buried ice and maps of hydrogen abundance"
     ],
     "needs_chronology": true,
     "answerable": true,
-    "rationale": "I split the history into four aspects\u2014early remote signs, geomorphic/mineral evidence of past liquid water, present reservoirs and transient phenomena, and implications for habitability\u2014to match how NASA narration and visuals track changing understanding over time."
+    "target_body": null,
+    "rationale": "I split the topic into distinct historical/remote\u2011sensing/in\u2011situ/subsurface aspects and produced narration\u2011style search strings plus visual descriptors to retrieve footage that traces the changing evidence for water on Mars over time."
   },
   "answer": {
-    "answer": "Early Mars exploration framed finding water as a primary goal for landing and habitability studies, and later narration contrasts that early search with later knowledge of large subsurface glaciers [1].  In the 2000s, the Spirit and Opportunity rovers shifted the focus to in-place mineral evidence: they identified volcanic minerals like pyroxene and iron-bearing minerals such as hematite that imply past water alteration of rocks [2][3][4].  By the 2010s researchers were describing a warmer, wetter ancient Mars and even debating large-scale bodies of water or oceans and Earth-like erosion or redeposition processes acting billions of years ago [6][7].  Most recently, Curiosity has documented lake deposits with clear wave ripples, strengthening the view that Mars preserved diverse watery environments in the past and that our picture has moved from searching for water to documenting buried ice and multiple kinds of ancient surface water [8][1].",
+    "answer": "Over time the archive shows a clear progression: early reconnaissance focused on finding water and landing sites, rover missions provided rock-scale mineral evidence for past water, later work debated how much water (oceans versus local systems) and used Earth analogs, and the newest in-situ studies are locating ancient river channels and late wet events while recognizing large subsurface ice reservoirs ([1][2][3][4][5][7][8]). In the Mariner-era framing, the priority was scouting landing sites and the importance of locating water for future human missions, with commentators already pointing ahead to discoveries like large subsurface glaciers ([1]). Rover-era work in the 2000s turned remote questions into geology: Spirit\u2019s hematite in the Columbia Hills was presented as a mineralogical sign of water alteration and mission planning emphasized mapping hazardous, science-rich terrain ([2][3]). By the 2010s scientists were explicitly debating how much water Mars once held\u2014small rivers, rains, or oceans\u2014and used Earth volcanic and geomorphic analogs to interpret billion-year-old Martian landforms ([4][5]). The most recent footage shows Curiosity documenting late wet landslide deposits and Perseverance working in an ancient river channel to trace rock sources and timing of past flows, while another clip in the archive documents naming practices on Mars rather than new water evidence ([7][8][6]).",
     "citations": [
       1,
       2,
       3,
       4,
+      5,
       6,
       7,
       8
@@ -42,35 +44,60 @@
         "citations": [
           1
         ],
-        "claim": "Early exploration emphasized finding water for landing safety and habitability, and later materials note the presence of large subsurface glaciers.",
+        "claim": "Early Mariner-era framing emphasized scouting landing sites and the search for water; commentators also foreshadowed later findings like large subsurface glaciers ([1]).",
         "era": 1965
       },
       {
         "citations": [
-          2,
-          3,
-          4
+          2
         ],
-        "claim": "Rovers Spirit and Opportunity found minerals (pyroxene, hematite) that indicate rocks were altered by water in Mars' past.",
+        "claim": "Spirit rover work in 2004 produced rock-scale mineral evidence\u2014hematite in the Columbia Hills\u2014that is often interpreted as forming in water ([2]).",
         "era": 2004
       },
       {
         "citations": [
-          6,
+          3
+        ],
+        "claim": "Around 2005 mission planning and reconnaissance emphasized mapping dangerous but scientifically valuable terrain to guide future landings and investigations ([3]).",
+        "era": 2005
+      },
+      {
+        "citations": [
+          4
+        ],
+        "claim": "By 2015 scientists were asking how much water ancient Mars held, debating oceans versus localized rivers and how Mars lost that water ([4]).",
+        "era": 2015
+      },
+      {
+        "citations": [
+          5
+        ],
+        "claim": "Work by 2018 used Earth analogs to interpret Martian volcanic and landscape evolution, supporting the idea of persistent surface waters shaping terrain billions of years ago ([5]).",
+        "era": 2018
+      },
+      {
+        "citations": [
+          6
+        ],
+        "claim": "A 2020-era clip documents naming practices for Martian surface features (cultural/operational context) rather than presenting new evidence about water ([6]).",
+        "era": 2020
+      },
+      {
+        "citations": [
           7
         ],
-        "claim": "Researchers interpreted a warmer, wetter ancient climate with possible oceans and invoked Earth analogs for erosion and redeposition on Mars.",
-        "era": 2015
+        "claim": "Curiosity in the early 2020s provided evidence of relatively late wet activity\u2014wet landslides and layered sediments that record episodic water-related processes ([7]).",
+        "era": 2022
       },
       {
         "citations": [
           8
         ],
-        "claim": "Curiosity observed lake deposits with wave ripples, supporting the existence of lakes and a transition toward drier conditions.",
-        "era": 2022
+        "claim": "Perseverance in 2024 is studying an ancient river channel and diverse boulders to pinpoint rock sources and the timing and nature of past flows ([8]).",
+        "era": 2024
       }
     ],
-    "caveats": "The evidence does not establish precise amounts of water, exact timings, or direct proof of global oceans or habitability. Several era labels come from the clips' metadata (marked as 'video', 'published', or 'scene') and are reported here as given in the archive rather than independently verified; the clips are summary narrations and may condense underlying scientific details."
+    "caveats": "Some era dates are taken from the archive\u2019s video/published metadata (e.g., items labeled as video or published) and may reflect when footage or narration was made rather than the exact dates of discoveries. Clip [6] does not present evidence about water\u2014it shows naming practices for features on Mars. The archive clips summarize and interpret findings at different levels (reconnaissance, mineralogy, geomorphology) but do not, by themselves, provide original data or quantify global water volumes."
   },
   "evidence": [
     {
@@ -78,9 +105,9 @@
       "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
       "start": 460.08,
       "end": 478.87,
-      "score": 0.7303,
+      "score": 0.7439,
       "index": "transcript",
-      "query": "Mars Reconnaissance Orbiter discovered hydrated minerals and layered deposits consistent with ancient lakes and groundwater alteration.",
+      "query": "Landers and orbiters detected shallow ground ice and buried ice layers beneath the Martian surface",
       "text": "Looking forward to paving the way for humans to go to Mars, because there's a lot we need to know about potential landing sites where water is on Mars. We now know that there are areas of Mars that have huge subsurface glaciers with lots and lots of fresh water.",
       "era_start": 1965,
       "era_axis": "video",
@@ -93,61 +120,18 @@
       "body_axis": "scene",
       "spoken": "Looking forward to paving the way for humans to go to Mars, because there's a lot we need to know about potential landing sites where water is on Mars. We now know that there are areas of Mars that have huge subsurface glaciers with lots and lots of fresh water.",
       "clip_axis": "sentence",
-      "cells": 2
-    },
-    {
-      "nasa_id": "ksc_042104_meteor",
-      "video_id": "m-z-019f9833-1e55-7aa2-9db0-fbb5295f00f8",
-      "start": 6.76,
-      "end": 43.13,
-      "score": 0.6636,
-      "index": "transcript",
-      "query": "The twin rovers Spirit and Opportunity explored sedimentary outcrops and found mineralogical signs of past aqueous environments.",
-      "text": "Blazing the trail of discoveries at Meridiani Planum, NASA's Opportunity rover has come across another A volcanic rock given the name Bounce was found to have similarities to meteorites that fell to Earth. Opportunity's other rock or volcanic depos already studied by opportunity and spirit. NASA's Mars Odyssey may have given scientists a clue to its origin with an image of a",
-      "era_start": 2004,
-      "era_axis": "published",
-      "era_basis": "not_determinable",
-      "mission": "Opportunity",
-      "title": "KSC-04-S-00127",
-      "published_year": 2004,
-      "celestial_body": "mars",
-      "event_type": "briefing",
-      "body_axis": "scene",
-      "spoken": "Blazing the trail of discoveries at Meridiani Planum, NASA's Opportunity rover has come across another A volcanic rock given the name Bounce was found to have similarities to meteorites that fell to Earth. Opportunity's Minitess and Mossbauer spectrometers have found the element pyroxene, a volcanic mineral, in the football size rock. The rock's composition is unlike any other rock or volcanic depos already studied by opportunity and spirit. NASA's Mars Odyssey may have given scientists a clue to its origin with an image of a crater where Bounce could have been ejected from upon impact.",
-      "clip_axis": "sentence",
-      "cells": 3
-    },
-    {
-      "nasa_id": "ksc_062904_mars",
-      "video_id": "m-z-019f9833-6fec-7471-bf83-84c2a9ef5ff6",
-      "start": 8.68,
-      "end": 57.29,
-      "score": 0.6406,
-      "index": "transcript",
-      "query": "Mars Reconnaissance Orbiter discovered hydrated minerals and layered deposits consistent with ancient lakes and groundwater alteration.",
-      "text": "Opportunity rovers could tell you something about the ups and downs of working on Mars. Spirit is in the high ground at the Columbia Hills. It's examining a rock called Pot of Gold Gold before it begins its climb up the Martian mountains. Pot of Gold shows signs of hematite, a mineral that means water may have been in the area sometime in the distant distant past. That's the same mineral that Opportunities studied in Gusev Crater. But this is the first time that Spirit has seen it. We're into totally new stuff in both both places, and it's been fairly wild. Opportunity is headed down into Endurance Crater and is looking at each layer of rock as it gets deeper. Scientists",
-      "era_start": 2004,
-      "era_axis": "published",
-      "era_basis": "not_determinable",
-      "mission": "Opportunity",
-      "title": "KSC-04-S-00206",
-      "published_year": 2004,
-      "celestial_body": "mars",
-      "event_type": "animation",
-      "body_axis": "scene",
-      "spoken": "NASA Spirit and Opportunity rovers could tell you something about the ups and downs of working on Mars. Spirit is in the high ground at the Columbia Hills. It's examining a rock called Pot of Gold before it begins its climb up the Martian mountains. Pot of Gold shows signs of hematite, a mineral that means water may have been in the area sometime in the distant past. That's the same mineral that Opportunities studied in Gusev Crater. But this is the first time that Spirit has seen it. We're into totally new stuff in both places, and it's been fairly wild. Opportunity is headed down into Endurance Crater and is looking at each layer of rock as it gets deeper. Scientists say that the farther down that the rover finds traces of salt, the more water that flowed over the region in the past.",
-      "clip_axis": "sentence",
-      "cells": 4
+      "cells": 2,
+      "mission_axis": "scene"
     },
     {
       "nasa_id": "ksc_122104_spirit_anniv",
       "video_id": "m-z-019f9832-b577-7883-bfa3-26a28c17d34f",
       "start": 46.29,
       "end": 91.55,
-      "score": 0.6214,
+      "score": 0.7007,
       "index": "scene_semantic",
-      "query": "Rover close-ups of cross\u2011bedded sedimentary layers, concretions and sulfate/hematite veins",
-      "text": "360ft a day and shattering distance records along the way. The rover's initial work site was a rock dubbed Adirondack. Using Using its grinding tool, Spirit became the first robot ever to carve into Martian rock. From there, the rover ventured to other sites, like Humphrey Two black-and-white frames showing Martian surface views. Right frame: a rover-perspective panorama of a flat, rocky plain \u2014 scattered small rocks and pebbles cover the foreground, with patches of smoother, lightly rippled sand or dust and a shallow, rounded depression mid-ground. A low ridge or series of low hills runs across the distant horizon. The image is high\u2011contrast, taken from a low vantage point consistent with a rover camera. Left frame: a close, high\u2011contrast view showing a darker, relatively smooth surface with a circular shallow depression or ring feature and a bright, elongated vertical element casting a shadow across the darker area (appears to be hardware or a bright imaging artifact interacting with terrain). No burned\u2011in captions or data readouts are visible. Spoken audio in this segment references the Columbia Hills and 'Spirit,' indicating the footage concerns the Spirit rover in the Columbia Hills region. Left frame: a black-and-white rover camera view of a rocky, pebbly plain with a low ridge or hill on the horizon. The foreground shows scattered rocks and coarse regolith; the silhouette/shadow of the rover hardware (mast and instrument turret) is visible at the bottom center of the frame, indicating the camera is mounted on the lander/rover. Right frame: a high-magnification grayscale micrograph of a rough mineral surface with small rounded, nodular or spherule-like structures protruding from a porous matrix (consistent with microscopic images of hematite spherules). No burned-in clocks, charts, or data readouts are visible on either frame. The spoken transcript references Spirit finding hematite, linking the surface context (left) with the microscopic evidence (right).",
+      "query": "Rover close\u2011ups of layered sedimentary rocks, mudstones, rounded pebbles and 'blueberry' spherules in situ",
+      "text": "NASA Animation HOME NEXT Adirondack Rock What's this? view photos Investigate Explore Mars Drive 205 m Left frame: a color view of rover hardware on a reddish, dusty surface. Visible are part of the rover deck and instruments at the end of the robotic arm, including the circular tool/brush assembly and one wheel partially in frame resting on flat, dusty ground; low rocky hills are visible in the background. The lighting and red soil indicate a Martian landscape. Right frame: a black-and-white close-up image of a circular abrasion cut into a flat rock surface. The abrasion shows a round, scraped hole with a darker, disturbed halo of powdered material around it and concentric tool markings inside the circle (the rock abrasion made by the rover\u2019s grinding tool). No burned-in captions, clocks, or charts are visible on screen. Two black-and-white frames showing Martian surface views. Right frame: a rover-perspective panorama of a flat, rocky plain \u2014 scattered small rocks and pebbles cover the foreground, with patches of smoother, lightly rippled sand or dust and a shallow, rounded depression mid-ground. A low ridge or series of low hills runs across the distant horizon. The image is high\u2011contrast, taken from a low vantage point consistent with a rover camera. Left frame: a close, high\u2011contrast view showing a darker, relatively smooth surface with a circular shallow depression or ring feature and a bright, elongated vertical element casting a shadow across the darker area (appears to be hardware or a bright imaging artifact interacting with terrain). No burned\u2011in captions or data readouts are visible. Spoken audio in this segment references the Columbia Hills and 'Spirit,' indicating the footage concerns the Spirit rover in the Columbia Hills region. Left frame: a black-and-white rover camera view of a rocky, pebbly plain with a low ridge or hill on the horizon. The foreground shows scattered rocks and coarse regolith; the silhouette/shadow of the rover hardware (mast and instrument turret) is visible at the bottom center of the frame, indicating the camera is mounted on the lander/rover. Right frame: a high-magnification grayscale micrograph of a rough mineral surface with small rounded, nodular or spherule-like structures protruding from a porous matrix (consistent with microscopic images of hematite spherules). No burned-in clocks, charts, or data readouts are visible on either frame. The spoken transcript references Spirit finding hematite, linking the surface context (left) with the microscopic evidence (right).",
       "era_start": 2004,
       "era_axis": "video",
       "era_basis": "video_context",
@@ -159,29 +143,31 @@
       "body_axis": "scene",
       "spoken": "Before long, Spirit was covering up to 360ft a day and shattering distance records along the way. The rover's initial work site was a rock dubbed Adirondack. Using its grinding tool, Spirit became the first robot ever to carve into Martian rock. From there, the rover ventured to other sites, like Humphrey Ebenezer and into the Columbia Hills. It was in the Columbia Hills that Strike Spirit finally hit the geological jackpot and found the mineral hematite. Hematite often forms in water, water that may have nurtured life on Mars.",
       "clip_axis": "sentence",
-      "cells": 4
+      "cells": 4,
+      "mission_axis": "scene"
     },
     {
-      "nasa_id": "GSFC_20150216_Arctic_m11779_Swath",
-      "video_id": "m-z-019f9a7f-71ce-7ce1-8164-d156ab5a9152",
-      "start": 70.0,
-      "end": 110.0,
-      "score": 0.6163,
+      "nasa_id": "ksc_012805_mars_recon",
+      "video_id": "m-z-019f9833-ae6b-7a21-8b81-8acd2c0a00d2",
+      "start": 49.06,
+      "end": 67.92,
+      "score": 0.6602,
       "index": "scene_semantic",
-      "query": "HiRISE images showing recurring slope lineae, polygonal permafrost patterns and exposed ice cliffs",
-      "text": "A satellite-style overhead view of Earth shows the Arctic region around Ellesmere Island in Canada. The land is partially snow-covered and bordered by dark water, with thick white cloud bands drifting across the scene. A map-like graphic with latitude/longitude-style grid lines appears in the opening frames, then the view zooms closer to the island. Labels mark \u201cEllesmere Island, Canada\u201d and \u201cQuttinirpaaq National Park,\u201d and a small compass icon plus a 3 km scale bar sit at lower left. No spacecraft or instrument is visible; the evidence on screen is Earth surface imagery and cartographic labeling. A top-down satellite view of a snowy, mountainous Arctic landscape fills the frame. White ice and snow cover broad ridges and valleys, with dark brown rock exposed along steep slopes. A long, pale blue frozen or ice-covered waterway/fiord cuts horizontally across the scene, with visible linear cracks and lighter streaks in the ice. Thin cloud patches drift over parts of the terrain. A compass rose and a 3 km scale bar are shown at lower left, and green label banners identify the locations as \"Quttinirpaaq National Park\" and \"Tanquary Fiord\". A top-down satellite-style view of mountainous terrain covered in extensive white snow and glacier ice. Dark rocky ridges and valleys cut through the ice fields, and several turquoise glacial lakes or meltwater ponds are visible, some with fractured ice along their edges. The image includes a compass rose in the lower left and a 3 km scale bar, indicating a mapped Earth observation scene rather than a spacecraft or instrument close-up. A high, top-down satellite view shows a rugged polar landscape with dark rocky mountains heavily capped with snow and ice. A long, narrow fjord filled with pale turquoise sea ice and broken ice floes cuts through the terrain. Thin cloud cover drifts over part of the scene. A green location label reads \u201cGreeley Fiord,\u201d and a small compass rose and 3 km scale bar are visible in the lower left. No spacecraft or instruments are shown; the scene is a map-style Earth surface visualization.",
-      "era_start": 2014,
-      "era_axis": "video",
-      "era_basis": "video_context",
-      "mission": "Landsat 8",
-      "title": "Landsat 8 Crosses the Arctic",
-      "published_year": 2015,
-      "celestial_body": "earth",
-      "event_type": "data_visualization",
+      "query": "Orbiter images of branching valley networks, outflow channels and delta deposits on the Martian surface",
+      "text": "Left: an artist-style animation or CGI of an orbiter above the planet \u2014 a boxy spacecraft bus with deployed rectangular solar panels and a high-gain dish antenna visible, shown against a thin pale horizon. Right: a close-up orbital view of Martian terrain \u2014 a large circular impact feature with terraced, scalloped walls and concentric rings, light-toned layered deposits and radial fractures visible across the crater floor. The imagery and animation are being used to illustrate mapping and selection of hazardous or scientifically interesting landing sites on Mars.",
+      "era_start": 2005,
+      "era_axis": "published",
+      "era_basis": "not_determinable",
+      "mission": "Spirit",
+      "title": "KSC-05-S-00033",
+      "published_year": 2005,
+      "celestial_body": "mars",
+      "event_type": "animation",
       "body_axis": "scene",
-      "spoken": "",
-      "clip_axis": "scene",
-      "cells": 4
+      "spoken": "The mission will allow scientists on Earth to study Martian terrain too dangerous to visit. It will also help determine which future landing sites might yield the most science. This information will become increasingly important in years to come as NASA plans missions to the moon, Mars and beyond as part of the Vision for Space Exploration.",
+      "clip_axis": "sentence",
+      "cells": 1,
+      "mission_axis": "scene"
     },
     {
       "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
@@ -203,39 +189,64 @@
       "body_axis": "scene",
       "spoken": "Beneath the thin atmosphere of Mars lies an enigma, a desert landscape shaped by flowing water. In the distant past, Mars must have had a warmer, wetter climate. But scientists wonder, just how wet was ancient Mars? So, in the ancient past, we have some indications of water was flowing on the surface, but how much water was there? Talking about oceans, are we talking about small rivers, little rain? So these definitions of how much water was on the planet was very undefined. A major question has been how much water did Mars actually have when it was young? And how did it lose that water?",
       "clip_axis": "sentence",
-      "cells": 4
+      "cells": 4,
+      "mission_axis": "scene"
     },
     {
       "nasa_id": "GSFC_20180608_Tonga_m12932_Volcanoes",
       "video_id": "m-z-019f9835-9372-7ab2-b96d-0aa98b7282c7",
-      "start": 78.38,
-      "end": 111.63,
-      "score": 0.6944,
+      "start": 98.84,
+      "end": 124.65,
+      "score": 0.6921,
       "index": "transcript",
-      "query": "Mars Reconnaissance Orbiter discovered hydrated minerals and layered deposits consistent with ancient lakes and groundwater alteration.",
-      "text": "Mars as they have affected small landforms like volcanoes, and we see fields of them on Mars. The island dramatically changed exciting. It didn't wash away. While there was massive erosion, there was redeposition protecting the island. Similar processes processes seen on Earth may have been at work two or three billion years ago on Mars. Persistent surface waters that may have fashioned the Martian terrain that",
-      "era_start": 2015,
-      "era_axis": "scene",
-      "era_basis": "on_screen_text",
+      "query": "Early telescopic and Mariner observations suggested seasonal caps and the possibility of water on Mars",
+      "text": "processes seen on Earth may have been at work two or three billion years ago on Mars. Persistent surface waters that may have fashioned the Martian terrain that A computer-generated flyover of a flat, muted-green plain peppered with many low, circular mounds and shallow craters. The mounds resemble small volcanic cones or island-like knobs, several with central depressions; they cast short shadows indicating a low-angle light source. A bright, specular streak of reflected light appears along a narrow band (suggesting a water-like surface or a highly reflective material) in the middle frames. No spacecraft, instruments, or on-screen data readouts are visible; the imagery is clearly an animated terrain visualization used to illustrate discussion of landforms in the accompanying narration.",
+      "era_start": 2018,
+      "era_axis": "published",
+      "era_basis": "not_determinable",
       "mission": "unknown",
       "title": "Using Earth to Understand How Water May Have Affected Volcanoes on Mars",
       "published_year": 2018,
       "celestial_body": "mars",
-      "event_type": "animation",
+      "event_type": "data_visualization",
       "body_axis": "scene",
-      "spoken": "The island dramatically changed shape and size every day for the first few months. About six months in, it finally stabilized. We watched this island change and it got more and more exciting. It didn't wash away. While there was massive erosion, there was redeposition protecting the island. Similar processes seen on Earth may have been at work two or three billion years ago on Mars. Persistent surface waters that may have fashioned the Martian terrain that is evident there today.",
+      "spoken": "Similar processes seen on Earth may have been at work two or three billion years ago on Mars. Persistent surface waters that may have fashioned the Martian terrain that is evident there today. The truth is the two systems are actually cosmically related. Our understanding the panning of landforms on distant planets is directly informed by studying the evolution of similar features on Earth.",
       "clip_axis": "sentence",
-      "cells": 3
+      "cells": 2,
+      "mission_axis": "scene"
+    },
+    {
+      "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
+      "video_id": "m-z-019f9834-ef78-7510-b1a2-e70256b967e1",
+      "start": 148.33,
+      "end": 174.7,
+      "score": 0.6466,
+      "index": "scene_semantic",
+      "query": "Orbiter images of branching valley networks, outflow channels and delta deposits on the Martian surface",
+      "text": "The frames show both an overhead, color-enhanced orbital view and close-up rover surface panoramas of a layered outcrop area. The top images are a false-color / enhanced satellite view of an elongate, light-toned linear ridge (referred to in the speech as the \u201cBacon Strip\u201d) sitting at the base of a steeper, darker scarp; small circular pits and streaked sand/ripple patterns are visible immediately downslope from the ridge. The lower frames are ground-level Mastcam-style images showing the rover\u2019s hardware at the lower-left edge and a foreground of broken, light-toned fractured bedrock plates, scattered angular rock slabs, and dark fine sand drifts leading up to tilted, multi-layered outcrops on a slope. Overall the scene documents sedimentary layering, thin light-toned deposits, talus and aeolian sand sorting, combining orbital overview imagery with rover surface photos while the narrator mentions the Perseverance arrival and informal feature naming. A stitched color panorama of a Martian ground site fills the frame: light-toned, fractured bedrock and angular rock chips cover the foreground, with finer sand and small ripples between clasts. Mid- to background show layered, slabby outcrops and a steep talus slope rising to a rim. Part of rover hardware is visible at the lower-left edge of the image. A large, bold white text label 'HOGWALLOW FLATS' is overlaid across the lower middle of the panorama, and a small burned-in caption in the upper corner reads 'PERSEVERANCE JEZERO CRATER, MARS \u00b7 18 FEB 2021.' The cutaways in the same segment show two people in an indoor interview set (one wearing a Perseverance mission t\u2011shirt) and archival photos of a National Park ranger at Mount Rainier, but the primary scientific imagery shown is the Perseverance surface panorama of layered Martian rocks and regolith.",
+      "era_start": 2020,
+      "era_axis": "mission",
+      "era_basis": "1990 is outside Perseverance's 2020-2030",
+      "mission": "Perseverance",
+      "title": "How Does NASA Name Things on Mars? (Mars Report - June 2023)",
+      "published_year": 2023,
+      "celestial_body": "mars",
+      "event_type": "surface_ops",
+      "body_axis": "scene",
+      "spoken": "Here we see an area that resembles a strip of bacon when viewed from space, so we jokingly called it the Bacon Strip. Since arriving at the site with Perseverance, we had to give it a name that fit the Shenandoah theme, so we chose Hog Wallow Flats. If you could come up with a name for a rock, what would it be? I spent seven summers as the Night Skies ranger at Mount Rainier national park, so I'd probably pick something named after Mount Rainier or a place that's special to me inside the park.",
+      "clip_axis": "sentence",
+      "cells": 2,
+      "mission_axis": "scene"
     },
     {
       "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
       "video_id": "m-z-019f9834-99f6-7a51-8831-fc886484ce6e",
-      "start": 80.34,
-      "end": 125.44,
-      "score": 0.6703,
-      "index": "transcript",
-      "query": "Trace how our understanding of water on Mars changed over time.",
-      "text": "Close-up views of a rocky, reddish-brown landscape dominated by flat, sheet-like sedimentary rock slabs and fractured plates. Multiple images show fine, regularly spaced ripple patterns preserved in or on top of the rock surfaces (interpreted in the narration as wave ripples), along with areas of loose sand filling lows and small sand dunes/ripples in the middle distance. The foreground includes outboard hardware from a rover (a turret/arm and instrument housing visible at the left edge of several frames), and faint wheel or traverse tracks are visible farther back across the plain. Rock surfaces show thin layering, erosion-resistant edges, and scattered small rounded clasts or pebbles. No burned-in text or data readouts are present on screen; the scene is a photographic/visual record of in-situ sedimentary structures on the planetary surface. This was especially surprising since the area we're in probably formed at a time when Mars was becoming more dry. Wide-angle, color images of a reddish, rocky slope on Mars showing layered bedrock and patches of wind-blown, rippled sand. Multiple, parallel rover wheel tracks with a distinct tread pattern cross the sandy patches; part of the rover deck/wheel area is visible at the lower left. A text annotation (MARKER BAND, CURIOSITY ROVER TRACKS) with arrows points to a linear band of repetitively spaced, flat rock slabs on the slope. An inset close-up box shows the same flat, thin-bedded rock fragments with regular spacing and surface lamination/striations, highlighting the repetitive pattern referenced in the narration. A wide-angle color image of a Martian surface and nearby outcrop. The foreground shows reddish-brown regolith with scattered angular rocks, small sand drifts, and multiple parallel rover wheel tracks crossing the scene. Along the midground is a line of flat, tilted rock slabs with thin, closely spaced bedding visible on their upper surfaces. A white-outlined inset (rounded rectangle) is overlaid near the center of the frame and contains a magnified close-up photograph of broken rock fragments: triangular/leaf-shaped slabs showing very regular, thin, parallel lamination and fractures with sand filling the gaps. A white arrow connects the inset to the location on the ground where the close-up was taken. In the lower-left corner a small portion of the rover deck or hardware is visible. The background shows a higher layered outcrop or cliff face with additional tilted beds and scattered blocks. No burned-in captions or mission clocks are present on screen.",
+      "start": 118.65,
+      "end": 164.41,
+      "score": 0.6835,
+      "index": "scene_semantic",
+      "query": "Rover close\u2011ups of layered sedimentary rocks, mudstones, rounded pebbles and 'blueberry' spherules in situ",
+      "text": "Wide, low-angle surface view of a reddish, sandy landscape with layered rock outcrops and small mesa-like hills across the midground and horizon. Foreground and slopes are covered with loose cobbles and angular, platey rocks; some rocks show thin bedding/lamination. Fine-grained ripples and apparent rover wheel tracks are visible in the sand across the scene, providing scale. Part of the rover hardware (a wheel hub / suspension or arm component and a cylindrical instrument tower) appears in the lower right and lower center of several frames, confirming a vehicle-mounted camera perspective. The sky is pale and hazy; no on-screen text or charts appear. The narrator\u2019s line about periodic dust storms is audible but no mission name or data overlays are visible in the frames. Wide-angle rover surface images showing a dusty, reddish-brown landscape of layered hills and cliffs. Foreground is a flat, pebble-strewn plain with small rocks and a textured, cracked surface. Mid- and background show stepped sedimentary benches and horizontal strata, with a darker cap rock or lag deposit near the crests, small talus and scattered boulders at slope bases, and rounded mound-like outcrops. No spacecraft hardware is visible in the frames; the speaker references the Curiosity rover, but only the Martian terrain and rock layering are shown. Wide, ground-level view of a dry, rocky valley with layered sedimentary cliffs on both sides and a broad, flat plain extending to distant hills. Foreground shows a gently sloping trough strewn with small cobbles and patches of sand; midground has darker, rippled dune-like deposits and low mounds. Cliff faces display bedding and small talus blocks; sky is pale pink. No spacecraft hardware or instruments are visible in-frame; the transcript (spoken) refers to Curiosity heading toward this scene, implying rover-related surface imaging. we can see debris in a valley called Geddes Vallis. This was washed down here by wet landslides very late in Mount Sharp's history. This landslide",
       "era_start": 2022,
       "era_axis": "video",
       "era_basis": "video_context",
@@ -245,88 +256,40 @@
       "celestial_body": "mars",
       "event_type": "surface_ops",
       "body_axis": "scene",
-      "spoken": "We've climbed through many lake deposits during our mission, but have never seen wave ripples this clearly. This was especially surprising since the area we're in probably formed at a time when Mars was becoming more dry. Just above the rippled layer is another intriguing clue. These rocks have a very repetitive pattern in their spacing and thickness. We see lots of layers on Mars, but they're rarely this regular. We're not sure what caused this rhythmic pattern. Weather or climate cycles like dust storms happening at periodic intervals are possible explanations.",
+      "spoken": "Weather or climate cycles like dust storms happening at periodic intervals are possible explanations. Look at these gorgeous layered hills and cliffs that Curiosity is headed toward. If this was on Earth, we'd probably make it a national park. In the distance here, we can see debris in a valley called Geddes Vallis. This was washed down here by wet landslides very late in Mount Sharp's history. This landslide debris is probably the most recent evidence of water that we'll ever see.",
       "clip_axis": "sentence",
-      "cells": 4
+      "cells": 4,
+      "mission_axis": "scene"
+    },
+    {
+      "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+      "video_id": "m-z-019f980d-f764-7911-9952-73f7238c777d",
+      "start": 45.22,
+      "end": 91.67,
+      "score": 0.7071,
+      "index": "scene_semantic",
+      "query": "Orbiter images of branching valley networks, outflow channels and delta deposits on the Martian surface",
+      "text": "Close-up color images of a boulder-strewn Martian slope. The foreground and midground are covered in fine reddish-brown sand, small pebbles, and numerous rounded to sub-angular dark rocks that appear basaltic. A single, much lighter-colored, speckled rock sits near center frame and visually contrasts with the surrounding darker boulders. Small sand ripples and shadowed hollows are visible around stones; a low ridge or crater rim forms the distant horizon. One frame shows the front view of a rover mast/instrument head: a white rectangular housing with a large circular aperture, two square camera windows, visible cables and a turret/actuator beneath \u2014 indicating the images were taken by a rover-mounted camera. Burned-in caption at lower left reads 'MOUNT WASHBURN' with the date 'MAY 27, 2024'. Wide-angle color images of a rocky, sandy planetary surface. Foreground contains numerous angular and rounded cobbles and boulders resting on windblown sand and small ripple fields. Midground shows scattered small rocks across a flat plain; background has low, smooth hills or mound-like volcano/mesa forms with gentle slopes. Two frames highlight a conspicuously lighter-toned, angular block sitting among darker, rounded basaltic-looking cobbles. Rock textures range from smooth, rounded surfaces to fractured, blocky faces; some rocks show a darker bluish tint (color-enhanced) while the sky has the typical reddish/orange hue. No spacecraft hardware or instruments are visible in these frames; imagery appears to be surface photographs or stitched/processed rover/lander photos used to illustrate rock types and geologic context. Several frames show high\u2011resolution surface imagery of a rocky Martian plain. Foreground close\u2011ups show a sand\u2011covered surface littered with rounded dark boulders and cobbles and one conspicuously lighter, angular boulder sitting on the regolith. Small ripples of sand and scattered pebble deposits are visible between the larger rocks. Wider panorama frames reveal a broad, sloping crater rim in the distance with layered, dune\u2011shaped ridges and gentle hills. One frame includes a burned\u2011in caption reading \u201cCRATER RIM\u201d centered at the bottom. A separate frame displays a planimetric map or overhead image with a turquoise route line and place names (Bright Angel, Cedar Ridge, Tuff Cliff, Mont Dauphin, Mount Washburn, Lees Ferry, Dunraven Pass, Overlook Mountain), indicating a traverse or mapping context. No spacecraft, lander hardware, or instrument booms are visible in the close\u2011up surface images. The scene alternates between a satellite-style map of a crater interior and a presenter speaking on camera. The map view shows a top-down, false-color or enhanced image of Martian terrain with dune- and ridge-like erosional patterns and a turquoise route traced across the crater floor. Circular waypoints (white and a teal current-location marker) and labels mark named stops: Bright Angel, Cedar Ridge, Lees Ferry, Tuff Cliff, Mont Dauphin, Dunraven Pass, Overlook Mountain. The route and pins look like a rover traverse plan or waypoint map. The on-camera shots show a woman standing in front of a roll-up door painted with a silhouette of a Mars rover; she is wearing a Mars 2020 / Perseverance mission T\u2011shirt that includes the text 'Jezero Crater, Mars - 18 Feb 2021'. The speaker appears to be giving a briefing about the planned stop at Bright Angel and the geological significance of rocks there.",
+      "era_start": 2024,
+      "era_axis": "scene",
+      "era_basis": "on_screen_text",
+      "mission": "Perseverance",
+      "title": "Perseverance Explores Ancient River Channel (Mars Report)",
+      "published_year": 2024,
+      "celestial_body": "mars",
+      "event_type": "surface_ops",
+      "body_axis": "scene",
+      "spoken": "Now that we're in the channel, we're seeing things we've never seen before, like this interesting boulder pile. Can you tell which rock is not like the others? We want to know what is this rock and where did it come from? Many of the boulders we see at the Martian surface represent ancient lava flows that have broken up and eroded over time. But a rock like this one might have come from deeper in the crust and could be amongst the oldest rocks we've seen or studied on Mars. It could also have come from the ancient rocks exposed nearby in the crater rim, which we're about to explore. Before we get to the rim, though, we're making a stop at a site called Bright Angel. The rocks there could contain sediments deposited by one of the last bursts of water into the crater and could be amongst the youngest rocks we've looked at yet.",
+      "clip_axis": "sentence",
+      "cells": 4,
+      "mission_axis": "scene"
     }
   ],
   "rejected": {
     "below_threshold": [
       {
         "reason": "below_threshold",
-        "score": 0.2757,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9835-4023-7c92-bd90-42d666edcb67",
-        "start": 20.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2769,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9a88-f246-73e3-a04e-8ff112a4b5b9",
-        "start": 320.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2731,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
-        "start": 20.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2648,
-        "threshold": 0.28,
-        "video_id": "m-z-019f980d-f764-7911-9952-73f7238c777d",
-        "start": 110.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2717,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9834-ef78-7510-b1a2-e70256b967e1",
-        "start": 20.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.257,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9834-ef78-7510-b1a2-e70256b967e1",
-        "start": 10.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2712,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9833-6fec-7471-bf83-84c2a9ef5ff6",
-        "start": 10.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.253,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9832-5e84-76d2-b2d2-c345db9111c0",
-        "start": 30.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.253,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9832-5e84-76d2-b2d2-c345db9111c0",
-        "start": 50.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2604,
+        "score": 0.2674,
         "threshold": 0.28,
         "video_id": "m-z-019f9834-99f6-7a51-8831-fc886484ce6e",
         "start": 60.0,
@@ -334,39 +297,7 @@
       },
       {
         "reason": "below_threshold",
-        "score": 0.2619,
-        "threshold": 0.28,
-        "video_id": "m-z-019f980d-93a8-7e02-8499-c37750f6873e",
-        "start": 200.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2699,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
-        "start": 0.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2674,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
-        "start": 10.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2575,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
-        "start": 190.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2754,
+        "score": 0.2607,
         "threshold": 0.28,
         "video_id": "m-z-019f9834-ef78-7510-b1a2-e70256b967e1",
         "start": 100.0,
@@ -374,18 +305,50 @@
       },
       {
         "reason": "below_threshold",
-        "score": 0.2677,
+        "score": 0.2794,
         "threshold": 0.28,
-        "video_id": "m-z-019f9834-ef78-7510-b1a2-e70256b967e1",
-        "start": 90.0,
+        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
+        "start": 10.0,
         "index": "ocr"
       },
       {
         "reason": "below_threshold",
-        "score": 0.2518,
+        "score": 0.2793,
         "threshold": 0.28,
-        "video_id": "m-z-019f9a88-f246-73e3-a04e-8ff112a4b5b9",
-        "start": 320.0,
+        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
+        "start": 340.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2762,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
+        "start": 330.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2663,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
+        "start": 190.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2561,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
+        "start": 210.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2558,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
+        "start": 20.0,
         "index": "ocr"
       }
     ],
@@ -395,145 +358,165 @@
         "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
         "start": 80.0,
         "score": 0.7338,
-        "cap": 2
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
         "start": 130.0,
         "score": 0.7066,
-        "cap": 2
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
         "start": 170.0,
         "score": 0.6922,
-        "cap": 2
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+        "start": 40.0,
+        "score": 0.6786,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
         "start": 40.0,
         "score": 0.6744,
-        "cap": 2
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
-        "start": 120.0,
-        "score": 0.6229,
-        "cap": 2
+        "start": 80.0,
+        "score": 0.6718,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
-        "start": 40.0,
-        "score": 0.6094,
-        "cap": 2
+        "start": 90.0,
+        "score": 0.6679,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+        "start": 160.0,
+        "score": 0.6584,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
         "start": 0.0,
-        "score": 0.607,
-        "cap": 2
+        "score": 0.652,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+        "start": 10.0,
+        "score": 0.6496,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
+        "start": 70.0,
+        "score": 0.6216,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+        "start": 70.0,
+        "score": 0.6207,
+        "cap": 2,
+        "celestial_body": "moon"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_062904_mars",
         "start": 10.0,
-        "score": 0.6041,
-        "cap": 2
+        "score": 0.6195,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+        "start": 370.0,
+        "score": 0.618,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
+        "start": 110.0,
+        "score": 0.6012,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "GSFC_20180608_Tonga_m12932_Volcanoes",
         "start": 30.0,
-        "score": 0.6007,
-        "cap": 2
+        "score": 0.5905,
+        "cap": 2,
+        "celestial_body": "earth"
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "GSFC_20150216_Arctic_m11779_Swath",
-        "start": 110.0,
-        "score": 0.5988,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "ksc_020105_why_jpl",
-        "start": 220.0,
-        "score": 0.5901,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
-        "start": 40.0,
-        "score": 0.5875,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "ksc_012805_touchdown",
-        "start": 40.0,
-        "score": 0.5843,
-        "cap": 2
+        "nasa_id": "ksc_042104_meteor",
+        "start": 10.0,
+        "score": 0.5888,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "ksc_062904_mars",
         "start": 50.0,
-        "score": 0.5776,
-        "cap": 2
+        "score": 0.5793,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "GSFC_20150216_Arctic_m11779_Swath",
-        "start": 30.0,
-        "score": 0.5765,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "GSFC_20130603_LEND_m11292_Water",
-        "start": 60.0,
-        "score": 0.5762,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "ksc_102504_marsdrill",
-        "start": 30.0,
-        "score": 0.5726,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
-        "start": 80.0,
-        "score": 0.5676,
-        "cap": 2
+        "nasa_id": "ksc_012805_mars_recon",
+        "start": 10.0,
+        "score": 0.571,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
-        "start": 400.0,
-        "score": 0.5668,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
-        "start": 0.0,
-        "score": 0.5587,
-        "cap": 2
+        "start": 410.0,
+        "score": 0.5699,
+        "cap": 2,
+        "celestial_body": "mars"
       }
     ],
     "counts": {
-      "below_threshold": 17,
-      "diversity": 69
+      "below_threshold": 8,
+      "diversity": 61
     }
   },
   "timeline": [
@@ -580,45 +563,46 @@
     {
       "n": 2,
       "kind": "decompose",
-      "summary": "4 sub-questions, 7 spoken phrasings, 4 visual",
-      "at": 12.62,
+      "summary": "4 sub-questions, 8 spoken phrasings, 3 visual",
+      "at": 18.02,
       "sub_questions": [
-        "What early observations (telescopes and first flybys) suggested water or ice on Mars?",
-        "What geological and mineralogical evidence showed that liquid water once flowed on Mars?",
-        "Where and in what form does water exist on modern Mars (ice, permafrost, transient flows)?",
-        "How did discoveries about water change assessments of past habitability and the search for organics?"
+        "How did early telescopic and flyby observations shape hypotheses about water on Mars?",
+        "What orbital remote\u2011sensing evidence established that Mars once had flowing surface water?",
+        "What in\u2011situ rover and lander discoveries revealed past habitable watery environments and present near\u2011surface ice?",
+        "How did later radar and seasonal observations change ideas about present\u2011day water (subsurface ice, transient flows)?"
       ],
       "phrasings": [
         "Trace how our understanding of water on Mars changed over time.",
-        "Telescopic observations and early Mariner images showed bright polar caps and seasonal changes consistent with water frost and ice.",
-        "Orbital imagery revealed valley networks and outflow channels carved by ancient flowing water.",
-        "The twin rovers Spirit and Opportunity explored sedimentary outcrops and found mineralogical signs of past aqueous environments.",
-        "Mars Odyssey neutron measurements and the Phoenix lander confirmed near\u2011surface water ice at high latitudes.",
-        "Mars Reconnaissance Orbiter discovered hydrated minerals and layered deposits consistent with ancient lakes and groundwater alteration.",
-        "Curiosity in Gale Crater identified sedimentary rocks and organic-bearing compounds indicating a once habitable, neutral-pH lake environment."
+        "Early telescopic and Mariner observations suggested seasonal caps and the possibility of water on Mars",
+        "Viking and early orbiters painted Mars as a cold, dry planet with no standing liquid water",
+        "Orbiting spacecraft mapped valley networks and outflow channels carved by ancient flowing water",
+        "The twin rovers Spirit and Opportunity found hematite spherules and sulfates indicating past liquid water",
+        "Landers and orbiters detected shallow ground ice and buried ice layers beneath the Martian surface",
+        "Curiosity documented lakebed mudstones and clay minerals, evidence of a once habitable watery environment",
+        "Later radar and spectrometer data and recurring slope lineae studies revised ideas about present\u2011day subsurface ice and transient liquid activity"
       ],
       "visual_phrasings": [
-        "Wide orbital views of branching valley networks, outflow channels and layered basin deposits",
-        "Rover close-ups of cross\u2011bedded sedimentary layers, concretions and sulfate/hematite veins",
-        "Phoenix scoop exposing bright subsurface ice and soil interaction scenes",
-        "HiRISE images showing recurring slope lineae, polygonal permafrost patterns and exposed ice cliffs"
+        "Orbiter images of branching valley networks, outflow channels and delta deposits on the Martian surface",
+        "Rover close\u2011ups of layered sedimentary rocks, mudstones, rounded pebbles and 'blueberry' spherules in situ",
+        "Radargrams and subsurface cross sections showing bright reflections from buried ice and maps of hydrogen abundance"
       ],
       "needs_chronology": true,
       "answerable": true,
-      "rationale": "I split the history into four aspects\u2014early remote signs, geomorphic/mineral evidence of past liquid water, present reservoirs and transient phenomena, and implications for habitability\u2014to match how NASA narration and visuals track changing understanding over time."
+      "target_body": null,
+      "rationale": "I split the topic into distinct historical/remote\u2011sensing/in\u2011situ/subsurface aspects and produced narration\u2011style search strings plus visual descriptors to retrieve footage that traces the changing evidence for water on Mars over time."
     },
     {
       "n": 3,
       "kind": "retrieve",
-      "summary": "167 distinct moments from 38 clips",
-      "at": 31.39,
+      "summary": "153 distinct moments from 32 clips",
+      "at": 36.75,
       "queries_run": 13,
       "hits_by_index": {
-        "transcript": 210,
-        "scene_semantic": 120,
-        "ocr": 43
+        "transcript": 240,
+        "scene_semantic": 90,
+        "ocr": 52
       },
-      "rejected_below_threshold": 17,
+      "rejected_below_threshold": 8,
       "thresholds": {
         "transcript": 0.35,
         "scene_semantic": 0.35,
@@ -628,26 +612,26 @@
     {
       "n": 4,
       "kind": "passages",
-      "summary": "167 cells joined into 77 passages, 44 of them continuous runs",
-      "at": 31.39,
-      "cells_merged": 134,
+      "summary": "153 cells joined into 69 passages, 43 of them continuous runs",
+      "at": 36.75,
+      "cells_merged": 127,
       "longest_seconds": 40
     },
     {
       "n": 5,
       "kind": "diversify",
-      "summary": "kept 8 across 8 clips, dropped 69",
-      "at": 31.39,
+      "summary": "kept 8 across 8 clips, dropped 61",
+      "at": 36.75,
       "per_video_cap": 2,
       "kept_per_clip": {
         "GSFC_20150305_Mars_m11796_Ocean": 1,
         "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel": 1,
+        "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report": 1,
+        "ksc_122104_spirit_anniv": 1,
         "GSFC_20180608_Tonga_m12932_Volcanoes": 1,
         "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past": 1,
-        "ksc_042104_meteor": 1,
-        "ksc_062904_mars": 1,
-        "ksc_122104_spirit_anniv": 1,
-        "GSFC_20150216_Arctic_m11779_Swath": 1
+        "ksc_012805_mars_recon": 1,
+        "JPL-20230607-MARSf-0001-Mars Report Whats in A Name": 1
       },
       "dropped": [
         {
@@ -655,106 +639,118 @@
           "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
           "start": 80.0,
           "score": 0.7338,
-          "cap": 2
+          "cap": 2,
+          "celestial_body": "mars"
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
           "start": 130.0,
           "score": 0.7066,
-          "cap": 2
+          "cap": 2,
+          "celestial_body": "mars"
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
           "start": 170.0,
           "score": 0.6922,
-          "cap": 2
+          "cap": 2,
+          "celestial_body": "mars"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 40.0,
+          "score": 0.6786,
+          "cap": 2,
+          "celestial_body": "mars"
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
           "start": 40.0,
           "score": 0.6744,
-          "cap": 2
+          "cap": 2,
+          "celestial_body": "mars"
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
-          "start": 120.0,
-          "score": 0.6229,
-          "cap": 2
+          "start": 80.0,
+          "score": 0.6718,
+          "cap": 2,
+          "celestial_body": "mars"
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
-          "start": 40.0,
-          "score": 0.6094,
-          "cap": 2
+          "start": 90.0,
+          "score": 0.6679,
+          "cap": 2,
+          "celestial_body": "mars"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 160.0,
+          "score": 0.6584,
+          "cap": 2,
+          "celestial_body": "mars"
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
           "start": 0.0,
-          "score": 0.607,
-          "cap": 2
+          "score": 0.652,
+          "cap": 2,
+          "celestial_body": "mars"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 10.0,
+          "score": 0.6496,
+          "cap": 2,
+          "celestial_body": "mars"
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
-          "start": 10.0,
-          "score": 0.6041,
-          "cap": 2
+          "start": 70.0,
+          "score": 0.6216,
+          "cap": 2,
+          "celestial_body": "mars"
         },
         {
           "reason": "evidence_limit",
-          "nasa_id": "GSFC_20180608_Tonga_m12932_Volcanoes",
-          "start": 30.0,
-          "score": 0.6007,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "GSFC_20150216_Arctic_m11779_Swath",
-          "start": 110.0,
-          "score": 0.5988,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "ksc_020105_why_jpl",
-          "start": 220.0,
-          "score": 0.5901,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
-          "start": 40.0,
-          "score": 0.5875,
-          "cap": 2
+          "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+          "start": 70.0,
+          "score": 0.6207,
+          "cap": 2,
+          "celestial_body": "moon"
         }
       ]
     },
     {
       "n": 6,
       "kind": "window",
-      "summary": "7 of 8 cut to sentence bounds, 1 left on the grid",
-      "at": 33.29,
+      "summary": "8 of 8 cut to sentence bounds, 0 left on the grid",
+      "at": 56.0,
       "clip_axis_counts": {
-        "sentence": 7,
-        "scene": 1
+        "sentence": 8
       },
-      "widened": 3
+      "widened": 6
     },
     {
       "n": 7,
       "kind": "order",
-      "summary": "ordered by era 1965-2022",
-      "at": 33.29,
+      "summary": "ordered by era 1965-2024",
+      "at": 56.0,
       "era_axis_counts": {
-        "video": 4,
+        "video": 3,
         "published": 3,
+        "mission": 1,
         "scene": 1
       },
       "note": "era_axis 'scene' is stated in the footage; 'video' is inferred from clip context; 'published' is the upload date and carries no historical claim"
@@ -763,7 +759,7 @@
       "n": 8,
       "kind": "aggregate",
       "summary": "archive spans 8 decades",
-      "at": 33.86,
+      "at": 57.26,
       "histogram": [
         {
           "decade": 1950,
@@ -802,15 +798,26 @@
     {
       "n": 9,
       "kind": "synthesize",
-      "summary": "142 words, 7 citations",
-      "at": 58.14,
-      "chronology_points": 4,
-      "caveats": "The evidence does not establish precise amounts of water, exact timings, or direct proof of global oceans or habitability. Several era labels come from the clips' metadata (marked as 'video', 'published', or 'scene') and are reported here as given in the archive rather than independently verified; the clips are summary narrations and may condense underlying scientific details."
+      "summary": "201 words, 8 of 8 moments cited",
+      "at": 88.16,
+      "chronology_points": 8,
+      "caveats": "Some era dates are taken from the archive\u2019s video/published metadata (e.g., items labeled as video or published) and may reflect when footage or narration was made rather than the exact dates of discoveries. Clip [6] does not present evidence about water\u2014it shows naming practices for features on Mars. The archive clips summarize and interpret findings at different levels (reconnaissance, mineralogy, geomorphology) but do not, by themselves, provide original data or quantify global water volumes.",
+      "cited_moments": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "uncited_moments": []
     }
   ],
   "reel": {
-    "stream_url": "https://play.videodb.io/v1/2de1eb72-2bf4-479a-9b04-20fd0bbd0a44.m3u8",
-    "player_url": "https://player.videodb.io/watch?v=_Bb5vCEi3vQ",
+    "stream_url": "https://play.videodb.io/v1/a32b5ea5-6c1e-49c3-b0f9-f624c37947dc.m3u8",
+    "player_url": "https://player.videodb.io/watch?v=gQBKkvyovfY",
     "shots": [
       {
         "at": 0,
@@ -826,90 +833,90 @@
       },
       {
         "at": 19,
-        "duration": 36.0,
-        "evidence_index": 1,
-        "clamped": false,
-        "nasa_id": "ksc_042104_meteor",
-        "era_start": 2004,
-        "era_axis": "published",
-        "mission": "Opportunity",
-        "source_start": 6.76,
-        "caption": "[2]  2004 (published)  \u00b7  Opportunity  \u00b7  NASA ksc_042104_meteor"
-      },
-      {
-        "at": 55,
-        "duration": 48.0,
-        "evidence_index": 2,
-        "clamped": false,
-        "nasa_id": "ksc_062904_mars",
-        "era_start": 2004,
-        "era_axis": "published",
-        "mission": "Opportunity",
-        "source_start": 8.68,
-        "caption": "[3]  2004 (published)  \u00b7  Opportunity  \u00b7  NASA ksc_062904_mars"
-      },
-      {
-        "at": 103,
         "duration": 45.0,
-        "evidence_index": 3,
+        "evidence_index": 1,
         "clamped": false,
         "nasa_id": "ksc_122104_spirit_anniv",
         "era_start": 2004,
         "era_axis": "video",
         "mission": "Spirit",
         "source_start": 46.29,
-        "caption": "[4]  2004 (from clip context)  \u00b7  Spirit  \u00b7  NASA ksc_122104_spirit_anniv"
+        "caption": "[2]  2004 (from clip context)  \u00b7  Spirit  \u00b7  NASA ksc_122104_spirit_anniv"
       },
       {
-        "at": 148,
-        "duration": 40.0,
-        "evidence_index": 4,
+        "at": 64,
+        "duration": 19.0,
+        "evidence_index": 2,
         "clamped": false,
-        "nasa_id": "GSFC_20150216_Arctic_m11779_Swath",
-        "era_start": 2014,
-        "era_axis": "video",
-        "mission": "Landsat 8",
-        "source_start": 70.0,
-        "caption": "[5]  2014 (from clip context)  \u00b7  Landsat 8  \u00b7  NASA GSFC_20150216_Arctic_m11779_Swath"
+        "nasa_id": "ksc_012805_mars_recon",
+        "era_start": 2005,
+        "era_axis": "published",
+        "mission": "Spirit",
+        "source_start": 49.06,
+        "caption": "[3]  2005 (published)  \u00b7  Spirit  \u00b7  NASA ksc_012805_mars_recon"
       },
       {
-        "at": 188,
+        "at": 83,
         "duration": 37.0,
-        "evidence_index": 5,
+        "evidence_index": 3,
         "clamped": false,
         "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
         "era_start": 2015,
         "era_axis": "published",
         "mission": "Curiosity",
         "source_start": 3.16,
-        "caption": "[6]  2015 (published)  \u00b7  Curiosity  \u00b7  NASA GSFC_20150305_Mars_m11796_Ocean"
+        "caption": "[4]  2015 (published)  \u00b7  Curiosity  \u00b7  NASA GSFC_20150305_Mars_m11796_Ocean"
       },
       {
-        "at": 225,
-        "duration": 33.0,
-        "evidence_index": 6,
+        "at": 120,
+        "duration": 26.0,
+        "evidence_index": 4,
         "clamped": false,
         "nasa_id": "GSFC_20180608_Tonga_m12932_Volcanoes",
-        "era_start": 2015,
-        "era_axis": "scene",
+        "era_start": 2018,
+        "era_axis": "published",
         "mission": "unknown",
-        "source_start": 78.38,
-        "caption": "[7]  2015  \u00b7  unknown  \u00b7  NASA GSFC_20180608_Tonga_m12932_Volcanoes"
+        "source_start": 98.84,
+        "caption": "[5]  2018 (published)  \u00b7  unknown  \u00b7  NASA GSFC_20180608_Tonga_m12932_Volcanoes"
       },
       {
-        "at": 258,
-        "duration": 45.0,
-        "evidence_index": 7,
+        "at": 146,
+        "duration": 26.0,
+        "evidence_index": 5,
+        "clamped": false,
+        "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
+        "era_start": 2020,
+        "era_axis": "mission",
+        "mission": "Perseverance",
+        "source_start": 148.33,
+        "caption": "[6]  2020 (from mission dates)  \u00b7  Perseverance  \u00b7  NASA JPL-20230607-MARSf-0001-Mars Report Whats in"
+      },
+      {
+        "at": 172,
+        "duration": 46.0,
+        "evidence_index": 6,
         "clamped": false,
         "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
         "era_start": 2022,
         "era_axis": "video",
         "mission": "Curiosity",
-        "source_start": 80.34,
-        "caption": "[8]  2022 (from clip context)  \u00b7  Curiosity  \u00b7  NASA JPL-20230208-MSLf-0001-Curiosity_Finds_New_C"
+        "source_start": 118.65,
+        "caption": "[7]  2022 (from clip context)  \u00b7  Curiosity  \u00b7  NASA JPL-20230208-MSLf-0001-Curiosity_Finds_New_C"
+      },
+      {
+        "at": 218,
+        "duration": 46.0,
+        "evidence_index": 7,
+        "clamped": false,
+        "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+        "era_start": 2024,
+        "era_axis": "scene",
+        "mission": "Perseverance",
+        "source_start": 45.22,
+        "caption": "[8]  2024  \u00b7  Perseverance  \u00b7  NASA JPL-20240710-Perseverance_Rover_Spots_an_Unu"
       }
     ],
     "dropped": [],
-    "total_seconds": 303.0
+    "total_seconds": 264.0
   }
 }

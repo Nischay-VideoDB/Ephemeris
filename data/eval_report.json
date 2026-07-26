@@ -1,9 +1,9 @@
 {
   "summary": {
     "cases": 36,
-    "passed": 36,
+    "passed": 35,
     "mean_precision_ranked": 0.1,
-    "mean_recall": 0.941,
+    "mean_recall": 0.909,
     "by_kind": {
       "spoken_only": {
         "n": 12,
@@ -33,7 +33,7 @@
         "n": 8,
         "precision_n": 7,
         "precision": 0.129,
-        "recall": 0.938
+        "recall": 0.812
       },
       "vocabulary_gap": {
         "n": 1,
@@ -1810,71 +1810,79 @@
       "query": null,
       "retrieved_count": 100,
       "expected_count": 1,
-      "hit_count": 50,
-      "videos_covered": 7,
+      "hit_count": 0,
+      "videos_covered": 3,
       "precision": null,
-      "recall": 1.0,
-      "top_rank_hit": 12,
+      "recall": 0.0,
+      "top_rank_hit": null,
       "retrieved": [
         {
-          "nasa_id": "ksc_080805_mro_smrekar9",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
           "start": 0.0,
           "end": 10.0,
           "score": 0.0,
           "text": ""
         },
         {
-          "nasa_id": "ksc_080805_mro_smrekar9",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
           "start": 10.0,
           "end": 20.0,
           "score": 0.0,
           "text": ""
         },
         {
-          "nasa_id": "ksc_080805_mro_smrekar9",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
           "start": 20.0,
           "end": 30.0,
           "score": 0.0,
           "text": ""
         },
         {
-          "nasa_id": "ksc_080805_mro_smrekar9",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
           "start": 30.0,
           "end": 40.0,
           "score": 0.0,
           "text": ""
         },
         {
-          "nasa_id": "ksc_080805_mro_smrekar9",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
           "start": 40.0,
           "end": 50.0,
           "score": 0.0,
           "text": ""
         },
         {
-          "nasa_id": "ksc_080805_mro_smrekar9",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
           "start": 50.0,
           "end": 60.0,
           "score": 0.0,
           "text": ""
         },
         {
-          "nasa_id": "ksc_080805_mro_smrekar9",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
           "start": 60.0,
           "end": 70.0,
           "score": 0.0,
           "text": ""
         },
         {
-          "nasa_id": "ksc_080805_mro_smrekar9",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
           "start": 70.0,
           "end": 80.0,
           "score": 0.0,
           "text": ""
         }
       ],
-      "missed": [],
-      "passed": true
+      "missed": [
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "window": [
+            0.0,
+            100000.0
+          ]
+        }
+      ],
+      "passed": false
     },
     {
       "id": "aggregate-bodies",

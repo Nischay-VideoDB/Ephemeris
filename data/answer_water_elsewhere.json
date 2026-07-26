@@ -2,83 +2,107 @@
   "question": "Where else in the solar system has NASA looked for water and ice, and what did each mission actually find?",
   "plan": {
     "sub_questions": [
-      "Which solar system bodies (Moon, Mars, Mercury, icy moons, asteroids, comets, dwarf planets) has NASA investigated for water or ice?",
-      "Which specific NASA missions or instruments targeted each body?",
-      "What form of water was detected by each mission (surface ice, subsurface ice, hydrated minerals, vapor plumes, bound water) and what did the mission actually report?",
-      "How do the findings fit into a timeline of discovery (which missions came earlier vs later and how did confidence change)?"
+      "Which solar system bodies has NASA explored specifically to look for water or ice (Moon, Mars, Mercury, Europa, Enceladus, Ceres, comets/asteroids, etc.)",
+      "Which NASA missions (orbiter, lander, rover, impactor, flyby) made those searches and by what instruments or techniques (spectroscopy, neutron/gamma ray, radar, imaging, in situ sampling, impact plume analysis)?",
+      "What specific evidence or measurement did each mission report (e.g., detected water vapor, subsurface ice, hydrated minerals, icy plumes, water in impact plume, hydrogen signatures) and how definitive was it over time?"
     ],
     "phrasings": [
       "Where else in the solar system has NASA looked for water and ice, and what did each mission actually find?",
-      "The Phoenix lander confirmed the presence of water ice in the Martian regolith at its polar site.",
-      "NASA's twin rovers detected hydrated minerals and rock evidence for ancient water flow on Mars.",
-      "The LCROSS impactor excavated a permanently shadowed lunar crater and detected signatures of water and hydroxyl.",
-      "MESSENGER observed bright polar deposits on Mercury consistent with water ice in permanently shadowed craters.",
-      "Cassini observed water vapor plumes and icy grains erupting from Enceladus' south polar fractures.",
-      "Dawn mapped Ceres and identified water\u2011ice and widespread hydrated minerals on the dwarf planet."
+      "Phoenix lander found water\u2011ice in the Martian regolith at its arctic landing site",
+      "Mars Odyssey detected hydrogen consistent with subsurface water\u2011ice across the Martian poles",
+      "the twin rovers Spirit and Opportunity investigated rocks altered by water and found sedimentary structures and hematite spherules",
+      "Cassini observed jets of water\u2011ice and detected a subsurface ocean at Enceladus",
+      "Galileo provided evidence for a subsurface ocean beneath Europa's icy crust",
+      "LCROSS impacted a permanently shadowed lunar crater and the plume analysis detected water",
+      "MESSENGER measurements indicate hydrogen and likely water\u2011ice in Mercury's polar cold traps"
     ],
     "visual_phrasings": [
-      "On\u2011screen: Phoenix lander trench images showing a bright patch that sublimates when exposed, and the scoop arm examining icy soil.",
-      "On\u2011screen: LCROSS impact sequence and the bright ejecta plume rising from a shadowed lunar crater, followed by spectral overlays indicating water signatures.",
-      "On\u2011screen: Cassini flyby footage of Enceladus with dramatic south\u2011pole jets and particle streams, and MESSENGER images of Mercury's dark polar craters with bright deposits."
+      "close\u2011up of Enceladus south\u2011pole 'tiger stripe' vents emitting bright icy plumes against a dark background",
+      "LCROSS impact plume rising from a permanently shadowed lunar crater, bright ejecta cloud visible",
+      "false\u2011color global map of Mars showing high hydrogen/ice abundance at polar regions",
+      "orbital images of Europa's fractured icy surface with smooth chaos terrain and brighter ice patches"
     ],
     "needs_chronology": true,
     "answerable": true,
-    "rationale": "I split the task into which bodies were searched, which missions did the searching, what physical form of water each mission reported, and how discoveries progressed over time to enable targeted archive retrieval."
+    "target_body": null,
+    "rationale": "I broke the question into which bodies were searched, which missions and methods did the searching, and what each mission actually measured so search phrases map researcher wording to NASA narration and visuals."
   },
   "answer": {
-    "answer": "NASA has searched for water and ice on the Moon by using the Lunar Reconnaissance Orbiter's LEND neutron detector to look for hydrogen in permanently shadowed polar soil as a proxy for frozen water [1]. On Mars, reconnaissance beginning in the Mariner era and continuing with later studies has revealed large subsurface glaciers and produced infrared maps showing past oceans and atmospheric water loss [2][7]. The Cassini\u2013Huygens mission explored Saturn, its rings and small moons and delivered the Huygens probe to Titan, where the lander returned images of the surface as part of investigations into icy worlds and possible reservoirs of volatile materials [3][4][5][6]. Together these clips show NASA has applied orbiters (neutron detectors), ground\u2011based infrared telescopes, and landers to search for water across the Moon, Mars, and Titan, though the clips do not quantify amounts or prove liquid water in each locale [1][7][5].",
+    "answer": "Across these archived clips NASA has searched for water and ice on Mars, the Moon, and icy moons such as Europa, and the combined footage shows missions from early flybys and orbiters to landers and space telescopes that have found both signatures of past liquid water and present ice or vapor: subsurface glaciers and fresh water on Mars, mineral signs of past aqueous environments, hydrogen/ice at the Moon\u2019s south pole, and water\u2011vapor plumes at Europa [1][2][3][4][6][5][8]. On Mars the archive traces the progression from early reconnaissance (Mariner 4) to orbiters and rovers: Mariner 4 began Mars reconnaissance and later work documents areas with huge subsurface glaciers and fresh water [1], the Mars Reconnaissance Orbiter is described as probing beneath the surface [2], and the Spirit and Opportunity rovers found minerals such as hematite and volcanic materials that point to past water activity [3][4]. Curiosity\u2011era analysis shown in the clips reports deuterium measurements indicating Mars has lost most of its ancient ocean \u2014 about 13% of that ocean remains today with much stored as polar ice or lost to space \u2014 and Earth analog studies are used to interpret how persistent water may have affected Martian volcanism and landforms [6][7]. Lunar data from LRO's LEND instrument are shown to pinpoint hydrogen at the Moon\u2019s south pole, interpreted as water frozen within the soil and building the case for lunar polar ice [5]. Hubble observations in the archive reveal evidence for water\u2011vapor plumes erupting from Europa\u2019s surface, indicating active or recent exchange of water from that moon into space [8].",
     "citations": [
       1,
       2,
-      7,
       3,
       4,
       5,
-      6
+      6,
+      7,
+      8
     ],
     "chronology": [
       {
         "citations": [
+          1
+        ],
+        "claim": "Early Mars reconnaissance began (Mariner 4 era) and later missions are described as finding subsurface glaciers and fresh water on Mars.",
+        "era": 1965
+      },
+      {
+        "citations": [
           2
         ],
-        "claim": "The archive shows early Mars reconnaissance (Mariner era) began the long campaign of exploration that later revealed subsurface glaciers and informed studies of ancient oceans on Mars [2].",
-        "era": 1965
+        "claim": "By the 2003 era NASA was planning/operating orbiters (Mars Reconnaissance Orbiter) to image and probe below Mars\u2019 surface.",
+        "era": 2003
+      },
+      {
+        "citations": [
+          3,
+          4
+        ],
+        "claim": "Rover operations (Spirit and Opportunity) in the 2004 era documented minerals (hematite, pyroxene) and layered rocks that point to past aqueous environments and volcanic/impact processes.",
+        "era": 2004
+      },
+      {
+        "citations": [
+          5
+        ],
+        "claim": "LRO/LEND measurements in the 2011 era pinpointed hydrogen at the Moon\u2019s south pole, interpreted as frozen water in the regolith.",
+        "era": 2011
+      },
+      {
+        "citations": [
+          6
+        ],
+        "claim": "Curiosity\u2011era findings in 2015 reported deuterium enrichment and estimates that much of Mars\u2019 ancient ocean has been lost, with only ~13% remaining today.",
+        "era": 2015
+      },
+      {
+        "citations": [
+          7
+        ],
+        "claim": "By 2018 scientists were using Earth analogs to interpret how persistent surface water could have affected Martian volcanoes and landform evolution.",
+        "era": 2018
+      },
+      {
+        "citations": [
+          8
+        ],
+        "claim": "Hubble observations reported around 2020 show evidence for water\u2011vapor plumes from Europa, implying active or recent water release.",
+        "era": 2020
       }
     ],
-    "caveats": "Some clip dates come from archive metadata labeled as video or published (for example items with era noted as 'video' or 'published') rather than direct mission logbooks; see [1] (era noted as video) and [7] (era noted as published). The LEND instrument searches for hydrogen as a proxy for water and so the clip does not by itself prove the quantity or state (ice vs. bound hydrogen) of lunar water [1]. The media reel and later studies link early missions to later discoveries but do not claim a single early mission directly measured large glaciers on Mars [2][7]."
+    "caveats": "Some clip-era labels come from the archive metadata (e.g. [1] marked as 'video' era 1965; [2] and [5] labeled 'scene'; [3],[4],[6],[7],[8] labeled 'published'), so the listed eras reflect that metadata rather than independent dating. Each clip is about the world it names; the archive does not let us infer, for example, lunar findings from Martian clips. Several clips emphasize mission planning or geology (e.g. a meteorite\u2011like rock in [3]) rather than a direct water detection, so the record is a mix of direct detections (ice/hydrogen, plumes) and geological/chemical evidence pointing to past water."
   },
   "evidence": [
     {
-      "nasa_id": "GSFC_20130603_LEND_m11292_Water",
-      "video_id": "m-z-019f9a74-4467-7a81-98d9-a385ae2f42bf",
-      "start": 9.32,
-      "end": 41.98,
-      "score": 0.6647,
-      "index": "transcript",
-      "query": "The LCROSS impactor excavated a permanently shadowed lunar crater and detected signatures of water and hydroxyl.",
-      "text": "A space-animation title sequence shows a small spacecraft flying in front of a starfield and a large grey, cratered Moon. The Moon is shown in different phases as the camera pushes in, with the letters \"LRO\" overlaid and then the full title \"Lunar Reconnaissance Orbiter\" appearing beneath. The final frame cuts to a dark, low-lit view of a cratered lunar surface or limb, with no instruments, charts, or data graphs visible. 1960s, scientists have suspected that frozen water could survive in permanently shadowed craters at the Moon's poles. Both hydrogen and oxygen could be trapped within the lunar The scene is a stylized animation on a black background showing a stream of bright particles or material falling into a dark surface, with bubbles or droplets rising below. Large overlaid text labels the chemistry as \u201cHydrogen,\u201d \u201cOxygen,\u201d and \u201cH2O,\u201d suggesting water formation or detection. The imagery then cuts to a rendered spacecraft labeled \u201cLEND: Lunar Exploration Neutron Detector,\u201d shown with a boxy gold-and-silver instrument body and a small antenna-like boom, alongside a gray, cratered Moon lit in a half-illuminated view. The final frames show a closer view of the LEND instrument face with four circular apertures, still paired with the Moon globe. No natural lunar surface is shown; the evidence is presented through spacecraft and explanatory graphics. observing the interaction of neutrons with the lunar soil, scientists can interpret how much hydrogen is likely to be present. In order to make a detailed interpretation, however, LEND needs to observe a",
-      "era_start": 1960,
-      "era_axis": "video",
-      "era_basis": "video_context",
-      "mission": "Mars Reconnaissance Orbiter",
-      "title": "Water on the Moon",
-      "published_year": 2013,
-      "celestial_body": "moon",
-      "event_type": "briefing",
-      "body_axis": "scene",
-      "spoken": "Since the 1960s, scientists have suspected that frozen water could survive in permanently shadowed craters at the Moon's poles. Both hydrogen and oxygen could be trapped within the lunar soil. So to find water on the Moon, scientists are looking for indications of hydrogen using the Lunar Reconnaissance Orbiter's LEND neutron Detector. By observing the interaction of neutrons with the lunar soil, scientists can interpret how much hydrogen is likely to be present. In order to make a detailed interpretation, however, LEND needs to observe a large number of neutrons.",
-      "clip_axis": "sentence",
-      "cells": 4
-    },
-    {
       "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
       "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
-      "start": 460.08,
+      "start": 438.98,
       "end": 478.87,
-      "score": 0.7229,
+      "score": 0.6809,
       "index": "transcript",
-      "query": "The Phoenix lander confirmed the presence of water ice in the Martian regolith at its polar site.",
-      "text": "Looking forward to paving the way for humans to go to Mars, because there's a lot we need to know about potential landing sites where water is on Mars. We now know that there are areas of Mars that have huge subsurface glaciers with lots and lots of fresh water.",
+      "query": "Phoenix lander found water\u2011ice in the Martian regolith at its arctic landing site",
+      "text": "A seated man in a light-blue button-up shirt and round eyeglasses speaking to camera in a studio. He sits on a dark chair at center-left of frame. Behind him fills the background with a large, high-resolution full-disk view of Mars showing reddish-brown terrain, darker albedo markings, cratered regions and large trough-like features (Valles Marineris-style morphology) across the visible hemisphere. No spacecraft hardware, instruments, mission patches, charts, or on-screen data readouts are visible in the frames \u2014 the primary visual element besides the speaker is the planetary surface image used as a backdrop. Looking forward to paving the way for humans to go to Mars, because there's a lot we need to know about potential landing sites where water is on Mars. We now know that there are areas of Mars that have huge subsurface glaciers with lots and lots of fresh water.",
       "era_start": 1965,
       "era_axis": "video",
       "era_basis": "video_context",
@@ -88,107 +112,112 @@
       "celestial_body": "mars",
       "event_type": "briefing",
       "body_axis": "scene",
-      "spoken": "Looking forward to paving the way for humans to go to Mars, because there's a lot we need to know about potential landing sites where water is on Mars. We now know that there are areas of Mars that have huge subsurface glaciers with lots and lots of fresh water.",
+      "spoken": "what the numbers said to come up with the first images. We've had many missions to Mars, and right now in the Mars program, we have three orbiters and two rovers at Mars. And they're all creating, producing incredible science. And all of this is very helpful. Looking forward to paving the way for humans to go to Mars, because there's a lot we need to know about potential landing sites where water is on Mars. We now know that there are areas of Mars that have huge subsurface glaciers with lots and lots of fresh water.",
       "clip_axis": "sentence",
-      "cells": 2
+      "cells": 3,
+      "mission_axis": "scene"
     },
     {
-      "nasa_id": "ksc_061404_cassini",
-      "video_id": "m-z-019f9a7b-b8b4-7950-9a7b-de3c02dfba4b",
-      "start": 7.24,
-      "end": 39.99,
-      "score": 0.6696,
+      "nasa_id": "ksc_012805_mars_recon",
+      "video_id": "m-z-019f9833-ae6b-7a21-8b81-8acd2c0a00d2",
+      "start": 7.88,
+      "end": 48.81,
+      "score": 0.6004,
       "index": "scene_semantic",
-      "query": "On\u2011screen: Cassini flyby footage of Enceladus with dramatic south\u2011pole jets and particle streams, and MESSENGER images of Mercury's dark polar craters with bright deposits.",
-      "text": "The scene opens on a space-themed NASA title card with the NASA meatball logo over a starfield, followed by a lower-third news-style graphic reading 'NASA DIRECT!' and 'Final Approach Cassini-Huygens 3 Weeks from Saturn.' At the left edge there is a partial view of a tan-gray planetary globe or moon against space, but no clear surface detail is shown. No instruments or spacecraft hardware are visible; the imagery functions as an introductory mission feature rather than scientific data or a landing/surface sequence. The scene shows a spacecraft animation of Cassini-Huygens approaching Saturn. A gold-and-white spacecraft with a large white high-gain antenna is shown against a dark star field, then transitions into a stylized view of Saturn with its broad rings. The lower-third graphic reads \"NASA DIRECT! Final Approach\" and \"Cassini-Huygens 3 Weeks from Saturn.\" No surface terrain or instrument readout is visible; the evidence is presented as mission animation and broadcast text. A computer-generated NASA animation shows the Cassini spacecraft flying past Saturn. Saturn is rendered as a pale yellow, banded globe with a broad flat ring system extending left and right across the frame. The spacecraft appears as a small gold-and-black probe with a long dark boom/antenna, moving from left toward the planet and then across the disk. The background is black space with sparse star points. No surface terrain or instrument readouts are shown; this is a mission animation illustrating the approach to Saturn and its rings. The scene shows a black background with a close-up view of Saturn\u2019s ring system rendered as an image or visualization. The rings appear as bright, thin, curved bands sweeping across the frame, with layered structure visible in multiple shades of gray. In later frames, a partially lit Saturn globe appears in front of the rings, with the planet in shadow on one side and a pale yellow-lit crescent on the other. No surface terrain or spacecraft hardware is visible; the imagery is entirely focused on Saturn and its rings, accompanied by the caption 'Image from Cassini'.",
-      "era_start": 2004,
+      "query": "false\u2011color global map of Mars showing high hydrogen/ice abundance at polar regions",
+      "text": "Split-screen montage. Left: a Mars rover (Mars Exploration Rover form factor) sitting on a flat, reddish, rock- and pebble-strewn plain; visible are flat solar panels, an instrument/ camera mast rising from the rover body, and small scattered rocks with low hills on the horizon. A burnt-in caption at the lower left reads \"NASA DIRECT New Mission To Mars\" and a round NASA-style emblem appears lower right. Right: a full-disk view of Mars showing global albedo patterns, darker surface markings, limb shading and a bright polar cap or high-latitude frost; the planet appears as an astronomical image rather than a surface photo. The orbiter will call upon its suite of innovative scientific instruments to study the atmosphere, terrain and even what lies below the planet's surface. The Mars Reconnaissance",
+      "era_start": 2003,
       "era_axis": "scene",
-      "era_basis": "stated_in_speech",
-      "mission": "Cassini-Huygens",
-      "title": "KSC-04-S-00195",
-      "published_year": 2004,
-      "celestial_body": "saturn",
+      "era_basis": "inferred_from_mission",
+      "mission": "Opportunity",
+      "title": "KSC-05-S-00033",
+      "published_year": 2005,
+      "celestial_body": "mars",
       "event_type": "briefing",
       "body_axis": "scene",
-      "spoken": "Nearly seven years ago, Cassini Huygens lifted off from Cape Canaveral and began its voyage across the solar system. Three weeks from now, that voyage will finally come to an end. Cassini is making its final approach to the great ringed giant Saturn. Cassini is going to uncover some of the great mysteries behind the second largest planet. Saturn's massive ring system is one prime target for investigation. Other planets have rings, but Saturn's are truly spectacular and have baffled astronomers for centuries.",
+      "spoken": "This July will mark the two year anniversary of the launch of the twin Mars exploration Rovers Spirit and Opportunity. Since Mars passes close to Earth every 26 months, that means it's almost time for NASA to launch a new mission to the red planet the Mars Reconnaissance Orbiter. Set to launch in August, the Mars Reconnaissance Orbiter will build on the discoveries and advances of recent successful Mars missions. The orbiter will call upon its suite of innovative scientific instruments to study the atmosphere, terrain and even what lies below the planet's surface. The Mars Reconnaissance Orbiter will snap photos of selected targets on Mars rough surface in more detail than any previous orbiter, revealing features as small as a coffee table.",
       "clip_axis": "sentence",
-      "cells": 4
+      "cells": 2,
+      "mission_axis": "scene"
     },
     {
-      "nasa_id": "ksc_082404_newmoons",
-      "video_id": "m-z-019f9a74-9bf5-70d0-b441-732bbf1e0450",
-      "start": 6.84,
-      "end": 43.61,
-      "score": 0.6574,
-      "index": "scene_semantic",
-      "query": "On\u2011screen: Cassini flyby footage of Enceladus with dramatic south\u2011pole jets and particle streams, and MESSENGER images of Mercury's dark polar craters with bright deposits.",
-      "text": "MISSION FEATURE\nNASA Animation\nNASA DIRECT!\nTwo of a Kind\nCassini Spots Twin Moons The frame shows a stylized grayscale view of Saturn with its rings, presented like a scientific graphic or animation rather than a natural camera image. A bright glare or washed-out area appears in the upper portion of the image in the first frame, while subsequent frames show a clearer illustration of Saturn centered against a black background. No moons are distinctly visible in the still frames, but the narration and title indicate the scene concerns Cassini identifying two small moons circling Saturn. A lower-third banner reads 'Two of a Kind Cassini Spots Twin Moons' alongside NASA branding. The scene shows a rendered view of Saturn floating against a black space background, with its broad rings clearly visible and the planet colored pale yellow. The shot then cuts to an animated spacecraft with a large white dish antenna and long boom/antenna structures, depicted traveling in space near a starfield. No surface terrain is shown; the evidence is a visual explanation tying the Voyager spacecraft to Saturn and Enceladus.",
+      "nasa_id": "ksc_042104_meteor",
+      "video_id": "m-z-019f9833-1e55-7aa2-9db0-fbb5295f00f8",
+      "start": 6.76,
+      "end": 43.13,
+      "score": 0.6135,
+      "index": "transcript",
+      "query": "the twin rovers Spirit and Opportunity investigated rocks altered by water and found sedimentary structures and hematite spherules",
+      "text": "NASA's Opportunity rover has come across another A volcanic rock given the name Bounce was found to have similarities to meteorites that fell to Earth. Opportunity's Opportunity's Minitess and Mossbauer spectrometers have found the element pyroxene, a volcanic mineral, in the football size rock. The rock's composition is unlike any other rock or volcanic depos already studied by opportunity and spirit. NASA's Mars Odyssey may have given scientists a clue to its origin with an image of a",
       "era_start": 2004,
       "era_axis": "published",
       "era_basis": "not_determinable",
-      "mission": "Voyager",
-      "title": "KSC-04-S-00310",
+      "mission": "Opportunity",
+      "title": "KSC-04-S-00127",
       "published_year": 2004,
-      "celestial_body": "saturn",
-      "event_type": "briefing",
+      "celestial_body": "mars",
+      "event_type": "surface_ops",
       "body_axis": "scene",
-      "spoken": "Saturn's orbiting family has grown by 2 with the identification of a pair of small moons circling the planet. Measuring three and four kilometers across, the newfound moons are likely to be only two of many more lurking about Saturn in its rings. Orbiting approximately 200,000 kilometers from the planet's center, the twin lunar satellites pass near a pair of Saturn's other moons, Mimas and Enceladus. Scientists susp one of the moons may be a previously unclassified object photographed by the Voyager spacecraft 23 years ago. The lunar twin's existence could be the product of good luck and even better choice in location.",
+      "spoken": "Blazing the trail of discoveries at Meridiani Planum, NASA's Opportunity rover has come across another A volcanic rock given the name Bounce was found to have similarities to meteorites that fell to Earth. Opportunity's Minitess and Mossbauer spectrometers have found the element pyroxene, a volcanic mineral, in the football size rock. The rock's composition is unlike any other rock or volcanic depos already studied by opportunity and spirit. NASA's Mars Odyssey may have given scientists a clue to its origin with an image of a crater where Bounce could have been ejected from upon impact.",
       "clip_axis": "sentence",
-      "cells": 3
+      "cells": 3,
+      "mission_axis": "scene"
     },
     {
-      "nasa_id": "ksc_012805_touchdown",
-      "video_id": "m-z-019f9a7a-b3f1-7ba2-baab-9167445e85a3",
-      "start": 7.0,
-      "end": 42.75,
-      "score": 0.7163,
-      "index": "scene_semantic",
-      "query": "On\u2011screen: Cassini flyby footage of Enceladus with dramatic south\u2011pole jets and particle streams, and MESSENGER images of Mercury's dark polar craters with bright deposits.",
-      "text": "The scene is an animated space graphic rather than live footage. It shows Saturn with its bright rings from multiple angles, including close views of the ring plane crossing in front of the planet. A gold-colored spacecraft with extended antennas and booms is depicted flying near Saturn and the rings, consistent with Cassini carrying the Huygens probe. A small globe-like body appears in some shots, emphasizing the Titan-Huygens destination. There is no surface terrain or instrument readout; the evidence is presented as a mission animation with a lower-third title reading 'Huygens Reaches Titan' and a NASA Direct logo. The scene shows a gold-toned planetary probe separating from the Cassini spacecraft in space, with Saturn\u2019s ringed globe visible behind it. Another animated view shows the spacecraft releasing a smaller probe as several Saturn-system moons or planets appear in the background. The final frames switch to narrow grayscale instrument-style image panels against a black background, each labeled with an altitude readout such as 137.8 km and 110.2 km, suggesting descent data or camera returns during entry/landing. The scene shows a computer-generated animation of a probe descending through a thick orange-brown atmosphere with a large white parachute canopy deployed above it. A smaller circular instrument or descent module hangs below, with blue wave-like signal lines indicating radio transmission. The shot then cuts to a pale, hazy grayscale surface view with low-relief terrain, ridges, and darker mottled patches, presented as the first images returned from Huygens on Titan.",
-      "era_start": 2005,
+      "nasa_id": "ksc_062904_mars",
+      "video_id": "m-z-019f9833-6fec-7471-bf83-84c2a9ef5ff6",
+      "start": 8.68,
+      "end": 57.29,
+      "score": 0.5899,
+      "index": "transcript",
+      "query": "Mars Odyssey detected hydrogen consistent with subsurface water\u2011ice across the Martian poles",
+      "text": "Opportunity rovers could tell you something about the ups and downs of working on Mars. Spirit is in the high ground at the Columbia Hills. It's examining a rock called Pot of Gold Gold before it begins its climb up the Martian mountains. Pot of Gold shows signs of hematite, a mineral that means water may have been in the area sometime in the distant distant past. That's the same mineral that Opportunities studied in Gusev Crater. But this is the first time that Spirit has seen it. We're into totally new stuff in both both places, and it's been fairly wild. Opportunity is headed down into Endurance Crater and is looking at each layer of rock as it gets deeper. Scientists",
+      "era_start": 2004,
+      "era_axis": "published",
+      "era_basis": "not_determinable",
+      "mission": "Opportunity",
+      "title": "KSC-04-S-00206",
+      "published_year": 2004,
+      "celestial_body": "mars",
+      "event_type": "animation",
+      "body_axis": "scene",
+      "spoken": "NASA Spirit and Opportunity rovers could tell you something about the ups and downs of working on Mars. Spirit is in the high ground at the Columbia Hills. It's examining a rock called Pot of Gold before it begins its climb up the Martian mountains. Pot of Gold shows signs of hematite, a mineral that means water may have been in the area sometime in the distant past. That's the same mineral that Opportunities studied in Gusev Crater. But this is the first time that Spirit has seen it. We're into totally new stuff in both places, and it's been fairly wild. Opportunity is headed down into Endurance Crater and is looking at each layer of rock as it gets deeper. Scientists say that the farther down that the rover finds traces of salt, the more water that flowed over the region in the past.",
+      "clip_axis": "sentence",
+      "cells": 4,
+      "mission_axis": "scene"
+    },
+    {
+      "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+      "video_id": "m-z-019f9a74-4467-7a81-98d9-a385ae2f42bf",
+      "start": 70.75,
+      "end": 100.81,
+      "score": 0.6544,
+      "index": "transcript",
+      "query": "Mars Odyssey detected hydrogen consistent with subsurface water\u2011ice across the Martian poles",
+      "text": "hydrogen. These areas strongly suggest the presence of water frozen within the soil. While previous lunar missions have observed indications of hydrogen at the Moon's south south pole, the LEND measurements for the first time pinpoint where hydrogen, and thus water, is likely to exist. By combining years of LEND data, scientists see The scene shows a CGI/animation of the Moon in space, with a detailed gray cratered lunar surface and the day-night boundary sweeping across it. A spacecraft identified by the transcript as LRO is shown close to the lunar surface, with a boxy body, a large rectangular solar panel, a long antenna mast extending upward, and small protruding instrument assemblies. The camera angle changes as the spacecraft passes over the Moon, emphasizing the satellite\u2019s hardware and the lunar terrain below. No charts or numeric readouts are visible.",
+      "era_start": 2011,
       "era_axis": "scene",
-      "era_basis": "stated_in_speech",
-      "mission": "Cassini-Huygens",
-      "title": "KSC-05-S-00034",
-      "published_year": 2005,
-      "celestial_body": "titan",
-      "event_type": "landing",
+      "era_basis": "on_screen_text",
+      "mission": null,
+      "title": "Water on the Moon",
+      "published_year": 2013,
+      "celestial_body": "moon",
+      "event_type": "data_visualization",
       "body_axis": "scene",
-      "spoken": "After a journey of seven years and millions of miles, the European Space Agency's Huygens probe has touched down on Titan. Huygens hitched a ride to its target aboard NASA's Cassini spacecraft. After its release from Cassini, the probe snapped stunning images throughout its harrowing descent and landing. Images from the probe were relayed back to Cassini and received on Earth by NASA's Deep Space Network. The first Huygens images show the Titan terrain from an altitude of six miles.",
+      "spoken": "These areas strongly suggest the presence of water frozen within the soil. While previous lunar missions have observed indications of hydrogen at the Moon's south pole, the LEND measurements for the first time pinpoint where hydrogen, and thus water, is likely to exist. By combining years of LEND data, scientists see accumulating evidence that there is water on the Moon. And as LRO continues to return data, our picture of the Moon and its water will continue to get better in the years ahead.",
       "clip_axis": "sentence",
-      "cells": 3
-    },
-    {
-      "nasa_id": "ksc_110404_cassini_flyby",
-      "video_id": "m-z-019f9a7a-f5a7-7fd1-8606-100eb3662871",
-      "start": 7.0,
-      "end": 45.7,
-      "score": 0.6563,
-      "index": "scene_semantic",
-      "query": "On\u2011screen: Cassini flyby footage of Enceladus with dramatic south\u2011pole jets and particle streams, and MESSENGER images of Mercury's dark polar craters with bright deposits.",
-      "text": "The Cassini Huygens spacecraft completes a second An animated NASA graphic shows the Cassini-Huygens spacecraft flying near Saturn\u2019s pale yellow globe and broad rings, with a smaller golden Titan shown nearby as the target of the descent. The spacecraft is depicted in different positions as it fine-tunes its approach, with a long probe or antenna extending outward and the ring plane crossing in front of Saturn. The screen carries a lower-third banner reading 'Scouting Report Preparing for Landing' and a 'NASA Animation' label, indicating this is explanatory mission artwork rather than real camera imagery. The scene shows a NASA animation of Titan as a small orange, hazy globe against black space, then a much closer view of Titan\u2019s curved yellowish limb with a thin bluish atmospheric edge. In the last frame, a spacecraft is shown flying past the moon, reinforcing that this is a Cassini Titan flyby visualization rather than surface footage. No surface terrain or instrument readouts are visible.",
-      "era_start": 2005,
-      "era_axis": "video",
-      "era_basis": "video_context",
-      "mission": "Cassini-Huygens",
-      "title": "KSC-04-S-00352",
-      "published_year": 2004,
-      "celestial_body": "saturn",
-      "event_type": "briefing",
-      "body_axis": "scene",
-      "spoken": "The Cassini Huygens spacecraft completes a second pass over Titan in preparation for a January touchdown. In a move for the future, the Cassini Huygens spacecraft is starting to fine tune for landing as it draws closer to the moon. Titan almost grazing its atmosphere, the spacecraft just completed the closest pass ever over the moon. Cassini came within a slim 745 miles of the surface of Titan, Saturn's largest satellite. The latest overflight is the second of three passes the spacecraft is making to refine its final approach for landing in January.",
-      "clip_axis": "sentence",
-      "cells": 3
+      "cells": 3,
+      "mission_axis": "dropped"
     },
     {
       "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
       "video_id": "m-z-019f980d-93a8-7e02-8499-c37750f6873e",
-      "start": 38.42,
-      "end": 85.27,
-      "score": 0.6849,
-      "index": "transcript",
-      "query": "NASA's twin rovers detected hydrated minerals and rock evidence for ancient water flow on Mars.",
-      "text": "water? To answer this question, a team of researchers at NASA's Goddard Space Flight center used infrared telescopes on Earth to study water molecules in the Martian atmosphere. We W.M. Keck Observatory; Very Large Telescope; NASA Infrared Telescope Facility The new infrared maps reveal the atmospheric ratio of normal to heavy water molecules at different locations and seasons. On Mars, heavy water molecules contain a heavy isotope isotope of hydrogen called deuterium, which remains trapped in the Martian water cycle while normal hydrogen is lost to space. The researchers found that water from the polar ice caps is",
+      "start": 76.98,
+      "end": 121.87,
+      "score": 0.7604,
+      "index": "scene_semantic",
+      "query": "false\u2011color global map of Mars showing high hydrogen/ice abundance at polar regions",
+      "text": "is highly enriched in deuterium, indicating that Mars has lost a tremendous quantity of water. Now we know that Mars water is much more enriched than terrestrial ocean water Aerial/orbital views of the Martian north polar region (Chasma Boreale) with an inset animation illustrating hydrogen and heavy hydrogen (isotopes) labeled and showing particle motion; overlays and titles identify the polar ice sheet. A stylized data-visualization over a full-disk view of Mars (tinted blue/purple) centered on the north polar region. A pie-chart style overlay highlights a light-cyan wedge labeled \"13%\" positioned over the polar cap and a larger dark-purple section labeled \"87%\" covering the rest of the disk. Burned-in caption text appears at left reading \"Ice caps today\" and at lower-left reading \"Ocean lost to space\" next to the large \"87%\". The north polar ice deposit is shown bright white with swirl-like textures; the planet surface shows craters and basins. A bright lens flare / sun graphic appears off to the right on a black background. No spacecraft, instruments, or mission name are visible. This means that early Mars would have looked much different than it does today, with a significant portion of its surface covered by water. So the really interesting question is, could it form a",
       "era_start": 2015,
       "era_axis": "published",
       "era_basis": "not_determinable",
@@ -196,21 +225,22 @@
       "title": "Mars' Ancient Ocean",
       "published_year": 2015,
       "celestial_body": "mars",
-      "event_type": "instrument_readout",
+      "event_type": "data_visualization",
       "body_axis": "scene",
-      "spoken": "And how did it lose that water? To answer this question, a team of researchers at NASA's Goddard Space Flight center used infrared telescopes on Earth to study water molecules in the Martian atmosphere. We used the world's three major telescopes for infrared astronomy. From the ground, we could actually take a snapshot of the whole hemisphere of the planet on a single night. The new infrared maps reveal the atmospheric ratio of normal to heavy water molecules at different locations and seasons. On Mars, heavy water molecules contain a heavy isotope of hydrogen called deuterium, which remains trapped in the Martian water cycle while normal hydrogen is lost to space. The researchers found that water from the polar ice caps is highly enriched in deuterium, indicating that Mars has lost a tremendous quantity of water.",
+      "spoken": "The researchers found that water from the polar ice caps is highly enriched in deuterium, indicating that Mars has lost a tremendous quantity of water. Now we know that Mars water is much more enriched than terrestrial ocean water in the heavy form of water, the deuterated form, immediately. That permits us to estimate the amount of water Mars has lost since it was young. The findings indicate that only 13% of an ancient ocean remains on the planet today. Now, stored in the polar ice caps, 87% of this ocean has been lost to space. This means that early Mars would have looked much different than it does today, with a significant portion of its surface covered by water. So the really interesting question is, could it form a sea or an ocean?",
       "clip_axis": "sentence",
-      "cells": 4
+      "cells": 4,
+      "mission_axis": "scene"
     },
     {
       "nasa_id": "GSFC_20180608_Tonga_m12932_Volcanoes",
       "video_id": "m-z-019f9835-9372-7ab2-b96d-0aa98b7282c7",
       "start": 98.84,
       "end": 130.49,
-      "score": 0.6595,
+      "score": 0.607,
       "index": "transcript",
-      "query": "NASA's twin rovers detected hydrated minerals and rock evidence for ancient water flow on Mars.",
-      "text": "processes seen on Earth may have been at work two or three billion years ago on Mars. Persistent surface waters that may have fashioned the Martian terrain that Aerial CGI/3\u2011D animation of a cratered, dusty brown landscape showing many small conical/annular mounds and degraded impact craters on a flat plain. Shallow, reflective water or a wet surface is visible in places with specular highlights, and the terrain appears as a rendered height model (soft shadows, uniform brown coloring, faint mesh/tiling visible in places). No spacecraft, instruments, or data readouts are shown on screen; a voiceover (transcript) mentions studying similar features on Earth as a point of departure.",
+      "query": "Phoenix lander found water\u2011ice in the Martian regolith at its arctic landing site",
+      "text": "processes seen on Earth may have been at work two or three billion years ago on Mars. Persistent surface waters that may have fashioned the Martian terrain that that is evident there today. The truth is the two systems are actually cosmically related. Our understanding the panning of landforms on distant planets is Aerial CGI/3\u2011D animation of a cratered, dusty brown landscape showing many small conical/annular mounds and degraded impact craters on a flat plain. Shallow, reflective water or a wet surface is visible in places with specular highlights, and the terrain appears as a rendered height model (soft shadows, uniform brown coloring, faint mesh/tiling visible in places). No spacecraft, instruments, or data readouts are shown on screen; a voiceover (transcript) mentions studying similar features on Earth as a point of departure.",
       "era_start": 2018,
       "era_axis": "published",
       "era_basis": "not_determinable",
@@ -222,156 +252,361 @@
       "body_axis": "scene",
       "spoken": "Similar processes seen on Earth may have been at work two or three billion years ago on Mars. Persistent surface waters that may have fashioned the Martian terrain that is evident there today. The truth is the two systems are actually cosmically related. Our understanding the panning of landforms on distant planets is directly informed by studying the evolution of similar features on Earth. Earth is a magical place because really, it's our point of departure for everything.",
       "clip_axis": "sentence",
-      "cells": 2
+      "cells": 3,
+      "mission_axis": "scene"
+    },
+    {
+      "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
+      "video_id": "m-z-019f9a85-ef2a-7a62-838e-c577aff1d630",
+      "start": 60.89,
+      "end": 91.54,
+      "score": 0.6251,
+      "index": "transcript",
+      "query": "Where else in the solar system has NASA looked for water and ice, and what did each mission actually find?",
+      "text": "Animated scientific graphics show multiple blue spherical planets against a black background, each with a faint tilted orbital path drawn around it. The sequence then cuts to a reddish, glowing chain of impact points or fragments spread across a dark field, consistent with a comet breaking up or impacting. In the final view, Jupiter appears at left with its tan and orange cloud bands, while a white box highlights a dark oval feature on the planet; a magnified inset shows the same feature in grayscale, suggesting an impact scar or atmospheric disturbance being examined. We've discovered, actually, that the moons around planets in our own solar system are interesting places in their own right. Hubble found evidence for water vapor The scene shows a graphic of Europa, rendered as a gray, cratered icy moon with dark branching lineations across the surface. A blue pixelated background suggests space or a data backdrop, and white arrows point toward the moon while labels identify it as a source of water plumes. The text overlays read 'Galileo Spacecraft takes image' and 'Hubble sees water plumes.' The visual then cuts to a woman speaking from a home interior with NASA-themed blankets and memorabilia behind her; this appears to be an interview shot rather than mission footage.",
+      "era_start": 2020,
+      "era_axis": "published",
+      "era_basis": "not_determinable",
+      "mission": "Hubble Space Telescope",
+      "title": "#AskNASA\u2503 What is Hubble revealing about the universe?",
+      "published_year": 2020,
+      "celestial_body": "jupiter",
+      "event_type": "data_visualization",
+      "body_axis": "scene",
+      "spoken": "We've learned that our own solar system is incredibly dynamic. One of the earliest observations from Hubble showed a comet crashing into Jupiter. We've discovered, actually, that the moons around planets in our own solar system are interesting places in their own right. Hubble found evidence for water vapor plumes being ejected from the surface of the moon Europa around Jupiter. So Hubble continues to be at the forefront of astronomical exploration.",
+      "clip_axis": "sentence",
+      "cells": 3,
+      "mission_axis": "scene"
     }
   ],
   "rejected": {
-    "below_threshold": [],
+    "below_threshold": [
+      {
+        "reason": "below_threshold",
+        "score": 0.3305,
+        "threshold": 0.35,
+        "video_id": "m-z-019f980d-93a8-7e02-8499-c37750f6873e",
+        "start": 10.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3227,
+        "threshold": 0.35,
+        "video_id": "m-z-019f980d-93a8-7e02-8499-c37750f6873e",
+        "start": 100.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3433,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9a74-4467-7a81-98d9-a385ae2f42bf",
+        "start": 30.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3295,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9835-4023-7c92-bd90-42d666edcb67",
+        "start": 60.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3263,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9a85-ef2a-7a62-838e-c577aff1d630",
+        "start": 80.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3366,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9a83-5c39-7e92-817f-edac36e26c0e",
+        "start": 180.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3273,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9a83-5c39-7e92-817f-edac36e26c0e",
+        "start": 190.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3178,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9a83-5c39-7e92-817f-edac36e26c0e",
+        "start": 120.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3372,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9a81-9bad-7cb3-85f8-f7e3c42d7552",
+        "start": 110.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3361,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9831-1df8-74b1-a57e-ed97adef2389",
+        "start": 170.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.317,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9831-1df8-74b1-a57e-ed97adef2389",
+        "start": 140.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3335,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9a7a-f5a7-7fd1-8606-100eb3662871",
+        "start": 80.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3238,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9a74-e1f1-7bd2-b86c-3d727358827a",
+        "start": 10.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3199,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9a7c-b193-7f92-872a-6e3eba81fe43",
+        "start": 130.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.3163,
+        "threshold": 0.35,
+        "video_id": "m-z-019f9834-3e2f-7761-b778-f4bb78403ad9",
+        "start": 10.0,
+        "index": "transcript"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2561,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9a88-99fa-7d31-b325-4c3cf3172c68",
+        "start": 80.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2785,
+        "threshold": 0.28,
+        "video_id": "m-z-019f980d-93a8-7e02-8499-c37750f6873e",
+        "start": 40.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2637,
+        "threshold": 0.28,
+        "video_id": "m-z-019f980d-93a8-7e02-8499-c37750f6873e",
+        "start": 80.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2606,
+        "threshold": 0.28,
+        "video_id": "m-z-019f980d-93a8-7e02-8499-c37750f6873e",
+        "start": 100.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2531,
+        "threshold": 0.28,
+        "video_id": "m-z-019f980d-93a8-7e02-8499-c37750f6873e",
+        "start": 20.0,
+        "index": "ocr"
+      }
+    ],
     "diversity": [
       {
         "reason": "evidence_limit",
-        "nasa_id": "GSFC_20130603_LEND_m11292_Water",
-        "start": 70.0,
-        "score": 0.6566,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
-        "start": 100.0,
-        "score": 0.6542,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "ksc_110404_cassini_flyby",
+        "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
         "start": 40.0,
-        "score": 0.6436,
-        "cap": 2
+        "score": 0.7425,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
-        "start": 80.0,
-        "score": 0.6403,
-        "cap": 2
+        "start": 130.0,
+        "score": 0.6924,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "ksc_062904_mars",
-        "start": 50.0,
-        "score": 0.6394,
-        "cap": 2
+        "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+        "start": 170.0,
+        "score": 0.6861,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "JPL-20190601-WHATSUf-0001-Whats Up June 2019",
-        "start": 30.0,
-        "score": 0.6387,
-        "cap": 2
+        "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+        "start": 0.0,
+        "score": 0.6079,
+        "cap": 2,
+        "celestial_body": "moon"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
         "start": 0.0,
-        "score": 0.635,
-        "cap": 2
+        "score": 0.5896,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "ksc_061404_cassini",
+        "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
         "start": 40.0,
-        "score": 0.6313,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "GSFC_20170725_m12179_EclipseJets",
-        "start": 50.0,
-        "score": 0.63,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "GSFC_20150915_SOHO_m11975_comets",
-        "start": 0.0,
-        "score": 0.6296,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "ksc_042104_meteor",
-        "start": 10.0,
-        "score": 0.6283,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "GSFC_20180608_Tonga_m12932_Volcanoes",
-        "start": 40.0,
-        "score": 0.6256,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
-        "start": 70.0,
-        "score": 0.6251,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
-        "start": 150.0,
-        "score": 0.6248,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "GSFC_20130603_LEND_m11292_Water",
-        "start": 40.0,
-        "score": 0.6236,
-        "cap": 2
+        "score": 0.5731,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+        "start": 150.0,
+        "score": 0.5668,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "GSFC_20130613_MAVEN_m11295_IUVS",
+        "start": 90.0,
+        "score": 0.5643,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+        "start": 90.0,
+        "score": 0.5621,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+        "start": 110.0,
+        "score": 0.5602,
+        "cap": 2,
+        "celestial_body": "moon"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_082404_newmoons",
+        "start": 60.0,
+        "score": 0.5571,
+        "cap": 2,
+        "celestial_body": "saturn"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_122104_spirit_anniv",
+        "start": 50.0,
+        "score": 0.5554,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_091704_odyssey",
+        "start": 20.0,
+        "score": 0.55,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
         "start": 0.0,
-        "score": 0.623,
-        "cap": 2
+        "score": 0.5445,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "ksc_082604_chandra",
         "start": 90.0,
-        "score": 0.6223,
-        "cap": 2
+        "score": 0.5435,
+        "cap": 2,
+        "celestial_body": "deep_space"
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "ksc_073004_lunar_rocks",
-        "start": 30.0,
-        "score": 0.6173,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "1971 Aeronautics and Space Highlights",
-        "start": 770.0,
-        "score": 0.6155,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "ksc_082404_newmoons",
+        "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
         "start": 40.0,
-        "score": 0.6131,
-        "cap": 2
+        "score": 0.541,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+        "start": 0.0,
+        "score": 0.5393,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "GSFC_20180313_Jupiter_m12878_GreatRedSpot",
+        "start": 100.0,
+        "score": 0.539,
+        "cap": 2,
+        "celestial_body": "jupiter"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "GSFC_20160602_Arctic_m12225_Greening",
+        "start": 60.0,
+        "score": 0.539,
+        "cap": 2,
+        "celestial_body": "earth"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "GSFC_20160602_Arctic_m12225_Greening",
+        "start": 30.0,
+        "score": 0.5374,
+        "cap": 2,
+        "celestial_body": "earth"
       }
     ],
     "counts": {
-      "below_threshold": 0,
-      "diversity": 111
+      "below_threshold": 37,
+      "diversity": 113
     }
   },
   "timeline": [
@@ -418,44 +653,46 @@
     {
       "n": 2,
       "kind": "decompose",
-      "summary": "4 sub-questions, 7 spoken phrasings, 3 visual",
-      "at": 18.73,
+      "summary": "3 sub-questions, 8 spoken phrasings, 4 visual",
+      "at": 25.38,
       "sub_questions": [
-        "Which solar system bodies (Moon, Mars, Mercury, icy moons, asteroids, comets, dwarf planets) has NASA investigated for water or ice?",
-        "Which specific NASA missions or instruments targeted each body?",
-        "What form of water was detected by each mission (surface ice, subsurface ice, hydrated minerals, vapor plumes, bound water) and what did the mission actually report?",
-        "How do the findings fit into a timeline of discovery (which missions came earlier vs later and how did confidence change)?"
+        "Which solar system bodies has NASA explored specifically to look for water or ice (Moon, Mars, Mercury, Europa, Enceladus, Ceres, comets/asteroids, etc.)",
+        "Which NASA missions (orbiter, lander, rover, impactor, flyby) made those searches and by what instruments or techniques (spectroscopy, neutron/gamma ray, radar, imaging, in situ sampling, impact plume analysis)?",
+        "What specific evidence or measurement did each mission report (e.g., detected water vapor, subsurface ice, hydrated minerals, icy plumes, water in impact plume, hydrogen signatures) and how definitive was it over time?"
       ],
       "phrasings": [
         "Where else in the solar system has NASA looked for water and ice, and what did each mission actually find?",
-        "The Phoenix lander confirmed the presence of water ice in the Martian regolith at its polar site.",
-        "NASA's twin rovers detected hydrated minerals and rock evidence for ancient water flow on Mars.",
-        "The LCROSS impactor excavated a permanently shadowed lunar crater and detected signatures of water and hydroxyl.",
-        "MESSENGER observed bright polar deposits on Mercury consistent with water ice in permanently shadowed craters.",
-        "Cassini observed water vapor plumes and icy grains erupting from Enceladus' south polar fractures.",
-        "Dawn mapped Ceres and identified water\u2011ice and widespread hydrated minerals on the dwarf planet."
+        "Phoenix lander found water\u2011ice in the Martian regolith at its arctic landing site",
+        "Mars Odyssey detected hydrogen consistent with subsurface water\u2011ice across the Martian poles",
+        "the twin rovers Spirit and Opportunity investigated rocks altered by water and found sedimentary structures and hematite spherules",
+        "Cassini observed jets of water\u2011ice and detected a subsurface ocean at Enceladus",
+        "Galileo provided evidence for a subsurface ocean beneath Europa's icy crust",
+        "LCROSS impacted a permanently shadowed lunar crater and the plume analysis detected water",
+        "MESSENGER measurements indicate hydrogen and likely water\u2011ice in Mercury's polar cold traps"
       ],
       "visual_phrasings": [
-        "On\u2011screen: Phoenix lander trench images showing a bright patch that sublimates when exposed, and the scoop arm examining icy soil.",
-        "On\u2011screen: LCROSS impact sequence and the bright ejecta plume rising from a shadowed lunar crater, followed by spectral overlays indicating water signatures.",
-        "On\u2011screen: Cassini flyby footage of Enceladus with dramatic south\u2011pole jets and particle streams, and MESSENGER images of Mercury's dark polar craters with bright deposits."
+        "close\u2011up of Enceladus south\u2011pole 'tiger stripe' vents emitting bright icy plumes against a dark background",
+        "LCROSS impact plume rising from a permanently shadowed lunar crater, bright ejecta cloud visible",
+        "false\u2011color global map of Mars showing high hydrogen/ice abundance at polar regions",
+        "orbital images of Europa's fractured icy surface with smooth chaos terrain and brighter ice patches"
       ],
       "needs_chronology": true,
       "answerable": true,
-      "rationale": "I split the task into which bodies were searched, which missions did the searching, what physical form of water each mission reported, and how discoveries progressed over time to enable targeted archive retrieval."
+      "target_body": null,
+      "rationale": "I broke the question into which bodies were searched, which missions and methods did the searching, and what each mission actually measured so search phrases map researcher wording to NASA narration and visuals."
     },
     {
       "n": 3,
       "kind": "retrieve",
-      "summary": "206 distinct moments from 57 clips",
-      "at": 37.72,
-      "queries_run": 12,
+      "summary": "221 distinct moments from 56 clips",
+      "at": 45.75,
+      "queries_run": 14,
       "hits_by_index": {
-        "transcript": 210,
-        "scene_semantic": 90,
-        "ocr": 60
+        "transcript": 225,
+        "scene_semantic": 120,
+        "ocr": 38
       },
-      "rejected_below_threshold": 0,
+      "rejected_below_threshold": 37,
       "thresholds": {
         "transcript": 0.35,
         "scene_semantic": 0.35,
@@ -465,111 +702,123 @@
     {
       "n": 4,
       "kind": "passages",
-      "summary": "206 cells joined into 119 passages, 49 of them continuous runs",
-      "at": 37.72,
-      "cells_merged": 136,
+      "summary": "221 cells joined into 121 passages, 52 of them continuous runs",
+      "at": 45.75,
+      "cells_merged": 152,
       "longest_seconds": 40
     },
     {
       "n": 5,
       "kind": "diversify",
-      "summary": "kept 8 across 8 clips, dropped 111",
-      "at": 37.72,
+      "summary": "kept 8 across 8 clips, dropped 113",
+      "at": 45.76,
       "per_video_cap": 2,
       "kept_per_clip": {
-        "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel": 1,
-        "ksc_012805_touchdown": 1,
         "GSFC_20150305_Mars_m11796_Ocean": 1,
-        "ksc_061404_cassini": 1,
+        "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel": 1,
         "GSFC_20130603_LEND_m11292_Water": 1,
+        "NHQ_2020_0429_AskNASA_202_Hubble": 1,
+        "ksc_042104_meteor": 1,
         "GSFC_20180608_Tonga_m12932_Volcanoes": 1,
-        "ksc_082404_newmoons": 1,
-        "ksc_110404_cassini_flyby": 1
+        "ksc_012805_mars_recon": 1,
+        "ksc_062904_mars": 1
       },
       "dropped": [
         {
           "reason": "evidence_limit",
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 40.0,
+          "score": 0.7425,
+          "cap": 2,
+          "celestial_body": "mars"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 130.0,
+          "score": 0.6924,
+          "cap": 2,
+          "celestial_body": "mars"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 170.0,
+          "score": 0.6861,
+          "cap": 2,
+          "celestial_body": "mars"
+        },
+        {
+          "reason": "evidence_limit",
           "nasa_id": "GSFC_20130603_LEND_m11292_Water",
-          "start": 70.0,
-          "score": 0.6566,
-          "cap": 2
+          "start": 0.0,
+          "score": 0.6079,
+          "cap": 2,
+          "celestial_body": "moon"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 0.0,
+          "score": 0.5896,
+          "cap": 2,
+          "celestial_body": "mars"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 40.0,
+          "score": 0.5731,
+          "cap": 2,
+          "celestial_body": "mars"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 150.0,
+          "score": 0.5668,
+          "cap": 2,
+          "celestial_body": "mars"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "GSFC_20130613_MAVEN_m11295_IUVS",
+          "start": 90.0,
+          "score": 0.5643,
+          "cap": 2,
+          "celestial_body": "mars"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 90.0,
+          "score": 0.5621,
+          "cap": 2,
+          "celestial_body": "mars"
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
-          "start": 100.0,
-          "score": 0.6542,
-          "cap": 2
+          "start": 110.0,
+          "score": 0.5602,
+          "cap": 2,
+          "celestial_body": "moon"
         },
         {
           "reason": "evidence_limit",
-          "nasa_id": "ksc_110404_cassini_flyby",
-          "start": 40.0,
-          "score": 0.6436,
-          "cap": 2
+          "nasa_id": "ksc_082404_newmoons",
+          "start": 60.0,
+          "score": 0.5571,
+          "cap": 2,
+          "celestial_body": "saturn"
         },
         {
           "reason": "evidence_limit",
-          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
-          "start": 80.0,
-          "score": 0.6403,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "ksc_062904_mars",
+          "nasa_id": "ksc_122104_spirit_anniv",
           "start": 50.0,
-          "score": 0.6394,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "JPL-20190601-WHATSUf-0001-Whats Up June 2019",
-          "start": 30.0,
-          "score": 0.6387,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
-          "start": 0.0,
-          "score": 0.635,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "ksc_061404_cassini",
-          "start": 40.0,
-          "score": 0.6313,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "GSFC_20170725_m12179_EclipseJets",
-          "start": 50.0,
-          "score": 0.63,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "GSFC_20150915_SOHO_m11975_comets",
-          "start": 0.0,
-          "score": 0.6296,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "ksc_042104_meteor",
-          "start": 10.0,
-          "score": 0.6283,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "GSFC_20180608_Tonga_m12932_Volcanoes",
-          "start": 40.0,
-          "score": 0.6256,
-          "cap": 2
+          "score": 0.5554,
+          "cap": 2,
+          "celestial_body": "mars"
         }
       ]
     },
@@ -577,29 +826,30 @@
       "n": 6,
       "kind": "window",
       "summary": "8 of 8 cut to sentence bounds, 0 left on the grid",
-      "at": 56.48,
+      "at": 47.13,
       "clip_axis_counts": {
         "sentence": 8
       },
-      "widened": 3
+      "widened": 7
     },
     {
       "n": 7,
       "kind": "order",
-      "summary": "ordered by era 1960-2018",
-      "at": 56.48,
+      "summary": "ordered by era 1965-2020, 1 mission label(s) dropped as belonging elsewhere",
+      "at": 47.13,
       "era_axis_counts": {
-        "video": 3,
+        "video": 1,
         "scene": 2,
-        "published": 3
+        "published": 5
       },
+      "missions_dropped": 1,
       "note": "era_axis 'scene' is stated in the footage; 'video' is inferred from clip context; 'published' is the upload date and carries no historical claim"
     },
     {
       "n": 8,
       "kind": "aggregate",
       "summary": "archive spans 8 decades",
-      "at": 57.73,
+      "at": 48.23,
       "histogram": [
         {
           "decade": 1950,
@@ -638,114 +888,125 @@
     {
       "n": 9,
       "kind": "synthesize",
-      "summary": "144 words, 7 citations",
-      "at": 88.27,
-      "chronology_points": 1,
-      "caveats": "Some clip dates come from archive metadata labeled as video or published (for example items with era noted as 'video' or 'published') rather than direct mission logbooks; see [1] (era noted as video) and [7] (era noted as published). The LEND instrument searches for hydrogen as a proxy for water and so the clip does not by itself prove the quantity or state (ice vs. bound hydrogen) of lunar water [1]. The media reel and later studies link early missions to later discoveries but do not claim a single early mission directly measured large glaciers on Mars [2][7]."
+      "summary": "258 words, 8 of 8 moments cited",
+      "at": 82.96,
+      "chronology_points": 7,
+      "caveats": "Some clip-era labels come from the archive metadata (e.g. [1] marked as 'video' era 1965; [2] and [5] labeled 'scene'; [3],[4],[6],[7],[8] labeled 'published'), so the listed eras reflect that metadata rather than independent dating. Each clip is about the world it names; the archive does not let us infer, for example, lunar findings from Martian clips. Several clips emphasize mission planning or geology (e.g. a meteorite\u2011like rock in [3]) rather than a direct water detection, so the record is a mix of direct detections (ice/hydrogen, plumes) and geological/chemical evidence pointing to past water.",
+      "cited_moments": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "uncited_moments": []
     }
   ],
   "reel": {
-    "stream_url": "https://play.videodb.io/v1/cd26df8f-4e3a-4645-b109-e5be77018c94.m3u8",
-    "player_url": "https://player.videodb.io/watch?v=BDERmt2aofA",
+    "stream_url": "https://play.videodb.io/v1/cfe27635-62fa-4ba8-9c6e-026c86b61fcc.m3u8",
+    "player_url": "https://player.videodb.io/watch?v=AUYH1WKRc9g",
     "shots": [
       {
         "at": 0,
-        "duration": 33.0,
+        "duration": 40.0,
         "evidence_index": 0,
-        "clamped": false,
-        "nasa_id": "GSFC_20130603_LEND_m11292_Water",
-        "era_start": 1960,
-        "era_axis": "video",
-        "mission": "Mars Reconnaissance Orbiter",
-        "source_start": 9.32,
-        "caption": "[1]  1960 (from clip context)  \u00b7  Mars Reconnaissance Orbiter  \u00b7  NASA GSFC_20130603_LEND_m11292_Water"
-      },
-      {
-        "at": 33,
-        "duration": 19.0,
-        "evidence_index": 1,
         "clamped": false,
         "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
         "era_start": 1965,
         "era_axis": "video",
         "mission": "Mariner 4",
-        "source_start": 460.08,
-        "caption": "[2]  1965 (from clip context)  \u00b7  Mariner 4  \u00b7  NASA JPL-20250710-MARINRs-0001-Mariner_4_Media_Re"
+        "source_start": 438.98,
+        "caption": "[1]  1965 (from clip context)  \u00b7  Mariner 4  \u00b7  NASA JPL-20250710-MARINRs-0001-Mariner_4_Media_Re"
       },
       {
-        "at": 52,
-        "duration": 33.0,
+        "at": 40,
+        "duration": 41.0,
+        "evidence_index": 1,
+        "clamped": false,
+        "nasa_id": "ksc_012805_mars_recon",
+        "era_start": 2003,
+        "era_axis": "scene",
+        "mission": "Opportunity",
+        "source_start": 7.88,
+        "caption": "[2]  2003  \u00b7  Opportunity  \u00b7  NASA ksc_012805_mars_recon"
+      },
+      {
+        "at": 81,
+        "duration": 36.0,
         "evidence_index": 2,
         "clamped": false,
-        "nasa_id": "ksc_061404_cassini",
-        "era_start": 2004,
-        "era_axis": "scene",
-        "mission": "Cassini-Huygens",
-        "source_start": 7.24,
-        "caption": "[3]  2004  \u00b7  Cassini-Huygens  \u00b7  NASA ksc_061404_cassini"
-      },
-      {
-        "at": 85,
-        "duration": 37.0,
-        "evidence_index": 3,
-        "clamped": false,
-        "nasa_id": "ksc_082404_newmoons",
+        "nasa_id": "ksc_042104_meteor",
         "era_start": 2004,
         "era_axis": "published",
-        "mission": "Voyager",
-        "source_start": 6.84,
-        "caption": "[4]  2004 (published)  \u00b7  Voyager  \u00b7  NASA ksc_082404_newmoons"
+        "mission": "Opportunity",
+        "source_start": 6.76,
+        "caption": "[3]  2004 (published)  \u00b7  Opportunity  \u00b7  NASA ksc_042104_meteor"
       },
       {
-        "at": 122,
-        "duration": 36.0,
+        "at": 117,
+        "duration": 48.0,
+        "evidence_index": 3,
+        "clamped": false,
+        "nasa_id": "ksc_062904_mars",
+        "era_start": 2004,
+        "era_axis": "published",
+        "mission": "Opportunity",
+        "source_start": 8.68,
+        "caption": "[4]  2004 (published)  \u00b7  Opportunity  \u00b7  NASA ksc_062904_mars"
+      },
+      {
+        "at": 165,
+        "duration": 30.0,
         "evidence_index": 4,
         "clamped": false,
-        "nasa_id": "ksc_012805_touchdown",
-        "era_start": 2005,
+        "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+        "era_start": 2011,
         "era_axis": "scene",
-        "mission": "Cassini-Huygens",
-        "source_start": 7.0,
-        "caption": "[5]  2005  \u00b7  Cassini-Huygens  \u00b7  NASA ksc_012805_touchdown"
+        "mission": null,
+        "source_start": 70.75,
+        "caption": "[5]  2011  \u00b7  unknown mission  \u00b7  NASA GSFC_20130603_LEND_m11292_Water"
       },
       {
-        "at": 158,
-        "duration": 39.0,
+        "at": 195,
+        "duration": 45.0,
         "evidence_index": 5,
-        "clamped": false,
-        "nasa_id": "ksc_110404_cassini_flyby",
-        "era_start": 2005,
-        "era_axis": "video",
-        "mission": "Cassini-Huygens",
-        "source_start": 7.0,
-        "caption": "[6]  2005 (from clip context)  \u00b7  Cassini-Huygens  \u00b7  NASA ksc_110404_cassini_flyby"
-      },
-      {
-        "at": 197,
-        "duration": 47.0,
-        "evidence_index": 6,
         "clamped": false,
         "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
         "era_start": 2015,
         "era_axis": "published",
         "mission": "Curiosity",
-        "source_start": 38.42,
-        "caption": "[7]  2015 (published)  \u00b7  Curiosity  \u00b7  NASA GSFC_20150305_Mars_m11796_Ocean"
+        "source_start": 76.98,
+        "caption": "[6]  2015 (published)  \u00b7  Curiosity  \u00b7  NASA GSFC_20150305_Mars_m11796_Ocean"
       },
       {
-        "at": 244,
+        "at": 240,
         "duration": 32.0,
-        "evidence_index": 7,
+        "evidence_index": 6,
         "clamped": false,
         "nasa_id": "GSFC_20180608_Tonga_m12932_Volcanoes",
         "era_start": 2018,
         "era_axis": "published",
         "mission": "unknown",
         "source_start": 98.84,
-        "caption": "[8]  2018 (published)  \u00b7  unknown  \u00b7  NASA GSFC_20180608_Tonga_m12932_Volcanoes"
+        "caption": "[7]  2018 (published)  \u00b7  unknown  \u00b7  NASA GSFC_20180608_Tonga_m12932_Volcanoes"
+      },
+      {
+        "at": 272,
+        "duration": 31.0,
+        "evidence_index": 7,
+        "clamped": false,
+        "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
+        "era_start": 2020,
+        "era_axis": "published",
+        "mission": "Hubble Space Telescope",
+        "source_start": 60.89,
+        "caption": "[8]  2020 (published)  \u00b7  Hubble Space Telescope  \u00b7  NASA NHQ_2020_0429_AskNASA_202_Hubble"
       }
     ],
     "dropped": [],
-    "total_seconds": 276.0
+    "total_seconds": 303.0
   }
 }

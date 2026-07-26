@@ -2,101 +2,185 @@
   "question": "What did Apollo astronauts actually do on the lunar surface, and what did they bring back?",
   "plan": {
     "sub_questions": [
-      "What surface activities (EVAs) did Apollo astronauts perform while on the Moon?",
-      "What scientific experiments and instruments did they deploy and operate on the lunar surface?",
-      "What materials and samples did they collect and how were those samples packaged and returned to Earth?",
-      "What mobility and tools (including the lunar roving vehicle) did they use to do their work?"
+      "Surface tasks performed during EVAs: exploration, sampling, experiment deployment, photography and site documentation",
+      "Tools, vehicles and experiments used on the surface (Lunar Module operations, sampling tools, ALSEP packages, Lunar Roving Vehicle)",
+      "What was returned to Earth and how it was collected and stowed (rock and soil samples, core tubes, experiment returns, sealed sample containers)"
     ],
     "phrasings": [
       "What did Apollo astronauts actually do on the lunar surface, and what did they bring back?",
-      "astronauts conducted extravehicular activity on the lunar surface, carrying tools and sample containers",
-      "astronauts collected rock and soil samples and stowed them in the return container for transport to Earth",
-      "astronauts deployed scientific experiments and activated instrument packages at the landing site",
-      "astronauts used the lunar roving vehicle to traverse the surface and extend sampling range",
-      "astronauts photographed and documented geologic context during surface operations",
-      "astronauts transferred samples and equipment into the lunar module and sealed the sample return containers"
+      "Apollo astronauts conducted extravehicular activities on the lunar surface, performing moonwalks to explore and work",
+      "They collected and field\u2011trimmed lunar rock and soil samples using tongs, scoops and core tubes",
+      "Crews deployed scientific experiment packages on the surface and left instrument arrays for remote operation",
+      "Later Apollo crews used the Lunar Roving Vehicle to traverse the surface and transport tools and samples",
+      "Samples and experiment returns were sealed in sample return containers and stowed aboard the Lunar Module for return to Earth",
+      "Astronauts photographed and documented their activities, leaving hardware and experiment packages on the lunar surface"
     ],
     "visual_phrasings": [
-      "close-up of astronauts picking up rocks and placing them into labeled sample bags and aluminum sample containers",
-      "astronauts driving the lunar rover across the regolith with experiments mounted on the vehicle",
-      "interior view of astronauts stowing sealed sample containers in the lunar module ascent cabin"
+      "Astronauts kneeling and scooping regolith into sample bags, labeling and placing samples in marked containers",
+      "Lunar Module with astronauts on the ladder and sample boxes being carried into the ascent stage",
+      "Lunar rover traversing the surface with tools and sample containers mounted, footprints and deployed instruments visible nearby"
     ],
     "needs_chronology": true,
     "answerable": true,
-    "rationale": "I decomposed the question into EVA actions, instruments deployed, samples returned, and mobility/tools so archive narration and visible scenes can be matched to researcher wording about what astronauts did and brought back."
+    "target_body": "moon",
+    "rationale": "I split the question into (1) surface activities, (2) tools/experiments used, and (3) what was returned and how, then produced narrator\u2011style search phrasings and visual scene descriptions to match NASA archive language."
   },
   "answer": {
-    "answer": "Apollo crews carried out EVAs on the Moon to do geological fieldwork and collect samples, with trained geologists like Jack Schmitt spending a combined 22 hours on three excursions [5]. They returned substantial rock collections to Earth \u2014 for example Apollo 14 brought back about 94 pounds from the Fra Mauro hills \u2014 and NASA established the Lunar Sample Laboratory Facility to protect and store those samples for decades [4][2]. Earlier Project Gemini spacewalks helped validate the EVA techniques and procedures later used for surface activity [1]. Taken together, the clips show planned field science, extended surface EVAs, and the retrieval plus long-term curation of lunar rocks \u2014 a synthesis no single clip provides on its own [5][4][2][1].",
+    "answer": "The Apollo archival clips show that astronauts walked on the Moon, performed EVA fieldwork lasting from a couple of hours (Apollo 11) to many hours across later missions, and collected and returned large quantities of lunar material to Earth [6][7][5][2].  They used handheld and suit\u2011mounted cameras (including Hasselblad photography in lunar orbit) and crew retrieved film and other data after missions [3][2][7].  Some missions increased crew mobility so they could travel farther, leave scientific experiments and even deploy a small subsatellite, while teams on later landings emphasized geology and sampling techniques [2][7][5].  Taken together the reels show twelve astronauts on six landings conducting EVAs, returning a total of 842 pounds of rocks, core samples, pebbles, sand and dust and, on at least one mission, about 180 pounds from a more mobile sortie [5][2][6][4].  The archive also includes footage about later and different activities \u2014 for example orbital searches for hydrogen/water and contemporary plans to return with robots and humans \u2014 but those clips document subsequent science, not the Apollo surface operations themselves [1][8].",
     "citations": [
       1,
-      2,
-      4,
-      5
+      2
     ],
     "chronology": [
       {
         "citations": [
           1
         ],
-        "claim": "Project Gemini spacewalks demonstrated EVA capabilities that informed later lunar surface operations.",
-        "era": 1963
+        "claim": "Archive material notes that since the 1960s scientists suspected water (hydrogen/oxygen) could be trapped in lunar soil and later orbital instruments were designed to look for it [1].",
+        "era": 1960
+      },
+      {
+        "citations": [
+          2
+        ],
+        "claim": "Highlights identify Apollo 15\u2019s increased mobility, a roughly 180\u2011pound sample return from that sortie, deployment of a small subsatellite, and film retrieval operations [2].",
+        "era": 1961
       },
       {
         "citations": [
           3
         ],
-        "claim": "Apollo 11 achieved the first lunar landing and public attention for lunar surface operations (era label from archive video/scene).",
+        "claim": "In lunar orbit, astronauts took large\u2011format photographs (Hasselblad) of the Moon and Earth, documenting that much imagery work was done from orbit as well as on the surface [3].",
+        "era": 1968
+      },
+      {
+        "citations": [
+          6,
+          4,
+          5
+        ],
+        "claim": "Apollo 11 footage shows the first lunar EVA (Armstrong\u2019s first boot print and ~2.5 hours of surface time), and other 1969 clips document EVA movements and sample collection techniques [6][4][5].",
         "era": 1969
       },
       {
         "citations": [
-          4
+          7
         ],
-        "claim": "Apollo 14 returned about 94 pounds of lunar rocks from the Fra Mauro region, showing the scale of sample return.",
-        "era": 1971
+        "claim": "Apollo 17\u2019s geologist\u2011astronaut logged many more hours outside (about 22 hours across three excursions) and trained crews to do field geology with suit\u2011mounted cameras and backpacks [7].",
+        "era": 1972
       },
       {
         "citations": [
-          5
+          8
         ],
-        "claim": "By Apollo 17, trained geologist-astronauts like Jack Schmitt conducted extended fieldwork, totaling many hours outside the spacecraft.",
-        "era": 1972
+        "claim": "Modern NASA material in the archive emphasizes that much remains to learn about the Moon and that robots and humans will continue exploration in the future [8].",
+        "era": 2019
       }
     ],
-    "caveats": "The archive-era labels come from the items' metadata (e.g., era noted as video/scene) rather than independent chronological verification; the clips do not provide a complete inventory of all surface activities or the full mass of samples from every mission. The evidence documents examples (time outside, specific sample masses, and storage) but does not establish mission-by-mission totals or operational procedures in full detail."
+    "caveats": "Several clips in the reel set are about later or non\u2011surface activities rather than Apollo surface work: [1] discusses orbital/remote searches for hydrogen/water (not Apollo sample returns), and [8] is a modern (2019) overview of future exploration.  Clip [3] documents photography from lunar orbit (Apollo 8) rather than surface EVA, so orbit footage is not direct evidence of surface operations.  Many of the era labels come from the footage\u2019s video/scene metadata (e.g. [1],[2],[3],[5]) so those date markers are tied to the archive\u2019s era tags rather than independent provenance.  The clips do not by themselves prove the presence of water on the Moon or provide comprehensive technical details (for example the archive snippets here do not show all vehicle or rover hardware), they only show the activities and sample returns recorded in these selected moments."
   },
   "evidence": [
     {
-      "nasa_id": "NASA Remembers Apollo Astronaut Michael Collins",
-      "video_id": "m-z-019f9a74-e1f1-7bd2-b86c-3d727358827a",
-      "start": 37.54,
-      "end": 50.81,
-      "score": 0.5714,
-      "index": "transcript",
-      "query": "astronauts deployed scientific experiments and activated instrument packages at the landing site",
-      "text": "Earth orbit and then to keep two people in Earth orbit for 14 days. The spacewalks of Project Gemini Gemini were needed to prove that everything would be okay on the surface of the moon. The prime crew now departing from their crew quarters here at the Kennedy Space Center.",
-      "era_start": 1963,
+      "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+      "video_id": "m-z-019f9a74-4467-7a81-98d9-a385ae2f42bf",
+      "start": 9.32,
+      "end": 41.98,
+      "score": 0.5636,
+      "index": "scene_semantic",
+      "query": "Lunar rover traversing the surface with tools and sample containers mounted, footprints and deployed instruments visible nearby",
+      "text": "LRO Lunar Reconnaissance Orbiter 1960s, scientists have suspected that frozen water could survive in permanently shadowed craters at the Moon's poles. Both hydrogen and oxygen could be trapped within the lunar lunar soil. So to find water on the Moon, scientists are looking for indications of hydrogen using the Lunar Reconnaissance Orbiter's LEND neutron Detector. By observing observing the interaction of neutrons with the lunar soil, scientists can interpret how much hydrogen is likely to be present. In order to make a detailed interpretation, however, LEND needs to observe a",
+      "era_start": 1960,
       "era_axis": "video",
       "era_basis": "video_context",
-      "mission": "Gemini",
-      "title": "NASA Remembers Apollo Astronaut Michael Collins",
-      "published_year": 2021,
-      "celestial_body": "unknown",
-      "event_type": "other",
+      "mission": null,
+      "title": "Water on the Moon",
+      "published_year": 2013,
+      "celestial_body": "moon",
+      "event_type": "briefing",
       "body_axis": "scene",
-      "spoken": "The spacewalks of Project Gemini were needed to prove that everything would be okay on the surface of the moon. The prime crew now departing from their crew quarters here at the Kennedy Space Center.",
+      "spoken": "Since the 1960s, scientists have suspected that frozen water could survive in permanently shadowed craters at the Moon's poles. Both hydrogen and oxygen could be trapped within the lunar soil. So to find water on the Moon, scientists are looking for indications of hydrogen using the Lunar Reconnaissance Orbiter's LEND neutron Detector. By observing the interaction of neutrons with the lunar soil, scientists can interpret how much hydrogen is likely to be present. In order to make a detailed interpretation, however, LEND needs to observe a large number of neutrons.",
       "clip_axis": "sentence",
-      "cells": 2
+      "cells": 4,
+      "mission_axis": "dropped"
+    },
+    {
+      "nasa_id": "1971 Aeronautics and Space Highlights",
+      "video_id": "m-z-019f9831-1df8-74b1-a57e-ed97adef2389",
+      "start": 765.37,
+      "end": 805.9,
+      "score": 0.6997,
+      "index": "transcript",
+      "query": "Astronauts photographed and documented their activities, leaving hardware and experiment packages on the lunar surface",
+      "text": "of lunar rocks and deep core samples. After liftoff and while in lunar orbit, the trio launched a small scientific satellite called called the Sub Satellite to study the area around the moon. As they headed Earthward, astronaut Al Worden climbed outside the spacecraft and retrieved film from a pair of mapping cameras. The scientific instruments left by Apollo 15 and the photographs and samples they returned returned are giving us a real understanding of the moon in relationship to the Earth and the sun.",
+      "era_start": 1961,
+      "era_axis": "video",
+      "era_basis": "video_context",
+      "mission": null,
+      "title": "1971 Aeronautics and Space Highlights",
+      "published_year": 2020,
+      "celestial_body": "moon",
+      "event_type": "eva",
+      "body_axis": "scene",
+      "spoken": "As a result of their increased mobility, the pair returned 180 pounds of lunar rocks and deep core samples. After liftoff and while in lunar orbit, the trio launched a small scientific satellite called the Sub Satellite to study the area around the moon. As they headed Earthward, astronaut Al Worden climbed outside the spacecraft and retrieved film from a pair of mapping cameras. The scientific instruments left by Apollo 15 and the photographs and samples they returned are giving us a real understanding of the moon in relationship to the Earth and the sun.",
+      "clip_axis": "sentence",
+      "cells": 4,
+      "mission_axis": "dropped"
+    },
+    {
+      "nasa_id": "Earthrise - A Conversation with Apollo 8 Astronaut Bill Anders (Official NASA Video)",
+      "video_id": "m-z-019f9a73-3528-71f0-83ea-02e56c8614f7",
+      "start": 126.07,
+      "end": 141.46,
+      "score": 0.5604,
+      "index": "transcript",
+      "query": "Astronauts photographed and documented their activities, leaving hardware and experiment packages on the lunar surface",
+      "text": "took a few pictures, but, you know, no, didn't even have a light meter on our flight. And so we were in lunar orbit, upside down",
+      "era_start": 1968,
+      "era_axis": "video",
+      "era_basis": "video_context",
+      "mission": "Apollo",
+      "title": "Earthrise: A Conversation with Apollo 8 Astronaut Bill Anders (Official NASA Video)",
+      "published_year": 2023,
+      "celestial_body": "moon",
+      "event_type": "briefing",
+      "body_axis": "scene",
+      "spoken": "I had a camera, I took home a Hasselblad, took a few pictures, but, you know, no, didn't even have a light meter on our flight. And so we were in lunar orbit, upside down and going backwards.",
+      "clip_axis": "sentence",
+      "cells": 1,
+      "mission_axis": "scene"
+    },
+    {
+      "nasa_id": "Buzz_Descends_Comparison__720p",
+      "video_id": "m-z-019f9a72-638c-7a82-be15-db8a8f415cdb",
+      "start": 1.96,
+      "end": 39.16,
+      "score": 0.6475,
+      "index": "scene_semantic",
+      "query": "Lunar rover traversing the surface with tools and sample containers mounted, footprints and deployed instruments visible nearby",
+      "text": "The frame shows a split-screen comparison of black-and-white Apollo 11 lunar EVA video. On the left is the original NASA archive image; on the right is a 2009 restoration. Both panels show an astronaut descending the Lunar Module ladder, with a bright lunar surface sloping across the lower right and the ladder/LM structure dominating the center. The astronaut\u2019s boot, lower leg, and suit are visible near the ladder rungs. The scene is a close, low-light view with no color, focused on the descent to the Moon\u2019s surface. The frame shows a split-screen comparison of two black-and-white video versions of the Apollo 11 EVA. Both panels depict the side of the Lunar Module with a vertical ladder and a bright, reflective lunar surface beyond it. A bulky astronaut figure is partway down the ladder in the image, with the lander structure filling much of the left side of each panel. The right panel is labeled as a 2009 restoration and appears slightly clearer. The scene is presented as archival footage comparison rather than live surface action. Black-and-white footage shows a close view of a lunar surface with a bright, sunlit area and dark shadows from nearby spacecraft hardware. A vertical structural element or ladder-like assembly dominates the center, with a boxy panel or equipment housing attached beside it. Near the lower edge, a human figure in a bulky spacesuit is partially visible, stepping or moving alongside the craft. The terrain below looks rough and dusty, with small rocks and uneven ground. No charts, captions, or data readouts are visible. Black-and-white lunar surface footage showing an astronaut in a bulky white spacesuit standing near the leg and ladder area of the lunar module. The scene is dominated by the spacecraft structure in the foreground and a bright, gently sloping Moon surface behind it, with rough, uneven regolith and a low horizon. The astronaut shifts position slightly beside the module, as if inspecting or working near the lander during an EVA. No charts, instrument panels, or captions are visible on screen.",
+      "era_start": 1969,
+      "era_axis": "scene",
+      "era_basis": "stated_in_speech",
+      "mission": "Apollo",
+      "title": "Buzz_Descends_Comparison__720p",
+      "published_year": 2017,
+      "celestial_body": "moon",
+      "event_type": "eva",
+      "body_axis": "scene",
+      "spoken": "Okay, I'm gonna leave that one foot up there and both hands down about the fourth rung up. There you go. Okay, now I think I'll do the same. A little more about another inc. There. You got it. That's a good step. Yep, about a three footer. Beautiful view.",
+      "clip_axis": "sentence",
+      "cells": 4,
+      "mission_axis": "scene"
     },
     {
       "nasa_id": "ksc_073004_lunar_rocks",
       "video_id": "m-z-019f9a72-062b-7f90-8a5e-3485e710a23e",
-      "start": 41.73,
-      "end": 63.81,
-      "score": 0.7266,
-      "index": "scene_semantic",
-      "query": "close-up of astronauts picking up rocks and placing them into labeled sample bags and aluminum sample containers",
-      "text": "The scene shows a grey, airless lunar surface with two astronauts in bulky spacesuits standing close together. One appears to be using a tool or rod to handle or collect material near the ground, while the other stands nearby on uneven, dusty terrain with shallow footprints. The clip then cuts to Earth-side handling of samples: several technicians in a vehicle yard transfer a hard-sided white container out of a NASA-branded aircraft or helicopter, and then a lab worker in protective clothing opens a large stainless-steel cold-storage or cleanroom door, indicating secure sample transport and storage facilities. Inside a clean laboratory facility, several technicians in white coveralls and caps work around stainless-steel equipment and sealed sample containers behind glass. One worker is viewed from behind as they handle a large, rough lunar rock wrapped in clear plastic or foil on a counter. Other shots show the same sample in close-up inside a containment box or glovebox-like enclosure, with reflective metal surfaces and trays around it. The scene emphasizes careful preservation and handling of pristine rock samples rather than an active spacecraft or landscape view. first lunar landing, the samples continue to attract scientists attention.",
+      "start": 7.08,
+      "end": 41.48,
+      "score": 0.6974,
+      "index": "transcript",
+      "query": "What did Apollo astronauts actually do on the lunar surface, and what did they bring back?",
+      "text": "NASA MISSION FEATURE; NASA Lunar Sample Lab DIRECT! 25th Anniversary NASA Lunar Sample Lab DIRECT! 25th Anniversary NASA astronauts visited the moon's dusty surface during six Apollo missions. They returned with a total of 842 pounds of lunar material, including rocks, core samples, pebbles, even",
       "era_start": 1969,
       "era_axis": "video",
       "era_basis": "video_context",
@@ -104,21 +188,22 @@
       "title": "KSC-04-S-00284",
       "published_year": 2004,
       "celestial_body": "moon",
-      "event_type": "surface_ops",
+      "event_type": "briefing",
       "body_axis": "scene",
-      "spoken": "NASA needed a permanent storage facility to protect the samples from floods, hurricanes, tornadoes, and contaminants. These extra precautions would keep these priceless samples in pristine condition. From these special needs, the Lunar Sample Laboratory facility was born. Today, 35 years after the first lunar landing, the samples continue to attract scientists attention.",
+      "spoken": "NASA's Lunar Sample Laboratory facility is home to the most cherished and scientifically important relics of the Apollo program. Now, the laboratory facility at Johnson Space center in Houston is celebrating its 25th anniversary after two years of construction. Officials dedicated the facility on July 20, 1979, the 10 year anniversary of the Apollo 11 moon landing. Twelve NASA astronauts visited the moon's dusty surface during six Apollo missions. They returned with a total of 842 pounds of lunar material, including rocks, core samples, pebbles, even sand and dust.",
       "clip_axis": "sentence",
-      "cells": 3
+      "cells": 3,
+      "mission_axis": "scene"
     },
     {
       "nasa_id": "ksc_080504_apollo",
       "video_id": "m-z-019f9a71-5a35-7063-8e8d-9a1ed525fcf2",
-      "start": 8.12,
-      "end": 49.85,
-      "score": 0.6387,
+      "start": 49.3,
+      "end": 88.55,
+      "score": 0.6446,
       "index": "transcript",
-      "query": "What did Apollo astronauts actually do on the lunar surface, and what did they bring back?",
-      "text": "1969, the world watched in awe as humans made history on the moon. 35 years ago. Apollo 11 proved proved to the world that humankind could break the bonds of gravity and make it to another heavenly body. The landing was a nail biting experience for Commander Neil Armstrong, lunar lunar module pilot Buzz Aldri and flight controllers on the ground. Alarms blared inside the lunar module, signaling that the computer was overtaxed. The scene cuts from a close-up of an astronaut\u2019s face wearing a headset and microphone to views of a spacecraft in flight above a gray, cratered lunar surface. The vehicle appears as a metallic command/service module seen against the Moon\u2019s mottled terrain. The final frames show the edge of the spacecraft or lander above a rough, boulder-strewn surface, matching the spoken description of Armstrong guiding over boulders to a safe landing in the Sea of Tranquility.",
+      "query": "Astronauts photographed and documented their activities, leaving hardware and experiment packages on the lunar surface",
+      "text": "only 30 seconds of fuel remaining, Armstrong made the first boot print on the dusty lunar surface and was soon joined by Aldrin. That's one Black-and-white lunar surface footage showing an astronaut on the Moon beside the lunar module equipment and ladder/strut structure. The scene is dim and grainy, with the bright, featureless lunar surface and the dark sky beyond. The quoted speech references 'one small step for man, one giant leap for mankind,' identifying the historic Apollo 11 lunar EVA as the astronaut stands near the spacecraft and appears to be stepping onto or standing on the surface. A grainy black-and-white/blue-tinted lunar surface view shows a bright, sunlit horizon or crater rim against a dark sky. In the foreground is a tall ladder or landing-gear/structure with struts and cables descending into the lower left, silhouetted against the bright terrain. Near the end of the segment, a human figure in a bulky spacesuit appears stepping into view beside the structure, suggesting activity on the surface. No charts or instrument readouts are visible; the evidence is the direct surface imagery. out here. The two spent two and a half hours exploring the area surrounding the lunar module while command module pilot Michael Collins orbited overhead.",
       "era_start": 1969,
       "era_axis": "scene",
       "era_basis": "stated_in_speech",
@@ -126,43 +211,22 @@
       "title": "KSC-04-S-00294",
       "published_year": 2004,
       "celestial_body": "moon",
-      "event_type": "launch",
+      "event_type": "eva",
       "body_axis": "scene",
-      "spoken": "On July 20, 1969, the world watched in awe as humans made history on the moon. 35 years ago. Apollo 11 proved to the world that humankind could break the bonds of gravity and make it to another heavenly body. The landing was a nail biting experience for Commander Neil Armstrong, lunar module pilot Buzz Aldri and flight controllers on the ground. Alarms blared inside the lunar module, signaling that the computer was overtaxed. But Armstrong expertly guided the spacecraft over a field of boulders. Roger, Eagles. I'm God. To a safe landing in the Sea of tranquility.",
+      "spoken": "With only 30 seconds of fuel remaining, Armstrong made the first boot print on the dusty lunar surface and was soon joined by Aldrin. That's one small step for man, one giant leap for mankind. That looks beautiful to me. Anyone? It has a stark beauty all its own. It's like much of the high desert of the United States. It's different, but it's very pretty out here. The two spent two and a half hours exploring the area surrounding the lunar module while command module pilot Michael Collins orbited overhead.",
       "clip_axis": "sentence",
-      "cells": 4
-    },
-    {
-      "nasa_id": "1971 Aeronautics and Space Highlights",
-      "video_id": "m-z-019f9831-1df8-74b1-a57e-ed97adef2389",
-      "start": 656.96,
-      "end": 697.03,
-      "score": 0.6678,
-      "index": "scene_semantic",
-      "query": "close-up of astronauts picking up rocks and placing them into labeled sample bags and aluminum sample containers",
-      "text": "Series of archival color clips inside a spacecraft cabin and on the lunar surface. Interior shots show suited astronauts strapped into a small module cockpit surrounded by instrument panels, wiring looms, and checklists clipped to a console. Visible details include rows of circuit or relay panels, headset microphones, a mounted clipboard or procedures book, handrails, and a strapped-in crew member holding a mug and a bound checklist. Closeups show a white pressure suit with a circular mission/agency patch on the chest and a US flag patch on the shoulder. Exterior footage cuts to black-sky lunar surface video: an astronaut in a bulky white EVA suit stands on textured regolith near the lander\u2019s shadow while planting or posing with an American flag. Terrain shows low-angled shadows, a smooth horizon, and scattered small rocks. Overall the scene alternates between in-cabin crew activities and surface EVA imagery associated with a Moon landing. for science. These are some of the 94 pounds of lunar rocks returned from the moon's ancient hills of Fra moro. By Apollo 14, Interior laboratory / clean-room footage: several technicians in white smocks, caps, and hairnets are working at a row of sealed glovebox enclosures (sealed cabinets with circular glove ports) and at microscopes. One person is seated at a workstation holding a sample; another operator is using the glove ports to manipulate material inside a box. Cutaway frames show a close-up of a small rock or polished specimen under bright reflected light with a roughly circular, highly illuminated area against a dark background (appears to be sample imagery or a microphotograph), followed by a close-up of a scientist looking through a microscope eyepiece. The narration on screen refers to a \u201cstory 3 1/2 billion years old,\u201d indicating the samples relate to the early history of Earth. No burned-in captions or mission identifiers are visible in the frames. Interior laboratory footage showing technicians in white smocks and caps seated at a row of inspection stations. Two men look through binocular microscopes or inspection eyepieces mounted on articulated stands over metal instrument consoles with multiple knobs, switches, and fasteners. Racks and panels of test equipment sit behind them. Cutaway close-ups show a dark, irregular rock or geological sample being handled and placed into a circular port or sample holder \u2014 the sample surface appears rough and lumpy with a glossy sheen in the lighting. No charts, captions, or mission-identifying markings are visible on screen; the scene emphasizes hands-on sample inspection with microscopes and a small sample chamber.",
-      "era_start": 1971,
-      "era_axis": "scene",
-      "era_basis": "stated_in_speech",
-      "mission": "Apollo",
-      "title": "1971 Aeronautics and Space Highlights",
-      "published_year": 2020,
-      "celestial_body": "moon",
-      "event_type": "surface_ops",
-      "body_axis": "scene",
-      "spoken": "This time as commander of Apollo 14, the country's third moon landing. With astronauts Mitchell and Russa ACcompanying Shepard, Apollo 14 marked the beginning of large scale use of the moon for science. These are some of the 94 pounds of lunar rocks returned from the moon's ancient hills of Fra moro. By Apollo 14, they are beginning to tell scientists a story. A story 3 1/2 billion years old. From them, we are learning about the early history of not only the moon, but other planets as well. The Earth, Mars, even Venus and Mercury.",
-      "clip_axis": "sentence",
-      "cells": 4
+      "cells": 4,
+      "mission_axis": "scene"
     },
     {
       "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
       "video_id": "m-z-019f9a73-9a25-7632-b14c-aa28ea1acdc8",
       "start": 37.37,
       "end": 85.25,
-      "score": 0.7027,
+      "score": 0.6329,
       "index": "transcript",
-      "query": "astronauts photographed and documented geologic context during surface operations",
-      "text": "like. That's why you're exploring, is to see the things that nobody's ever seen before. Schmidt spent a combined 22 hours outside of the spacecraft during his three excursions on the moon. The scene shows a field geology training exercise on Earth. Several men in outdoor clothing and hats cluster around a portable Motorola radio unit and a clipboard or map board on top of a vehicle hood. One man points or writes on the board while another speaks into a handset. A close-up shows a dark, rectangular rock sample or core held in a hand near the radio equipment. The later frames show the group hiking across a rocky, barren landscape with ridges, a lake or inlet, and steam or mist rising from the ground, suggesting a volcanic or geothermal field site used for Apollo astronaut geology training. say, geological experiences as we possibly could. Get them out in the field. Don't let them sit in the classroom. He treated training scenarios on Earth the same way he would if they were on the moon, including including simulated equipment, backpacks and cameras strapped to the front of spacesuits. Astronauts could then focus on what differences in the rocks they were seeing and what rock samples were best to collect,",
+      "query": "Astronauts photographed and documented their activities, leaving hardware and experiment packages on the lunar surface",
+      "text": "like. That's why you're exploring, is to see the things that nobody's ever seen before. Schmidt spent a combined 22 hours outside of the spacecraft during his three excursions on the moon. Before his own trip, Schmidt trained other Apollo astronauts, sharing with them his in depth knowledge of fieldwork. The main thing was to expose them to many, as many different, say, including simulated equipment, backpacks and cameras strapped to the front of spacesuits. Astronauts could then focus on what differences in the rocks they were seeing and what rock samples were best to collect,",
       "era_start": 1972,
       "era_axis": "scene",
       "era_basis": "inferred_from_mission",
@@ -174,222 +238,297 @@
       "body_axis": "scene",
       "spoken": "And surprises is what geologists like. That's why you're exploring, is to see the things that nobody's ever seen before. Schmidt spent a combined 22 hours outside of the spacecraft during his three excursions on the moon. Before his own trip, Schmidt trained other Apollo astronauts, sharing with them his in depth knowledge of fieldwork. The main thing was to expose them to many, as many different, say, geological experiences as we possibly could. Get them out in the field. Don't let them sit in the classroom. He treated training scenarios on Earth the same way he would if they were on the moon, including simulated equipment, backpacks and cameras strapped to the front of spacesuits. Astronauts could then focus on what differences in the rocks they were seeing and what rock samples were best to collect, essentially giving them the fundamental field geological experience experiences that they needed to succeed.",
       "clip_axis": "sentence",
-      "cells": 4
+      "cells": 3,
+      "mission_axis": "scene"
     },
     {
-      "nasa_id": "ksc_062805_114_briefing",
-      "video_id": "m-z-019f9a78-12b4-7da1-9627-0a4e57515420",
-      "start": 121.35,
-      "end": 149.74,
-      "score": 0.5946,
+      "nasa_id": "JPL-20190601-WHATSUf-0001-Whats Up June 2019",
+      "video_id": "m-z-019f9a7b-ff84-7dd1-819f-f2a99a26fd73",
+      "start": 141.37,
+      "end": 150.48,
+      "score": 0.5563,
       "index": "transcript",
-      "query": "astronauts deployed scientific experiments and activated instrument packages at the landing site",
-      "text": "Several elements will be carried in Discovery's payload bay for delivery to the station. These include the multi purpose logistics module Rafaello containing A pressurized space-station module is shown indoors on Earth, with a large cylindrical NASA-branded structure dominating the frame. The scene includes racks and equipment along the side, matching the spoken description of supplies, food, water, and the Human Research Facility 2 rack. A yellow inset box highlights different views of the module interior and attached hardware, including stowed equipment and what appears to be external stowage or instrumentation. The camera angle stays fixed on the module and its fittings; no planetary surface is visible, only spacecraft hardware and interior compartments. stowage platform and a replacement control moment gyroscope will be carried in Discovery's payload bay during mission. STS114 STS114 mission specialists will perform spacewalks to install the external stowage platform and the control moment gyroscope onto the station,",
-      "era_start": 2003,
+      "query": "Astronauts photographed and documented their activities, leaving hardware and experiment packages on the lunar surface",
+      "text": "times a year. There's still a lot to learn about the moon. And science is one of the reasons NASA has plans for both robots and humans to continue exploring it into the future.",
+      "era_start": 2019,
       "era_axis": "video",
       "era_basis": "video_context",
-      "mission": "Space Shuttle",
-      "title": "KSC-05-S-00166",
-      "published_year": 2005,
-      "celestial_body": "ground",
-      "event_type": "other",
+      "mission": null,
+      "title": "What's Up: June 2019 Skywatching Tips from NASA",
+      "published_year": 2019,
+      "celestial_body": "moon",
+      "event_type": "surface_ops",
       "body_axis": "scene",
-      "spoken": "Several elements will be carried in Discovery's payload bay for delivery to the station. These include the multi purpose logistics module Rafaello containing racks of supplies, food and water and the Human Research Facility 2 rack. Also, the external stowage platform and a replacement control moment gyroscope will be carried in Discovery's payload bay during mission.",
+      "spoken": "There's still a lot to learn about the moon. And science is one of the reasons NASA has plans for both robots and humans to continue exploring it into the future.",
       "clip_axis": "sentence",
-      "cells": 4
-    },
-    {
-      "nasa_id": "ksc_040805_sssr",
-      "video_id": "m-z-019f9a78-c199-7fb1-be32-2b4c846f23a0",
-      "start": 98.54,
-      "end": 110.21,
-      "score": 0.5848,
-      "index": "transcript",
-      "query": "astronauts deployed scientific experiments and activated instrument packages at the landing site",
-      "text": "Discovery was made it to its solid rocket booster's an external tank inside the vehicle assembly building. The orbiter was also equipped with a digital camera that will photograph the external tank during launch.",
-      "era_start": 2005,
-      "era_axis": "video",
-      "era_basis": "video_context",
-      "mission": "STS-114",
-      "title": "KSC-05-S-00079",
-      "published_year": 2005,
-      "celestial_body": "ground",
-      "event_type": "briefing",
-      "body_axis": "scene",
-      "spoken": "A week before rollout, Discovery was made it to its solid rocket booster's an external tank inside the vehicle assembly building. The orbiter was also equipped with a digital camera that will photograph the external tank during launch.",
-      "clip_axis": "sentence",
-      "cells": 1
-    },
-    {
-      "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
-      "video_id": "m-z-019f980d-f764-7911-9952-73f7238c777d",
-      "start": 91.44,
-      "end": 101.93,
-      "score": 0.5678,
-      "index": "scene_semantic",
-      "query": "astronauts driving the lunar rover across the regolith with experiments mounted on the vehicle",
-      "text": "Close-up color views from a rover on a dusty, rocky plain. Foreground: the rover\u2019s instrument turret at the end of the robotic arm is centered over a rounded, flat-topped rock; the turret shows multiple cylindrical and box-shaped sensor/actuator housings and a visible shadow cast onto the regolith. A rover wheel and part of the suspension are visible at left. Surrounding terrain is a mix of small pebbles, wind-blown sand, and larger fractured slabs; low ridges or cratered hills appear on the horizon. Also included are several close-up color frames of rock surface texture showing layered, fractured, and pitted material with loose orange-brown dust in depressions and darker, harder-looking patches. One grayscale wide-angle image shows a smooth sandy surface with scattered rocks and a distant outcrop. No burned-in captions or mission clocks are visible on screen; spoken narration mentions the Perseverance rover and its cameras, geochemistry instruments, and a subsurface radar.",
-      "era_start": 2021,
-      "era_axis": "video",
-      "era_basis": "video_context",
-      "mission": "Perseverance",
-      "title": "Perseverance Explores Ancient River Channel (Mars Report)",
-      "published_year": 2024,
-      "celestial_body": "mars",
-      "event_type": "instrument_readout",
-      "body_axis": "scene",
-      "spoken": "Perseverance is equipped with cameras, geochemistry instruments, and an underground underground radar. We're going to use observations from these instruments to determine how and when these rocks formed.",
-      "clip_axis": "sentence",
-      "cells": 1
+      "cells": 1,
+      "mission_axis": "dropped"
     }
   ],
   "rejected": {
-    "below_threshold": [],
+    "below_threshold": [
+      {
+        "reason": "below_threshold",
+        "score": 0.2756,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9a88-99fa-7d31-b325-4c3cf3172c68",
+        "start": 210.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2755,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9a88-99fa-7d31-b325-4c3cf3172c68",
+        "start": 50.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2703,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9a88-99fa-7d31-b325-4c3cf3172c68",
+        "start": 90.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2662,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9831-1df8-74b1-a57e-ed97adef2389",
+        "start": 480.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2747,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9833-6fec-7471-bf83-84c2a9ef5ff6",
+        "start": 10.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2545,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9832-5e84-76d2-b2d2-c345db9111c0",
+        "start": 30.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2763,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
+        "start": 330.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2655,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
+        "start": 340.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2703,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9a88-f246-73e3-a04e-8ff112a4b5b9",
+        "start": 90.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2618,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9a88-f246-73e3-a04e-8ff112a4b5b9",
+        "start": 320.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2679,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9833-eb59-7662-abc6-9f8ce2bcdcd8",
+        "start": 20.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2633,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9a87-a41a-76f0-9fd1-65ea9cbeaeea",
+        "start": 220.0,
+        "index": "ocr"
+      }
+    ],
     "diversity": [
       {
         "reason": "evidence_limit",
         "nasa_id": "ksc_073004_lunar_rocks",
-        "start": 0.0,
-        "score": 0.6974,
-        "cap": 2
+        "start": 40.0,
+        "score": 0.6973,
+        "cap": 2,
+        "celestial_body": "moon"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "1971 Aeronautics and Space Highlights",
         "start": 730.0,
-        "score": 0.6583,
-        "cap": 2
+        "score": 0.6675,
+        "cap": 2,
+        "celestial_body": "moon"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "1971 Aeronautics and Space Highlights",
-        "start": 770.0,
-        "score": 0.6273,
-        "cap": 2
+        "start": 660.0,
+        "score": 0.6647,
+        "cap": 2,
+        "celestial_body": "moon"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_122104_spirit_anniv",
+        "start": 40.0,
+        "score": 0.6485,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+        "start": 30.0,
+        "score": 0.6435,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "ksc_080504_apollo",
-        "start": 50.0,
-        "score": 0.6154,
-        "cap": 2
+        "start": 10.0,
+        "score": 0.6387,
+        "cap": 2,
+        "celestial_body": "moon"
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "1971 Aeronautics and Space Highlights",
-        "start": 290.0,
-        "score": 0.6057,
-        "cap": 2
+        "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+        "start": 80.0,
+        "score": 0.6341,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
         "start": 80.0,
-        "score": 0.6036,
-        "cap": 2
+        "score": 0.6194,
+        "cap": 2,
+        "celestial_body": "ground"
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "ksc_080504_apollo",
-        "start": 80.0,
-        "score": 0.5887,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "ksc_012805_mars_recon",
+        "nasa_id": "Buzz_Descends_Comparison__720p",
         "start": 40.0,
-        "score": 0.567,
-        "cap": 2
+        "score": 0.6121,
+        "cap": 2,
+        "celestial_body": "moon"
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
-        "start": 160.0,
-        "score": 0.5637,
-        "cap": 2
+        "nasa_id": "1971 Aeronautics and Space Highlights",
+        "start": 850.0,
+        "score": 0.5999,
+        "cap": 2,
+        "celestial_body": "moon"
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "ksc_080406_sssr",
-        "start": 40.0,
-        "score": 0.5626,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "ksc_062805_114_briefing",
-        "start": 190.0,
-        "score": 0.5605,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "ksc_112904_why_kennedy",
-        "start": 120.0,
-        "score": 0.559,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "ksc_080406_sssr",
-        "start": 10.0,
-        "score": 0.5587,
-        "cap": 2
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "GSFC_20130603_LEND_m11292_Water",
-        "start": 0.0,
-        "score": 0.5585,
-        "cap": 2
+        "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+        "start": 90.0,
+        "score": 0.589,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "ksc_011607_sssr",
-        "start": 150.0,
-        "score": 0.5576,
-        "cap": 2
+        "start": 80.0,
+        "score": 0.5845,
+        "cap": 2,
+        "celestial_body": "ground"
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "ksc_122104_spirit_anniv",
-        "start": 30.0,
-        "score": 0.5564,
-        "cap": 2
+        "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+        "start": 170.0,
+        "score": 0.5839,
+        "cap": 2,
+        "celestial_body": "deep_space"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "ksc_080805_mro_smrekar9",
-        "start": 50.0,
-        "score": 0.5546,
-        "cap": 2
+        "start": 20.0,
+        "score": 0.5797,
+        "cap": 2,
+        "celestial_body": "mars"
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "GSFC_20191210_M13429_SelectionTrailer",
-        "start": 50.0,
-        "score": 0.5478,
-        "cap": 2
+        "nasa_id": "van_050905_noaanhalt",
+        "start": 190.0,
+        "score": 0.5748,
+        "cap": 2,
+        "celestial_body": "earth"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "ksc_020105_why_jpl",
-        "start": 200.0,
-        "score": 0.547,
-        "cap": 2
+        "start": 230.0,
+        "score": 0.5681,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_070110_mcc_demo",
+        "start": 80.0,
+        "score": 0.5673,
+        "cap": 2,
+        "celestial_body": "ground"
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "ksc_080805_mro_zurek",
         "start": 90.0,
-        "score": 0.5465,
-        "cap": 2
+        "score": 0.5656,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_062904_mars",
+        "start": 0.0,
+        "score": 0.5643,
+        "cap": 2,
+        "celestial_body": "mars"
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_122104_spirit_anniv",
+        "start": 80.0,
+        "score": 0.5631,
+        "cap": 2,
+        "celestial_body": "mars"
       }
     ],
     "counts": {
-      "below_threshold": 0,
-      "diversity": 92
+      "below_threshold": 12,
+      "diversity": 88
     }
   },
   "timeline": [
@@ -436,44 +575,44 @@
     {
       "n": 2,
       "kind": "decompose",
-      "summary": "4 sub-questions, 7 spoken phrasings, 3 visual",
-      "at": 12.64,
+      "summary": "3 sub-questions, 7 spoken phrasings, 3 visual",
+      "at": 18.94,
       "sub_questions": [
-        "What surface activities (EVAs) did Apollo astronauts perform while on the Moon?",
-        "What scientific experiments and instruments did they deploy and operate on the lunar surface?",
-        "What materials and samples did they collect and how were those samples packaged and returned to Earth?",
-        "What mobility and tools (including the lunar roving vehicle) did they use to do their work?"
+        "Surface tasks performed during EVAs: exploration, sampling, experiment deployment, photography and site documentation",
+        "Tools, vehicles and experiments used on the surface (Lunar Module operations, sampling tools, ALSEP packages, Lunar Roving Vehicle)",
+        "What was returned to Earth and how it was collected and stowed (rock and soil samples, core tubes, experiment returns, sealed sample containers)"
       ],
       "phrasings": [
         "What did Apollo astronauts actually do on the lunar surface, and what did they bring back?",
-        "astronauts conducted extravehicular activity on the lunar surface, carrying tools and sample containers",
-        "astronauts collected rock and soil samples and stowed them in the return container for transport to Earth",
-        "astronauts deployed scientific experiments and activated instrument packages at the landing site",
-        "astronauts used the lunar roving vehicle to traverse the surface and extend sampling range",
-        "astronauts photographed and documented geologic context during surface operations",
-        "astronauts transferred samples and equipment into the lunar module and sealed the sample return containers"
+        "Apollo astronauts conducted extravehicular activities on the lunar surface, performing moonwalks to explore and work",
+        "They collected and field\u2011trimmed lunar rock and soil samples using tongs, scoops and core tubes",
+        "Crews deployed scientific experiment packages on the surface and left instrument arrays for remote operation",
+        "Later Apollo crews used the Lunar Roving Vehicle to traverse the surface and transport tools and samples",
+        "Samples and experiment returns were sealed in sample return containers and stowed aboard the Lunar Module for return to Earth",
+        "Astronauts photographed and documented their activities, leaving hardware and experiment packages on the lunar surface"
       ],
       "visual_phrasings": [
-        "close-up of astronauts picking up rocks and placing them into labeled sample bags and aluminum sample containers",
-        "astronauts driving the lunar rover across the regolith with experiments mounted on the vehicle",
-        "interior view of astronauts stowing sealed sample containers in the lunar module ascent cabin"
+        "Astronauts kneeling and scooping regolith into sample bags, labeling and placing samples in marked containers",
+        "Lunar Module with astronauts on the ladder and sample boxes being carried into the ascent stage",
+        "Lunar rover traversing the surface with tools and sample containers mounted, footprints and deployed instruments visible nearby"
       ],
       "needs_chronology": true,
       "answerable": true,
-      "rationale": "I decomposed the question into EVA actions, instruments deployed, samples returned, and mobility/tools so archive narration and visible scenes can be matched to researcher wording about what astronauts did and brought back."
+      "target_body": "moon",
+      "rationale": "I split the question into (1) surface activities, (2) tools/experiments used, and (3) what was returned and how, then produced narrator\u2011style search phrasings and visual scene descriptions to match NASA archive language."
     },
     {
       "n": 3,
       "kind": "retrieve",
-      "summary": "183 distinct moments from 46 clips",
-      "at": 29.25,
+      "summary": "171 distinct moments from 44 clips",
+      "at": 36.89,
       "queries_run": 12,
       "hits_by_index": {
         "transcript": 210,
         "scene_semantic": 90,
-        "ocr": 60
+        "ocr": 48
       },
-      "rejected_below_threshold": 0,
+      "rejected_below_threshold": 12,
       "thresholds": {
         "transcript": 0.35,
         "scene_semantic": 0.35,
@@ -483,111 +622,125 @@
     {
       "n": 4,
       "kind": "passages",
-      "summary": "183 cells joined into 100 passages, 46 of them continuous runs",
-      "at": 29.25,
-      "cells_merged": 129,
+      "summary": "171 cells joined into 96 passages, 47 of them continuous runs",
+      "at": 36.89,
+      "cells_merged": 122,
       "longest_seconds": 40
     },
     {
       "n": 5,
       "kind": "diversify",
-      "summary": "kept 8 across 8 clips, dropped 92",
-      "at": 29.25,
+      "summary": "kept 8 across 8 clips, dropped 88, preferring moon",
+      "at": 36.9,
       "per_video_cap": 2,
+      "target_body": "moon",
+      "on_target": 8,
       "kept_per_clip": {
-        "ksc_073004_lunar_rocks": 1,
-        "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO": 1,
         "1971 Aeronautics and Space Highlights": 1,
+        "ksc_073004_lunar_rocks": 1,
+        "Buzz_Descends_Comparison__720p": 1,
         "ksc_080504_apollo": 1,
-        "ksc_062805_114_briefing": 1,
-        "ksc_040805_sssr": 1,
-        "NASA Remembers Apollo Astronaut Michael Collins": 1,
-        "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report": 1
+        "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO": 1,
+        "GSFC_20130603_LEND_m11292_Water": 1,
+        "Earthrise - A Conversation with Apollo 8 Astronaut Bill Anders (Official NASA Video)": 1,
+        "JPL-20190601-WHATSUf-0001-Whats Up June 2019": 1
       },
       "dropped": [
         {
           "reason": "evidence_limit",
           "nasa_id": "ksc_073004_lunar_rocks",
-          "start": 0.0,
-          "score": 0.6974,
-          "cap": 2
+          "start": 40.0,
+          "score": 0.6973,
+          "cap": 2,
+          "celestial_body": "moon"
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "1971 Aeronautics and Space Highlights",
           "start": 730.0,
-          "score": 0.6583,
-          "cap": 2
+          "score": 0.6675,
+          "cap": 2,
+          "celestial_body": "moon"
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "1971 Aeronautics and Space Highlights",
-          "start": 770.0,
-          "score": 0.6273,
-          "cap": 2
+          "start": 660.0,
+          "score": 0.6647,
+          "cap": 2,
+          "celestial_body": "moon"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "ksc_122104_spirit_anniv",
+          "start": 40.0,
+          "score": 0.6485,
+          "cap": 2,
+          "celestial_body": "mars"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 30.0,
+          "score": 0.6435,
+          "cap": 2,
+          "celestial_body": "mars"
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "ksc_080504_apollo",
-          "start": 50.0,
-          "score": 0.6154,
-          "cap": 2
+          "start": 10.0,
+          "score": 0.6387,
+          "cap": 2,
+          "celestial_body": "moon"
         },
         {
           "reason": "evidence_limit",
-          "nasa_id": "1971 Aeronautics and Space Highlights",
-          "start": 290.0,
-          "score": 0.6057,
-          "cap": 2
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 80.0,
+          "score": 0.6341,
+          "cap": 2,
+          "celestial_body": "mars"
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
           "start": 80.0,
-          "score": 0.6036,
-          "cap": 2
+          "score": 0.6194,
+          "cap": 2,
+          "celestial_body": "ground"
         },
         {
           "reason": "evidence_limit",
-          "nasa_id": "ksc_080504_apollo",
+          "nasa_id": "Buzz_Descends_Comparison__720p",
+          "start": 40.0,
+          "score": 0.6121,
+          "cap": 2,
+          "celestial_body": "moon"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 850.0,
+          "score": 0.5999,
+          "cap": 2,
+          "celestial_body": "moon"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 90.0,
+          "score": 0.589,
+          "cap": 2,
+          "celestial_body": "mars"
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "ksc_011607_sssr",
           "start": 80.0,
-          "score": 0.5887,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "ksc_012805_mars_recon",
-          "start": 40.0,
-          "score": 0.567,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
-          "start": 160.0,
-          "score": 0.5637,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "ksc_080406_sssr",
-          "start": 40.0,
-          "score": 0.5626,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "ksc_062805_114_briefing",
-          "start": 190.0,
-          "score": 0.5605,
-          "cap": 2
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "ksc_112904_why_kennedy",
-          "start": 120.0,
-          "score": 0.559,
-          "cap": 2
+          "score": 0.5845,
+          "cap": 2,
+          "celestial_body": "ground"
         }
       ]
     },
@@ -595,28 +748,29 @@
       "n": 6,
       "kind": "window",
       "summary": "8 of 8 cut to sentence bounds, 0 left on the grid",
-      "at": 31.22,
+      "at": 38.95,
       "clip_axis_counts": {
         "sentence": 8
       },
-      "widened": 5
+      "widened": 3
     },
     {
       "n": 7,
       "kind": "order",
-      "summary": "ordered by era 1963-2021",
-      "at": 31.22,
+      "summary": "ordered by era 1960-2019, 3 mission label(s) dropped as belonging elsewhere",
+      "at": 38.95,
       "era_axis_counts": {
         "video": 5,
         "scene": 3
       },
+      "missions_dropped": 3,
       "note": "era_axis 'scene' is stated in the footage; 'video' is inferred from clip context; 'published' is the upload date and carries no historical claim"
     },
     {
       "n": 8,
       "kind": "aggregate",
       "summary": "archive spans 8 decades",
-      "at": 31.81,
+      "at": 39.5,
       "histogram": [
         {
           "decade": 1950,
@@ -655,114 +809,125 @@
     {
       "n": 9,
       "kind": "synthesize",
-      "summary": "118 words, 4 citations",
-      "at": 56.14,
-      "chronology_points": 4,
-      "caveats": "The archive-era labels come from the items' metadata (e.g., era noted as video/scene) rather than independent chronological verification; the clips do not provide a complete inventory of all surface activities or the full mass of samples from every mission. The evidence documents examples (time outside, specific sample masses, and storage) but does not establish mission-by-mission totals or operational procedures in full detail."
+      "summary": "173 words, 8 of 8 moments cited",
+      "at": 80.77,
+      "chronology_points": 6,
+      "caveats": "Several clips in the reel set are about later or non\u2011surface activities rather than Apollo surface work: [1] discusses orbital/remote searches for hydrogen/water (not Apollo sample returns), and [8] is a modern (2019) overview of future exploration.  Clip [3] documents photography from lunar orbit (Apollo 8) rather than surface EVA, so orbit footage is not direct evidence of surface operations.  Many of the era labels come from the footage\u2019s video/scene metadata (e.g. [1],[2],[3],[5]) so those date markers are tied to the archive\u2019s era tags rather than independent provenance.  The clips do not by themselves prove the presence of water on the Moon or provide comprehensive technical details (for example the archive snippets here do not show all vehicle or rover hardware), they only show the activities and sample returns recorded in these selected moments.",
+      "cited_moments": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "uncited_moments": []
     }
   ],
   "reel": {
-    "stream_url": "https://play.videodb.io/v1/cc5de125-29b0-44e9-ad04-dae16c81bcc1.m3u8",
-    "player_url": "https://player.videodb.io/watch?v=WZGIrzEe2S4",
+    "stream_url": "https://play.videodb.io/v1/1f50a201-c123-43e0-80ca-2706a100dc2c.m3u8",
+    "player_url": "https://player.videodb.io/watch?v=-mLnn_hcGGU",
     "shots": [
       {
         "at": 0,
-        "duration": 13.0,
+        "duration": 33.0,
         "evidence_index": 0,
         "clamped": false,
-        "nasa_id": "NASA Remembers Apollo Astronaut Michael Collins",
-        "era_start": 1963,
+        "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+        "era_start": 1960,
         "era_axis": "video",
-        "mission": "Gemini",
-        "source_start": 37.54,
-        "caption": "[1]  1963 (from clip context)  \u00b7  Gemini  \u00b7  NASA NASA Remembers Apollo Astronaut Michael Coll"
+        "mission": null,
+        "source_start": 9.32,
+        "caption": "[1]  1960 (from clip context)  \u00b7  unknown mission  \u00b7  NASA GSFC_20130603_LEND_m11292_Water"
       },
       {
-        "at": 13,
-        "duration": 22.0,
+        "at": 33,
+        "duration": 41.0,
         "evidence_index": 1,
+        "clamped": false,
+        "nasa_id": "1971 Aeronautics and Space Highlights",
+        "era_start": 1961,
+        "era_axis": "video",
+        "mission": null,
+        "source_start": 765.37,
+        "caption": "[2]  1961 (from clip context)  \u00b7  unknown mission  \u00b7  NASA 1971 Aeronautics and Space Highlights"
+      },
+      {
+        "at": 74,
+        "duration": 15.0,
+        "evidence_index": 2,
+        "clamped": false,
+        "nasa_id": "Earthrise - A Conversation with Apollo 8 Astronaut Bill Anders (Official NASA Video)",
+        "era_start": 1968,
+        "era_axis": "video",
+        "mission": "Apollo",
+        "source_start": 126.07,
+        "caption": "[3]  1968 (from clip context)  \u00b7  Apollo  \u00b7  NASA Earthrise - A Conversation with Apollo 8 Ast"
+      },
+      {
+        "at": 89,
+        "duration": 37.0,
+        "evidence_index": 3,
+        "clamped": false,
+        "nasa_id": "Buzz_Descends_Comparison__720p",
+        "era_start": 1969,
+        "era_axis": "scene",
+        "mission": "Apollo",
+        "source_start": 1.96,
+        "caption": "[4]  1969  \u00b7  Apollo  \u00b7  NASA Buzz_Descends_Comparison__720p"
+      },
+      {
+        "at": 126,
+        "duration": 34.0,
+        "evidence_index": 4,
         "clamped": false,
         "nasa_id": "ksc_073004_lunar_rocks",
         "era_start": 1969,
         "era_axis": "video",
         "mission": "Apollo",
-        "source_start": 41.73,
-        "caption": "[2]  1969 (from clip context)  \u00b7  Apollo  \u00b7  NASA ksc_073004_lunar_rocks"
+        "source_start": 7.08,
+        "caption": "[5]  1969 (from clip context)  \u00b7  Apollo  \u00b7  NASA ksc_073004_lunar_rocks"
       },
       {
-        "at": 35,
-        "duration": 42.0,
-        "evidence_index": 2,
+        "at": 160,
+        "duration": 39.0,
+        "evidence_index": 5,
         "clamped": false,
         "nasa_id": "ksc_080504_apollo",
         "era_start": 1969,
         "era_axis": "scene",
         "mission": "Apollo",
-        "source_start": 8.12,
-        "caption": "[3]  1969  \u00b7  Apollo  \u00b7  NASA ksc_080504_apollo"
+        "source_start": 49.3,
+        "caption": "[6]  1969  \u00b7  Apollo  \u00b7  NASA ksc_080504_apollo"
       },
       {
-        "at": 77,
-        "duration": 40.0,
-        "evidence_index": 3,
-        "clamped": false,
-        "nasa_id": "1971 Aeronautics and Space Highlights",
-        "era_start": 1971,
-        "era_axis": "scene",
-        "mission": "Apollo",
-        "source_start": 656.96,
-        "caption": "[4]  1971  \u00b7  Apollo  \u00b7  NASA 1971 Aeronautics and Space Highlights"
-      },
-      {
-        "at": 117,
+        "at": 199,
         "duration": 48.0,
-        "evidence_index": 4,
+        "evidence_index": 6,
         "clamped": false,
         "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
         "era_start": 1972,
         "era_axis": "scene",
         "mission": "Apollo",
         "source_start": 37.37,
-        "caption": "[5]  1972  \u00b7  Apollo  \u00b7  NASA GSFC_20171120_JSchmitt_m12705_Apollo17toLRO"
+        "caption": "[7]  1972  \u00b7  Apollo  \u00b7  NASA GSFC_20171120_JSchmitt_m12705_Apollo17toLRO"
       },
       {
-        "at": 165,
-        "duration": 28.0,
-        "evidence_index": 5,
-        "clamped": false,
-        "nasa_id": "ksc_062805_114_briefing",
-        "era_start": 2003,
-        "era_axis": "video",
-        "mission": "Space Shuttle",
-        "source_start": 121.35,
-        "caption": "[6]  2003 (from clip context)  \u00b7  Space Shuttle  \u00b7  NASA ksc_062805_114_briefing"
-      },
-      {
-        "at": 193,
-        "duration": 12.0,
-        "evidence_index": 6,
-        "clamped": false,
-        "nasa_id": "ksc_040805_sssr",
-        "era_start": 2005,
-        "era_axis": "video",
-        "mission": "STS-114",
-        "source_start": 98.54,
-        "caption": "[7]  2005 (from clip context)  \u00b7  STS-114  \u00b7  NASA ksc_040805_sssr"
-      },
-      {
-        "at": 205,
-        "duration": 10.0,
+        "at": 247,
+        "duration": 9.0,
         "evidence_index": 7,
         "clamped": false,
-        "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
-        "era_start": 2021,
+        "nasa_id": "JPL-20190601-WHATSUf-0001-Whats Up June 2019",
+        "era_start": 2019,
         "era_axis": "video",
-        "mission": "Perseverance",
-        "source_start": 91.44,
-        "caption": "[8]  2021 (from clip context)  \u00b7  Perseverance  \u00b7  NASA JPL-20240710-Perseverance_Rover_Spots_an_Unu"
+        "mission": null,
+        "source_start": 141.37,
+        "caption": "[8]  2019 (from clip context)  \u00b7  unknown mission  \u00b7  NASA JPL-20190601-WHATSUf-0001-Whats Up June 2019"
       }
     ],
     "dropped": [],
-    "total_seconds": 215.0
+    "total_seconds": 256.0
   }
 }

@@ -12,8 +12,12 @@ export function Reel({ reel }: { reel?: ReelData }) {
   const { activeEvidenceIndex, setActiveEvidenceIndex, seekTarget, setSeekTarget, setEngaged, selectMoment } =
     useStore();
   const [ready, setReady] = useState(false);
+  // A stream that dies mid-playback is reported rather than left as a frozen frame.
+  const [streamError, setStreamError] = useState<string | null>(null);
 
   const url = reel?.stream_url ?? null;
+
+  useEffect(() => setStreamError(null), [url]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -32,6 +36,29 @@ export function Reel({ reel }: { reel?: ReelData }) {
         hls.loadSource(url);
         hls.attachMedia(video);
         hls.on(Hls.Events.MANIFEST_PARSED, () => setReady(true));
+
+        // hls.js does not recover on its own. Only MANIFEST_PARSED was handled here, so any
+        // fatal error left the element sitting at the second it failed with nothing logged and
+        // nothing shown: a reel stopped dead at 11s every time it was played and looked like a
+        // hang. A network error needs the loader restarted, a media error needs the decoder
+        // flushed, and each is worth exactly one attempt before saying so out loud.
+        let recovered = { network: false, media: false };
+        hls.on(Hls.Events.ERROR, (_event, data) => {
+          if (!data.fatal) return;
+          if (data.type === Hls.ErrorTypes.NETWORK_ERROR && !recovered.network) {
+            recovered.network = true;
+            hls.startLoad();
+          } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR && !recovered.media) {
+            recovered.media = true;
+            hls.recoverMediaError();
+          } else {
+            hls.destroy();
+            setStreamError(
+              `playback stopped at ${video.currentTime.toFixed(0)}s (${data.details}). ` +
+              "The compiled reel is still playable at its VideoDB link.",
+            );
+          }
+        });
         destroy = () => hls.destroy();
       });
       return () => {
@@ -57,11 +84,25 @@ export function Reel({ reel }: { reel?: ReelData }) {
     };
     // Pressing play is what hands the camera over to the reel; before that it holds the wide shot.
     const onPlay = () => setEngaged(true);
+    // The element can fail where hls.js reports nothing: a segment that decodes as garbage
+    // surfaces here as a MediaError and nowhere else, which is how a reel came to sit frozen
+    // mid-shot with an apparently healthy player around it.
+    const onError = () => {
+      const code = video.error?.code;
+      if (code) {
+        setStreamError(
+          `playback stopped at ${video.currentTime.toFixed(0)}s: the compiled stream has a ` +
+          "segment this browser cannot decode. The other shots are still listed below.",
+        );
+      }
+    };
     video.addEventListener("timeupdate", onTime);
     video.addEventListener("play", onPlay);
+    video.addEventListener("error", onError);
     return () => {
       video.removeEventListener("timeupdate", onTime);
       video.removeEventListener("play", onPlay);
+      video.removeEventListener("error", onError);
     };
   }, [reel, setActiveEvidenceIndex, setEngaged]);
 
@@ -86,7 +127,13 @@ export function Reel({ reel }: { reel?: ReelData }) {
       <section className="panel">
         <h2>Evidence reel</h2>
         <div className="err">
-          {reel?.error ? `Could not compile: ${reel.error}` : "No reel for this answer."}
+          {/* A run that was refused before retrieval has nothing to cut, which is an outcome
+              rather than a failure: reporting it as one reads like the compiler crashed. */}
+          {reel?.error === "no evidence to compile"
+            ? "No reel: nothing in the archive matched, so there was no footage to cut."
+            : reel?.error
+              ? `Could not compile: ${reel.error}`
+              : "No reel for this answer."}
         </div>
       </section>
     );
@@ -94,8 +141,13 @@ export function Reel({ reel }: { reel?: ReelData }) {
 
   return (
     <section className="panel">
-      <video ref={videoRef} controls playsInline preload="metadata" />
-      {!ready && <div className="spinner" style={{ marginTop: 8 }}>loading stream…</div>}
+      {/* The player is pinned to the top of the rail: the shot list and the notes scroll under it,
+          so the reel stays on screen while the evidence below it is read. */}
+      <div className="player">
+        <video ref={videoRef} controls playsInline preload="metadata" />
+        {!ready && !streamError && <div className="spinner">loading stream…</div>}
+        {streamError && <div className="err stream-err">{streamError}</div>}
+      </div>
 
       <div className="shotlist">
         {reel?.shots.map((shot, i) => (
