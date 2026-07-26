@@ -199,10 +199,10 @@ density behind it.
   high-gain dish for `instrument_readout`, a dish-and-pad ground station for `briefing`,
   a legged lander, a launch vehicle with a plume, a crewed capsule with a tethered
   astronaut for `eva`, a wireframe panel for `data_visualization`.
-- **The camera follows the reel.** Era mode, the default, flies stage to stage as the
-  reel advances through the decades. Space mode frames the body each shot concerns and
-  is often still, because the archive is mostly Mars. Manual orbit suspends the follow
-  and says so.
+- **The camera follows the reel**, flying stage to stage as it advances through the decades.
+  One mode, deliberately: a second mode that framed the whole body instead of the moment was
+  honest but nearly static, because consecutive shots usually share a world. Clicking a body
+  still frames it. Manual orbit suspends the follow and says so.
 - Before playback the camera holds a wide shot with Earth and Mars both in frame,
   rather than snapping to shot 1 before the viewer has seen the layout.
 - **Beacon colour is the date's provenance**, and hovering repeats it in words: green

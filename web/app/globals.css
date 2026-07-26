@@ -26,10 +26,57 @@
 * { box-sizing: border-box; }
 
 ::selection { background: rgba(224, 102, 47, 0.3); }
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(236, 229, 216, 0.14); }
-::-webkit-scrollbar-thumb:hover { background: rgba(236, 229, 216, 0.28); }
+
+/* ---------- scrollbars ----------
+   Panels float over a starfield, so a scrollbar is furniture sitting on the scene: it has to
+   read as part of the paper, not as an operating-system control. A hairline rail marks where
+   the track is, the thumb is inset from it so it never touches the text, and both warm up on
+   hover so the affordance appears when the pointer is near it and recedes when it is not. */
+/* Firefox only. Chromium honours `scrollbar-width`/`scrollbar-color` too, but setting them
+   there switches it to the standard path and makes it ignore every ::-webkit-scrollbar rule
+   below, which is where the shape actually lives. So these are scoped to engines that have no
+   webkit pseudo-elements at all. */
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(236, 229, 216, 0.22) transparent;
+  }
+  :where(.column, .shotlist, .running-steps):hover {
+    scrollbar-color: rgba(236, 229, 216, 0.38) transparent;
+  }
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track {
+  background: transparent;
+  /* The rail, drawn as a 1px line down the middle of the track rather than a filled channel. */
+  border-left: 1px solid var(--rule-soft);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(236, 229, 216, 0.16);
+  border: 3px solid transparent;   /* inset: keeps the bar off the text column */
+  border-radius: 999px;
+  background-clip: padding-box;
+  transition: background-color 140ms ease;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(236, 229, 216, 0.34); background-clip: padding-box; }
+::-webkit-scrollbar-thumb:active { background: rgba(224, 102, 47, 0.55); background-clip: padding-box; }
+::-webkit-scrollbar-corner { background: transparent; }
+
+/* A container that is hovered shows its scrollbar properly; at rest it is barely there. The
+   scrollbar keeps its gutter either way, so nothing reflows when it fades up. */
+:where(.column, .shotlist, .running-steps)::-webkit-scrollbar-thumb {
+  background: rgba(236, 229, 216, 0.1);
+  background-clip: padding-box;
+}
+:where(.column, .shotlist, .running-steps):hover::-webkit-scrollbar-thumb {
+  background: rgba(236, 229, 216, 0.3);
+  background-clip: padding-box;
+}
+
+/* Horizontal bars are shallower: they sit under content rather than beside it. */
+::-webkit-scrollbar:horizontal { height: 8px; }
+::-webkit-scrollbar-track:horizontal { border-left: 0; border-top: 1px solid var(--rule-soft); }
 
 html, body {
   margin: 0;
@@ -195,6 +242,8 @@ button.run:disabled { color: var(--ink-faint); cursor: not-allowed; }
 }
 .strip-sep { width: 1px; height: 11px; background: var(--rule); }
 .strip-keys { color: var(--ink-faint); letter-spacing: 0.06em; text-transform: none; }
+/* One camera mode, so this states what the flight is doing rather than offering a choice. */
+.strip-mode { color: var(--ink-dim); }
 
 .nav-strip {
   position: absolute;
@@ -251,13 +300,16 @@ kbd {
   top: 168px;
   bottom: 172px;
   overflow-y: auto;
-  padding-right: 10px;
+  /* Reserve the gutter whether or not the bar is showing, so an answer that grows past the
+     fold does not shove the column's text sideways as it lands. */
+  scrollbar-gutter: stable;
+  padding-right: 12px;
   /* Content fades out at the bottom edge rather than being guillotined mid-sentence. */
   -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 26px), transparent 100%);
   mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 26px), transparent 100%);
 }
-.column.left { left: 30px; width: 366px; }
-.column.right { right: 30px; width: 330px; padding-right: 0; padding-left: 10px; }
+.column.left { left: 30px; width: 372px; }
+.column.right { right: 30px; width: 336px; padding-right: 0; padding-left: 12px; }
 
 /* A sheet is a rule and a label, not a card. Legibility over a bright planet comes from one
    soft column-wide wash behind everything, so no sheet has a visible edge of its own. */
@@ -374,6 +426,7 @@ video {
   margin-top: 10px;
   max-height: 116px;
   overflow-y: auto;
+  scrollbar-gutter: stable;
   border-top: 1px solid var(--rule-soft);
 }
 .shot {
@@ -821,6 +874,8 @@ video {
   gap: 3px;
   max-height: 168px;
   overflow-y: auto;
+  scrollbar-gutter: stable;
+  padding-right: 2px;
 }
 .running-steps li {
   font-size: 12.5px;
@@ -838,3 +893,53 @@ video {
   margin-right: 6px;
 }
 .running-steps li.waiting { font-style: italic; color: var(--ink-faint); }
+
+/* A finished run has to announce itself. Ninety seconds after the button was pressed, the only
+   thing that changed was the prose inside one panel, which is not a signal anyone notices. */
+.landed-note {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--rule-soft);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--scene);
+}
+
+.landed-file { color: var(--ink-faint); }
+
+/* Saved runs. Deliberately quiet: the presets are the curated way in, this is the history. */
+.saved-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px solid var(--rule-soft);
+}
+.saved-row .saved-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.saved-row .ask-link {
+  max-width: 22ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet.landed {
+  animation: landed 2.4s ease-out;
+}
+@keyframes landed {
+  0%   { box-shadow: inset 2px 0 0 var(--scene); background-color: color-mix(in srgb, var(--scene) 9%, transparent); }
+  100% { box-shadow: inset 2px 0 0 transparent; background-color: transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sheet.landed { animation: none; box-shadow: inset 2px 0 0 var(--scene); }
+}

@@ -237,15 +237,7 @@ export const ESTABLISHING = {
   lookAt: new THREE.Vector3(6, 0, -26),
 };
 
-/** Camera pose that frames the whole body, used by space mode. */
-export function bodyCamera(p: Placement): { camPos: THREE.Vector3; lookAt: THREE.Vector3 } {
-  const surface = Math.max(p.stage.surface, 1.5);
-  const toSun = SUN_POSITION.clone().sub(p.stage.anchor).normalize();
-  const side = new THREE.Vector3().crossVectors(toSun, WORLD_UP).normalize();
-  if (side.lengthSq() < 0.01) side.set(1, 0, 0);
-
-  // Three-quarter lit: part terminator in frame, which is what makes a sphere read as a planet.
-  const dir = toSun.multiplyScalar(0.45).add(side.multiplyScalar(0.8)).add(WORLD_UP.clone().multiplyScalar(0.25)).normalize();
-  const camPos = p.stage.anchor.clone().add(dir.multiplyScalar(surface * 3.4));
-  return { camPos, lookAt: p.stage.anchor.clone() };
-}
+/* A second camera mode that framed the whole body rather than the moment used to live here.
+ * It was honest but nearly static: the corpus concentrates so hard on a few worlds that
+ * consecutive shots usually shared one, and the camera sat still through most of a reel. The
+ * era flight is the only mode now. Clicking a body still frames it, through `focusCamera`. */

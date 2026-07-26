@@ -9,8 +9,6 @@ interface StoreState {
    *  shot index would drift out of step with the beacons, the needles and the citations. */
   activeEvidenceIndex: number;
   setActiveEvidenceIndex: (i: number) => void;
-  cameraMode: "era" | "space";
-  setCameraMode: (m: "era" | "space") => void;
   autoFollow: boolean;
   setAutoFollow: (f: boolean) => void;
   seekTarget: number | null;
@@ -42,8 +40,6 @@ export const useStore = create<StoreState>((set) => ({
           focusBody: null }),
   activeEvidenceIndex: 0,
   setActiveEvidenceIndex: (i) => set({ activeEvidenceIndex: i }),
-  cameraMode: "era",
-  setCameraMode: (cameraMode) => set({ cameraMode, autoFollow: true }),
   autoFollow: true,
   setAutoFollow: (autoFollow) => set({ autoFollow }),
   seekTarget: null,

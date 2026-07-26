@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { Answer } from "@/components/Answer";
 import { BodyPanel } from "@/components/BodyPanel";
@@ -8,7 +8,7 @@ import { EvidenceList } from "@/components/EvidenceList";
 import { Reel } from "@/components/Reel";
 import { Discarded, Timeline } from "@/components/Sidebar";
 import { Trace } from "@/components/Trace";
-import type { AskResult } from "@/lib/types";
+import type { AskResult, SavedAnswer } from "@/lib/types";
 import { indexReel } from "@/lib/reel";
 import { useStore } from "@/lib/store";
 
@@ -25,7 +25,7 @@ const PRESETS = [
 ];
 
 export default function Page() {
-  const { result, setResult, cameraMode, setCameraMode, autoFollow, setAutoFollow, selectMoment, activeEvidenceIndex, resetView } =
+  const { result, setResult, autoFollow, setAutoFollow, selectMoment, activeEvidenceIndex, resetView } =
     useStore();
   const [preset, setPreset] = useState("water-elsewhere");
   const [question, setQuestion] = useState("");
@@ -36,6 +36,29 @@ export default function Page() {
   // the loop has to be visible while it works.
   const [progress, setProgress] = useState<{ n: number; kind: string; summary: string; at: number }[]>([]);
   const [elapsed, setElapsed] = useState(0);
+  // A finished run used to change nothing but the text inside one panel, ninety seconds after
+  // the button was pressed and usually below the fold. It was indistinguishable from a run that
+  // had silently failed. The answer sheet is scrolled to and flashed, and this receipt says the
+  // run landed.
+  const [landed, setLanded] = useState<{ seconds: number; moments: number; id?: string } | null>(null);
+  const answerRef = useRef<HTMLElement | null>(null);
+  // Runs saved to data/answers. Reloading one costs a file read instead of ninety seconds.
+  const [saved, setSaved] = useState<SavedAnswer[]>([]);
+
+  const loadSavedList = useCallback(async () => {
+    try {
+      const response = await fetch("/api/answers", { cache: "no-store" });
+      if (!response.ok) return;
+      const payload = await response.json();
+      setSaved(payload.answers ?? []);
+    } catch {
+      // A missing history is not worth an error banner over the answer itself.
+    }
+  }, []);
+
+  useEffect(() => {
+    void loadSavedList();
+  }, [loadSavedList]);
 
   useEffect(() => {
     if (!busy) return;
@@ -67,6 +90,36 @@ export default function Page() {
     void loadPreset("water-elsewhere");
   }, [loadPreset]);
 
+  const loadSaved = useCallback(
+    async (id: string) => {
+      setBusy(true);
+      setError(null);
+      setLanded(null);
+      try {
+        const response = await fetch(`/api/answers/${id}`, { cache: "no-store" });
+        if (!response.ok) throw new Error(`could not reload "${id}"`);
+        setResult((await response.json()) as AskResult);
+        setPreset("");
+      } catch (e) {
+        setError(e instanceof Error ? e.message : String(e));
+      } finally {
+        setBusy(false);
+      }
+    },
+    [setResult],
+  );
+
+  // Bring the new answer to the eye. The left column scrolls independently and the sheet is
+  // often out of view by the time a run finishes.
+  useEffect(() => {
+    if (!landed) return;
+    const sheet = answerRef.current;
+    sheet?.scrollIntoView({ behavior: "smooth", block: "start" });
+    sheet?.classList.add("landed");
+    const clear = setTimeout(() => sheet?.classList.remove("landed"), 2400);
+    return () => clearTimeout(clear);
+  }, [landed]);
+
   // H clears the sheets off the scene, for demoing or screen-recording the flight.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -84,6 +137,8 @@ export default function Page() {
     setBusy(true);
     setError(null);
     setProgress([]);
+    setLanded(null);
+    const started = Date.now();
 
     try {
       const response = await fetch("/api/ask", {
@@ -127,9 +182,16 @@ export default function Page() {
           } else if (name === "error") {
             throw new Error(data.error ?? "agent failed");
           } else if (name === "result") {
-            setResult(data as AskResult);
+            const answerResult = data as AskResult;
+            setResult(answerResult);
             setPreset("");
+            setLanded({
+              seconds: Math.round((Date.now() - started) / 1000),
+              moments: answerResult.evidence?.length ?? 0,
+              id: answerResult.saved_id,
+            });
             answered = true;
+            void loadSavedList();
           }
         }
       }
@@ -155,6 +217,15 @@ export default function Page() {
 
   const cited = result?.answer?.citations ?? [];
   const activeMoment = evidence[activeEvidenceIndex];
+
+  // The camera has one mode now, so the strip states what it is doing rather than offering a
+  // choice: the years this answer travels through, taken from the moments themselves.
+  const eraSpan = useMemo(() => {
+    const years = evidence.map((e) => e.era_start).filter((y): y is number => y !== null);
+    if (!years.length) return null;
+    const [lo, hi] = [Math.min(...years), Math.max(...years)];
+    return lo === hi ? `${lo}` : `${lo} → ${hi}`;
+  }, [evidence]);
 
   return (
     <main className="stage-shell">
@@ -241,19 +312,49 @@ export default function Page() {
                     </li>
                   ))}
                   {progress.length === 0 && <li className="waiting">planning the search…</li>}
+                  {/* Retrieval reports in a burst, then synthesis runs for half a minute with
+                      nothing to say. Without this the list looks stalled at the last step. */}
+                  {progress.length > 0 && progress[progress.length - 1].kind !== "synthesize" && (
+                    <li className="waiting">
+                      {progress[progress.length - 1].kind === "aggregate" ||
+                      progress[progress.length - 1].kind === "order"
+                        ? "reading the moments and writing the answer…"
+                        : "working…"}
+                    </li>
+                  )}
                 </ol>
+              </div>
+            )}
+
+            {!busy && landed && (
+              <div className="landed-note">
+                answered in {landed.seconds}s · {landed.moments} moments · reel compiled
+                {landed.id && <span className="landed-file"> · saved as {landed.id}.json</span>}
+              </div>
+            )}
+
+            {/* Every live run is kept, so a question asked once never has to be paid for twice. */}
+            {saved.length > 0 && (
+              <div className="saved-row">
+                <span className="saved-label">saved runs</span>
+                {saved.map((row) => (
+                  <button
+                    key={row.id}
+                    className="ask-link"
+                    disabled={busy}
+                    onClick={() => void loadSaved(row.id)}
+                    title={`${row.question} · ${row.moments} moments · ${new Date(row.saved).toLocaleString()}`}
+                  >
+                    {row.answered ? row.question : `${row.question} (no answer)`}
+                  </button>
+                ))}
               </div>
             )}
           </div>
 
           <div className="camera-strip">
             <span className="strip-label">camera</span>
-            <button className="ask-link" data-active={cameraMode === "era"} onClick={() => setCameraMode("era")}>
-              era
-            </button>
-            <button className="ask-link" data-active={cameraMode === "space"} onClick={() => setCameraMode("space")}>
-              space
-            </button>
+            <span className="strip-mode">{eraSpan ? `era · ${eraSpan}` : "era"}</span>
             <span className="strip-sep" />
             <span className="strip-state" data-on={autoFollow}>
               {autoFollow ? "following reel" : "manual orbit"}
@@ -285,7 +386,7 @@ export default function Page() {
           {result && (
             <>
               <div className="column left">
-                <section className="sheet">
+                <section className="sheet" ref={answerRef}>
                   <h2>Answer</h2>
                   <Answer answer={result.answer} onCite={handleCite} />
                 </section>

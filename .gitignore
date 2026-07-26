@@ -7,3 +7,4 @@ node_modules/
 .next/
 tsconfig.tsbuildinfo
 web/.tmp-check-*/
+data/answers/

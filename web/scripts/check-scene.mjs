@@ -7,8 +7,8 @@
  *     is the only place that mapping lives.
  *
  *  2. Placement. Every marker has to sit on the world its own evidence names, clear of its
- *     neighbours, with era mode framing the moment and space mode framing the body. A camera
- *     that flies to the right coordinates on the wrong world is the same lie as the wrong clip.
+ *     neighbours, with the camera framing the moment. A camera that flies to the right
+ *     coordinates on the wrong world is the same lie as the wrong clip.
  *
  *  Checked against the saved answers in `public/answers`, which are real pipeline output.
  *
@@ -50,7 +50,7 @@ async function main() {
   compile();
   const load = (path) => import(pathToFileURL(join(out, path)).href);
   const { indexReel, evidenceIndexOfShot, shotIndexAt } = await load("lib/reel.js");
-  const { placeEvidence, stageCamera, bodyCamera, STAGES } = await load("components/space/stage.js");
+  const { placeEvidence, stageCamera, focusCamera, STAGES } = await load("components/space/stage.js");
 
   /* 1. Mapping, on a synthetic answer with a hole in it. */
 
@@ -115,12 +115,14 @@ async function main() {
       assert.ok(r >= p.stage.surface - 1e-6, `${file}: ${p.ev.nasa_id} inside ${p.stageKey}`);
       assert.ok(r < p.stage.surface * 2.5 + 6, `${file}: ${p.ev.nasa_id} adrift from ${p.stageKey}`);
 
-      // Era mode frames the moment, space mode frames the body, and neither sits on top of it.
+      // The era flight frames the moment itself, and stands off rather than sitting on it.
       const era = stageCamera(p);
-      const space = bodyCamera(p);
-      assert.ok(era.lookAt.distanceTo(p.pos) < 1e-6, `${file}: era mode must look at the moment`);
-      assert.ok(space.lookAt.distanceTo(p.stage.anchor) < 1e-6, `${file}: space mode must look at the body`);
+      assert.ok(era.lookAt.distanceTo(p.pos) < 1e-6, `${file}: the camera must look at the moment`);
       assert.ok(era.camPos.distanceTo(p.pos) > 0.5, `${file}: camera must stand off the marker`);
+
+      // Clicking a body still frames the body, which is a different pose and must stay one.
+      const focus = focusCamera(p.stageKey);
+      assert.ok(focus.lookAt.distanceTo(p.stage.anchor) < 1e-6, `${file}: focus must look at the body`);
 
       if (i > 0 && placements[i - 1].stageKey !== p.stageKey) jumps += 1;
     });

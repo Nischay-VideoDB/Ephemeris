@@ -33,7 +33,6 @@ import {
   COMET_CENTER,
   ESTABLISHING,
   type Placement,
-  bodyCamera,
   focusCamera,
   placeEvidence,
   stageCamera,
@@ -238,7 +237,7 @@ function CameraRig({
   const controls = useThree((state) => state.controls) as OrbitControlsLike | null;
   const camera = useThree((state) => state.camera);
   const reduced = useReducedMotion();
-  const { cameraMode, autoFollow, setAutoFollow, engaged, focusBody } = useStore();
+  const { autoFollow, setAutoFollow, engaged, focusBody } = useStore();
 
   const tween = useRef<{
     fromPos: THREE.Vector3;
@@ -277,7 +276,7 @@ function CameraRig({
     const placement = placements[activeIndex];
     if (!placement) return;
 
-    const pose = cameraMode === "space" ? bodyCamera(placement) : stageCamera(placement);
+    const pose = stageCamera(placement);
     const previous = lastIndex.current === null ? null : placements[lastIndex.current];
 
     // Consecutive shots on one stage get a nudge, not a full re-fly, so a run of Mars surface
@@ -290,14 +289,11 @@ function CameraRig({
       previous.stageKey === placement.stageKey &&
       previous.craft === placement.craft;
 
-    const toPos =
-      sameStage && cameraMode !== "space"
-        ? camera.position.clone().lerp(pose.camPos, 0.35)
-        : pose.camPos;
+    const toPos = sameStage ? camera.position.clone().lerp(pose.camPos, 0.35) : pose.camPos;
 
     lastIndex.current = activeIndex;
     pending.current = { pos: toPos, target: pose.lookAt };
-  }, [placements, activeIndex, cameraMode, camera, engaged, focusBody]);
+  }, [placements, activeIndex, camera, engaged, focusBody]);
 
   useFrame((state) => {
     if (!controls) return;

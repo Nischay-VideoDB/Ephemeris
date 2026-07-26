@@ -120,16 +120,18 @@ surface, `mars` + `briefing` is a scientist on Earth talking about Mars, and tho
 look different. Mars owns the centre of the composition; Earth is a genuine second
 subject because much of this archive is Earth-based work *about* Mars.
 
-### Two camera modes, era is the default
+### One camera mode: era
 
-- **Era mode (default).** The camera travels along the era axis as the reel plays,
-  1958 → 2022, moving between stages as the era advances. This matches the project's
-  actual claim, which is reasoning across decades, and it produces continuous motion on
-  every question.
-- **Space mode (toggle).** Camera frames the `celestial_body` of the active shot. Honest
-  but often static. Offer it, do not default to it.
+The camera travels along the era axis as the reel plays, 1958 → 2022, moving between stages
+as the era advances. This matches the project's actual claim, which is reasoning across
+decades, and it produces continuous motion on every question.
 
-Label the mode in the UI so nobody mistakes a still camera for a broken one.
+> **Since built:** this section originally specified a second mode, a toggle that framed the
+> `celestial_body` of the active shot rather than the moment. It shipped, and the prediction
+> two paragraphs above was right: retrieval concentrates so hard on a few worlds that
+> consecutive shots usually share one, so the camera sat still through most of a reel. It has
+> been removed. Clicking a body still frames that body, which is where the pose was actually
+> wanted.
 
 Textures: use NASA public-domain surface maps if you can load them at build time,
 otherwise generate procedurally (noise-based rust for Mars, blue/white for Earth). Do
@@ -162,7 +164,7 @@ The camera follows the reel, automatically.
 1. When the reel is playing, watch `video.currentTime`. Determine the active shot from
    `reel.shots` (the last shot whose `at <= currentTime`).
 2. When the active shot changes, tween the camera to frame that shot's **stage** (in era
-   mode) or its `celestial_body` (in space mode), and highlight the matching marker.
+   mode), and highlight the matching marker.
 3. Tween over 900-1200ms with an ease-in-out curve. Never cut. The movement is the
    narrative: watching the camera travel Earth → Mars → Earth as the reel walks through
    the decades is the point of the whole interface.

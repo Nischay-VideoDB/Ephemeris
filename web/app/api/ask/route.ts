@@ -1,7 +1,9 @@
 import { spawn } from "node:child_process";
-import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
+
+import { ANSWERS_DIR, ROOT, answerId } from "@/lib/answers";
 
 /** Runs the real Python agent. Requires the project's .venv, so this works in local
  *  development and anywhere the Python environment is present. The preset answers on
@@ -15,7 +17,6 @@ import { join, resolve } from "node:path";
 
 export const maxDuration = 300;
 
-const ROOT = resolve(process.cwd(), "..");
 const PYTHON = join(ROOT, ".venv", "bin", "python");
 const SCRIPT = join(ROOT, "scripts", "ask.py");
 
@@ -43,8 +44,19 @@ export async function POST(request: Request) {
         controller.enqueue(encoder.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`));
       };
 
-      const dir = await mkdtemp(join(tmpdir(), "mission-control-"));
-      const outPath = join(dir, "answer.json");
+      // The agent writes its result straight into data/answers, alongside the presets, and it
+      // stays there. If that directory cannot be created the run still happens: persistence is
+      // worth having, not worth failing a ninety-second run over.
+      const id = answerId(question, new Date());
+      let outPath: string;
+      let scratch: string | null = null;
+      try {
+        await mkdir(ANSWERS_DIR, { recursive: true });
+        outPath = join(ANSWERS_DIR, `${id}.json`);
+      } catch {
+        scratch = await mkdtemp(join(tmpdir(), "mission-control-"));
+        outPath = join(scratch, "answer.json");
+      }
 
       try {
         // The question is passed as a separate argv entry, never interpolated into a
@@ -84,11 +96,15 @@ export async function POST(request: Request) {
           throw new Error(errors.trim().slice(-1200) || `agent exited ${exit}`);
         }
 
-        send("result", JSON.parse(await readFile(outPath, "utf8")));
+        const result = JSON.parse(await readFile(outPath, "utf8"));
+        // The id travels with the answer so the interface can name the file it was saved to,
+        // and reload it later without re-running the agent.
+        send("result", scratch ? result : { ...result, saved_id: id });
       } catch (error) {
         send("error", { error: error instanceof Error ? error.message : String(error) });
       } finally {
-        await rm(dir, { recursive: true, force: true });
+        // Only the fallback scratch directory is cleaned up. A saved answer is the point.
+        if (scratch) await rm(scratch, { recursive: true, force: true });
         controller.close();
       }
     },
