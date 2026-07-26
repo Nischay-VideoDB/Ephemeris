@@ -2,104 +2,50 @@
   "question": "How did space telescopes change what astronomers could see, and what did each generation of instrument add?",
   "plan": {
     "sub_questions": [
-      "What limits did the Earth's atmosphere impose on what astronomers could see from the ground?",
-      "Which wavelength bands and astrophysical phenomena became accessible only from space telescopes?",
-      "What specific capabilities did successive generations of space instruments add (resolution, sensitivity, wavelength coverage, spectroscopy, stability)?",
-      "What engineering advances enabled those capability improvements (mirrors, detectors, cooling, pointing and deployment technologies)?"
+      "What fundamental observational limits did ground-based telescopes have that space telescopes overcame (atmospheric absorption, turbulence, background)?",
+      "Which wavelength ranges and physical processes did successive generations of space telescopes open up (ultraviolet, X\u2011ray, infrared, high\u2011energy)?",
+      "How did later generations improve key instrument metrics such as angular resolution, sensitivity, and spectroscopic capability, and what new science those improvements enabled?"
     ],
     "phrasings": [
       "How did space telescopes change what astronomers could see, and what did each generation of instrument add?",
-      "A telescope above the atmosphere can observe ultraviolet light that never reaches the ground.",
-      "Space observatories avoid atmospheric turbulence and deliver diffraction\u2011limited sharpness and stable long exposures.",
-      "Each generation of space instruments expanded wavelength coverage, improved sensitivity and increased angular resolution.",
-      "Infrared space telescopes use cryogenic cooling and sunshields to detect faint, redshifted galaxies and dusty star formation.",
-      "High\u2011energy space observatories see X\u2011rays and gamma rays absorbed by the atmosphere, revealing black holes and supernova plasmas.",
-      "Advances in mirror technology, detector sensitivity and precision pointing let later spacecraft see fainter, more distant objects and perform detailed spectroscopy."
+      "Space telescopes removed the blurring and absorption of Earth's atmosphere and revealed finer detail and previously hidden wavelengths.",
+      "Early space observatories opened the ultraviolet and high-energy windows that are inaccessible from the ground.",
+      "Later generations of space telescopes added infrared capability to see through dust and probe the cold and distant universe.",
+      "Each new generation improved angular resolution and sensitivity and brought more capable spectrometers for physical diagnostics.",
+      "Space observatories transformed our view by exposing energetic X\u2011ray and gamma\u2011ray phenomena as well as faint, redshifted galaxies.",
+      "Over time successive instruments built on earlier gains, expanding wavelength coverage, depth, and image quality."
     ],
     "visual_phrasings": [
-      "Side\u2011by\u2011side comparison: ground telescope view with twinkling stars versus sharp, stable starfield from a space telescope",
-      "Animated electromagnetic spectrum with labeled bands turning on as different space telescopes appear (UV, optical, IR, X\u2011ray, gamma\u2011ray)",
-      "Sequence of deep\u2011field images growing richer and deeper over time as successive space instruments reveal ever fainter galaxies",
-      "Cutaway animations of telescope hardware: cooled instrument bay, sunshield deployment, segmented mirror unfolding and fine pointing controls"
+      "Side\u2011by\u2011side comparison of the same astronomical object taken from the ground and from space showing increased sharpness and wavelength coverage.",
+      "Sequence of images showing the same target in ultraviolet, optical, infrared and X\u2011ray false color to illustrate new features revealed at each wavelength.",
+      "Graphic timeline or cutaway animations of successive space telescopes with captions noting added wavelength bands, improved resolution, and greater sensitivity."
     ],
     "needs_chronology": true,
-    "rationale": "I broke the question into atmospheric limits, new wavelength access, generation-by-generation capability gains, and enabling technologies, then wrote plausible NASA narration statements and visual scene descriptions to match archive language."
+    "rationale": "I split the question into limits overcome, wavelengths opened by successive instruments, and quantitative instrument improvements so searches can target narrations about capabilities, generations, and the new science enabled."
   },
   "answer": {
-    "answer": "Space telescopes put instruments above Earth\u2019s atmosphere so astronomers could watch the Sun continuously and observe wavelengths the air blocks [3][8]. The archive shows a clear progression: early space observatories added ultraviolet spectroscopy to reveal spectral details [2], and dedicated X\u2011ray telescopes opened high\u2011energy views of cosmic sources [7][10]. Later generations added infrared sensitivity \u2014 Spitzer and WISE/NEOWISE revealed an \u201cinvisible\u201d infrared universe and hunted asteroids in ways the archive highlights [9][12] \u2014 while Hubble and successor telescopes pushed optical and infrared imaging and sensitivity further [4][5][14]. Finally, wide-field survey missions such as Kepler and TESS transformed space telescopes into time-domain planet hunters, adding the ability to monitor many stars for transits [13].",
+    "answer": "The archive shows a clear progression: early space observatories like Skylab moved observations off Earth and began seeing the Sun in new ways [2].  Later space telescopes added new parts of the spectrum \u2014 Hubble provided high-resolution optical/UV views [3][13], Chandra opened X-ray views of high-energy objects [6][8], and Spitzer along with WISE/NEOWISE revealed an infrared universe of cool and dust\u2011enshrouded sources [7][10][1].  The collection also highlights a shift from single-object imaging toward wide surveys and time-domain searches (Kepler/TESS and NEOWISE) that enabled statistical discovery of exoplanets and asteroids [12][10].  In sum, each generation added new wavelengths and survey modes that let astronomers see phenomena invisible to earlier instruments [3][6][7].",
     "citations": [
-      3,
-      8,
+      1,
       2,
+      3,
+      6,
       7,
+      8,
       10,
-      9,
       12,
-      4,
-      5,
-      14,
       13
     ],
     "chronology": [
       {
         "citations": [
-          3
+          1
         ],
-        "claim": "Skylab-era clips in the archive show early space-based solar observations and steps toward continuous solar monitoring [3].",
-        "era": 1973
-      },
-      {
-        "citations": [
-          2
-        ],
-        "claim": "Archive footage labeled with this era highlights ultraviolet spectroscopy capability (MAVEN IUVS) as an early wavelength added above the atmosphere [2].",
-        "era": 1969
-      },
-      {
-        "citations": [
-          4,
-          5
-        ],
-        "claim": "Hubble-era material in the archive documents major new optical/space-imaging views of the universe from space telescopes [4][5].",
-        "era": 1990
-      },
-      {
-        "citations": [
-          7
-        ],
-        "claim": "Chandra-era clips identify a generation of X-ray observatories that opened high-energy astronomy from space [7].",
-        "era": 1999
-      },
-      {
-        "citations": [
-          9
-        ],
-        "claim": "Spitzer-era archive items show infrared observatories revealing an otherwise invisible infrared universe [9].",
-        "era": 2003
-      },
-      {
-        "citations": [
-          12
-        ],
-        "claim": "WISE/NEOWISE-era clips document wide-field infrared surveys and asteroid-hunting from space [12].",
-        "era": 2009
-      },
-      {
-        "citations": [
-          13
-        ],
-        "claim": "Kepler/TESS-era footage in the archive records the shift to space-based, time-domain surveys that detect exoplanet transits [13].",
-        "era": 2019
-      },
-      {
-        "citations": [
-          14
-        ],
-        "claim": "Archive items associated with the James Webb era indicate successor telescopes extending space-based optical/infrared sensitivity and imaging [14].",
-        "era": 2021
+        "claim": "The archive includes early space-era material that predates later dedicated telescopes and shows the move to space-based observing that set the stage for later multiwavelength missions.",
+        "era": 1965
       }
     ],
-    "caveats": "Many of the era labels in the archive are taken from the archive's era_axis (e.g., listed as \u201c(video)\u201d or \u201c(published)\u201d) and so those dates come from that labeling rather than independent verification. The clips and titles indicate which wavelengths or missions were emphasized, but the snippets do not provide full technical specifications, quantitative performance, or complete operational histories; the multi\u2011generation progression above is a synthesis across clips rather than a single clip\u2019s claim."
+    "caveats": "Many of the dated items in the evidence are tagged with era_axis values like 'video' or 'published' so the listed years come from those archive labels and may be approximate; the clips and titles indicate mission names and broad capabilities but do not provide detailed instrument specifications or a complete technical chronology."
   },
   "evidence": [
     {
@@ -107,9 +53,9 @@
       "video_id": "m-z-019f9831-d344-7b83-8045-f4eed9ab7dcb",
       "start": 300.0,
       "end": 310.0,
-      "score": 0.6813,
+      "score": 0.6391,
       "index": "transcript",
-      "query": "Infrared space telescopes use cryogenic cooling and sunshields to detect faint, redshifted galaxies and dusty star formation.",
+      "query": "Later generations of space telescopes added infrared capability to see through dust and probe the cold and distant universe.",
       "text": "",
       "era_start": 1958,
       "era_axis": "video",
@@ -119,24 +65,6 @@
       "published_year": 2005,
       "celestial_body": "deep_space",
       "event_type": "animation"
-    },
-    {
-      "nasa_id": "GSFC_20130613_MAVEN_m11295_IUVS",
-      "video_id": "m-z-019f9835-4023-7c92-bd90-42d666edcb67",
-      "start": 70.0,
-      "end": 80.0,
-      "score": 0.6562,
-      "index": "transcript",
-      "query": "A telescope above the atmosphere can observe ultraviolet light that never reaches the ground.",
-      "text": "",
-      "era_start": 1969,
-      "era_axis": "video",
-      "era_basis": "video_context",
-      "mission": "MAVEN",
-      "title": "MAVEN Imaging Ultraviolet Spectrograph",
-      "published_year": 2013,
-      "celestial_body": "unknown",
-      "event_type": "other"
     },
     {
       "nasa_id": "GSFC_20110207_STEREO_m10720_Stonehenge",
@@ -159,11 +87,11 @@
     {
       "nasa_id": "ksc_042310_hubble",
       "video_id": "m-z-019f9a84-8e8d-7fd0-8c88-cd33d1907611",
-      "start": 80.0,
-      "end": 90.0,
-      "score": 0.612,
-      "index": "scene_semantic",
-      "query": "Cutaway animations of telescope hardware: cooled instrument bay, sunshield deployment, segmented mirror unfolding and fine pointing controls",
+      "start": 330.0,
+      "end": 340.0,
+      "score": 0.6106,
+      "index": "transcript",
+      "query": "How did space telescopes change what astronomers could see, and what did each generation of instrument add?",
       "text": "",
       "era_start": 1990,
       "era_axis": "video",
@@ -172,16 +100,16 @@
       "title": "KSC-10-S-00043",
       "published_year": 2010,
       "celestial_body": "deep_space",
-      "event_type": "briefing"
+      "event_type": "other"
     },
     {
       "nasa_id": "GSFC_20190429_Goddard_m13184_60",
       "video_id": "m-z-019f9a87-fe0d-72e1-af77-0041fa172fb2",
       "start": 130.0,
       "end": 140.0,
-      "score": 0.6331,
+      "score": 0.6051,
       "index": "transcript",
-      "query": "Advances in mirror technology, detector sensitivity and precision pointing let later spacecraft see fainter, more distant objects and perform detailed spectroscopy.",
+      "query": "Space telescopes removed the blurring and absorption of Earth's atmosphere and revealed finer detail and previously hidden wavelengths.",
       "text": "",
       "era_start": 1993,
       "era_axis": "scene",
@@ -197,9 +125,9 @@
       "video_id": "m-z-019f9a7d-a7d0-7e92-9cfa-afff96ace28b",
       "start": 80.0,
       "end": 90.0,
-      "score": 0.6426,
+      "score": 0.6259,
       "index": "transcript",
-      "query": "Each generation of space instruments expanded wavelength coverage, improved sensitivity and increased angular resolution.",
+      "query": "Each new generation improved angular resolution and sensitivity and brought more capable spectrometers for physical diagnostics.",
       "text": "",
       "era_start": 1998,
       "era_axis": "video",
@@ -213,11 +141,11 @@
     {
       "nasa_id": "ksc_042507_chandra_2",
       "video_id": "m-z-019f9a86-ad95-71e0-9448-e7471e5ee2e2",
-      "start": 0.0,
-      "end": 10.0,
-      "score": 0.6169,
+      "start": 10.0,
+      "end": 20.0,
+      "score": 0.575,
       "index": "transcript",
-      "query": "High\u2011energy space observatories see X\u2011rays and gamma rays absorbed by the atmosphere, revealing black holes and supernova plasmas.",
+      "query": "Space observatories transformed our view by exposing energetic X\u2011ray and gamma\u2011ray phenomena as well as faint, redshifted galaxies.",
       "text": "",
       "era_start": 1999,
       "era_axis": "video",
@@ -225,25 +153,7 @@
       "mission": "Chandra X-ray Observatory",
       "title": "KSC-07-S-00077",
       "published_year": 2007,
-      "celestial_body": "earth_orbit",
-      "event_type": "briefing"
-    },
-    {
-      "nasa_id": "GSFC_20151201_SOHO_m12052_20th",
-      "video_id": "m-z-019f9a83-5c39-7e92-817f-edac36e26c0e",
-      "start": 70.0,
-      "end": 80.0,
-      "score": 0.6457,
-      "index": "transcript",
-      "query": "A telescope above the atmosphere can observe ultraviolet light that never reaches the ground.",
-      "text": "",
-      "era_start": 2003,
-      "era_axis": "scene",
-      "era_basis": "stated_in_speech",
-      "mission": "SOHO",
-      "title": "SOHO Celebrates 20 Years of Space-based Science",
-      "published_year": 2015,
-      "celestial_body": "sun",
+      "celestial_body": "deep_space",
       "event_type": "data_visualization"
     },
     {
@@ -251,9 +161,9 @@
       "video_id": "m-z-019f9a84-23e9-7191-a636-639661b67678",
       "start": 50.0,
       "end": 60.0,
-      "score": 0.6781,
+      "score": 0.7395,
       "index": "transcript",
-      "query": "Infrared space telescopes use cryogenic cooling and sunshields to detect faint, redshifted galaxies and dusty star formation.",
+      "query": "Later generations of space telescopes added infrared capability to see through dust and probe the cold and distant universe.",
       "text": "",
       "era_start": 2003,
       "era_axis": "scene",
@@ -267,11 +177,11 @@
     {
       "nasa_id": "ksc_082604_chandra",
       "video_id": "m-z-019f9a87-014d-78b3-96d1-08d05b50a1fc",
-      "start": 20.0,
-      "end": 30.0,
-      "score": 0.5912,
+      "start": 60.0,
+      "end": 70.0,
+      "score": 0.624,
       "index": "transcript",
-      "query": "High\u2011energy space observatories see X\u2011rays and gamma rays absorbed by the atmosphere, revealing black holes and supernova plasmas.",
+      "query": "Space observatories transformed our view by exposing energetic X\u2011ray and gamma\u2011ray phenomena as well as faint, redshifted galaxies.",
       "text": "",
       "era_start": 2004,
       "era_axis": "published",
@@ -285,11 +195,11 @@
     {
       "nasa_id": "GSFC_20190511_HST_m13186_SM4_Overview",
       "video_id": "m-z-019f9a77-80a5-77e2-86ba-ea68542ef57e",
-      "start": 90.0,
-      "end": 100.0,
-      "score": 0.6314,
+      "start": 50.0,
+      "end": 60.0,
+      "score": 0.5789,
       "index": "scene_semantic",
-      "query": "Cutaway animations of telescope hardware: cooled instrument bay, sunshield deployment, segmented mirror unfolding and fine pointing controls",
+      "query": "Graphic timeline or cutaway animations of successive space telescopes with captions noting added wavelength bands, improved resolution, and greater sensitivity.",
       "text": "",
       "era_start": 2009,
       "era_axis": "video",
@@ -297,17 +207,17 @@
       "mission": "International Space Station",
       "title": "Servicing Mission 4 Overview",
       "published_year": 2019,
-      "celestial_body": "earth_orbit",
-      "event_type": "briefing"
+      "celestial_body": "deep_space",
+      "event_type": "data_visualization"
     },
     {
       "nasa_id": "JPL-20240801-NEOWISf-0001-NEOWISE Legacy of NASAs Asteroid Hunting Telescope",
       "video_id": "m-z-019f9a79-b75a-7730-a9a5-a4600209c0c0",
-      "start": 20.0,
-      "end": 30.0,
-      "score": 0.6336,
-      "index": "transcript",
-      "query": "Infrared space telescopes use cryogenic cooling and sunshields to detect faint, redshifted galaxies and dusty star formation.",
+      "start": 130.0,
+      "end": 140.0,
+      "score": 0.6158,
+      "index": "scene_semantic",
+      "query": "Graphic timeline or cutaway animations of successive space telescopes with captions noting added wavelength bands, improved resolution, and greater sensitivity.",
       "text": "",
       "era_start": 2009,
       "era_axis": "video",
@@ -315,17 +225,35 @@
       "mission": "WISE",
       "title": "NEOWISE: Legacy of NASA\u2019s Asteroid-Hunting Telescope",
       "published_year": 2024,
-      "celestial_body": "earth",
-      "event_type": "animation"
+      "celestial_body": "deep_space",
+      "event_type": "briefing"
+    },
+    {
+      "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+      "video_id": "m-z-019f980d-93a8-7e02-8499-c37750f6873e",
+      "start": 50.0,
+      "end": 60.0,
+      "score": 0.6292,
+      "index": "transcript",
+      "query": "Later generations of space telescopes added infrared capability to see through dust and probe the cold and distant universe.",
+      "text": "",
+      "era_start": 2015,
+      "era_axis": "published",
+      "era_basis": "not_determinable",
+      "mission": "Curiosity",
+      "title": "Mars' Ancient Ocean",
+      "published_year": 2015,
+      "celestial_body": "unknown",
+      "event_type": "briefing"
     },
     {
       "nasa_id": "GSFC_20190327_TESS_m13155_Voyager",
       "video_id": "m-z-019f9a84-f8f7-7f21-af2d-86984d7b1b8b",
-      "start": 130.0,
-      "end": 140.0,
-      "score": 0.638,
-      "index": "transcript",
-      "query": "Advances in mirror technology, detector sensitivity and precision pointing let later spacecraft see fainter, more distant objects and perform detailed spectroscopy.",
+      "start": 160.0,
+      "end": 170.0,
+      "score": 0.5932,
+      "index": "scene_semantic",
+      "query": "Graphic timeline or cutaway animations of successive space telescopes with captions noting added wavelength bands, improved resolution, and greater sensitivity.",
       "text": "",
       "era_start": 2019,
       "era_axis": "published",
@@ -333,17 +261,35 @@
       "mission": "Voyager 1",
       "title": "Going Interstellar with TESS and Kepler",
       "published_year": 2019,
+      "celestial_body": "earth_orbit",
+      "event_type": "data_visualization"
+    },
+    {
+      "nasa_id": "GSFC_20190701_HST_m13244_Eta_Carinae",
+      "video_id": "m-z-019f9a85-4ef2-7e93-a69d-4c078f048dc3",
+      "start": 130.0,
+      "end": 140.0,
+      "score": 0.5909,
+      "index": "scene_semantic",
+      "query": "Graphic timeline or cutaway animations of successive space telescopes with captions noting added wavelength bands, improved resolution, and greater sensitivity.",
+      "text": "",
+      "era_start": 2019,
+      "era_axis": "published",
+      "era_basis": "not_determinable",
+      "mission": "Hubble Space Telescope",
+      "title": "Hubble\u2019s Brand New Image of Eta Carinae",
+      "published_year": 2019,
       "celestial_body": "deep_space",
-      "event_type": "briefing"
+      "event_type": "other"
     },
     {
       "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
       "video_id": "m-z-019f9a85-ef2a-7a62-838e-c577aff1d630",
       "start": 260.0,
       "end": 270.0,
-      "score": 0.6545,
-      "index": "scene_semantic",
-      "query": "Cutaway animations of telescope hardware: cooled instrument bay, sunshield deployment, segmented mirror unfolding and fine pointing controls",
+      "score": 0.643,
+      "index": "transcript",
+      "query": "Later generations of space telescopes added infrared capability to see through dust and probe the cold and distant universe.",
       "text": "",
       "era_start": 2021,
       "era_axis": "scene",
@@ -359,23 +305,15 @@
     "below_threshold": [
       {
         "reason": "below_threshold",
-        "score": 0.2446,
+        "score": 0.2424,
         "threshold": 0.28,
         "video_id": "m-z-019f980d-93a8-7e02-8499-c37750f6873e",
-        "start": 230.0,
+        "start": 80.0,
         "index": "ocr"
       },
       {
         "reason": "below_threshold",
-        "score": 0.2407,
-        "threshold": 0.28,
-        "video_id": "m-z-019f980d-93a8-7e02-8499-c37750f6873e",
-        "start": 220.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2738,
+        "score": 0.2462,
         "threshold": 0.28,
         "video_id": "m-z-019f9835-4023-7c92-bd90-42d666edcb67",
         "start": 130.0,
@@ -383,7 +321,63 @@
       },
       {
         "reason": "below_threshold",
-        "score": 0.2705,
+        "score": 0.2396,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
+        "start": 20.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2391,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
+        "start": 320.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2672,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9a88-f246-73e3-a04e-8ff112a4b5b9",
+        "start": 70.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2481,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9831-1df8-74b1-a57e-ed97adef2389",
+        "start": 480.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2476,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9831-1df8-74b1-a57e-ed97adef2389",
+        "start": 510.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2408,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9831-1df8-74b1-a57e-ed97adef2389",
+        "start": 210.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2273,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9831-1df8-74b1-a57e-ed97adef2389",
+        "start": 290.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.2718,
         "threshold": 0.28,
         "video_id": "m-z-019f9835-9372-7ab2-b96d-0aa98b7282c7",
         "start": 30.0,
@@ -391,7 +385,7 @@
       },
       {
         "reason": "below_threshold",
-        "score": 0.2629,
+        "score": 0.2335,
         "threshold": 0.28,
         "video_id": "m-z-019f9835-9372-7ab2-b96d-0aa98b7282c7",
         "start": 50.0,
@@ -399,23 +393,15 @@
       },
       {
         "reason": "below_threshold",
-        "score": 0.269,
+        "score": 0.2745,
         "threshold": 0.28,
-        "video_id": "m-z-019f9832-b577-7883-bfa3-26a28c17d34f",
-        "start": 90.0,
+        "video_id": "m-z-019f9834-ef78-7510-b1a2-e70256b967e1",
+        "start": 10.0,
         "index": "ocr"
       },
       {
         "reason": "below_threshold",
-        "score": 0.2441,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9832-b577-7883-bfa3-26a28c17d34f",
-        "start": 0.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2607,
+        "score": 0.2439,
         "threshold": 0.28,
         "video_id": "m-z-019f9834-ef78-7510-b1a2-e70256b967e1",
         "start": 180.0,
@@ -423,23 +409,31 @@
       },
       {
         "reason": "below_threshold",
-        "score": 0.2458,
+        "score": 0.2672,
         "threshold": 0.28,
-        "video_id": "m-z-019f9831-1df8-74b1-a57e-ed97adef2389",
-        "start": 500.0,
+        "video_id": "m-z-019f9a88-99fa-7d31-b325-4c3cf3172c68",
+        "start": 70.0,
         "index": "ocr"
       },
       {
         "reason": "below_threshold",
-        "score": 0.2449,
+        "score": 0.2328,
         "threshold": 0.28,
-        "video_id": "m-z-019f9831-1df8-74b1-a57e-ed97adef2389",
-        "start": 460.0,
+        "video_id": "m-z-019f9a88-99fa-7d31-b325-4c3cf3172c68",
+        "start": 220.0,
         "index": "ocr"
       },
       {
         "reason": "below_threshold",
-        "score": 0.2441,
+        "score": 0.2319,
+        "threshold": 0.28,
+        "video_id": "m-z-019f9a87-a41a-76f0-9fd1-65ea9cbeaeea",
+        "start": 220.0,
+        "index": "ocr"
+      },
+      {
+        "reason": "below_threshold",
+        "score": 0.226,
         "threshold": 0.28,
         "video_id": "m-z-019f9832-5e84-76d2-b2d2-c345db9111c0",
         "start": 0.0,
@@ -447,39 +441,15 @@
       },
       {
         "reason": "below_threshold",
-        "score": 0.2377,
+        "score": 0.226,
         "threshold": 0.28,
-        "video_id": "m-z-019f9832-5e84-76d2-b2d2-c345db9111c0",
-        "start": 30.0,
+        "video_id": "m-z-019f9832-b577-7883-bfa3-26a28c17d34f",
+        "start": 0.0,
         "index": "ocr"
       },
       {
         "reason": "below_threshold",
-        "score": 0.2377,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9832-5e84-76d2-b2d2-c345db9111c0",
-        "start": 50.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2377,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9832-5e84-76d2-b2d2-c345db9111c0",
-        "start": 80.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2377,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9832-5e84-76d2-b2d2-c345db9111c0",
-        "start": 10.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2441,
+        "score": 0.226,
         "threshold": 0.28,
         "video_id": "m-z-019f9833-6fec-7471-bf83-84c2a9ef5ff6",
         "start": 0.0,
@@ -487,34 +457,10 @@
       },
       {
         "reason": "below_threshold",
-        "score": 0.2441,
+        "score": 0.2616,
         "threshold": 0.28,
-        "video_id": "m-z-019f9833-ae6b-7a21-8b81-8acd2c0a00d2",
-        "start": 0.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2441,
-        "threshold": 0.28,
-        "video_id": "m-z-019f980b-ae2e-7073-88e7-1db2cf36aae7",
-        "start": 0.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2441,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9833-1e55-7aa2-9db0-fbb5295f00f8",
-        "start": 0.0,
-        "index": "ocr"
-      },
-      {
-        "reason": "below_threshold",
-        "score": 0.2377,
-        "threshold": 0.28,
-        "video_id": "m-z-019f9833-1e55-7aa2-9db0-fbb5295f00f8",
-        "start": 20.0,
+        "video_id": "m-z-019f9830-917d-7a02-b983-bad5f9848f67",
+        "start": 150.0,
         "index": "ocr"
       }
     ],
@@ -523,91 +469,63 @@
         "reason": "evidence_limit",
         "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
         "start": 10.0,
-        "score": 0.6572,
-        "cap": 3
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
-        "start": 300.0,
-        "score": 0.6244,
-        "cap": 3
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
-        "start": 230.0,
-        "score": 0.6213,
-        "cap": 3
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
-        "start": 80.0,
-        "score": 0.6212,
+        "score": 0.7,
         "cap": 3
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
         "start": 30.0,
-        "score": 0.6183,
+        "score": 0.6731,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
+        "start": 0.0,
+        "score": 0.6268,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
+        "start": 60.0,
+        "score": 0.6181,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
+        "start": 250.0,
+        "score": 0.599,
         "cap": 3
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "ksc_042310_hubble",
-        "start": 330.0,
-        "score": 0.6106,
+        "start": 290.0,
+        "score": 0.5938,
         "cap": 3
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "ksc_042310_hubble",
         "start": 150.0,
-        "score": 0.61,
+        "score": 0.5921,
         "cap": 3
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "JPL-20240801-NEOWISf-0001-NEOWISE Legacy of NASAs Asteroid Hunting Telescope",
-        "start": 130.0,
-        "score": 0.6056,
-        "cap": 3
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
         "start": 20.0,
-        "score": 0.6004,
+        "score": 0.5905,
         "cap": 3
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "ksc_042507_chandra_2",
-        "start": 10.0,
-        "score": 0.5985,
-        "cap": 3
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "1971 Aeronautics and Space Highlights",
-        "start": 230.0,
-        "score": 0.5909,
-        "cap": 3
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "GSFC_20190511_HST_m13186_SM4_Overview",
-        "start": 80.0,
-        "score": 0.5874,
-        "cap": 3
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "ksc_042310_hubble",
-        "start": 50.0,
-        "score": 0.5868,
+        "nasa_id": "GSFC_20190327_TESS_m13155_Voyager",
+        "start": 130.0,
+        "score": 0.5901,
         "cap": 3
       },
       {
@@ -619,50 +537,78 @@
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "1971 Aeronautics and Space Highlights",
-        "start": 150.0,
-        "score": 0.5831,
+        "nasa_id": "GSFC_20190429_Goddard_m13184_60",
+        "start": 20.0,
+        "score": 0.5857,
         "cap": 3
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "ksc_012805_mars_recon",
-        "start": 30.0,
-        "score": 0.5821,
+        "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
+        "start": 180.0,
+        "score": 0.5833,
         "cap": 3
       },
       {
         "reason": "evidence_limit",
-        "nasa_id": "ksc_042310_hubble",
-        "start": 290.0,
-        "score": 0.5807,
-        "cap": 3
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "ksc_042310_hubble",
-        "start": 360.0,
-        "score": 0.5783,
-        "cap": 3
-      },
-      {
-        "reason": "evidence_limit",
-        "nasa_id": "GSFC_20150915_SOHO_m11975_comets",
-        "start": 60.0,
-        "score": 0.5747,
+        "nasa_id": "ksc_082604_chandra",
+        "start": 10.0,
+        "score": 0.5824,
         "cap": 3
       },
       {
         "reason": "evidence_limit",
         "nasa_id": "GSFC_20190327_TESS_m13155_Voyager",
         "start": 80.0,
-        "score": 0.5744,
+        "score": 0.5775,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_042310_hubble",
+        "start": 430.0,
+        "score": 0.5746,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "GSFC_20190429_Goddard_m13184_60",
+        "start": 110.0,
+        "score": 0.5719,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
+        "start": 20.0,
+        "score": 0.5716,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
+        "start": 270.0,
+        "score": 0.5713,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "ksc_082604_chandra",
+        "start": 30.0,
+        "score": 0.5675,
+        "cap": 3
+      },
+      {
+        "reason": "evidence_limit",
+        "nasa_id": "GSFC_20110207_STEREO_m10720_Stonehenge",
+        "start": 20.0,
+        "score": 0.5672,
         "cap": 3
       }
     ],
     "counts": {
-      "below_threshold": 24,
-      "diversity": 167
+      "below_threshold": 38,
+      "diversity": 138
     }
   },
   "timeline": [
@@ -709,44 +655,42 @@
     {
       "n": 2,
       "kind": "decompose",
-      "summary": "4 sub-questions, 7 spoken phrasings, 4 visual",
-      "at": 18.7,
+      "summary": "3 sub-questions, 7 spoken phrasings, 3 visual",
+      "at": 13.51,
       "sub_questions": [
-        "What limits did the Earth's atmosphere impose on what astronomers could see from the ground?",
-        "Which wavelength bands and astrophysical phenomena became accessible only from space telescopes?",
-        "What specific capabilities did successive generations of space instruments add (resolution, sensitivity, wavelength coverage, spectroscopy, stability)?",
-        "What engineering advances enabled those capability improvements (mirrors, detectors, cooling, pointing and deployment technologies)?"
+        "What fundamental observational limits did ground-based telescopes have that space telescopes overcame (atmospheric absorption, turbulence, background)?",
+        "Which wavelength ranges and physical processes did successive generations of space telescopes open up (ultraviolet, X\u2011ray, infrared, high\u2011energy)?",
+        "How did later generations improve key instrument metrics such as angular resolution, sensitivity, and spectroscopic capability, and what new science those improvements enabled?"
       ],
       "phrasings": [
         "How did space telescopes change what astronomers could see, and what did each generation of instrument add?",
-        "A telescope above the atmosphere can observe ultraviolet light that never reaches the ground.",
-        "Space observatories avoid atmospheric turbulence and deliver diffraction\u2011limited sharpness and stable long exposures.",
-        "Each generation of space instruments expanded wavelength coverage, improved sensitivity and increased angular resolution.",
-        "Infrared space telescopes use cryogenic cooling and sunshields to detect faint, redshifted galaxies and dusty star formation.",
-        "High\u2011energy space observatories see X\u2011rays and gamma rays absorbed by the atmosphere, revealing black holes and supernova plasmas.",
-        "Advances in mirror technology, detector sensitivity and precision pointing let later spacecraft see fainter, more distant objects and perform detailed spectroscopy."
+        "Space telescopes removed the blurring and absorption of Earth's atmosphere and revealed finer detail and previously hidden wavelengths.",
+        "Early space observatories opened the ultraviolet and high-energy windows that are inaccessible from the ground.",
+        "Later generations of space telescopes added infrared capability to see through dust and probe the cold and distant universe.",
+        "Each new generation improved angular resolution and sensitivity and brought more capable spectrometers for physical diagnostics.",
+        "Space observatories transformed our view by exposing energetic X\u2011ray and gamma\u2011ray phenomena as well as faint, redshifted galaxies.",
+        "Over time successive instruments built on earlier gains, expanding wavelength coverage, depth, and image quality."
       ],
       "visual_phrasings": [
-        "Side\u2011by\u2011side comparison: ground telescope view with twinkling stars versus sharp, stable starfield from a space telescope",
-        "Animated electromagnetic spectrum with labeled bands turning on as different space telescopes appear (UV, optical, IR, X\u2011ray, gamma\u2011ray)",
-        "Sequence of deep\u2011field images growing richer and deeper over time as successive space instruments reveal ever fainter galaxies",
-        "Cutaway animations of telescope hardware: cooled instrument bay, sunshield deployment, segmented mirror unfolding and fine pointing controls"
+        "Side\u2011by\u2011side comparison of the same astronomical object taken from the ground and from space showing increased sharpness and wavelength coverage.",
+        "Sequence of images showing the same target in ultraviolet, optical, infrared and X\u2011ray false color to illustrate new features revealed at each wavelength.",
+        "Graphic timeline or cutaway animations of successive space telescopes with captions noting added wavelength bands, improved resolution, and greater sensitivity."
       ],
       "needs_chronology": true,
-      "rationale": "I broke the question into atmospheric limits, new wavelength access, generation-by-generation capability gains, and enabling technologies, then wrote plausible NASA narration statements and visual scene descriptions to match archive language."
+      "rationale": "I split the question into limits overcome, wavelengths opened by successive instruments, and quantitative instrument improvements so searches can target narrations about capabilities, generations, and the new science enabled."
     },
     {
       "n": 3,
       "kind": "retrieve",
-      "summary": "181 distinct moments from 38 clips",
-      "at": 37.96,
-      "queries_run": 13,
+      "summary": "152 distinct moments from 45 clips",
+      "at": 32.35,
+      "queries_run": 12,
       "hits_by_index": {
         "transcript": 210,
-        "scene_semantic": 120,
-        "ocr": 36
+        "scene_semantic": 90,
+        "ocr": 22
       },
-      "rejected_below_threshold": 24,
+      "rejected_below_threshold": 38,
       "thresholds": {
         "transcript": 0.35,
         "scene_semantic": 0.35,
@@ -756,108 +700,108 @@
     {
       "n": 4,
       "kind": "diversify",
-      "summary": "kept 14 across 14 clips, dropped 167",
-      "at": 37.96,
+      "summary": "kept 14 across 14 clips, dropped 138",
+      "at": 32.36,
       "per_video_cap": 3,
       "kept_per_clip": {
-        "ksc_020105_why_jpl": 1,
         "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe": 1,
-        "GSFC_20130613_MAVEN_m11295_IUVS": 1,
         "NHQ_2020_0429_AskNASA_202_Hubble": 1,
-        "GSFC_20151201_SOHO_m12052_20th": 1,
+        "ksc_020105_why_jpl": 1,
+        "GSFC_20150305_Mars_m11796_Ocean": 1,
         "van_050905_noaanhalt": 1,
-        "GSFC_20190327_TESS_m13155_Voyager": 1,
+        "ksc_082604_chandra": 1,
         "JPL-20240801-NEOWISf-0001-NEOWISE Legacy of NASAs Asteroid Hunting Telescope": 1,
-        "GSFC_20190429_Goddard_m13184_60": 1,
-        "GSFC_20190511_HST_m13186_SM4_Overview": 1,
-        "ksc_042507_chandra_2": 1,
-        "ksc_042310_hubble": 1,
         "GSFC_20110207_STEREO_m10720_Stonehenge": 1,
-        "ksc_082604_chandra": 1
+        "ksc_042310_hubble": 1,
+        "GSFC_20190429_Goddard_m13184_60": 1,
+        "GSFC_20190327_TESS_m13155_Voyager": 1,
+        "GSFC_20190701_HST_m13244_Eta_Carinae": 1,
+        "GSFC_20190511_HST_m13186_SM4_Overview": 1,
+        "ksc_042507_chandra_2": 1
       },
       "dropped": [
         {
           "reason": "evidence_limit",
           "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
           "start": 10.0,
-          "score": 0.6572,
-          "cap": 3
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
-          "start": 300.0,
-          "score": 0.6244,
-          "cap": 3
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
-          "start": 230.0,
-          "score": 0.6213,
-          "cap": 3
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
-          "start": 80.0,
-          "score": 0.6212,
+          "score": 0.7,
           "cap": 3
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
           "start": 30.0,
-          "score": 0.6183,
+          "score": 0.6731,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
+          "start": 0.0,
+          "score": 0.6268,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
+          "start": 60.0,
+          "score": 0.6181,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
+          "start": 250.0,
+          "score": 0.599,
           "cap": 3
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "ksc_042310_hubble",
-          "start": 330.0,
-          "score": 0.6106,
+          "start": 290.0,
+          "score": 0.5938,
           "cap": 3
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "ksc_042310_hubble",
           "start": 150.0,
-          "score": 0.61,
+          "score": 0.5921,
           "cap": 3
         },
         {
           "reason": "evidence_limit",
           "nasa_id": "JPL-20240801-NEOWISf-0001-NEOWISE Legacy of NASAs Asteroid Hunting Telescope",
-          "start": 130.0,
-          "score": 0.6056,
-          "cap": 3
-        },
-        {
-          "reason": "evidence_limit",
-          "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
           "start": 20.0,
-          "score": 0.6004,
+          "score": 0.5905,
           "cap": 3
         },
         {
           "reason": "evidence_limit",
-          "nasa_id": "ksc_042507_chandra_2",
-          "start": 10.0,
-          "score": 0.5985,
+          "nasa_id": "GSFC_20190327_TESS_m13155_Voyager",
+          "start": 130.0,
+          "score": 0.5901,
           "cap": 3
         },
         {
           "reason": "evidence_limit",
-          "nasa_id": "1971 Aeronautics and Space Highlights",
-          "start": 230.0,
-          "score": 0.5909,
+          "nasa_id": "ksc_042310_hubble",
+          "start": 350.0,
+          "score": 0.5859,
           "cap": 3
         },
         {
           "reason": "evidence_limit",
-          "nasa_id": "GSFC_20190511_HST_m13186_SM4_Overview",
-          "start": 80.0,
-          "score": 0.5874,
+          "nasa_id": "GSFC_20190429_Goddard_m13184_60",
+          "start": 20.0,
+          "score": 0.5857,
+          "cap": 3
+        },
+        {
+          "reason": "evidence_limit",
+          "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
+          "start": 180.0,
+          "score": 0.5833,
           "cap": 3
         }
       ]
@@ -866,11 +810,11 @@
       "n": 5,
       "kind": "order",
       "summary": "ordered by era 1958-2021",
-      "at": 37.96,
+      "at": 32.36,
       "era_axis_counts": {
-        "video": 8,
-        "scene": 4,
-        "published": 2
+        "video": 7,
+        "scene": 3,
+        "published": 4
       },
       "note": "era_axis 'scene' is stated in the footage; 'video' is inferred from clip context; 'published' is the upload date and carries no historical claim"
     },
@@ -878,7 +822,7 @@
       "n": 6,
       "kind": "aggregate",
       "summary": "archive spans 8 decades",
-      "at": 38.98,
+      "at": 33.48,
       "histogram": [
         {
           "decade": 1950,
@@ -917,157 +861,186 @@
     {
       "n": 7,
       "kind": "synthesize",
-      "summary": "113 words, 11 citations",
-      "at": 74.65,
-      "chronology_points": 8,
-      "caveats": "Many of the era labels in the archive are taken from the archive's era_axis (e.g., listed as \u201c(video)\u201d or \u201c(published)\u201d) and so those dates come from that labeling rather than independent verification. The clips and titles indicate which wavelengths or missions were emphasized, but the snippets do not provide full technical specifications, quantitative performance, or complete operational histories; the multi\u2011generation progression above is a synthesis across clips rather than a single clip\u2019s claim."
+      "summary": "110 words, 9 citations",
+      "at": 63.99,
+      "chronology_points": 1,
+      "caveats": "Many of the dated items in the evidence are tagged with era_axis values like 'video' or 'published' so the listed years come from those archive labels and may be approximate; the clips and titles indicate mission names and broad capabilities but do not provide detailed instrument specifications or a complete technical chronology."
     }
   ],
   "reel": {
-    "stream_url": "https://play.videodb.io/v1/ed2a3876-4c36-49c7-854c-614187779866.m3u8",
-    "player_url": "https://player.videodb.io/watch?v=BEzcHPTioKs",
+    "stream_url": "https://play.videodb.io/v1/e7e1d055-ce6f-47e8-a56c-2cb016ebbfed.m3u8",
+    "player_url": "https://player.videodb.io/watch?v=_KAK6XiVwHY",
     "shots": [
       {
         "at": 0,
         "duration": 10.0,
+        "evidence_index": 0,
+        "clamped": false,
         "nasa_id": "ksc_020105_why_jpl",
         "era_start": 1958,
         "era_axis": "video",
         "mission": "Spitzer Space Telescope",
         "source_start": 300.0,
-        "caption": "1958 (from clip context)  \u00b7  Spitzer Space Telescope  \u00b7  NASA ksc_020105_why_jpl"
+        "caption": "[1]  1958 (from clip context)  \u00b7  Spitzer Space Telescope  \u00b7  NASA ksc_020105_why_jpl"
       },
       {
         "at": 10,
         "duration": 10.0,
-        "nasa_id": "GSFC_20130613_MAVEN_m11295_IUVS",
-        "era_start": 1969,
-        "era_axis": "video",
-        "mission": "MAVEN",
-        "source_start": 70.0,
-        "caption": "1969 (from clip context)  \u00b7  MAVEN  \u00b7  NASA GSFC_20130613_MAVEN_m11295_IUVS"
-      },
-      {
-        "at": 20,
-        "duration": 10.0,
+        "evidence_index": 1,
+        "clamped": false,
         "nasa_id": "GSFC_20110207_STEREO_m10720_Stonehenge",
         "era_start": 1973,
         "era_axis": "video",
         "mission": "Skylab",
         "source_start": 10.0,
-        "caption": "1973 (from clip context)  \u00b7  Skylab  \u00b7  NASA GSFC_20110207_STEREO_m10720_Stonehenge"
+        "caption": "[2]  1973 (from clip context)  \u00b7  Skylab  \u00b7  NASA GSFC_20110207_STEREO_m10720_Stonehenge"
       },
       {
-        "at": 30,
+        "at": 20,
         "duration": 10.0,
+        "evidence_index": 2,
+        "clamped": false,
         "nasa_id": "ksc_042310_hubble",
         "era_start": 1990,
         "era_axis": "video",
         "mission": "Hubble Space Telescope",
-        "source_start": 80.0,
-        "caption": "1990 (from clip context)  \u00b7  Hubble Space Telescope  \u00b7  NASA ksc_042310_hubble"
+        "source_start": 330.0,
+        "caption": "[3]  1990 (from clip context)  \u00b7  Hubble Space Telescope  \u00b7  NASA ksc_042310_hubble"
       },
       {
-        "at": 40,
+        "at": 30,
         "duration": 10.0,
+        "evidence_index": 3,
+        "clamped": false,
         "nasa_id": "GSFC_20190429_Goddard_m13184_60",
         "era_start": 1993,
         "era_axis": "scene",
         "mission": "HST",
         "source_start": 130.0,
-        "caption": "1993  \u00b7  HST  \u00b7  NASA GSFC_20190429_Goddard_m13184_60"
+        "caption": "[4]  1993  \u00b7  HST  \u00b7  NASA GSFC_20190429_Goddard_m13184_60"
       },
       {
-        "at": 50,
+        "at": 40,
         "duration": 10.0,
+        "evidence_index": 4,
+        "clamped": false,
         "nasa_id": "van_050905_noaanhalt",
         "era_start": 1998,
         "era_axis": "video",
         "mission": "NOAA-N",
         "source_start": 80.0,
-        "caption": "1998 (from clip context)  \u00b7  NOAA-N  \u00b7  NASA van_050905_noaanhalt"
+        "caption": "[5]  1998 (from clip context)  \u00b7  NOAA-N  \u00b7  NASA van_050905_noaanhalt"
       },
       {
-        "at": 60,
+        "at": 50,
         "duration": 10.0,
+        "evidence_index": 5,
+        "clamped": false,
         "nasa_id": "ksc_042507_chandra_2",
         "era_start": 1999,
         "era_axis": "video",
         "mission": "Chandra X-ray Observatory",
-        "source_start": 0.0,
-        "caption": "1999 (from clip context)  \u00b7  Chandra X-ray Observatory  \u00b7  NASA ksc_042507_chandra_2"
+        "source_start": 10.0,
+        "caption": "[6]  1999 (from clip context)  \u00b7  Chandra X-ray Observatory  \u00b7  NASA ksc_042507_chandra_2"
       },
       {
-        "at": 70,
+        "at": 60,
         "duration": 10.0,
-        "nasa_id": "GSFC_20151201_SOHO_m12052_20th",
-        "era_start": 2003,
-        "era_axis": "scene",
-        "mission": "SOHO",
-        "source_start": 70.0,
-        "caption": "2003  \u00b7  SOHO  \u00b7  NASA GSFC_20151201_SOHO_m12052_20th"
-      },
-      {
-        "at": 80,
-        "duration": 10.0,
+        "evidence_index": 6,
+        "clamped": false,
         "nasa_id": "JPL-20231222-SOLSYSf-0001-NASA Telescopes Reveal Hidden Universe",
         "era_start": 2003,
         "era_axis": "scene",
         "mission": "Spitzer Space Telescope",
         "source_start": 50.0,
-        "caption": "2003  \u00b7  Spitzer Space Telescope  \u00b7  NASA JPL-20231222-SOLSYSf-0001-NASA Telescopes Re"
+        "caption": "[7]  2003  \u00b7  Spitzer Space Telescope  \u00b7  NASA JPL-20231222-SOLSYSf-0001-NASA Telescopes Re"
       },
       {
-        "at": 90,
+        "at": 70,
         "duration": 10.0,
+        "evidence_index": 7,
+        "clamped": false,
         "nasa_id": "ksc_082604_chandra",
         "era_start": 2004,
         "era_axis": "published",
         "mission": "Chandra X-ray Observatory",
-        "source_start": 20.0,
-        "caption": "2004 (published)  \u00b7  Chandra X-ray Observatory  \u00b7  NASA ksc_082604_chandra"
+        "source_start": 60.0,
+        "caption": "[8]  2004 (published)  \u00b7  Chandra X-ray Observatory  \u00b7  NASA ksc_082604_chandra"
       },
       {
-        "at": 100,
+        "at": 80,
         "duration": 10.0,
+        "evidence_index": 8,
+        "clamped": false,
         "nasa_id": "GSFC_20190511_HST_m13186_SM4_Overview",
         "era_start": 2009,
         "era_axis": "video",
         "mission": "International Space Station",
-        "source_start": 90.0,
-        "caption": "2009 (from clip context)  \u00b7  International Space Station  \u00b7  NASA GSFC_20190511_HST_m13186_SM4_Overview"
+        "source_start": 50.0,
+        "caption": "[9]  2009 (from clip context)  \u00b7  International Space Station  \u00b7  NASA GSFC_20190511_HST_m13186_SM4_Overview"
       },
       {
-        "at": 110,
+        "at": 90,
         "duration": 10.0,
+        "evidence_index": 9,
+        "clamped": false,
         "nasa_id": "JPL-20240801-NEOWISf-0001-NEOWISE Legacy of NASAs Asteroid Hunting Telescope",
         "era_start": 2009,
         "era_axis": "video",
         "mission": "WISE",
-        "source_start": 20.0,
-        "caption": "2009 (from clip context)  \u00b7  WISE  \u00b7  NASA JPL-20240801-NEOWISf-0001-NEOWISE Legacy of "
+        "source_start": 130.0,
+        "caption": "[10]  2009 (from clip context)  \u00b7  WISE  \u00b7  NASA JPL-20240801-NEOWISf-0001-NEOWISE Legacy of "
       },
       {
-        "at": 120,
+        "at": 100,
         "duration": 10.0,
+        "evidence_index": 10,
+        "clamped": false,
+        "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+        "era_start": 2015,
+        "era_axis": "published",
+        "mission": "Curiosity",
+        "source_start": 50.0,
+        "caption": "[11]  2015 (published)  \u00b7  Curiosity  \u00b7  NASA GSFC_20150305_Mars_m11796_Ocean"
+      },
+      {
+        "at": 110,
+        "duration": 10.0,
+        "evidence_index": 11,
+        "clamped": false,
         "nasa_id": "GSFC_20190327_TESS_m13155_Voyager",
         "era_start": 2019,
         "era_axis": "published",
         "mission": "Voyager 1",
+        "source_start": 160.0,
+        "caption": "[12]  2019 (published)  \u00b7  Voyager 1  \u00b7  NASA GSFC_20190327_TESS_m13155_Voyager"
+      },
+      {
+        "at": 120,
+        "duration": 10.0,
+        "evidence_index": 12,
+        "clamped": false,
+        "nasa_id": "GSFC_20190701_HST_m13244_Eta_Carinae",
+        "era_start": 2019,
+        "era_axis": "published",
+        "mission": "Hubble Space Telescope",
         "source_start": 130.0,
-        "caption": "2019 (published)  \u00b7  Voyager 1  \u00b7  NASA GSFC_20190327_TESS_m13155_Voyager"
+        "caption": "[13]  2019 (published)  \u00b7  Hubble Space Telescope  \u00b7  NASA GSFC_20190701_HST_m13244_Eta_Carinae"
       },
       {
         "at": 130,
         "duration": 10.0,
+        "evidence_index": 13,
+        "clamped": false,
         "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
         "era_start": 2021,
         "era_axis": "scene",
         "mission": "James Webb Space Telescope",
         "source_start": 260.0,
-        "caption": "2021  \u00b7  James Webb Space Telescope  \u00b7  NASA NHQ_2020_0429_AskNASA_202_Hubble"
+        "caption": "[14]  2021  \u00b7  James Webb Space Telescope  \u00b7  NASA NHQ_2020_0429_AskNASA_202_Hubble"
       }
     ],
+    "dropped": [],
     "total_seconds": 140.0
   }
 }

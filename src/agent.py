@@ -88,6 +88,10 @@ class Evidence:
     # interface can place a result without a second index lookup per moment.
     celestial_body: str = "unknown"
     event_type: str = "other"
+    # Where `celestial_body` came from: "scene" when the scene's own extraction was used,
+    # "video" when it was overruled by what the rest of the clip is plainly about. Same
+    # contract as era_axis: an inferred placement is never presented as an extracted one.
+    body_axis: str = "scene"
 
     @property
     def key(self) -> tuple[str, float]:
@@ -139,6 +143,65 @@ def load_era_lookup() -> dict[str, list[dict]]:
     return json.loads(ERA_LOOKUP_PATH.read_text())
 
 
+# Earth is where the archive is made: a briefing, a launch or a lab test inside a clip about
+# Mars is not a tagging mistake, so these are never treated as outliers and never overrule a
+# scene. Bodies that orbit each other are not outliers in each other's company either: a Titan
+# scene inside a Cassini-at-Saturn clip is exactly right.
+COMPANION_BODIES = {"earth", "earth_orbit", "ground"}
+ORBITS = {("moon", "earth"), ("titan", "saturn")}
+
+# One scene out of a clip that is otherwise plainly about somewhere else. Set high enough that
+# a genuinely mixed clip keeps every tag it was given.
+BODY_DOMINANCE = 0.6
+
+
+def _related_bodies(a: str, b: str) -> bool:
+    return (a, b) in ORBITS or (b, a) in ORBITS
+
+
+def body_profile(rows: list[dict]) -> tuple[str, float, dict[str, int]]:
+    """What the clip as a whole is about: the most common body, its share, and the counts."""
+    counts: dict[str, int] = {}
+    for row in rows:
+        body = row.get("celestial_body") or "unknown"
+        counts[body] = counts.get(body, 0) + 1
+    if not counts:
+        return "unknown", 0.0, counts
+    dominant = max(counts, key=lambda b: (counts[b], b))
+    return dominant, counts[dominant] / len(rows), counts
+
+
+def resolve_body(scene_body: str, dominant: str, share: float, counts: dict[str, int]) -> tuple[str, str]:
+    """Decide where a moment is set, and say where that came from.
+
+    Scene-level extraction is trusted by default. It is overruled in exactly two cases, both
+    of which put a marker on the wrong world in a spatial interface and are visibly wrong to
+    anyone watching the clip:
+
+      - the scene says nowhere at all, in a clip that is plainly somewhere
+      - the scene is the only one of its kind in a clip that is otherwise about one place, and
+        that place is not Earth and is unrelated to what the scene claims
+
+    A Titan scene in a Saturn clip, or a briefing in a Mars clip, is left alone: both are
+    ordinary, and overruling them would be the error.
+    """
+    if dominant == "unknown" or share < BODY_DOMINANCE:
+        return scene_body, "scene"
+
+    if scene_body == "unknown":
+        return dominant, "video"
+
+    if (
+        counts.get(scene_body) == 1
+        and scene_body not in COMPANION_BODIES
+        and dominant not in COMPANION_BODIES
+        and not _related_bodies(scene_body, dominant)
+    ):
+        return dominant, "video"
+
+    return scene_body, "scene"
+
+
 def attach_era(evidence: Evidence, lookup: dict[str, list[dict]]) -> Evidence:
     """Join a retrieved moment to the mission_meta row covering it.
 
@@ -159,8 +222,12 @@ def attach_era(evidence: Evidence, lookup: dict[str, list[dict]]) -> Evidence:
     evidence.mission = match.get("primary_mission")
     evidence.title = match.get("title") or ""
     evidence.published_year = match.get("published_year")
-    evidence.celestial_body = match.get("celestial_body") or "unknown"
     evidence.event_type = match.get("event_type") or "other"
+
+    dominant, share, counts = body_profile(rows)
+    evidence.celestial_body, evidence.body_axis = resolve_body(
+        match.get("celestial_body") or "unknown", dominant, share, counts
+    )
     return evidence
 
 
@@ -182,6 +249,7 @@ Return JSON only:
   "visual_phrasings": ["2 to 4 strings describing what would be VISIBLE on screen,",
                        "for searching visual scene descriptions rather than speech"],
   "needs_chronology": true,
+  "answerable": true,
   "rationale": "one sentence on how you decomposed it"
 }}
 
@@ -189,6 +257,13 @@ Rules:
 - Phrasings must be statements the narration could plausibly contain, not questions.
 - Do not invent mission names or dates that the question does not imply.
 - needs_chronology is true when the question is about change over time.
+- answerable is false only when the question is unintelligible, or is about nothing to
+  do with spaceflight, astronomy or Earth observation. Set it false rather than reading a
+  topic into words that carry none: gibberish decomposed into plausible-sounding spacecraft
+  operations retrieves real launch footage at full confidence and answers a question nobody
+  asked. If the subject is real but the archive may simply not cover it, answerable is still
+  true: that is for the evidence to settle, not you.
+- When answerable is false, return empty lists and say why in rationale.
 """
 
 SYNTHESIS_PROMPT = """You are answering a research question using only the evidence below.
@@ -247,23 +322,44 @@ def decompose(coll, question: str, trace: Trace) -> dict:
     if question not in phrasings:
         phrasings.insert(0, question)
 
+    answerable = bool(plan.get("answerable", True))
+
     plan = {
         "sub_questions": plan.get("sub_questions") or [],
         "phrasings": phrasings[:8],
         "visual_phrasings": visual[:4],
         "needs_chronology": bool(plan.get("needs_chronology", True)),
+        "answerable": answerable,
         "rationale": plan.get("rationale") or "",
     }
-    trace.add(
-        "decompose",
+    summary = (
         f"{len(plan['sub_questions'])} sub-questions, "
-        f"{len(plan['phrasings'])} spoken phrasings, {len(plan['visual_phrasings'])} visual",
-        **plan,
+        f"{len(plan['phrasings'])} spoken phrasings, {len(plan['visual_phrasings'])} visual"
+        if answerable
+        else "question is not answerable from this archive, stopping before retrieval"
     )
+    trace.add("decompose", summary, **plan)
     return plan
 
 
 # ------------------------------------------------------------------- retrieve
+
+def _matched_text(shot) -> str:
+    """The words a hit actually matched on.
+
+    `Shot.text` is documented as the matched text but comes back `None` from every index in
+    this collection; the text is in `metadata["embedded_text"]`. Reading only the attribute
+    meant every answer was synthesised from titles, dates and identifiers with no transcript
+    and no scene description under it, and the hover cards that exist to let a viewer catch a
+    bad tag showed nothing. Both are checked, attribute first, so this keeps working if the
+    SDK starts populating it.
+    """
+    text = (getattr(shot, "text", None) or "").strip()
+    if text:
+        return text
+    metadata = getattr(shot, "metadata", None) or {}
+    return str(metadata.get("embedded_text") or metadata.get("on_screen_text") or "").strip()
+
 
 def _search(coll, query: str, index_names: list[str], top_k: int,
             threshold: float) -> tuple[list[Evidence], list[dict]]:
@@ -280,7 +376,7 @@ def _search(coll, query: str, index_names: list[str], top_k: int,
         item = Evidence(
             nasa_id="", video_id=shot.video_id, start=float(shot.start), end=float(shot.end),
             score=round(score, 4), index=index_names[0], query=query,
-            text=(shot.text or "").strip(),
+            text=_matched_text(shot),
         )
         if score < threshold:
             rejected.append({"reason": "below_threshold", "score": round(score, 4),
@@ -519,6 +615,29 @@ def ask(question: str, *, top_k: int = DEFAULT_TOP_K, threshold: float = DEFAULT
     lookup = load_era_lookup()
 
     plan = decompose(coll, question, trace)
+
+    if not plan["answerable"]:
+        # Retrieval always returns something. Nonsense decomposed into plausible spacecraft
+        # operations matched real launch footage at higher scores than a genuine question
+        # about hurricanes did, and the answer read as authoritative. Refusing here is the
+        # only place the distinction can still be made honestly.
+        return {
+            "question": question,
+            "plan": plan,
+            "answer": {
+                "answer": "",
+                "citations": [],
+                "chronology": [],
+                "caveats": "This question was not searched: "
+                           + (plan["rationale"] or "it does not describe anything this archive holds."),
+            },
+            "evidence": [],
+            "rejected": {"below_threshold": [], "diversity": [],
+                         "counts": {"below_threshold": 0, "diversity": 0}},
+            "timeline": timeline_histogram(coll, trace),
+            "trace": trace.to_list(),
+        }
+
     evidence, rejects = retrieve(coll, plan, trace, top_k, threshold, id_by_video)
     evidence = [attach_era(e, lookup) for e in evidence]
     kept, dropped = diversify(evidence, trace, cap=cap)

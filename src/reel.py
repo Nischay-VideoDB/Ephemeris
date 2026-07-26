@@ -109,7 +109,8 @@ def build(conn, coll, evidence: list[dict], *, max_clip: int = MAX_CLIP_SECONDS,
     """Render the reel and return its stream URL plus the shot list."""
     layout = plan(evidence, max_clip=max_clip)
     if not layout:
-        return {"stream_url": None, "shots": [], "error": "no evidence to compile"}
+        return {"stream_url": None, "shots": [], "dropped": [],
+                "error": "no evidence to compile"}
 
     lengths: dict[str, float] = {}
     unresolved: set[str] = set()
@@ -159,6 +160,12 @@ def build(conn, coll, evidence: list[dict], *, max_clip: int = MAX_CLIP_SECONDS,
                     clamped = True
             duration = _floor2(min(duration, max(source_length - start, 0)))
 
+        # Whole seconds, because `add_clip` places on whole seconds. A 9.6s clip in a 10s slot
+        # left 0.4s of background between every shot: a black flash on most cuts, and enough to
+        # read as a broken stream rather than an edit. Losing under a second off the tail of a
+        # shot is the cheaper trade.
+        duration = float(int(duration))
+
         if duration < 1:
             # Nothing usable in the source at all. Reported rather than silently skipped:
             # the moment still exists in the evidence and still needs a place in the scene.
@@ -172,7 +179,7 @@ def build(conn, coll, evidence: list[dict], *, max_clip: int = MAX_CLIP_SECONDS,
             continue
 
         at = cursor
-        cursor += int(math.ceil(duration))
+        cursor += int(duration)
 
         video_track.add_clip(at, Clip(
             asset=VideoAsset(id=video_id, start=start),

@@ -133,7 +133,11 @@ export function placeEvidence(evidence: Evidence[]): Placement[] {
     const event = (EVENTS[ev.event_type] ? ev.event_type : "other") as EventType;
     const placement = EVENTS[event];
 
-    const key = `${stageKey}:${event}`;
+    // Crowding is counted per physical spot, not per tag. `earth`, `ground` and `earth_orbit`
+    // are three tags for Earth, and `earth` and `ground` sit at the same anchor at the same
+    // altitude: keyed by name, two moments tagged differently but placed identically both took
+    // ring 0 and ended up inside each other, one hiding the other and stealing its clicks.
+    const key = `${stage.anchor.x},${stage.anchor.y},${stage.anchor.z}:${stage.surface}:${event}`;
     const k = used[key] ?? 0;
     used[key] = k + 1;
 
