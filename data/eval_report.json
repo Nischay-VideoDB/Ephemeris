@@ -1,0 +1,2806 @@
+{
+  "summary": {
+    "cases": 36,
+    "passed": 36,
+    "mean_precision_ranked": 0.1,
+    "mean_recall": 0.941,
+    "by_kind": {
+      "spoken_only": {
+        "n": 12,
+        "precision_n": 12,
+        "precision": 0.081,
+        "recall": 1.0
+      },
+      "visual_only": {
+        "n": 4,
+        "precision_n": 4,
+        "precision": 0.117,
+        "recall": 1.0
+      },
+      "cross_modal": {
+        "n": 1,
+        "precision_n": 1,
+        "precision": 0.133,
+        "recall": 0.667
+      },
+      "filter": {
+        "n": 5,
+        "precision_n": 0,
+        "precision": null,
+        "recall": 0.9
+      },
+      "historical": {
+        "n": 8,
+        "precision_n": 7,
+        "precision": 0.129,
+        "recall": 0.938
+      },
+      "vocabulary_gap": {
+        "n": 1,
+        "precision_n": 1,
+        "precision": 0.033,
+        "recall": 0.5
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "deuterium-heavy-water",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "heavy water containing the hydrogen isotope deuterium trapped in the water cycle",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 3,
+      "videos_covered": 11,
+      "precision": 0.1,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.7014,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.6061,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.5381,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 90.0,
+          "end": 100.0,
+          "score": 0.4767,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.3488,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 190.0,
+          "end": 200.0,
+          "score": 0.31,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.3075,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 160.0,
+          "end": 170.0,
+          "score": 0.2754,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "ocean-percentage-lost",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "only thirteen percent of the ancient ocean remains, most of it lost to space",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 1,
+      "videos_covered": 12,
+      "precision": 0.033,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 100.0,
+          "end": 110.0,
+          "score": 0.786,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 130.0,
+          "end": 140.0,
+          "score": 0.6611,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 200.0,
+          "end": 210.0,
+          "score": 0.6003,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 150.0,
+          "end": 160.0,
+          "score": 0.562,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 210.0,
+          "end": 220.0,
+          "score": 0.5391,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 160.0,
+          "end": 170.0,
+          "score": 0.4724,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 190.0,
+          "end": 200.0,
+          "score": 0.396,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.3827,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "northern-plains-ocean-extent",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "an ocean covering about twenty percent of the planet's surface in the northern plains",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 2,
+      "videos_covered": 17,
+      "precision": 0.067,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 120.0,
+          "end": 130.0,
+          "score": 0.6825,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 130.0,
+          "end": 140.0,
+          "score": 0.6212,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 210.0,
+          "end": 220.0,
+          "score": 0.5499,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 100.0,
+          "end": 110.0,
+          "score": 0.5222,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.4366,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 160.0,
+          "end": 170.0,
+          "score": 0.4342,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 200.0,
+          "end": 210.0,
+          "score": 0.4294,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 150.0,
+          "end": 160.0,
+          "score": 0.4231,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "rp1-kerosene-load",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "ten thousand gallons of RP1 refined kerosene fuel loaded onto the first stage",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 4,
+      "videos_covered": 11,
+      "precision": 0.133,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_080407_phx_intro0",
+          "start": 100.0,
+          "end": 110.0,
+          "score": 0.715,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080407_phx_intro0",
+          "start": 110.0,
+          "end": 120.0,
+          "score": 0.7116,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080407_phx_intro0",
+          "start": 90.0,
+          "end": 100.0,
+          "score": 0.4516,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080407_phx_intro0",
+          "start": 120.0,
+          "end": 130.0,
+          "score": 0.4293,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080407_phx_intro0",
+          "start": 140.0,
+          "end": 147.16,
+          "score": 0.3446,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.4577,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.3985,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.3525,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "arctic-core-samples",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "drilling rig tested in frozen tundra to extract core samples in the high Arctic",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 3,
+      "videos_covered": 17,
+      "precision": 0.1,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.8397,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.6037,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.4536,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.4024,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.3637,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.4013,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 160.0,
+          "end": 170.0,
+          "score": 0.2902,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.3883,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "infrared-telescopes-method",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "using ground based infrared telescopes to measure water molecules in the Martian atmosphere",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 4,
+      "videos_covered": 10,
+      "precision": 0.133,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.8329,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.7286,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.569,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.5246,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.5015,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.4771,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.4748,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 90.0,
+          "end": 100.0,
+          "score": 0.4547,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "martian-terrain-mesa",
+      "kind": "visual_only",
+      "mode": "semantic",
+      "query": "reddish brown cracked rocky ground with a flat topped hill on the horizon under a hazy sky",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 1,
+      "videos_covered": 13,
+      "precision": 0.033,
+      "recall": 1.0,
+      "top_rank_hit": 26,
+      "retrieved": [
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.6322,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 120.0,
+          "end": 125.33,
+          "score": 0.6241,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 90.0,
+          "end": 100.0,
+          "score": 0.5103,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_042104_meteor",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.6245,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_042104_meteor",
+          "start": 50.0,
+          "end": 53.68,
+          "score": 0.5568,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 140.0,
+          "end": 150.0,
+          "score": 0.6185,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 120.0,
+          "end": 130.0,
+          "score": 0.6075,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.6069,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "drill-hardware-closeup",
+      "kind": "visual_only",
+      "mode": "semantic",
+      "query": "engineers handling a suitcase sized drill rig connected to a control box on a sandy testbed",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 3,
+      "videos_covered": 13,
+      "precision": 0.1,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.7629,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.6475,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.5116,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.5452,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.4779,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.4774,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.4713,
+          "text": ""
+        },
+        {
+          "nasa_id": "AFRC-2021-13626-10-AFRC75th_Episode10FlightLoads",
+          "start": 310.0,
+          "end": 320.0,
+          "score": 0.5353,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "ocean-recession-animation",
+      "kind": "visual_only",
+      "mode": "semantic",
+      "query": "animated simulation of a blue ocean shrinking and receding across a planet's surface",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 3,
+      "videos_covered": 13,
+      "precision": 0.1,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 140.0,
+          "end": 150.0,
+          "score": 0.5539,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 130.0,
+          "end": 140.0,
+          "score": 0.5526,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 200.0,
+          "end": 210.0,
+          "score": 0.5312,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 150.0,
+          "end": 160.0,
+          "score": 0.5135,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 170.0,
+          "end": 180.0,
+          "score": 0.5047,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.4776,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 210.0,
+          "end": 220.0,
+          "score": 0.4413,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 120.0,
+          "end": 130.0,
+          "score": 0.4342,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "rover-in-river-channel",
+      "kind": "visual_only",
+      "mode": "semantic",
+      "query": "a rover on the Martian surface examining rocks in a dry channel",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 7,
+      "videos_covered": 8,
+      "precision": 0.233,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 90.0,
+          "end": 100.0,
+          "score": 0.7657,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.739,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 100.0,
+          "end": 110.0,
+          "score": 0.6611,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.6562,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.65,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.6493,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.6492,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_122104_spirit_anniv",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.7379,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "cross-modal-water-evidence",
+      "kind": "cross_modal",
+      "mode": "semantic",
+      "query": "evidence that liquid water once existed on Mars",
+      "retrieved_count": 30,
+      "expected_count": 3,
+      "hit_count": 4,
+      "videos_covered": 8,
+      "precision": 0.133,
+      "recall": 0.667,
+      "top_rank_hit": 8,
+      "retrieved": [
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "start": 470.0,
+          "end": 480.0,
+          "score": 0.7248,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "start": 400.0,
+          "end": 410.0,
+          "score": 0.5524,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "start": 460.0,
+          "end": 470.0,
+          "score": 0.5216,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "start": 370.0,
+          "end": 380.0,
+          "score": 0.5166,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "start": 500.0,
+          "end": 510.0,
+          "score": 0.4908,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.7161,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.7058,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 110.0,
+          "end": 120.0,
+          "score": 0.7025,
+          "text": ""
+        }
+      ],
+      "missed": [
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "window": [
+            43.0,
+            53.0
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "filter-mars-scenes",
+      "kind": "filter",
+      "mode": "query",
+      "query": null,
+      "retrieved_count": 100,
+      "expected_count": 2,
+      "hit_count": 13,
+      "videos_covered": 9,
+      "precision": null,
+      "recall": 0.5,
+      "top_rank_hit": 39,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.0,
+          "text": "A title card over a black starfield background. Centered is the blue NASA 'meatball' logo with the red vector and white 'NASA' lettering; in the next frame the "
+        },
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.0,
+          "text": "Left / primary frame (animation): An artist's animation labeled 'NASA Animation' shows a spacecraft in Mars orbit. The vehicle has a rectangular bus (box-like b"
+        },
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.0,
+          "text": "Two related visuals are shown. Left: a rectangular global map (Mollweide-style projection) colored from blue to red with a color bar labeled 'Low Th' to 'High T"
+        },
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.0,
+          "text": "Computer animation of a red/orange rocky planetary surface (Mars). Two human figures in full space suits are shown standing and working on the surface; one suit"
+        },
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.0,
+          "text": "A burned-in label reading 'NASA Animation' appears at the top of the frames. The first view shows an animated Mars surface scene with a six-wheeled rover (mast/"
+        },
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.0,
+          "text": "Animated NASA sequence showing an orbiter over Mars and a close-up of a surface interaction. Frame 1: a stylized orange-brown Mars at lower left with a small bl"
+        },
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.0,
+          "text": "NASA-labeled animation of a boxy scientific orbiter with large rectangular solar panels and a parabolic high\u2011gain antenna on a boom, shown flying above a tan pl"
+        },
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.0,
+          "text": "Computer-graphics depiction of a spacecraft in orbit above Mars. The planet's disk with mottled dark and lighter albedo regions fills the left of the frame; a c"
+        }
+      ],
+      "missed": [
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "window": [
+            43.0,
+            53.0
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "filter-launch-coverage",
+      "kind": "filter",
+      "mode": "query",
+      "query": null,
+      "retrieved_count": 100,
+      "expected_count": 1,
+      "hit_count": 12,
+      "videos_covered": 24,
+      "precision": null,
+      "recall": 1.0,
+      "top_rank_hit": 64,
+      "retrieved": [
+        {
+          "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.0,
+          "text": "The scene shows a computer-generated launch complex at Cape Canaveral at sunrise, with a vertical rocket on the pad surrounded by several tall metal lightning t"
+        },
+        {
+          "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.0,
+          "text": "A computer-generated rocket is lifting off from a launch pad, with bright exhaust plume and thick white smoke around the base. Tall lattice service towers or ga"
+        },
+        {
+          "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.0,
+          "text": "Animated CGI of an Atlas V launch vehicle ascending through the atmosphere. The rocket has a tan/brown core stage, a white nose fairing, and a single white soli"
+        },
+        {
+          "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.0,
+          "text": "A computer-generated view shows a rocket in Earth orbit after stage separation. Two spacecraft stages are visible apart from each other, with the first stage lo"
+        },
+        {
+          "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.0,
+          "text": "Computer-generated space animation shows the OSIRIS-REx spacecraft separating from a Centaur upper stage after fairing jettison. Two curved fairing halves drift"
+        },
+        {
+          "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+          "start": 90.0,
+          "end": 100.0,
+          "score": 0.0,
+          "text": "A small spacecraft with two rectangular solar panels is seen moving away above the curved blue-and-white Earth. The planet fills the lower half of the frame, wi"
+        },
+        {
+          "nasa_id": "GSFC_20160906_M12360_ToBennuAndBack",
+          "start": 180.0,
+          "end": 190.0,
+          "score": 0.0,
+          "text": "The frames show a computer-generated spacecraft rendering in deep space: a boxy silver probe with multiple instrument housings, a circular sampling mechanism/re"
+        },
+        {
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 450.0,
+          "end": 460.0,
+          "score": 0.0,
+          "text": "Archival flight-test footage showing a large U.S. Air Force carrier aircraft in flight with clear 'U.S. AIR FORCE' markings on the fuselage. The camera cuts bet"
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "filter-mission-perseverance",
+      "kind": "filter",
+      "mode": "query",
+      "query": null,
+      "retrieved_count": 28,
+      "expected_count": 1,
+      "hit_count": 13,
+      "videos_covered": 2,
+      "precision": null,
+      "recall": 1.0,
+      "top_rank_hit": 16,
+      "retrieved": [
+        {
+          "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230607-MARSf-0001-Mars Report Whats in A Name",
+          "start": 90.0,
+          "end": 100.0,
+          "score": 0.0,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "filter-earth-ground-testing",
+      "kind": "filter",
+      "mode": "query",
+      "query": null,
+      "retrieved_count": 48,
+      "expected_count": 1,
+      "hit_count": 2,
+      "videos_covered": 10,
+      "precision": null,
+      "recall": 1.0,
+      "top_rank_hit": 47,
+      "retrieved": [
+        {
+          "nasa_id": "JPL-20220425-SHIFTf-0000-SHIFT Media Reel",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.0,
+          "text": "Inside a small aircraft cabin, two NASA/JPL personnel wearing headsets and microphones are seated among strapped-down equipment racks and cables. The person on "
+        },
+        {
+          "nasa_id": "JPL-20220425-SHIFTf-0000-SHIFT Media Reel",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.0,
+          "text": "A close-up shows a compact metallic laboratory or flight instrument assembly with hoses, cables, taped fittings, and several cylindrical components. In the cent"
+        },
+        {
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 540.0,
+          "end": 550.0,
+          "score": 0.0,
+          "text": "Interior cockpit view on final approach to a paved runway: the runway threshold and centerline are visible straight ahead through a two\u2011pane windshield. The low"
+        },
+        {
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 550.0,
+          "end": 560.0,
+          "score": 0.0,
+          "text": "Interior view of an acoustic test set-up. The walls and ceiling are covered with pyramid-shaped acoustic foam (anechoic chamber). A small ducted fan or model je"
+        },
+        {
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 560.0,
+          "end": 570.0,
+          "score": 0.0,
+          "text": "Archival color footage of a large aircraft turbojet/turbofan engine mounted horizontally in an outdoor test stand. The camera view shows the full length of the "
+        },
+        {
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 640.0,
+          "end": 650.0,
+          "score": 0.0,
+          "text": "Night-time pad scenes showing launch-pad hardware and a tall launch vehicle/erector structure. Close-up frames show a metal equipment cabinet or umbilical box m"
+        },
+        {
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 680.0,
+          "end": 690.0,
+          "score": 0.0,
+          "text": "Interior laboratory / clean-room footage: several technicians in white smocks, caps, and hairnets are working at a row of sealed glovebox enclosures (sealed cab"
+        },
+        {
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 140.0,
+          "end": 150.0,
+          "score": 0.0,
+          "text": "Close-up archival launch-pad footage showing the base of a large launch vehicle as propellant exhaust and steam plume billow upward. Visible are at least three "
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "history-mariner-first-images",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "the first close-up photographs of Mars returned by an early flyby spacecraft",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 5,
+      "videos_covered": 16,
+      "precision": 0.167,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "start": 400.0,
+          "end": 410.0,
+          "score": 0.6747,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "start": 440.0,
+          "end": 450.0,
+          "score": 0.6131,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "start": 450.0,
+          "end": 460.0,
+          "score": 0.4978,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "start": 470.0,
+          "end": 480.0,
+          "score": 0.4957,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "start": 410.0,
+          "end": 420.0,
+          "score": 0.4893,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_012805_mars_recon",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.6462,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_012805_mars_recon",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.5458,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_012805_mars_recon",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.4889,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "history-viking-era",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "the Viking missions of the 1970s and the laboratory that built them",
+      "retrieved_count": 30,
+      "expected_count": 2,
+      "hit_count": 6,
+      "videos_covered": 15,
+      "precision": 0.2,
+      "recall": 0.5,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_020105_why_jpl",
+          "start": 200.0,
+          "end": 210.0,
+          "score": 0.7101,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_020105_why_jpl",
+          "start": 210.0,
+          "end": 220.0,
+          "score": 0.6358,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_020105_why_jpl",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.4778,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_020105_why_jpl",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.4638,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_020105_why_jpl",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.4474,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_020105_why_jpl",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.4466,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20190429_Goddard_m13184_60",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.5771,
+          "text": ""
+        },
+        {
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 850.0,
+          "end": 860.0,
+          "score": 0.5345,
+          "text": ""
+        }
+      ],
+      "missed": [
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "window": [
+            0.0,
+            100000.0
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "history-odyssey-chemical-mapping",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "Mars Odyssey mission extended, mapping the planet's chemical composition",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 4,
+      "videos_covered": 12,
+      "precision": 0.133,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.6755,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.5176,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.4747,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.4645,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.618,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.6179,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.6061,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.5211,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "history-mer-watery-past",
+      "kind": "vocabulary_gap",
+      "mode": "semantic",
+      "query": "twin rovers landing in 2004 to search for signs of a watery history",
+      "retrieved_count": 30,
+      "expected_count": 2,
+      "hit_count": 1,
+      "videos_covered": 14,
+      "precision": 0.033,
+      "recall": 0.5,
+      "top_rank_hit": 30,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.6262,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.5542,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.5517,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_062904_mars",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.588,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_062904_mars",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.5033,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_121004_soho_anniv",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.5627,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_020105_why_jpl",
+          "start": 200.0,
+          "end": 210.0,
+          "score": 0.5608,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_020105_why_jpl",
+          "start": 190.0,
+          "end": 200.0,
+          "score": 0.5148,
+          "text": ""
+        }
+      ],
+      "missed": [
+        {
+          "nasa_id": "ksc_012805_mars_recon",
+          "window": [
+            0.0,
+            100000.0
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "history-mer-watery-past-expanded",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "Spirit rover began its mission searching for signs of a watery history",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 4,
+      "videos_covered": 15,
+      "precision": 0.133,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_122104_spirit_anniv",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.7831,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_122104_spirit_anniv",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.6146,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_122104_spirit_anniv",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.6141,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_122104_spirit_anniv",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.5817,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_122104_spirit_anniv",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.5574,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_122104_spirit_anniv",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.5172,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_062904_mars",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.5941,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_062904_mars",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.5594,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "era-range-spans-decades",
+      "kind": "historical",
+      "mode": "aggregate",
+      "query": null,
+      "rows": [
+        {
+          "era_start": "1961",
+          "value": 103.0
+        },
+        {
+          "era_start": "2005",
+          "value": 81.0
+        },
+        {
+          "era_start": "1969",
+          "value": 69.0
+        },
+        {
+          "era_start": "1990",
+          "value": 68.0
+        },
+        {
+          "era_start": "1999",
+          "value": 63.0
+        },
+        {
+          "era_start": "2019",
+          "value": 59.0
+        },
+        {
+          "era_start": "1965",
+          "value": 58.0
+        },
+        {
+          "era_start": "2004",
+          "value": 58.0
+        },
+        {
+          "era_start": "1958",
+          "value": 57.0
+        },
+        {
+          "era_start": "2006",
+          "value": 48.0
+        },
+        {
+          "era_start": "2020",
+          "value": 44.0
+        },
+        {
+          "era_start": "2016",
+          "value": 41.0
+        },
+        {
+          "era_start": "2017",
+          "value": 39.0
+        },
+        {
+          "era_start": "2003",
+          "value": 39.0
+        },
+        {
+          "era_start": "1964",
+          "value": 38.0
+        },
+        {
+          "era_start": "1968",
+          "value": 36.0
+        },
+        {
+          "era_start": "2001",
+          "value": 33.0
+        },
+        {
+          "era_start": "2007",
+          "value": 32.0
+        },
+        {
+          "era_start": "2014",
+          "value": 32.0
+        },
+        {
+          "era_start": "2009",
+          "value": 31.0
+        },
+        {
+          "era_start": "2015",
+          "value": 31.0
+        },
+        {
+          "era_start": "2018",
+          "value": 28.0
+        },
+        {
+          "era_start": "2022",
+          "value": 26.0
+        },
+        {
+          "era_start": "1998",
+          "value": 25.0
+        },
+        {
+          "era_start": "2010",
+          "value": 25.0
+        },
+        {
+          "era_start": "1970",
+          "value": 24.0
+        },
+        {
+          "era_start": "2002",
+          "value": 23.0
+        },
+        {
+          "era_start": "1982",
+          "value": 23.0
+        },
+        {
+          "era_start": "1979",
+          "value": 22.0
+        },
+        {
+          "era_start": "2000",
+          "value": 18.0
+        },
+        {
+          "era_start": "2021",
+          "value": 16.0
+        },
+        {
+          "era_start": "1972",
+          "value": 16.0
+        },
+        {
+          "era_start": "1971",
+          "value": 13.0
+        },
+        {
+          "era_start": "1995",
+          "value": 13.0
+        },
+        {
+          "era_start": "1973",
+          "value": 12.0
+        },
+        {
+          "era_start": "1980",
+          "value": 12.0
+        },
+        {
+          "era_start": "1997",
+          "value": 11.0
+        },
+        {
+          "era_start": "1996",
+          "value": 11.0
+        },
+        {
+          "era_start": "1976",
+          "value": 11.0
+        },
+        {
+          "era_start": "1960",
+          "value": 10.0
+        },
+        {
+          "era_start": "1959",
+          "value": 10.0
+        },
+        {
+          "era_start": "1981",
+          "value": 9.0
+        },
+        {
+          "era_start": "1984",
+          "value": 8.0
+        },
+        {
+          "era_start": "1993",
+          "value": 6.0
+        },
+        {
+          "era_start": "1983",
+          "value": 6.0
+        },
+        {
+          "era_start": "1986",
+          "value": 6.0
+        },
+        {
+          "era_start": "2008",
+          "value": 5.0
+        },
+        {
+          "era_start": "2024",
+          "value": 4.0
+        },
+        {
+          "era_start": "2013",
+          "value": 4.0
+        },
+        {
+          "era_start": "1963",
+          "value": 4.0
+        },
+        {
+          "era_start": "2023",
+          "value": 4.0
+        },
+        {
+          "era_start": "2011",
+          "value": 4.0
+        },
+        {
+          "era_start": "2025",
+          "value": 2.0
+        },
+        {
+          "era_start": "1987",
+          "value": 2.0
+        },
+        {
+          "era_start": "2012",
+          "value": 2.0
+        },
+        {
+          "era_start": "1957",
+          "value": 1.0
+        },
+        {
+          "era_start": "1975",
+          "value": 1.0
+        },
+        {
+          "era_start": "1974",
+          "value": 1.0
+        },
+        {
+          "era_start": "1966",
+          "value": 1.0
+        },
+        {
+          "era_start": "1985",
+          "value": 1.0
+        },
+        {
+          "era_start": "1962",
+          "value": 1.0
+        },
+        {
+          "era_start": "1988",
+          "value": 1.0
+        },
+        {
+          "era_start": "1989",
+          "value": 1.0
+        },
+        {
+          "era_start": "1992",
+          "value": 1.0
+        }
+      ],
+      "row_count": 64,
+      "missing_groups": [],
+      "passed": true
+    },
+    {
+      "id": "filter-pre-1990-evidence",
+      "kind": "historical",
+      "mode": "query",
+      "query": null,
+      "retrieved_count": 100,
+      "expected_count": 1,
+      "hit_count": 50,
+      "videos_covered": 7,
+      "precision": null,
+      "recall": 1.0,
+      "top_rank_hit": 12,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.0,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.0,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "aggregate-bodies",
+      "kind": "aggregate",
+      "mode": "aggregate",
+      "query": null,
+      "rows": [
+        {
+          "celestial_body": "earth",
+          "value": 465.0
+        },
+        {
+          "celestial_body": "mars",
+          "value": 214.0
+        },
+        {
+          "celestial_body": "deep_space",
+          "value": 198.0
+        },
+        {
+          "celestial_body": "ground",
+          "value": 138.0
+        },
+        {
+          "celestial_body": "earth_orbit",
+          "value": 114.0
+        },
+        {
+          "celestial_body": "sun",
+          "value": 106.0
+        },
+        {
+          "celestial_body": "moon",
+          "value": 97.0
+        },
+        {
+          "celestial_body": "comet_asteroid",
+          "value": 42.0
+        },
+        {
+          "celestial_body": "unknown",
+          "value": 40.0
+        },
+        {
+          "celestial_body": "saturn",
+          "value": 28.0
+        },
+        {
+          "celestial_body": "jupiter",
+          "value": 22.0
+        },
+        {
+          "celestial_body": "titan",
+          "value": 11.0
+        }
+      ],
+      "row_count": 12,
+      "missing_groups": [],
+      "passed": true
+    },
+    {
+      "id": "aggregate-event-types",
+      "kind": "aggregate",
+      "mode": "aggregate",
+      "query": null,
+      "rows": [
+        {
+          "event_type": "data_visualization",
+          "value": 430.0
+        },
+        {
+          "event_type": "briefing",
+          "value": 387.0
+        },
+        {
+          "event_type": "other",
+          "value": 222.0
+        },
+        {
+          "event_type": "animation",
+          "value": 145.0
+        },
+        {
+          "event_type": "launch",
+          "value": 118.0
+        },
+        {
+          "event_type": "surface_ops",
+          "value": 86.0
+        },
+        {
+          "event_type": "landing",
+          "value": 39.0
+        },
+        {
+          "event_type": "instrument_readout",
+          "value": 26.0
+        },
+        {
+          "event_type": "eva",
+          "value": 22.0
+        }
+      ],
+      "row_count": 9,
+      "missing_groups": [],
+      "passed": true
+    },
+    {
+      "id": "aggregate-era-basis",
+      "kind": "aggregate",
+      "mode": "aggregate",
+      "query": null,
+      "rows": [
+        {
+          "era_basis": "video_context",
+          "value": 927.0
+        },
+        {
+          "era_basis": "not_determinable",
+          "value": 199.0
+        },
+        {
+          "era_basis": "stated_in_speech",
+          "value": 156.0
+        },
+        {
+          "era_basis": "on_screen_text",
+          "value": 154.0
+        },
+        {
+          "era_basis": "inferred_from_mission",
+          "value": 48.0
+        }
+      ],
+      "row_count": 5,
+      "missing_groups": [],
+      "passed": true
+    },
+    {
+      "id": "apollo17-field-geologist",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "the first trained field geologist to study the lunar surface in person",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 1,
+      "videos_covered": 11,
+      "precision": 0.033,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.7003,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.5597,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.5477,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.5402,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 110.0,
+          "end": 120.0,
+          "score": 0.5332,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.5227,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.5199,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.5032,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "history-apollo17-1972",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "walking on the moon in December 1972, forty-five years earlier",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 1,
+      "videos_covered": 14,
+      "precision": 0.033,
+      "recall": 1.0,
+      "top_rank_hit": 8,
+      "retrieved": [
+        {
+          "nasa_id": "Apollo_11_Plaque_Comparison_720p",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.7733,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080504_apollo",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.765,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080504_apollo",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.6125,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080504_apollo",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.6026,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080504_apollo",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.5659,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080504_apollo",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.5259,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080504_apollo",
+          "start": 100.0,
+          "end": 110.0,
+          "score": 0.5191,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.6772,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "titan-only-moon-with-atmosphere",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "the only moon in the solar system that has an atmosphere",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 1,
+      "videos_covered": 14,
+      "precision": 0.033,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_110404_cassini_flyby",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.678,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_110404_cassini_flyby",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.469,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_061404_cassini",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.6177,
+          "text": ""
+        },
+        {
+          "nasa_id": "NHQ_2020_0429_AskNASA_202_Hubble",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.5214,
+          "text": ""
+        },
+        {
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 690.0,
+          "end": 700.0,
+          "score": 0.5034,
+          "text": ""
+        },
+        {
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 800.0,
+          "end": 810.0,
+          "score": 0.4227,
+          "text": ""
+        },
+        {
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 770.0,
+          "end": 780.0,
+          "score": 0.4051,
+          "text": ""
+        },
+        {
+          "nasa_id": "1971 Aeronautics and Space Highlights",
+          "start": 780.0,
+          "end": 790.0,
+          "score": 0.3898,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "huygens-titan-touchdown",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "probe descending through haze and landing in mud among frozen methane chunks",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 2,
+      "videos_covered": 16,
+      "precision": 0.067,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_012805_touchdown",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.5971,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_012805_touchdown",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.5044,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_012805_touchdown",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.485,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_012805_touchdown",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.4584,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_110404_cassini_flyby",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.5605,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_110404_cassini_flyby",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.4721,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_080805_mro_zurek",
+          "start": 190.0,
+          "end": 200.0,
+          "score": 0.5002,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_073004_lunar_rocks",
+          "start": 60.0,
+          "end": 67.99,
+          "score": 0.4938,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "great-red-spot-century",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "a storm with no land beneath it that has lasted more than a hundred years",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 2,
+      "videos_covered": 14,
+      "precision": 0.067,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "GSFC_20180313_Jupiter_m12878_GreatRedSpot",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.5557,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20180313_Jupiter_m12878_GreatRedSpot",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.4644,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20180313_Jupiter_m12878_GreatRedSpot",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.3874,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20180313_Jupiter_m12878_GreatRedSpot",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.3711,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20180313_Jupiter_m12878_GreatRedSpot",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.3378,
+          "text": ""
+        },
+        {
+          "nasa_id": "GSFC_20180608_Tonga_m12932_Volcanoes",
+          "start": 90.0,
+          "end": 100.0,
+          "score": 0.4547,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 120.0,
+          "end": 130.0,
+          "score": 0.4497,
+          "text": ""
+        },
+        {
+          "nasa_id": "JPL-20230208-MSLf-0001-Curiosity_Finds_New_Clues_to_Mars_Watery_Past",
+          "start": 70.0,
+          "end": 80.0,
+          "score": 0.3496,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "history-return-to-flight",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "returning the shuttle to flight two years after the Columbia accident",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 2,
+      "videos_covered": 13,
+      "precision": 0.067,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_062805_114_briefing",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.8347,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_062805_114_briefing",
+          "start": 190.0,
+          "end": 200.0,
+          "score": 0.6106,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_062805_114_briefing",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.4795,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_062805_114_briefing",
+          "start": 100.0,
+          "end": 110.0,
+          "score": 0.4653,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_040805_sssr",
+          "start": 160.0,
+          "end": 170.0,
+          "score": 0.638,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_040805_sssr",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.5631,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_040805_sssr",
+          "start": 130.0,
+          "end": 140.0,
+          "score": 0.4966,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_040805_sssr",
+          "start": 170.0,
+          "end": 180.0,
+          "score": 0.4809,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "hubble-servicing-spacewalks",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "astronauts scheduled for five spacewalks to repair and upgrade a telescope",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 2,
+      "videos_covered": 14,
+      "precision": 0.067,
+      "recall": 1.0,
+      "top_rank_hit": 17,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_042310_hubble",
+          "start": 260.0,
+          "end": 270.0,
+          "score": 0.7856,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_042310_hubble",
+          "start": 320.0,
+          "end": 330.0,
+          "score": 0.6109,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_042310_hubble",
+          "start": 270.0,
+          "end": 280.0,
+          "score": 0.5095,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_042310_hubble",
+          "start": 300.0,
+          "end": 310.0,
+          "score": 0.501,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_042310_hubble",
+          "start": 310.0,
+          "end": 320.0,
+          "score": 0.4674,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_042310_hubble",
+          "start": 250.0,
+          "end": 260.0,
+          "score": 0.4623,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_042310_hubble",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.453,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_062805_114_briefing",
+          "start": 150.0,
+          "end": 160.0,
+          "score": 0.6044,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "history-comets-as-omens",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "comets recorded by ancient observers and read as omens of disaster",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 5,
+      "videos_covered": 4,
+      "precision": 0.167,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_121304_comet_history",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.7565,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_121304_comet_history",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.7217,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_121304_comet_history",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.6298,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_121304_comet_history",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.595,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_121304_comet_history",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.5773,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_121304_comet_history",
+          "start": 140.0,
+          "end": 145.82,
+          "score": 0.5651,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_121304_comet_history",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.5452,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_121304_comet_history",
+          "start": 100.0,
+          "end": 110.0,
+          "score": 0.5214,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "mercury-control-demolition",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "demolishing the old mission control building where fifty years of history ended",
+      "retrieved_count": 30,
+      "expected_count": 1,
+      "hit_count": 4,
+      "videos_covered": 13,
+      "precision": 0.133,
+      "recall": 1.0,
+      "top_rank_hit": 1,
+      "retrieved": [
+        {
+          "nasa_id": "ksc_070110_mcc_demo",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.7157,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_070110_mcc_demo",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.62,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_070110_mcc_demo",
+          "start": 60.0,
+          "end": 70.0,
+          "score": 0.6183,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_070110_mcc_demo",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.6152,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_070110_mcc_demo",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.5426,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_070110_mcc_demo",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.5233,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_070110_mcc_demo",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.4792,
+          "text": ""
+        },
+        {
+          "nasa_id": "ksc_112904_why_kennedy",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.5322,
+          "text": ""
+        }
+      ],
+      "missed": [],
+      "passed": true
+    },
+    {
+      "id": "aggregate-bodies-covered",
+      "kind": "aggregate",
+      "mode": "aggregate",
+      "query": null,
+      "rows": [
+        {
+          "celestial_body": "earth",
+          "value": 465.0
+        },
+        {
+          "celestial_body": "mars",
+          "value": 214.0
+        },
+        {
+          "celestial_body": "deep_space",
+          "value": 198.0
+        },
+        {
+          "celestial_body": "ground",
+          "value": 138.0
+        },
+        {
+          "celestial_body": "earth_orbit",
+          "value": 114.0
+        },
+        {
+          "celestial_body": "sun",
+          "value": 106.0
+        },
+        {
+          "celestial_body": "moon",
+          "value": 97.0
+        },
+        {
+          "celestial_body": "unknown",
+          "value": 49.0
+        },
+        {
+          "celestial_body": "comet_asteroid",
+          "value": 42.0
+        },
+        {
+          "celestial_body": "saturn",
+          "value": 28.0
+        },
+        {
+          "celestial_body": "jupiter",
+          "value": 22.0
+        },
+        {
+          "celestial_body": "titan",
+          "value": 11.0
+        }
+      ],
+      "row_count": 12,
+      "missing_groups": [],
+      "passed": true
+    },
+    {
+      "id": "filter-moon-scenes",
+      "kind": "filter",
+      "mode": "query",
+      "query": null,
+      "retrieved_count": 97,
+      "expected_count": 1,
+      "hit_count": 10,
+      "videos_covered": 20,
+      "precision": null,
+      "recall": 1.0,
+      "top_rank_hit": 88,
+      "retrieved": [
+        {
+          "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+          "start": 0.0,
+          "end": 10.0,
+          "score": 0.0,
+          "text": "A space-animation title sequence shows a small spacecraft flying in front of a starfield and a large grey, cratered Moon. The Moon is shown in different phases "
+        },
+        {
+          "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+          "start": 10.0,
+          "end": 20.0,
+          "score": 0.0,
+          "text": "A 3D animation shows the Moon\u2019s south polar region as a gray, heavily cratered, airless landscape fading into black space. The camera glides over overlapping cr"
+        },
+        {
+          "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+          "start": 80.0,
+          "end": 90.0,
+          "score": 0.0,
+          "text": "The scene shows a grayscale, cratered lunar surface map with a large circular overlay centered on the pole region. Inside the circle, semi-transparent blue patc"
+        },
+        {
+          "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+          "start": 90.0,
+          "end": 100.0,
+          "score": 0.0,
+          "text": "The scene shows a CGI/animation of the Moon in space, with a detailed gray cratered lunar surface and the day-night boundary sweeping across it. A spacecraft id"
+        },
+        {
+          "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+          "start": 20.0,
+          "end": 30.0,
+          "score": 0.0,
+          "text": "The scene is a stylized animation on a black background showing a stream of bright particles or material falling into a dark surface, with bubbles or droplets r"
+        },
+        {
+          "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+          "start": 30.0,
+          "end": 40.0,
+          "score": 0.0,
+          "text": "The scene shows a blue-toned animated diagram of lunar regolith texture, with clusters of small red and pale-blue spheres representing particles or atoms disper"
+        },
+        {
+          "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+          "start": 40.0,
+          "end": 50.0,
+          "score": 0.0,
+          "text": "The scene shows a NASA science animation over a gray, heavily cratered lunar surface. Colored circular markers, mostly red with a few pale blue ones, are cluste"
+        },
+        {
+          "nasa_id": "GSFC_20130603_LEND_m11292_Water",
+          "start": 50.0,
+          "end": 60.0,
+          "score": 0.0,
+          "text": "The scene shows a grayscale, airless, heavily cratered lunar surface map filling the background, with a circular overlay marking latitude/longitude around the p"
+        }
+      ],
+      "missed": [],
+      "passed": true
+    }
+  ]
+}

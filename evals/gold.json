@@ -1,0 +1,775 @@
+{
+  "notes": [
+    "Ground truth windows come from NASA's own published .vtt captions, not from",
+    "anything the pipeline produced, so the eval cannot grade itself.",
+    "The Perseverance clip ships no captions, so its windows are whole-video and",
+    "only test which video is retrieved, not where inside it.",
+    "kind=visual_only cases are the important ones: the answer is on screen and is",
+    "never spoken, so a transcript index cannot find them and a scene index must.",
+    "Every semantic case names its index. Scores from different indexes are not",
+    "calibrated against each other, so searching them together lets one index crowd",
+    "out another: a transcript hit scoring 0.69 was absent from a 20-result",
+    "multi-index search entirely. The agent queries per index and merges explicitly.",
+    "cross-modal-water-evidence is the one deliberate multi-index case, and it is",
+    "expected to FAIL. It documents both that crowding and the fact that collection",
+    "search concentrates on whichever video is densest on the topic.",
+    "top_k is 15, scaled to a 386-scene corpus. Precision is bounded by top_k when a",
+    "case has one correct 10-second window, so recall and rank-1 are the real signal.",
+    "No case grades a subjective label. Whether launch commentary counts as a",
+    "'briefing' has no ground truth, so filters are asserted only on facts that can",
+    "be checked against the footage.",
+    "history-mer-watery-past is a second deliberate failure. It asks in a",
+    "researcher's vocabulary ('twin rovers') for something the archive states in its",
+    "own ('the first of two rovers'), and semantic search does not bridge the gap.",
+    "history-mer-watery-past-expanded is the identical claim in the archive's",
+    "wording and hits rank 1 at 0.78. The pair is the concrete argument for query",
+    "expansion in the agent: decomposition has to produce alternate phrasings, not",
+    "just sub-questions.",
+    "Cases from apollo17-field-geologist onward cover the non-Mars domains added in the",
+    "coverage expansion: Moon, human spaceflight, outer planets. Their windows come from",
+    "the same source as the rest, NASA's published .vtt captions.",
+    "aggregate-bodies-covered and filter-moon-scenes are corpus-shape tests rather than",
+    "retrieval tests. They fail if the corpus drifts back to being effectively Mars-only,",
+    "which is what made the spatial interface static in the first place."
+  ],
+  "cases": [
+    {
+      "id": "deuterium-heavy-water",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "heavy water containing the hydrogen isotope deuterium trapped in the water cycle",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "window": [
+            67.8,
+            85.3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ocean-percentage-lost",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "only thirteen percent of the ancient ocean remains, most of it lost to space",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "window": [
+            98.9,
+            113.4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "northern-plains-ocean-extent",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "an ocean covering about twenty percent of the planet's surface in the northern plains",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "window": [
+            123.0,
+            137.1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rp1-kerosene-load",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "ten thousand gallons of RP1 refined kerosene fuel loaded onto the first stage",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_080407_phx_intro0",
+          "window": [
+            96.0,
+            122.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arctic-core-samples",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "drilling rig tested in frozen tundra to extract core samples in the high Arctic",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "window": [
+            30.0,
+            43.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "infrared-telescopes-method",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "using ground based infrared telescopes to measure water molecules in the Martian atmosphere",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "window": [
+            40.2,
+            59.9
+          ]
+        }
+      ]
+    },
+    {
+      "id": "martian-terrain-mesa",
+      "kind": "visual_only",
+      "mode": "semantic",
+      "query": "reddish brown cracked rocky ground with a flat topped hill on the horizon under a hazy sky",
+      "index_names": [
+        "scene_semantic"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "window": [
+            43.0,
+            53.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drill-hardware-closeup",
+      "kind": "visual_only",
+      "mode": "semantic",
+      "query": "engineers handling a suitcase sized drill rig connected to a control box on a sandy testbed",
+      "index_names": [
+        "scene_semantic"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "window": [
+            10.0,
+            30.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ocean-recession-animation",
+      "kind": "visual_only",
+      "mode": "semantic",
+      "query": "animated simulation of a blue ocean shrinking and receding across a planet's surface",
+      "index_names": [
+        "scene_semantic"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "window": [
+            148.6,
+            175.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rover-in-river-channel",
+      "kind": "visual_only",
+      "mode": "semantic",
+      "query": "a rover on the Martian surface examining rocks in a dry channel",
+      "index_names": [
+        "scene_semantic"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "window": [
+            0.0,
+            125.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cross-modal-water-evidence",
+      "kind": "cross_modal",
+      "mode": "semantic",
+      "query": "evidence that liquid water once existed on Mars",
+      "top_k": 15,
+      "min_recall": 0.4,
+      "expect": [
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "window": [
+            98.9,
+            137.1
+          ]
+        },
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "window": [
+            43.0,
+            53.0
+          ]
+        },
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "window": [
+            0.0,
+            125.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "filter-mars-scenes",
+      "kind": "filter",
+      "mode": "query",
+      "index_name": "scene_facets",
+      "filter": [
+        {
+          "field": "celestial_body",
+          "op": "==",
+          "value": "mars"
+        }
+      ],
+      "limit": 100,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "GSFC_20150305_Mars_m11796_Ocean",
+          "window": [
+            60.0,
+            180.0
+          ]
+        },
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "window": [
+            43.0,
+            53.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "filter-launch-coverage",
+      "kind": "filter",
+      "mode": "query",
+      "index_name": "scene_facets",
+      "filter": [
+        {
+          "field": "event_type",
+          "op": "==",
+          "value": "launch"
+        }
+      ],
+      "limit": 100,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_080407_phx_intro0",
+          "window": [
+            31.0,
+            147.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "filter-mission-perseverance",
+      "kind": "filter",
+      "mode": "query",
+      "index_name": "mission_meta",
+      "filter": [
+        {
+          "field": "primary_mission",
+          "op": "==",
+          "value": "Perseverance"
+        }
+      ],
+      "limit": 100,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "JPL-20240710-Perseverance_Rover_Spots_an_Unusual_Rock_in_Ancient_River_Channel_Mars_Report",
+          "window": [
+            0.0,
+            125.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "filter-earth-ground-testing",
+      "kind": "filter",
+      "mode": "query",
+      "index_name": "scene_facets",
+      "filter": [
+        {
+          "field": "celestial_body",
+          "op": "==",
+          "value": "earth"
+        },
+        {
+          "field": "evidence_shown",
+          "op": "==",
+          "value": "instrument"
+        }
+      ],
+      "limit": 100,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_102504_marsdrill",
+          "window": [
+            7.0,
+            43.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "history-mariner-first-images",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "the first close-up photographs of Mars returned by an early flyby spacecraft",
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "window": [
+            0.0,
+            100000.0
+          ]
+        }
+      ],
+      "index_names": [
+        "transcript"
+      ]
+    },
+    {
+      "id": "history-viking-era",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "the Viking missions of the 1970s and the laboratory that built them",
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_020105_why_jpl",
+          "window": [
+            0.0,
+            100000.0
+          ]
+        },
+        {
+          "nasa_id": "ksc_080805_mro_smrekar9",
+          "window": [
+            0.0,
+            100000.0
+          ]
+        }
+      ],
+      "index_names": [
+        "transcript"
+      ]
+    },
+    {
+      "id": "history-odyssey-chemical-mapping",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "Mars Odyssey mission extended, mapping the planet's chemical composition",
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_091704_odyssey",
+          "window": [
+            0.0,
+            100000.0
+          ]
+        }
+      ],
+      "index_names": [
+        "transcript"
+      ]
+    },
+    {
+      "id": "history-mer-watery-past",
+      "kind": "vocabulary_gap",
+      "mode": "semantic",
+      "query": "twin rovers landing in 2004 to search for signs of a watery history",
+      "top_k": 15,
+      "min_recall": 0.4,
+      "expect": [
+        {
+          "nasa_id": "ksc_122104_spirit_anniv",
+          "window": [
+            0.0,
+            100000.0
+          ]
+        },
+        {
+          "nasa_id": "ksc_012805_mars_recon",
+          "window": [
+            0.0,
+            100000.0
+          ]
+        }
+      ],
+      "index_names": [
+        "transcript"
+      ],
+      "expected_to_fail": true
+    },
+    {
+      "id": "history-mer-watery-past-expanded",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "Spirit rover began its mission searching for signs of a watery history",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_122104_spirit_anniv",
+          "window": [
+            10.0,
+            40.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "era-range-spans-decades",
+      "kind": "historical",
+      "mode": "aggregate",
+      "index_name": "mission_meta",
+      "group_by": "era_start",
+      "metric": "count",
+      "expect_groups": [
+        "1965"
+      ]
+    },
+    {
+      "id": "filter-pre-1990-evidence",
+      "kind": "historical",
+      "mode": "query",
+      "index_name": "mission_meta",
+      "filter": [
+        {
+          "field": "era_start",
+          "op": "<",
+          "value": 1990
+        }
+      ],
+      "limit": 100,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "JPL-20250710-MARINRs-0001-Mariner_4_Media_Reel",
+          "window": [
+            0.0,
+            100000.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aggregate-bodies",
+      "kind": "aggregate",
+      "mode": "aggregate",
+      "index_name": "scene_facets",
+      "group_by": "celestial_body",
+      "metric": "count",
+      "expect_groups": [
+        "mars",
+        "earth"
+      ]
+    },
+    {
+      "id": "aggregate-event-types",
+      "kind": "aggregate",
+      "mode": "aggregate",
+      "index_name": "scene_facets",
+      "group_by": "event_type",
+      "metric": "count",
+      "expect_groups": [
+        "briefing"
+      ]
+    },
+    {
+      "id": "aggregate-era-basis",
+      "kind": "aggregate",
+      "mode": "aggregate",
+      "index_name": "mission_meta",
+      "group_by": "era_basis",
+      "metric": "count",
+      "expect_groups": [
+        "not_determinable"
+      ]
+    },
+    {
+      "id": "apollo17-field-geologist",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "the first trained field geologist to study the lunar surface in person",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "window": [
+            26.4,
+            35.7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "history-apollo17-1972",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "walking on the moon in December 1972, forty-five years earlier",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "window": [
+            3.5,
+            12.4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "titan-only-moon-with-atmosphere",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "the only moon in the solar system that has an atmosphere",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_110404_cassini_flyby",
+          "window": [
+            71.0,
+            85.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "huygens-titan-touchdown",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "probe descending through haze and landing in mud among frozen methane chunks",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_012805_touchdown",
+          "window": [
+            51.0,
+            65.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "great-red-spot-century",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "a storm with no land beneath it that has lasted more than a hundred years",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "GSFC_20180313_Jupiter_m12878_GreatRedSpot",
+          "window": [
+            32.8,
+            45.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "history-return-to-flight",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "returning the shuttle to flight two years after the Columbia accident",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_062805_114_briefing",
+          "window": [
+            52.0,
+            90.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hubble-servicing-spacewalks",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "astronauts scheduled for five spacewalks to repair and upgrade a telescope",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_062708_ssm",
+          "window": [
+            33.0,
+            47.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "history-comets-as-omens",
+      "kind": "historical",
+      "mode": "semantic",
+      "query": "comets recorded by ancient observers and read as omens of disaster",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_121304_comet_history",
+          "window": [
+            14.0,
+            58.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mercury-control-demolition",
+      "kind": "spoken_only",
+      "mode": "semantic",
+      "query": "demolishing the old mission control building where fifty years of history ended",
+      "index_names": [
+        "transcript"
+      ],
+      "top_k": 15,
+      "min_recall": 0.5,
+      "expect": [
+        {
+          "nasa_id": "ksc_070110_mcc_demo",
+          "window": [
+            14.0,
+            40.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aggregate-bodies-covered",
+      "kind": "aggregate",
+      "mode": "aggregate",
+      "index_name": "mission_meta",
+      "group_by": "celestial_body",
+      "metric": "count",
+      "min_groups": 5,
+      "min_recall": 1.0,
+      "expect": []
+    },
+    {
+      "id": "filter-moon-scenes",
+      "kind": "filter",
+      "mode": "query",
+      "index_name": "scene_facets",
+      "limit": 100,
+      "min_recall": 0.5,
+      "filter": [
+        {
+          "field": "celestial_body",
+          "op": "==",
+          "value": "moon"
+        }
+      ],
+      "expect": [
+        {
+          "nasa_id": "GSFC_20171120_JSchmitt_m12705_Apollo17toLRO",
+          "window": [
+            0.0,
+            162.0
+          ]
+        }
+      ]
+    }
+  ]
+}
