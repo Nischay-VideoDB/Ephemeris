@@ -1,5 +1,5 @@
 import { spawn } from "node:child_process";
-import { mkdir, mkdtemp, readFile, rm } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 
@@ -21,6 +21,38 @@ const PYTHON = join(ROOT, ".venv", "bin", "python");
 const SCRIPT = join(ROOT, "scripts", "ask.py");
 
 const PROGRESS_PREFIX = "@progress ";
+
+/** Keep the question when the run did not survive to produce an answer.
+ *
+ *  Shaped like any other saved run so the list and the reload route need no special case: the
+ *  answer is empty and the caveat says what went wrong, which is how a refusal already reads. */
+async function recordFailure(outPath: string, question: string, detail: string): Promise<void> {
+  try {
+    await readFile(outPath, "utf8");
+    return; // the agent wrote its own result; the failure was ours, downstream of it
+  } catch {
+    // nothing there, so there is something worth writing
+  }
+  const stub = {
+    question,
+    plan: { sub_questions: [], phrasings: [], visual_phrasings: [],
+            needs_chronology: false, answerable: false, target_body: null,
+            rationale: "the run did not complete" },
+    answer: { answer: "", citations: [], chronology: [],
+              caveats: `This run did not complete: ${detail.slice(-400)}` },
+    evidence: [],
+    rejected: { below_threshold: [], diversity: [],
+                counts: { below_threshold: 0, diversity: 0 } },
+    timeline: [],
+    trace: [],
+    failed: true,
+  };
+  try {
+    await writeFile(outPath, JSON.stringify(stub, null, 2));
+  } catch {
+    // Losing the record of a failure is not worth reporting a second failure over.
+  }
+}
 
 export async function POST(request: Request) {
   let question = "";
@@ -54,7 +86,7 @@ export async function POST(request: Request) {
         await mkdir(ANSWERS_DIR, { recursive: true });
         outPath = join(ANSWERS_DIR, `${id}.json`);
       } catch {
-        scratch = await mkdtemp(join(tmpdir(), "mission-control-"));
+        scratch = await mkdtemp(join(tmpdir(), "ephemeris-"));
         outPath = join(scratch, "answer.json");
       }
 
@@ -101,7 +133,13 @@ export async function POST(request: Request) {
         // and reload it later without re-running the agent.
         send("result", scratch ? result : { ...result, saved_id: id });
       } catch (error) {
-        send("error", { error: error instanceof Error ? error.message : String(error) });
+        const detail = error instanceof Error ? error.message : String(error);
+        // A run that fails still asked a question, and that question is the part worth keeping:
+        // without this the agent crashing loses what was typed, which is exactly when someone
+        // most wants it back. Written only if the agent left nothing itself, so a real result
+        // is never overwritten by a failure to read it.
+        if (!scratch) await recordFailure(outPath, question, detail);
+        send("error", { error: detail });
       } finally {
         // Only the fallback scratch directory is cleaned up. A saved answer is the point.
         if (scratch) await rm(scratch, { recursive: true, force: true });

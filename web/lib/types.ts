@@ -1,4 +1,6 @@
-export type EraAxis = "scene" | "video" | "published" | null;
+/** How a moment's date was decided. `mission` means the extracted date fell outside the
+ *  operating window of the mission the scene is about, so the window decided it instead. */
+export type EraAxis = "scene" | "video" | "published" | "mission" | null;
 
 /** Where a moment is set. Drives spatial placement in the orrery view.
  *  `ground` is terrestrial testing (a Mars-yard rig, an Arctic drill site): about Mars,
@@ -145,6 +147,9 @@ export interface SavedAnswer {
   moments: number;
   shots: number;
   answered: boolean;
+  /** The run did not complete. Distinct from a run that completed and found nothing to say:
+   *  one is a broken pipeline, the other is the archive answering honestly. */
+  failed?: boolean;
 }
 
 export interface AskResult {

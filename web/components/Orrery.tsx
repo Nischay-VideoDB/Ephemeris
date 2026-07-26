@@ -42,12 +42,14 @@ const AXIS_COLOR: Record<string, string> = {
   scene: "#6ddf9c",
   video: "#e8b04b",
   published: "#e2647a",
+  mission: "#6bb6e8",
 };
 
 const AXIS_WORD: Record<string, string> = {
   scene: "date stated in this scene",
   video: "date from clip context",
   published: "upload date only",
+  mission: "date from the mission's dates",
 };
 
 const UP = new THREE.Vector3(0, 1, 0);
@@ -293,7 +295,11 @@ function CameraRig({
 
     lastIndex.current = activeIndex;
     pending.current = { pos: toPos, target: pose.lookAt };
-  }, [placements, activeIndex, camera, engaged, focusBody]);
+    // autoFollow is a dependency so that handing the camera back mid-shot re-requests the pose.
+    // Without it, resume only flipped the flag and the rig had nothing pending to fly to, so the
+    // camera sat where the drag left it until the reel happened to cross into the next shot.
+    // Runs on the false transition too, where the frame loop discards the request unused.
+  }, [placements, activeIndex, camera, engaged, focusBody, autoFollow]);
 
   useFrame((state) => {
     if (!controls) return;

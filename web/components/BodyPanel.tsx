@@ -127,11 +127,6 @@ export function BodyPanel({ result }: { result: AskResult | null }) {
           </ul>
         )}
       </div>
-
-      <p className="bp-hint">
-        Drag to orbit · scroll to zoom · <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> to fly ·{" "}
-        <kbd>R</kbd>/<kbd>F</kbd> up and down
-      </p>
     </aside>
   );
 }

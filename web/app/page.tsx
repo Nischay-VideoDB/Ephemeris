@@ -14,20 +14,24 @@ import { useStore } from "@/lib/store";
 
 const Orrery = dynamic(() => import("@/components/Orrery"), { ssr: false });
 
-/* Chosen to span the archive rather than to flatter one subject. Mars is 14% of the corpus
-   and Earth 31%, so leading with two Mars questions made a multi-domain archive look
-   Mars-only. The cross-body question loads first for the same reason. */
+/* Ordered strongest first, on what each answer actually contains rather than on subject.
+   `water-mars` leads: eight chronology points, the widest citation spread, and the only one
+   carrying a mission-corrected date, so the provenance key has all four colours to explain.
+   `water-elsewhere` is second because it is the only question that puts moments on three
+   different worlds, which is what stops a multi-domain archive reading as Mars-only.
+   `telescopes` is last: the widest era span of the four, but every moment sits in deep space,
+   so the orrery barely moves. */
 const PRESETS = [
+  { id: "water-mars", label: "How understanding of water on Mars changed" },
   { id: "water-elsewhere", label: "Where else NASA looked for water and ice" },
   { id: "apollo-surface", label: "What Apollo astronauts did on the lunar surface" },
   { id: "telescopes", label: "How space telescopes changed what we could see" },
-  { id: "water-mars", label: "How understanding of water on Mars changed" },
 ];
 
 export default function Page() {
-  const { result, setResult, autoFollow, setAutoFollow, selectMoment, activeEvidenceIndex, resetView } =
+  const { result, setResult, autoFollow, setAutoFollow, selectMoment, activeEvidenceIndex } =
     useStore();
-  const [preset, setPreset] = useState("water-elsewhere");
+  const [preset, setPreset] = useState("water-mars");
   const [question, setQuestion] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -44,13 +48,18 @@ export default function Page() {
   const answerRef = useRef<HTMLElement | null>(null);
   // Runs saved to data/answers. Reloading one costs a file read instead of ninety seconds.
   const [saved, setSaved] = useState<SavedAnswer[]>([]);
+  // How many exist, which is not how many are listed: the rest are one click away rather than
+  // lost. A question asked is kept whether or not the run that answered it succeeded.
+  const [savedTotal, setSavedTotal] = useState(0);
 
-  const loadSavedList = useCallback(async () => {
+  const loadSavedList = useCallback(async (limit?: number) => {
     try {
-      const response = await fetch("/api/answers", { cache: "no-store" });
+      const query = limit ? `?limit=${limit}` : "";
+      const response = await fetch(`/api/answers${query}`, { cache: "no-store" });
       if (!response.ok) return;
       const payload = await response.json();
       setSaved(payload.answers ?? []);
+      setSavedTotal(payload.total ?? payload.answers?.length ?? 0);
     } catch {
       // A missing history is not worth an error banner over the answer itself.
     }
@@ -87,7 +96,7 @@ export default function Page() {
   );
 
   useEffect(() => {
-    void loadPreset("water-elsewhere");
+    void loadPreset("water-mars");
   }, [loadPreset]);
 
   const loadSaved = useCallback(
@@ -218,15 +227,6 @@ export default function Page() {
   const cited = result?.answer?.citations ?? [];
   const activeMoment = evidence[activeEvidenceIndex];
 
-  // The camera has one mode now, so the strip states what it is doing rather than offering a
-  // choice: the years this answer travels through, taken from the moments themselves.
-  const eraSpan = useMemo(() => {
-    const years = evidence.map((e) => e.era_start).filter((y): y is number => y !== null);
-    if (!years.length) return null;
-    const [lo, hi] = [Math.min(...years), Math.max(...years)];
-    return lo === hi ? `${lo}` : `${lo} → ${hi}`;
-  }, [evidence]);
-
   return (
     <main className="stage-shell">
       <div className="stage-canvas">
@@ -250,12 +250,12 @@ export default function Page() {
       {hud && (
         <>
           <header className="masthead">
-            <h1>Mission Control</h1>
+            <h1>Ephemeris</h1>
             <p className="standfirst">A research agent over NASA&rsquo;s archival video.</p>
             <dl className="colophon">
               <div>
                 <dt>corpus</dt>
-                <dd>87 clips · 240 min · 1,484 scenes</dd>
+                <dd>87 clips · 1,484 scenes</dd>
               </div>
               <div>
                 <dt>era covered</dt>
@@ -270,6 +270,7 @@ export default function Page() {
 
           <div className="query">
             <div className="query-presets">
+              <span className="gutter-label">Start</span>
               {PRESETS.map((p) => (
                 <button
                   key={p.id}
@@ -336,26 +337,48 @@ export default function Page() {
             {/* Every live run is kept, so a question asked once never has to be paid for twice. */}
             {saved.length > 0 && (
               <div className="saved-row">
-                <span className="saved-label">saved runs</span>
-                {saved.map((row) => (
-                  <button
-                    key={row.id}
-                    className="ask-link"
-                    disabled={busy}
-                    onClick={() => void loadSaved(row.id)}
-                    title={`${row.question} · ${row.moments} moments · ${new Date(row.saved).toLocaleString()}`}
-                  >
-                    {row.answered ? row.question : `${row.question} (no answer)`}
-                  </button>
-                ))}
+                {/* Short enough to sit in the gutter beside "Ask" and "Start". The count lives
+                    on the button that acts on it rather than swelling the label past its column. */}
+                <span className="saved-label">Asked</span>
+                <div className="saved-list">
+                  {saved.map((row) => {
+                    // Three outcomes worth telling apart: an answer, the archive saying it
+                    // holds nothing, and a run that broke. The middle one is a result, so it
+                    // is worded as one. Said in the margin rather than drawn as a badge: the
+                    // question is what is being scanned for, and it keeps its full width.
+                    const state = row.failed ? "failed" : row.answered ? "answered" : "empty";
+                    const note = { answered: `${row.moments} moments`, empty: "nothing found",
+                                   failed: "did not finish" }[state];
+                    return (
+                      <button
+                        key={row.id}
+                        className="saved-item"
+                        data-state={state}
+                        disabled={busy}
+                        onClick={() => void loadSaved(row.id)}
+                        title={`${row.question}\n${note} · ${new Date(row.saved).toLocaleString()}`}
+                      >
+                        <span className="saved-q">{row.question}</span>
+                        <span className="saved-meta">{note}</span>
+                      </button>
+                    );
+                  })}
+                  {savedTotal > saved.length && (
+                    <button
+                      className="saved-item saved-more"
+                      disabled={busy}
+                      onClick={() => void loadSavedList(500)}
+                    >
+                      <span className="saved-q">show all {savedTotal}</span>
+                      <span className="saved-meta">{savedTotal - saved.length} more</span>
+                    </button>
+                  )}
+                </div>
               </div>
             )}
           </div>
 
           <div className="camera-strip">
-            <span className="strip-label">camera</span>
-            <span className="strip-mode">{eraSpan ? `era · ${eraSpan}` : "era"}</span>
-            <span className="strip-sep" />
             <span className="strip-state" data-on={autoFollow}>
               {autoFollow ? "following reel" : "manual orbit"}
             </span>
@@ -366,18 +389,37 @@ export default function Page() {
             )}
           </div>
 
-          {/* Navigation lives at the bottom left rather than in the top bar: the top bar already
-              carries the masthead and the question, and three clusters at that width collided. */}
+          {/* Flight controls sit under the camera state at the top right: they describe the same
+              thing the camera strip reports on, and as a ruled key/action table they read as a
+              legend rather than as a sentence of keys run together. */}
+          <dl className="flightkeys">
+            <div>
+              <dt>
+                <kbd>W</kbd>
+                <kbd>A</kbd>
+                <kbd>S</kbd>
+                <kbd>D</kbd>
+              </dt>
+              <dd>fly</dd>
+            </div>
+            <div>
+              <dt>
+                <kbd>R</kbd>
+                <kbd>F</kbd>
+              </dt>
+              <dd>up, down</dd>
+            </div>
+            <div>
+              <dt className="verb">drag</dt>
+              <dd>orbit</dd>
+            </div>
+            <div>
+              <dt className="verb">click</dt>
+              <dd>a body</dd>
+            </div>
+          </dl>
+
           <div className="nav-strip">
-            <button className="ask-link" onClick={resetView}>
-              system view
-            </button>
-            <span className="strip-sep" />
-            <span className="strip-keys">
-              <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> fly · <kbd>R</kbd>/<kbd>F</kbd> up, down ·
-              drag to orbit · click a body
-            </span>
-            <span className="strip-sep" />
             <button className="ask-link" onClick={() => setHud(false)}>
               hide notes <kbd>H</kbd>
             </button>
@@ -415,27 +457,6 @@ export default function Page() {
                   <Reel reel={result.reel} />
                 </section>
 
-                <section className="sheet key">
-                  <h2>Where each date came from</h2>
-                  <ul className="keylist">
-                    <li>
-                      <i className="swatch scene" />
-                      <b>stated in the scene</b>
-                      <span>spoken or on screen in that shot</span>
-                    </li>
-                    <li>
-                      <i className="swatch video" />
-                      <b>from clip context</b>
-                      <span>the clip is about that year, the shot does not say so</span>
-                    </li>
-                    <li>
-                      <i className="swatch published" />
-                      <b>upload date only</b>
-                      <span>weakest: when NASA posted the file, not when it happened</span>
-                    </li>
-                  </ul>
-                </section>
-
                 <details className="sheet fold">
                   <summary>
                     Evidence <span className="count">{result.evidence.length} moments</span>
@@ -456,6 +477,29 @@ export default function Page() {
               <BodyPanel result={result} />
 
               <div className="ruler-dock">
+                {/* The needle colours are the ruler's only unexplained mark, so the key sits
+                    directly above it rather than in the right rail. The gloss on each entry is a
+                    tooltip: the words carry the meaning, so colour is still never the only
+                    channel. */}
+                <ul className="axis-legend">
+                  <li title="spoken or on screen in that shot">
+                    <i className="swatch scene" />
+                    stated in the scene
+                  </li>
+                  <li title="the extracted year fell outside the mission's operating dates, so those decided it instead">
+                    <i className="swatch mission" />
+                    from mission dates
+                  </li>
+                  <li title="the clip is about that year, the shot does not say so">
+                    <i className="swatch video" />
+                    from clip context
+                  </li>
+                  <li title="weakest: when NASA posted the file, not when it happened">
+                    <i className="swatch published" />
+                    upload date only
+                  </li>
+                </ul>
+
                 <Timeline timeline={result.timeline} evidence={result.evidence} reel={result.reel} />
               </div>
             </>

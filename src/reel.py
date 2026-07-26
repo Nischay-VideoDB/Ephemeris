@@ -71,6 +71,8 @@ def caption_for(item: dict, number: int | None = None) -> str:
         stamp = f"{era}"
     elif era and axis == "video":
         stamp = f"{era} (from clip context)"
+    elif era and axis == "mission":
+        stamp = f"{era} (from mission dates)"
     elif era:
         stamp = f"{era} (published)"
     else:

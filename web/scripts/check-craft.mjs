@@ -35,7 +35,7 @@ function compile() {
   execFileSync("npx", ["tsc", "-p", join(out, "tsconfig.json")], { cwd: root, stdio: "inherit" });
 }
 
-const GROUNDED = ["rover", "lander", "station", "holo"];
+const GROUNDED = ["rover", "lander", "station"];
 
 async function main() {
   compile();
@@ -54,12 +54,22 @@ async function main() {
   assert.equal(craftFor("instrument_readout", "Curiosity"), "rover");
 
   // Restraint: a mission never moves a craft off the ground it was placed on.
-  for (const event of ["surface_ops", "landing", "briefing", "data_visualization"]) {
+  for (const event of ["surface_ops", "landing", "briefing"]) {
     const generic = CRAFT_BY_EVENT[event];
     assert.ok(GROUNDED.includes(generic), `${event} should be grounded`);
     assert.equal(craftFor(event, "Space Shuttle Atlantis"), generic,
       `${event} must not be overridden by a mission`);
   }
+
+  // A depiction is not a placement. `data_visualization` and `animation` were grounded here
+  // alongside the surface events, on the reading that a mission must never move a craft. But a
+  // visualisation is a picture *of* a spacecraft, not ground it stands on, and every telescope
+  // moment in the archive is one: with these pinned, the five shipped answers flew no mission
+  // hardware between them and Hubble appeared as a generic hologram in a preset about telescopes.
+  assert.equal(craftFor("data_visualization", "Hubble Space Telescope"), "telescope");
+  assert.equal(craftFor("animation", "Voyager 1"), "deepprobe");
+  assert.equal(craftFor("data_visualization", null), "holo");
+  assert.equal(craftFor("animation", "SOLRAD"), "holo");
 
   // No mission, or one nothing matches, falls back to the event's craft.
   assert.equal(craftFor("launch", null), "rocket");

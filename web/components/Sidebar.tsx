@@ -49,17 +49,6 @@ export function Timeline({
 
   return (
     <section className="ruler">
-      <div className="ruler-head">
-        <span className="ruler-title">Era discussed</span>
-        <span className="ruler-note">
-          the year each moment is <em>about</em>. NASA uploaded most of this footage decades later ·
-          faint bars are all {archiveScenes} archive scenes by decade
-        </span>
-        <span className="ruler-range">
-          {lo}–{hi}
-        </span>
-      </div>
-
       <div className="ruler-track">
         {/* Archive density: how many of the corpus's scenes sit in each decade. */}
         {timeline.map((bucket) => (
@@ -146,8 +135,8 @@ export function Discarded({ rejected }: { rejected: AskResult["rejected"] }) {
         {rejected.below_threshold.slice(0, 10).map((row, i) => (
           <div className="r" key={`t-${i}`}>
             <span>weak</span>
-            <span>{row.index ?? row.detail ?? "—"}</span>
-            <span>{row.score !== undefined ? row.score.toFixed(3) : "—"}</span>
+            <span>{row.index ?? row.detail ?? "n/a"}</span>
+            <span>{row.score !== undefined ? row.score.toFixed(3) : "n/a"}</span>
           </div>
         ))}
       </div>

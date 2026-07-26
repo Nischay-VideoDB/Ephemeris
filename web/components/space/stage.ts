@@ -125,12 +125,16 @@ const CRAFT_BY_MISSION: [RegExp, CraftKind][] = [
 
 /** A mission only changes what the craft *is*, never where it stands. Substituting a Shuttle for
  *  a rover on the Martian surface would be a lie the placement itself tells, so the swap is
- *  refused for anything grounded or built on the spot. */
+ *  refused for anything standing on a surface or built on the spot.
+ *
+ *  `holo` is deliberately not in this set. A data visualisation or animation is a depiction of
+ *  a spacecraft rather than a place it is standing, so naming it costs nothing and saying so
+ *  is the point: with `holo` grounded, every telescope moment in the archive was one, and the
+ *  shipped answers flew no mission hardware at all. */
 const GROUNDED_CRAFT: ReadonlySet<CraftKind> = new Set<CraftKind>([
   "rover",
   "lander",
   "station",
-  "holo",
 ]);
 
 export function craftFor(event: EventType, mission: string | null | undefined): CraftKind {

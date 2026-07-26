@@ -43,14 +43,17 @@ export function answerPath(id: string): string | null {
   return path.startsWith(resolve(ANSWERS_DIR) + "/") ? path : null;
 }
 
-/** Newest first. Reads each file because the question and the counts live inside it; capped so
- *  a directory that has been accumulating for months does not turn a page load into a scan. */
-export async function listAnswers(limit = 12): Promise<SavedAnswer[]> {
+/** Newest first. Reads each file because the question and the counts live inside it, so it is
+ *  capped rather than scanning a directory that has been accumulating for months. `total` is
+ *  how many exist regardless of the cap: without it the interface silently showed the first
+ *  twelve as if they were all of them, and older questions became unreachable while still
+ *  sitting on disk. */
+export async function listAnswers(limit = 12): Promise<{ answers: SavedAnswer[]; total: number }> {
   let names: string[];
   try {
     names = (await readdir(ANSWERS_DIR)).filter((n) => n.endsWith(".json"));
   } catch {
-    return [];
+    return { answers: [], total: 0 };
   }
 
   const dated = await Promise.all(
@@ -80,14 +83,16 @@ export async function listAnswers(limit = 12): Promise<SavedAnswer[]> {
           moments: parsed.evidence?.length ?? 0,
           shots: parsed.reel?.shots?.length ?? 0,
           answered: Boolean(parsed.answer?.answer),
+          failed: Boolean(parsed.failed),
         };
       } catch {
         // A half-written or corrupt file is listed rather than hidden: silently dropping it
         // would look like the run never happened.
-        return { id, question: id, saved: new Date(at).toISOString(), moments: 0, shots: 0, answered: false };
+        return { id, question: id, saved: new Date(at).toISOString(), moments: 0, shots: 0,
+                 answered: false, failed: true };
       }
     }),
   );
 
-  return rows;
+  return { answers: rows, total: names.length };
 }

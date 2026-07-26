@@ -6,6 +6,7 @@ const AXIS_LABEL: Record<string, string> = {
   scene: "stated in this scene",
   video: "inferred from clip context",
   published: "upload date only",
+  mission: "corrected to the mission's dates",
 };
 
 export function EvidenceList({
