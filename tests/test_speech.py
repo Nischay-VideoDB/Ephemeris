@@ -98,6 +98,60 @@ def main() -> None:
     assert spoken.rstrip().endswith("."), spoken
     print(f"  ceiling reached    still ends on a full stop: …{spoken[-24:]!r}")
 
+    # Recognition over a near-silent clip emits tokens spanning half a minute. Believing them
+    # put a 47-second shot in an answer whose whole spoken content was the word "Sam".
+    class FakeVideo:
+        def get_transcript(self):
+            return [
+                {"text": "Sam,", "start": 0.24, "end": 31.91},
+                {"text": "it's.", "start": 32.06, "end": 63.81},
+                {"text": "real", "start": 64.0, "end": 64.4},
+                {"text": "words.", "start": 64.4, "end": 65.0},
+                {"text": "backwards", "start": 70.0, "end": 69.0},   # end before start
+            ]
+
+    kept = speech.load_words(FakeVideo())
+    assert [w["text"] for w in kept] == ["real", "words."], kept
+    print(f"  bad tokens         dropped, {len(kept)} real words kept")
+
+    # With nothing usable left, the cell stays on the grid instead of being stretched to fit
+    # an artefact. A silent clip is a visual match and has no sentence to snap to.
+    class SilentVideo:
+        def get_transcript(self):
+            return [{"text": "Sam,", "start": 0.24, "end": 31.91}]
+
+    silent = speech.load_words(SilentVideo())
+    assert silent == []
+    assert speech.sentence_window(silent, 0.0, 30.0, **BOUNDS) == (0.0, 30.0, "scene", "")
+    print("  all-artefact clip  left on the grid, not stretched")
+
+    # A run of visually matched cells with one stray token in it is a passage of pictures, not
+    # of speech. Snapping to that token cut thirty seconds of footage down to four.
+    stray = [word("Sa.", 12.0, 12.4)]
+    assert speech.sentence_window(stray, 0.0, 30.0, min_seconds=4, max_seconds=40) == \
+        (0.0, 30.0, "scene", "")
+    # The fallback still obeys the ceiling rather than handing back a window over budget.
+    assert speech.sentence_window(stray, 0.0, 30.0, **BOUNDS) == (0.0, 18.0, "scene", "")
+    print("  stray token        passage kept, not cut down to the syllable")
+
+    # But a short complete sentence filling its cell is still real speech and still snaps.
+    short = [word("Water", 10.2, 10.6), word("once", 10.6, 11.0), word("flowed", 11.0, 11.5),
+             word("across", 11.5, 12.0), word("this", 12.0, 12.3), word("plain.", 12.3, 13.0)]
+    _, _, axis, spoken = speech.sentence_window(short, 10.0, 14.0, **BOUNDS)
+    assert axis == "sentence" and spoken.endswith("plain."), (axis, spoken)
+    print("  short sentence     still snaps")
+
+    # When the sentence runs on past what the reach allows, back up to the last full stop rather
+    # than ending on a syllable: clips were closing on "like Humphrey" and "future infrared".
+    # A passage of narration that closes cleanly, followed by a sentence too long to finish
+    # inside the reach: the clip should end on the full stop, not partway into the next thought.
+    runs_on = [word(f"w{i}", i * 0.5, i * 0.5 + 0.45) for i in range(30)]
+    runs_on.append(word("here.", 15.0, 15.6))
+    runs_on += [word(f"x{i}", 16.0 + i * 0.4, 16.0 + i * 0.4 + 0.35) for i in range(80)]
+    _, end, axis, spoken = speech.sentence_window(runs_on, 0.0, 20.0, min_seconds=4, max_seconds=45)
+    assert axis == "sentence" and spoken.rstrip().endswith("here."), (axis, spoken[-40:])
+    print(f"  unfinishable       backs up to the last full stop at {end}s")
+
     print("\nOK: cells snap to sentences, silence and run-ons left alone, bounds respected")
 
 

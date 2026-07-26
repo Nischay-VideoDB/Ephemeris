@@ -38,6 +38,7 @@ from typing import Any
 
 import indexing
 import reel
+import schema
 import speech
 import videodb_client as vc
 
@@ -108,6 +109,9 @@ class Evidence:
     # How many consecutive indexed cells this moment covers. More than one means retrieval
     # matched a continuous passage rather than an isolated ten seconds.
     cells: int = 1
+    # "scene" when the extracted mission was kept, "dropped" when it named a world this moment
+    # is not set on, "none" when the scene carried no mission at all.
+    mission_axis: str = "scene"
 
     @property
     def key(self) -> tuple[str, float]:
@@ -218,6 +222,57 @@ def resolve_body(scene_body: str, dominant: str, share: float, counts: dict[str,
     return scene_body, "scene"
 
 
+# A mission that orbits, lands on or drives across exactly one world. If a scene set somewhere
+# else carries one of these, the label is wrong: the compilation clip "1971 Aeronautics and Space
+# Highlights" stamps `Mariner 9`, a Mars orbiter, on 62 of its 88 scenes including thirteen of the
+# Moon, and two lunar scenes elsewhere are labelled `Mars Reconnaissance Orbiter` because the
+# extractor heard "Lunar Reconnaissance Orbiter".
+BOUND_MISSIONS: list[tuple[str, str]] = [
+    (r"mariner|mars reconnaissance|curiosity|perseverance|viking|spirit\b|opportunity|sojourner"
+     r"|phoenix|insight|odyssey|maven|pathfinder", "mars"),
+    (r"apollo|ranger|surveyor|lunar reconnaissance|lunar prospector|clementine|lcross|ladee"
+     r"|artemis|luna\b", "moon"),
+    (r"juno|galileo", "jupiter"),
+    (r"cassini|huygens", "saturn"),
+    (r"magellan", "venus"),
+    (r"messenger", "mercury"),
+    (r"landsat|terra\b|aqua\b|suomi|nimbus|goes\b|noaa|aura\b|calipso|grace|icesat|smap", "earth"),
+]
+
+# Missions that legitimately turn up anywhere: flyby probes cross the solar system, and a
+# telescope images whatever it is pointed at. Voyager at Jupiter, Cassini's probe at Titan and
+# Hubble's view of Jupiter are all correct, and flagging them would be the error.
+FREE_MISSIONS = (
+    r"voyager|pioneer|new horizons|hubble|webb|spitzer|chandra|kepler|tess\b|swift|fermi"
+    r"|soho|solar dynamics|\bsdo\b|stereo|parker|osiris|stardust|deep impact|dawn\b|hayabusa"
+)
+
+# Earth is where the archive is made and the void tags say nothing about a target, so neither
+# can contradict a mission. A body inside its primary's system does not contradict it either.
+NEUTRAL_BODIES = {"earth", "earth_orbit", "ground", "unknown", "deep_space"}
+SYSTEM_OF = {"titan": "saturn", "moon": "earth"}
+
+
+def resolve_mission(mission: str | None, body: str) -> tuple[str | None, str]:
+    """Drop a mission label that belongs to a different world than the scene is set on.
+
+    The label is shown on the hover card, burned into the reel caption and, now, chooses the
+    hardware that flies in the scene. Wrong, it makes lunar footage read as a Mars mission,
+    which is exactly what a viewer notices first. Dropping is the honest repair: the correct
+    mission is not recoverable from what the extractor returned, and "mission unknown" is
+    already what the interface shows when there is none.
+    """
+    if not mission:
+        return mission, "none"
+    if body in NEUTRAL_BODIES or re.search(FREE_MISSIONS, mission, re.I):
+        return mission, "scene"
+
+    home = next((b for pattern, b in BOUND_MISSIONS if re.search(pattern, mission, re.I)), None)
+    if home is None or home == body or SYSTEM_OF.get(body) == home:
+        return mission, "scene"
+    return None, "dropped"
+
+
 def attach_era(evidence: Evidence, lookup: dict[str, list[dict]]) -> Evidence:
     """Join a retrieved moment to the mission_meta row covering it.
 
@@ -244,6 +299,10 @@ def attach_era(evidence: Evidence, lookup: dict[str, list[dict]]) -> Evidence:
     evidence.celestial_body, evidence.body_axis = resolve_body(
         match.get("celestial_body") or "unknown", dominant, share, counts
     )
+    # After the world is settled, because that is what the mission is checked against.
+    evidence.mission, evidence.mission_axis = resolve_mission(
+        evidence.mission, evidence.celestial_body
+    )
     return evidence
 
 
@@ -266,6 +325,7 @@ Return JSON only:
                        "for searching visual scene descriptions rather than speech"],
   "needs_chronology": true,
   "answerable": true,
+  "target_body": null,
   "rationale": "one sentence on how you decomposed it"
 }}
 
@@ -280,6 +340,12 @@ Rules:
   asked. If the subject is real but the archive may simply not cover it, answerable is still
   true: that is for the evidence to settle, not you.
 - When answerable is false, return empty lists and say why in rationale.
+- target_body is set only when the question is plainly about one world, and must be one of:
+  mars, moon, earth, earth_orbit, sun, venus, mercury, jupiter, saturn, titan,
+  comet_asteroid, deep_space. "Missions to explore the moon" is moon. "How did our
+  understanding of water change" is null, because the answer spans several worlds. Guessing
+  here narrows the search for no reason; leaving it null when the question does name one world
+  lets material about somewhere else take a place in the answer.
 """
 
 SYNTHESIS_PROMPT = """You are answering a research question using only the evidence below.
@@ -339,6 +405,9 @@ def decompose(coll, question: str, trace: Trace) -> dict:
         phrasings.insert(0, question)
 
     answerable = bool(plan.get("answerable", True))
+    target = str(plan.get("target_body") or "").strip().lower() or None
+    if target not in schema.CELESTIAL_BODIES or target in ("unknown", "ground"):
+        target = None
 
     plan = {
         "sub_questions": plan.get("sub_questions") or [],
@@ -346,6 +415,7 @@ def decompose(coll, question: str, trace: Trace) -> dict:
         "visual_phrasings": visual[:4],
         "needs_chronology": bool(plan.get("needs_chronology", True)),
         "answerable": answerable,
+        "target_body": target,
         "rationale": plan.get("rationale") or "",
     }
     summary = (
@@ -451,7 +521,8 @@ def retrieve(coll, plan: dict, trace: Trace, top_k: int, threshold: float,
 # ------------------------------------------------------------------ diversify
 
 def diversify(evidence: list[Evidence], trace: Trace, cap: int = PER_VIDEO_CAP,
-              limit: int = MAX_EVIDENCE) -> tuple[list[Evidence], list[dict]]:
+              limit: int = MAX_EVIDENCE,
+              target_body: str | None = None) -> tuple[list[Evidence], list[dict]]:
     """Cap how much any one clip can contribute.
 
     Without this, a broad question returns everything from whichever clip is densest
@@ -462,14 +533,23 @@ def diversify(evidence: list[Evidence], trace: Trace, cap: int = PER_VIDEO_CAP,
     # before a thinly covered decade gets its first slot at all. Taking one shot from
     # every clip before anyone gets a second maximises how much of the archive is
     # represented, which is the whole point of the chronology.
+    # A question about one world prefers moments set on it. Asked about missions to the Moon,
+    # nine lunar clips were passed over so that a Titan passage at 0.659 and a Mars passage at
+    # 0.632 could take the last two slots, because the ranking only ever looked at the score.
+    # This is a preference and not a filter: when there is not enough on-topic material the
+    # slots still fill, rather than the answer quietly shrinking.
+    def rank(item: Evidence) -> tuple[int, float]:
+        on_topic = target_body is not None and item.celestial_body == target_body
+        return (0 if on_topic else 1, -item.score)
+
     by_clip: dict[str, list[Evidence]] = {}
     for item in evidence:
         by_clip.setdefault(item.nasa_id, []).append(item)
     for shots in by_clip.values():
-        shots.sort(key=lambda e: -e.score)
+        shots.sort(key=rank)
 
-    # Clips whose best shot scores highest go first, so ties in coverage break on quality.
-    order = sorted(by_clip, key=lambda nid: -by_clip[nid][0].score)
+    # Clips whose best shot ranks highest go first, so ties in coverage break on quality.
+    order = sorted(by_clip, key=lambda nid: rank(by_clip[nid][0]))
 
     per_video: dict[str, int] = {}
     kept: list[Evidence] = []
@@ -492,8 +572,12 @@ def diversify(evidence: list[Evidence], trace: Trace, cap: int = PER_VIDEO_CAP,
 
     trace.add(
         "diversify",
-        f"kept {len(kept)} across {len(per_video)} clips, dropped {len(dropped)}",
+        f"kept {len(kept)} across {len(per_video)} clips, dropped {len(dropped)}"
+        + (f", preferring {target_body}" if target_body else ""),
         per_video_cap=cap,
+        **({"target_body": target_body,
+            "on_target": sum(1 for k in kept if k.celestial_body == target_body)}
+           if target_body else {}),
         kept_per_clip=per_video,
         dropped=dropped[:12],
     )
@@ -653,11 +737,16 @@ def order_chronologically(evidence: list[Evidence], trace: Trace) -> list[Eviden
     for item in ordered:
         axes[item.era_axis or "unknown"] = axes.get(item.era_axis or "unknown", 0) + 1
 
+    dropped_missions = sum(1 for o in ordered if o.mission_axis == "dropped")
+
     span = [o.era_start for o in ordered if o.era_start]
     trace.add(
         "order",
-        f"ordered by era {min(span) if span else '-'}-{max(span) if span else '-'}",
+        f"ordered by era {min(span) if span else '-'}-{max(span) if span else '-'}"
+        + (f", {dropped_missions} mission label(s) dropped as belonging elsewhere"
+           if dropped_missions else ""),
         era_axis_counts=axes,
+        **({"missions_dropped": dropped_missions} if dropped_missions else {}),
         note="era_axis 'scene' is stated in the footage; 'video' is inferred from clip "
              "context; 'published' is the upload date and carries no historical claim",
     )
@@ -805,7 +894,7 @@ def ask(question: str, *, top_k: int = DEFAULT_TOP_K, threshold: float = DEFAULT
     # passages rather than isolated ten-second fragments.
     evidence = build_passages(evidence, trace)
     evidence = [attach_era(e, lookup) for e in evidence]
-    kept, dropped = diversify(evidence, trace, cap=cap)
+    kept, dropped = diversify(evidence, trace, cap=cap, target_body=plan["target_body"])
     # After the era join, which matches a moment to the scene row containing its start: snapping
     # first could move a start into the previous cell and take that cell's date with it.
     kept = refine_windows(coll, kept, trace)

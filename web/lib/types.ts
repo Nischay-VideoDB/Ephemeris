@@ -55,6 +55,9 @@ export interface Evidence {
   spoken?: string;
   /** Whether speech or the ten-second indexing grid decided this clip's bounds. */
   clip_axis?: "sentence" | "scene";
+  /** `dropped` when the extracted mission named a world this moment is not set on, so the
+   *  label was removed rather than shown over footage of somewhere else. */
+  mission_axis?: "scene" | "dropped" | "none";
 }
 
 export interface TraceStep {

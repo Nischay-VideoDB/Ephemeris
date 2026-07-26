@@ -74,6 +74,16 @@ const M = {
   gold: new THREE.MeshStandardMaterial({ color: "#d9a93c", metalness: 1.0, roughness: 0.2 }),
   lit: new THREE.MeshBasicMaterial({ color: "#ffd479", toneMapped: false }),
   concrete: new THREE.MeshStandardMaterial({ color: "#6d7076", metalness: 0.05, roughness: 0.95 }),
+  // The Shuttle's underside and the X-15's skin are the two liveries in this archive that a
+  // viewer recognises instantly, so they are worth their own materials.
+  tile: new THREE.MeshStandardMaterial({ color: "#3a3d44", metalness: 0.1, roughness: 0.9 }),
+  inconel: new THREE.MeshStandardMaterial({ color: "#1b1d22", metalness: 0.6, roughness: 0.5 }),
+  mirror: new THREE.MeshStandardMaterial({
+    color: "#e8c96a",
+    metalness: 1.0,
+    roughness: 0.12,
+    side: THREE.DoubleSide,
+  }),
 };
 
 const G = {
@@ -112,6 +122,32 @@ const G = {
   windows: new THREE.BoxGeometry(0.302, 0.03, 0.222),
   apron: new THREE.CylinderGeometry(0.42, 0.42, 0.02, 28),
   boom: new THREE.CylinderGeometry(0.008, 0.008, 0.4, 6),
+
+  // Shuttle: a fuselage that tapers to a nose, a delta wing built as a flattened cone so the
+  // sweep is real geometry rather than a box, a fin, and the three main engine bells.
+  shuttleBody: new THREE.CapsuleGeometry(0.075, 0.34, 8, 20),
+  shuttleNose: new THREE.ConeGeometry(0.075, 0.16, 20),
+  shuttleWing: new THREE.ConeGeometry(0.30, 0.44, 3),
+  shuttleFin: new THREE.ConeGeometry(0.09, 0.2, 3),
+  shuttleEngine: new THREE.ConeGeometry(0.035, 0.07, 12),
+  shuttleBay: new THREE.BoxGeometry(0.1, 0.02, 0.26),
+
+  // Telescope: an open tube with an aperture ring, two wings, and a secondary on struts.
+  scopeTube: new THREE.CylinderGeometry(0.1, 0.11, 0.42, 22, 1, true),
+  scopeBack: new THREE.CylinderGeometry(0.11, 0.11, 0.03, 22),
+  scopeRing: new THREE.TorusGeometry(0.1, 0.012, 8, 24),
+  scopeWing: new THREE.BoxGeometry(0.34, 0.01, 0.17),
+  scopeSecondary: new THREE.CylinderGeometry(0.035, 0.035, 0.02, 14),
+
+  // X-15: a black dart. Stubby wings, a wedge tail, a single big chamber.
+  daggerBody: new THREE.CapsuleGeometry(0.045, 0.42, 6, 16),
+  daggerWing: new THREE.BoxGeometry(0.26, 0.012, 0.09),
+  daggerTail: new THREE.BoxGeometry(0.02, 0.11, 0.09),
+  daggerChamber: new THREE.ConeGeometry(0.05, 0.09, 14),
+
+  // Deep-space probe: the Voyager/Mariner silhouette is the dish, the bus and the long booms.
+  probeDish: new THREE.SphereGeometry(0.26, 26, 16, 0, Math.PI * 2, 0, Math.PI / 2.8),
+  probeBus: new THREE.CylinderGeometry(0.09, 0.09, 0.07, 10),
 };
 
 /** Uniform grid, no numbers and no plotted values: an invented chart on a screen would read as
@@ -411,6 +447,176 @@ function Probe({ animate }: { animate: boolean }) {
   );
 }
 
+/** Space Shuttle. Named in 70 of the archive's 87 clips, and until now it flew as a generic
+ *  launch vehicle. Delta wing, wedge fin, three main engines, payload bay doors open. */
+function Shuttle({ animate }: { animate: boolean }) {
+  const ref = useRef<THREE.Group>(null);
+  useFrame((_, delta) => {
+    if (ref.current && animate) ref.current.rotation.y += delta * 0.09;
+  });
+
+  return (
+    <group ref={ref} rotation={[0, 0, 0]}>
+      {/* Fuselage lies along Z, nose forward. */}
+      <group rotation={[Math.PI / 2, 0, 0]}>
+        <mesh geometry={G.shuttleBody} material={M.white} />
+        <mesh geometry={G.shuttleNose} material={M.tile} position={[0, 0.32, 0]} />
+      </group>
+
+      {/* Delta wing: a three-sided cone flattened into a planform, so the sweep is geometry. */}
+      <mesh
+        geometry={G.shuttleWing}
+        material={M.white}
+        position={[0, -0.02, -0.04]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={[1, 1, 0.06]}
+      />
+      {/* Tiles are the underside, which is what makes it read as the orbiter and not an airliner. */}
+      <mesh
+        geometry={G.shuttleWing}
+        material={M.tile}
+        position={[0, -0.035, -0.04]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={[0.98, 0.98, 0.03]}
+      />
+
+      <mesh
+        geometry={G.shuttleFin}
+        material={M.white}
+        position={[0, 0.11, -0.2]}
+        rotation={[0, 0, 0]}
+        scale={[0.12, 1, 1]}
+      />
+
+      {/* Payload bay, open: the archive is full of servicing and deploy footage. */}
+      {[-0.045, 0.045].map((x) => (
+        <mesh
+          key={x}
+          geometry={G.shuttleBay}
+          material={M.white}
+          position={[x, 0.075, 0.02]}
+          rotation={[0, 0, x < 0 ? 0.9 : -0.9]}
+        />
+      ))}
+
+      {[[-0.035, -0.02], [0.035, -0.02], [0, 0.03]].map(([x, y], i) => (
+        <mesh
+          key={i}
+          geometry={G.shuttleEngine}
+          material={M.dark}
+          position={[x, y, -0.28]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        />
+      ))}
+    </group>
+  );
+}
+
+/** Great observatory. Hubble is the single most represented mission in the corpus, 98 scenes,
+ *  and Webb appears too. An open tube with an aperture, a secondary on struts, and two wings. */
+function Telescope({ animate }: { animate: boolean }) {
+  const ref = useRef<THREE.Group>(null);
+  useFrame((_, delta) => {
+    if (ref.current && animate) ref.current.rotation.y += delta * 0.1;
+  });
+
+  return (
+    <group ref={ref}>
+      <group rotation={[Math.PI / 2, 0, 0]}>
+        <mesh geometry={G.scopeTube} material={M.hull} />
+        <mesh geometry={G.scopeBack} material={M.foil} position={[0, -0.22, 0]} />
+        <mesh geometry={G.scopeRing} material={M.dark} position={[0, 0.21, 0]} rotation={[Math.PI / 2, 0, 0]} />
+        {/* Secondary mirror on struts, the detail that says telescope rather than tank. */}
+        <mesh geometry={G.scopeSecondary} material={M.mirror} position={[0, 0.3, 0]} />
+        {[0, (Math.PI * 2) / 3, (Math.PI * 4) / 3].map((a, i) => (
+          <Rod
+            key={i}
+            from={[Math.cos(a) * 0.095, 0.2, Math.sin(a) * 0.095]}
+            to={[0, 0.3, 0]}
+            radius={0.005}
+            material={M.hull}
+          />
+        ))}
+      </group>
+
+      {[-1, 1].map((side) => (
+        <mesh
+          key={side}
+          geometry={G.scopeWing}
+          material={M.panel}
+          position={[side * 0.24, 0, 0]}
+        />
+      ))}
+      <group position={[0, 0.13, -0.1]} rotation={[-1.1, 0, 0]}>
+        <mesh geometry={G.hga} material={M.dish} scale={0.7} />
+      </group>
+    </group>
+  );
+}
+
+/** X-15 and the rocket planes. 80 scenes, and the aeronautics half of this archive had no
+ *  hardware of its own: a research aircraft was flying as a launch vehicle. */
+function RocketPlane({ animate }: { animate: boolean }) {
+  const plume = useRef<THREE.Mesh>(null);
+  useFrame((state) => {
+    if (!plume.current || !animate) return;
+    const t = state.clock.elapsedTime;
+    const flicker = 1 + Math.sin(t * 24) * 0.09;
+    plume.current.scale.set(flicker, flicker * 1.2, flicker);
+  });
+
+  return (
+    <group>
+      <group rotation={[Math.PI / 2, 0, 0]}>
+        <mesh geometry={G.daggerBody} material={M.inconel} />
+      </group>
+      {[-1, 1].map((side) => (
+        <mesh key={side} geometry={G.daggerWing} material={M.inconel} position={[0, 0, -0.02]} scale={[1, 1, 1]} />
+      ))}
+      <mesh geometry={G.daggerTail} material={M.inconel} position={[0, 0.055, -0.22]} />
+      <mesh geometry={G.daggerTail} material={M.inconel} position={[0, -0.045, -0.22]} scale={[1, 0.7, 1]} />
+      <mesh
+        geometry={G.daggerChamber}
+        material={M.dark}
+        position={[0, 0, -0.27]}
+        rotation={[-Math.PI / 2, 0, 0]}
+      />
+      <mesh ref={plume} geometry={G.plume} position={[0, 0, -0.5]} rotation={[-Math.PI / 2, 0, 0]} scale={0.5}>
+        <meshBasicMaterial
+          color="#cfe6ff"
+          transparent
+          opacity={0.5}
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
+          side={THREE.DoubleSide}
+          toneMapped={false}
+        />
+      </mesh>
+    </group>
+  );
+}
+
+/** Deep-space probe. Mariner and Voyager together account for 118 scenes and both read as one
+ *  silhouette: a big high-gain dish over a compact bus, with booms trailing behind it. */
+function DeepProbe({ animate }: { animate: boolean }) {
+  const ref = useRef<THREE.Group>(null);
+  useFrame((_, delta) => {
+    if (ref.current && animate) ref.current.rotation.y += delta * 0.07;
+  });
+
+  return (
+    <group ref={ref}>
+      <mesh geometry={G.probeDish} material={M.dish} position={[0, 0.16, 0]} />
+      <mesh geometry={G.probeBus} material={M.foil} position={[0, 0.05, 0]} />
+      {/* Magnetometer boom and the RTG arm, the two things that break the symmetry. */}
+      <Rod from={[0, 0.05, 0]} to={[0.52, -0.06, 0]} radius={0.005} material={M.hull} />
+      <Rod from={[0, 0.05, 0]} to={[-0.3, -0.18, 0.06]} radius={0.007} material={M.hull} />
+      <mesh geometry={G.rtg} material={M.dark} position={[-0.3, -0.2, 0.06]} rotation={[0, 0, 0.5]} />
+      <Rod from={[0, 0.05, 0]} to={[0, -0.02, -0.34]} radius={0.005} material={M.hull} />
+    </group>
+  );
+}
+
 export function Craft({ kind, animate }: { kind: CraftKind; animate: boolean }) {
   switch (kind) {
     case "rover":
@@ -427,6 +633,14 @@ export function Craft({ kind, animate }: { kind: CraftKind; animate: boolean }) 
       return <Capsule animate={animate} />;
     case "holo":
       return <Holo />;
+    case "shuttle":
+      return <Shuttle animate={animate} />;
+    case "telescope":
+      return <Telescope animate={animate} />;
+    case "rocketplane":
+      return <RocketPlane animate={animate} />;
+    case "deepprobe":
+      return <DeepProbe animate={animate} />;
     default:
       return <Probe animate={animate} />;
   }
@@ -443,6 +657,10 @@ export const CRAFT_LIFT: Record<CraftKind, number> = {
   capsule: 0.2,
   holo: 0.42,
   probe: 0.2,
+  shuttle: 0.22,
+  telescope: 0.26,
+  rocketplane: 0.2,
+  deepprobe: 0.24,
 };
 
 export const CRAFT_LABEL: Record<CraftKind, string> = {
@@ -454,4 +672,8 @@ export const CRAFT_LABEL: Record<CraftKind, string> = {
   capsule: "crewed spacecraft",
   holo: "visualisation",
   probe: "probe",
+  shuttle: "Space Shuttle",
+  telescope: "space telescope",
+  rocketplane: "research aircraft",
+  deepprobe: "deep-space probe",
 };

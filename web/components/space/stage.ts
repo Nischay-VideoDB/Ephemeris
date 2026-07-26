@@ -88,7 +88,11 @@ export type CraftKind =
   | "orbiter"
   | "holo"
   | "capsule"
-  | "probe";
+  | "probe"
+  | "shuttle"
+  | "telescope"
+  | "rocketplane"
+  | "deepprobe";
 
 export const CRAFT_BY_EVENT: Record<EventType, CraftKind> = {
   surface_ops: "rover",
@@ -101,6 +105,40 @@ export const CRAFT_BY_EVENT: Record<EventType, CraftKind> = {
   eva: "capsule",
   other: "probe",
 };
+
+/** The mission is already extracted, indexed in `mission_meta`, shown on the hover card and
+ *  burned into the reel caption. It just never reached the scene: 86 distinct missions all flew
+ *  as one of eight shapes chosen by `event_type` alone, so the archive's most-filmed hardware
+ *  (the Shuttle, named in 70 of 87 clips; Hubble, the single most represented mission at 98
+ *  scenes) was rendered as a generic rocket and a generic bus.
+ *
+ *  Matched on the mission string rather than an enum because `mission_ref` is free text. */
+const CRAFT_BY_MISSION: [RegExp, CraftKind][] = [
+  [/shuttle|columbia|challenger|discovery|atlantis|endeavour|\bsts[- ]?\d/i, "shuttle"],
+  [/hubble|webb|jwst|spitzer|chandra|kepler|tess|telescope|stratoscope/i, "telescope"],
+  [/\bx-\s?1[5b]\b|\bx-\s?\d+\b|lifting body|rocket plane/i, "rocketplane"],
+  [/voyager|mariner|pioneer|new horizons|cassini|galileo|juno|osiris|stardust/i, "deepprobe"],
+  // A rover is a rover wherever the clip catches it. Without this, Curiosity in an
+  // instrument-readout scene flew as an orbiting bus.
+  [/curiosity|perseverance|opportunity|spirit|sojourner|rover/i, "rover"],
+];
+
+/** A mission only changes what the craft *is*, never where it stands. Substituting a Shuttle for
+ *  a rover on the Martian surface would be a lie the placement itself tells, so the swap is
+ *  refused for anything grounded or built on the spot. */
+const GROUNDED_CRAFT: ReadonlySet<CraftKind> = new Set<CraftKind>([
+  "rover",
+  "lander",
+  "station",
+  "holo",
+]);
+
+export function craftFor(event: EventType, mission: string | null | undefined): CraftKind {
+  const generic = CRAFT_BY_EVENT[event];
+  if (!mission || GROUNDED_CRAFT.has(generic)) return generic;
+  const match = CRAFT_BY_MISSION.find(([pattern]) => pattern.test(mission));
+  return match ? match[1] : generic;
+}
 
 export interface Placement {
   index: number;
@@ -165,7 +203,7 @@ export function placeEvidence(evidence: Evidence[]): Placement[] {
       ev,
       pos,
       normal,
-      craft: CRAFT_BY_EVENT[event],
+      craft: craftFor(event, ev.mission),
       stage,
       stageKey,
       stageLabel: `${stage.label}, ${placement.label}`,

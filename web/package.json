@@ -9,7 +9,8 @@
     "build:check": "NEXT_DIST_DIR=.next-check next build",
     "start": "next start",
     "sync": "node scripts/sync-answers.mjs",
-    "test": "node scripts/check-scene.mjs"
+    "test": "node scripts/check-scene.mjs && node scripts/check-craft.mjs",
+    "check:craft": "node scripts/check-craft.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

@@ -68,7 +68,11 @@ export function Reel({ reel }: { reel?: ReelData }) {
   useEffect(() => {
     if (seekTarget !== null && videoRef.current) {
       videoRef.current.currentTime = seekTarget + 0.05;
-      void videoRef.current.play();
+      // play() rejects with NotAllowedError when the browser has no user gesture to attribute
+      // playback to, which happens whenever a moment is selected from code rather than from a
+      // click on the player. The seek itself still lands, so the refusal is nothing to report:
+      // left unhandled it surfaced as an uncaught rejection and a dev-overlay issue badge.
+      void videoRef.current.play().catch(() => {});
       setSeekTarget(null);
     }
   }, [seekTarget, setSeekTarget]);
