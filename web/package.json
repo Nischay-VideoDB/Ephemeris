@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "prebuild": "node scripts/sync-answers.mjs",
-    "build": "next build",
-    "build:check": "NEXT_DIST_DIR=.next-check next build",
+    "dev": "node scripts/sync-answers.mjs && next dev",
+    "build": "node scripts/sync-answers.mjs && next build",
+    "build:check": "node scripts/sync-answers.mjs && NEXT_DIST_DIR=.next-check next build",
     "start": "next start",
     "sync": "node scripts/sync-answers.mjs",
     "test": "node scripts/check-scene.mjs && node scripts/check-craft.mjs",
