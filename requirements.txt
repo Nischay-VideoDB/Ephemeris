@@ -1,0 +1,6 @@
+# Upper bounds are deliberate. This project depends on specific VideoDB behaviour, including
+# places where the live API and its documentation disagree, so an unpinned minor release is a
+# real risk rather than a theoretical one.
+videodb>=0.5.1,<0.6
+python-dotenv>=1.0,<2
+requests>=2.31,<3

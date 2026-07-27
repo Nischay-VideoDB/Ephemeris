@@ -93,7 +93,14 @@ export async function POST(request: Request) {
       try {
         // The question is passed as a separate argv entry, never interpolated into a
         // shell string, and no shell is spawned.
-        const child = spawn(PYTHON, [SCRIPT, question, "--json", outPath], {
+        //
+        // `-P` keeps the script's own directory off sys.path. Without it `scripts/select.py`
+        // shadows the stdlib `select`, and `subprocess` fails partway through its import, which
+        // takes the run down before it reaches VideoDB. It does not reproduce everywhere: where
+        // `select` is compiled into the interpreter it wins regardless, and where it ships as a
+        // dynamic extension the sibling file wins instead. `ask.py` puts `src/` on the path
+        // itself and imports nothing from `scripts/`, so losing that entry costs it nothing.
+        const child = spawn(PYTHON, ["-P", SCRIPT, question, "--json", outPath], {
           cwd: ROOT,
           stdio: ["ignore", "ignore", "pipe"],
         });
