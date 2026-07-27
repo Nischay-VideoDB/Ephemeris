@@ -181,6 +181,15 @@ def load_clips(from_selection: bool) -> list[dict]:
 def main() -> None:
     from_selection = "--from-selection" in sys.argv[1:]
     coll = vc.get_collection()
+
+    # A public collection is readable by any key that knows its id, so the corpus can be
+    # queried without re-ingesting 240 minutes of video. Read-only for everyone else: uploads
+    # and indexing still belong to the owning account. Checked rather than set unconditionally,
+    # since flipping visibility on every run would be a write nobody asked for.
+    if not coll.is_public:
+        log("collection is private; making it public so the corpus can be shared read-only")
+        coll.make_public()
+
     entries = manifest.load()
     clips = load_clips(from_selection)
 

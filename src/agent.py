@@ -517,7 +517,10 @@ def _parse_json(raw: Any) -> dict:
 
 
 def decompose(coll, question: str, trace: Trace) -> dict:
-    raw = coll.generate_text(
+    # Synthesis runs on a collection the caller owns, which is the corpus itself for its owner
+    # and the account default for anyone querying the shared public copy. See
+    # `videodb_client.text_collection`.
+    raw = vc.text_collection().generate_text(
         prompt=DECOMPOSE_PROMPT.format(question=question),
         model_name="pro",
         response_type="json",
@@ -960,7 +963,7 @@ def synthesize(coll, question: str, evidence: list[Evidence], trace: Trace) -> d
         return {"answer": "", "citations": [], "chronology": [],
                 "caveats": "No evidence passed the relevance threshold."}
 
-    raw = coll.generate_text(
+    raw = vc.text_collection().generate_text(
         prompt=SYNTHESIS_PROMPT.format(question=question, evidence=format_evidence(evidence),
                                        count=len(evidence)),
         model_name="pro",

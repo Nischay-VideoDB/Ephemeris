@@ -44,6 +44,29 @@ def get_collection() -> Collection:
     return connect().get_collection(collection_id)
 
 
+@lru_cache(maxsize=1)
+def text_collection() -> Collection:
+    """Where `generate_text` runs, which is not always where retrieval runs.
+
+    The corpus collection is public, so any key can search it. Text generation against it is a
+    different matter: a key from another account gets "Given collection id not found in your
+    account", measured, not assumed. Synthesis therefore needs a collection the caller owns.
+
+    For whoever owns the corpus that is the corpus itself, and nothing changes. For anyone
+    borrowing it, this falls back to the account default, which is empty and used only as the
+    scope for an LLM call. Retrieval is unaffected either way.
+    """
+    corpus = get_collection()
+    conn = connect()
+    try:
+        owned = {c.id for c in conn.get_collections()}
+    except Exception:  # noqa: BLE001 - an unreadable collection list is not worth failing over
+        return corpus
+    if corpus.id in owned:
+        return corpus
+    return conn.get_collection()
+
+
 def usage() -> dict:
     """Account usage snapshot. Call around expensive runs to track credit burn."""
     return connect().check_usage()

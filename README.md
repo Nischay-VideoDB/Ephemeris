@@ -47,7 +47,7 @@ Venus and mercury are **zero**, and the agent knows it: see [refusing to answer]
 | Synthesis | `coll.generate_text(response_type="json")` |
 | Word timings | `video.get_transcript()` on v1, deliberately |
 | Evidence reels | v2 editor `Timeline` / `Track` / `Clip` / `TextAsset`, `generate_stream()` |
-| Sharing | `coll.make_public()` so reels play without a key |
+| Sharing | `coll.make_public()` in `ingest.py`, so any key can query the corpus read-only |
 
 Reasoning runs on VideoDB's own LLM, so the project needs exactly one API key.
 
@@ -193,21 +193,38 @@ cd web && npm test                         # scene placement, craft mapping
 
 ## Setup
 
+Python 3.12 and Node 20 or newer. The web server spawns the agent from `.venv` at the project
+root, so that path is not interchangeable with a conda environment or a venv named otherwise.
+
 ```bash
 uv venv .venv --python 3.12
-uv pip install --python .venv "videodb>=0.5.1" python-dotenv requests
-cd web && npm install && npm run dev       # http://localhost:3000
+uv pip install --python .venv -r requirements.txt
+cp .env.example .env                       # then add your own VideoDB key
+cd web && pnpm install && pnpm dev         # http://localhost:3000
 ```
 
-`.env` at the project root:
+`.env.example` carries the collection id, because the corpus is public and any key can search it.
+Measured against a second account, that sharing covers retrieval and nothing else:
 
-```
-VIDEO_DB_API_KEY=your-key
-VIDEODB_COLLECTION_ID=c-...
-```
+| Borrowed with your own key | |
+|---|---|
+| `semantic_search`, `aggregate`, video metadata | works |
+| `generate_text` against the borrowed collection | refused, "not found in your account" |
+| `get_transcript` on a borrowed video | refused, "Video not found" |
+| `generate_stream` from a borrowed video | refused, "Video info not available" |
 
-The collection id is required. `conn.get_collection()` with no argument returns the account
+Synthesis therefore runs against the caller's own collection, which is what `text_collection()`
+in `src/videodb_client.py` returns, while retrieval stays on the shared corpus. Two capabilities
+degrade and the run continues without them: clips stay on the indexing grid rather than snapping
+to sentence bounds, and no evidence reel is compiled, so `reel.stream_url` comes back empty.
+
+Ingestion and indexing always need a collection you own.
+
+The collection id is never optional. `conn.get_collection()` with no argument returns the account
 default, and collection-scoped search then fans out over every indexed video in scope.
+
+Commands below write `python` for the environment just created. `uv venv` does not activate
+anything, so either `source .venv/bin/activate` first or call `.venv/bin/python` directly.
 
 ## Pipeline
 
@@ -228,6 +245,50 @@ video carrying the old one loses its index, which is what `repair_indexes.py` re
 generated output, not source, which is what `refresh_answers.py` keeps current. Every step is
 idempotent; understanding ids and index names live in `data/manifest.json`, so a re-run resumes
 rather than repeating paid work.
+
+## Reproducing the corpus
+
+Optional. The shipped collection is public and read-only, so querying the archive needs nothing
+but your own key. Rebuild it only to own the corpus outright: to re-run ingestion, change the
+schema, or index footage this selection left out.
+
+What makes a rebuild faithful is `data/selection.json`, which pins the exact NASA ids, so the same
+87 clips are ingested again rather than approximated.
+
+```bash
+# 1. A collection of your own, created in the VideoDB console, in .env
+#      VIDEO_DB_API_KEY=...
+#      VIDEODB_COLLECTION_ID=c-...
+
+# 2. The shipped manifest points at another account's uploads, and ingest skips any clip
+#    that already has a video_id. Move it aside or every upload is skipped.
+mv data/manifest.json data/manifest.upstream.json
+
+# 3. 19 curated clips plus the 68 in data/selection.json
+.venv/bin/python scripts/ingest.py --from-selection
+
+# 4. Understanding and indexes. Dropping --no-ocr indexes OCR on every clip rather than
+#    the 24 it covers here, which costs more and retrieves better.
+.venv/bin/python scripts/build.py --workers 6 --vlm-model basic
+
+# 5. The caches the agent joins against, then the presets
+.venv/bin/python scripts/dump_era.py
+.venv/bin/python scripts/dump_bodies.py
+.venv/bin/python scripts/refresh_answers.py --saved
+```
+
+Budget for it: 240 minutes of video ingested and a VLM pass over roughly 1,500 scenes.
+
+The rebuild will not be identical, and the differences are the honest kind. VLM descriptions are
+not deterministic, so `scene_semantic` and `scene_facets` read differently. Shot segmentation
+varies on archival footage. Approximate-nearest-neighbour ranking drifts, which is why the
+retrieval gate moved from 0.941 to 0.909 on an index that never changed. `generate_text` phrases
+each answer afresh. Run `python evals/run.py` to see what recall your own build reaches: the gold
+windows come from NASA's caption files, not from this pipeline, so they grade any rebuild fairly.
+
+Nothing above is needed to read the shipped answers. The five presets in `data/answer_*.json` are
+real pipeline output, and their reels stream from a public collection, so both work with no key
+at all.
 
 ## Layout
 
