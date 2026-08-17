@@ -1,4 +1,4 @@
-/** Keep an in-scene evidence card inside a narrow viewport without changing its 3D anchor. */
+/** Return the absolute mobile offset that keeps an unshifted in-scene card in the viewport. */
 export function markerCardHorizontalNudge(
   bounds: { left: number; right: number },
   viewportWidth: number,

@@ -156,14 +156,19 @@ function Marker({
 
     // Html projects the marker into the canvas overlay. On a narrow screen the original fixed
     // rightward card offset can put that projected card past the viewport edge. Keep its marker
-    // and line anchor intact, then add only the horizontal amount needed to stay in the gutter.
+    // and line anchor intact, then calculate the absolute horizontal offset needed for this frame.
     const card = markerCard.current;
     if (!card || window.innerWidth > 900) return;
-    const nudge = markerCardHorizontalNudge(card.getBoundingClientRect(), window.innerWidth);
-    if (Math.abs(nudge) < 0.5) return;
+    const appliedNudge = Number.parseFloat(card.style.getPropertyValue("--marker-card-mobile-nudge")) || 0;
+    const bounds = card.getBoundingClientRect();
+    const naturalBounds = {
+      left: bounds.left - appliedNudge,
+      right: bounds.right - appliedNudge,
+    };
+    const targetNudge = markerCardHorizontalNudge(naturalBounds, window.innerWidth);
+    if (Math.abs(targetNudge - appliedNudge) < 0.5) return;
 
-    const previous = Number.parseFloat(card.style.getPropertyValue("--marker-card-mobile-nudge")) || 0;
-    card.style.setProperty("--marker-card-mobile-nudge", `${previous + nudge}px`);
+    card.style.setProperty("--marker-card-mobile-nudge", `${targetNudge}px`);
   });
 
   // Stand the craft up on the surface normal, so a rover on Mars is not lying on its side.
