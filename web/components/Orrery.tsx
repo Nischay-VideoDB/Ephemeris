@@ -5,6 +5,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html, OrbitControls, Preload } from "@react-three/drei";
 import * as THREE from "three";
 import { indexReel } from "@/lib/reel";
+import { markerCardHorizontalNudge } from "@/lib/markerCard";
 import { useStore } from "@/lib/store";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import type { Evidence, Reel } from "@/lib/types";
@@ -145,12 +146,24 @@ function Marker({
   const [hovered, setHovered] = useState(false);
   const color = AXIS_COLOR[ev.era_axis ?? "published"] ?? AXIS_COLOR.published;
   const group = useRef<THREE.Group>(null);
+  const markerCard = useRef<HTMLDivElement>(null);
   const camera = useThree((state) => state.camera);
 
   // Neighbours on the same stage would otherwise loom into the lens when the camera flies in on
   // one of them, filling the frame with an out-of-context solar panel.
   useFrame(() => {
     if (group.current) group.current.visible = active || camera.position.distanceTo(pos) > 1.4;
+
+    // Html projects the marker into the canvas overlay. On a narrow screen the original fixed
+    // rightward card offset can put that projected card past the viewport edge. Keep its marker
+    // and line anchor intact, then add only the horizontal amount needed to stay in the gutter.
+    const card = markerCard.current;
+    if (!card || window.innerWidth > 900) return;
+    const nudge = markerCardHorizontalNudge(card.getBoundingClientRect(), window.innerWidth);
+    if (Math.abs(nudge) < 0.5) return;
+
+    const previous = Number.parseFloat(card.style.getPropertyValue("--marker-card-mobile-nudge")) || 0;
+    card.style.setProperty("--marker-card-mobile-nudge", `${previous + nudge}px`);
   });
 
   // Stand the craft up on the surface normal, so a rover on Mars is not lying on its side.
@@ -195,7 +208,7 @@ function Marker({
           wall-sized text once the camera closes to within a couple of units. */}
       {(hovered || labelled) && (
         <Html position={[0, lift + 0.25, 0]} zIndexRange={[40, 0]}>
-          <div className="marker-card" data-active={active}>
+          <div ref={markerCard} className="marker-card" data-active={active}>
             <div className="mc-head" style={{ color }}>
               <b>[{index + 1}]</b> {ev.era_start ?? "undated"} · {ev.mission ?? "mission unknown"}
             </div>

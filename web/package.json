@@ -12,7 +12,7 @@
     "build:check": "node scripts/sync-answers.mjs && NEXT_DIST_DIR=.next-check next build",
     "start": "next start",
     "sync": "node scripts/sync-answers.mjs",
-    "test": "node scripts/sync-answers.mjs && node scripts/check-public-showcase.mjs && node scripts/check-scene.mjs && node scripts/check-craft.mjs",
+    "test": "node scripts/sync-answers.mjs && node scripts/check-public-showcase.mjs && node scripts/check-scene.mjs && node scripts/check-craft.mjs && node scripts/check-marker-card.mjs",
     "check:craft": "node scripts/check-craft.mjs"
   },
   "dependencies": {

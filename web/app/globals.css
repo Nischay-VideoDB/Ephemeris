@@ -819,6 +819,12 @@ video {
 
 @media (max-width: 900px) {
   html, body { overflow-y: auto; }
+  /* Keep an evidence card readable without changing the marker's projected 3D position. Its
+     mobile nudge is measured from the actual overlay bounds in Orrery. */
+  .marker-card {
+    width: min(240px, calc(100vw - 32px));
+    transform: translate(calc(22px + var(--marker-card-mobile-nudge, 0px)), -50%);
+  }
   .stage-shell { height: auto; min-height: 100vh; }
   .stage-canvas { position: sticky; top: 0; height: 58vh; }
   .vignette, .wash { display: none; }
