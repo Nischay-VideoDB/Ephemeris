@@ -21,3 +21,8 @@ docs/ui-3d-prompt.md
 NOTES.md
 PLAN.md
 
+.vercel
+.env*
+
+# Local Vercel Python build output
+_uv/

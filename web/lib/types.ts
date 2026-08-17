@@ -138,24 +138,8 @@ export interface Rejected {
   }[];
 }
 
-/** One run saved under `data/answers`. Declared here rather than beside the file-reading code
- *  so a client component can name the type without pulling `node:fs` into the browser bundle. */
-export interface SavedAnswer {
-  id: string;
-  question: string;
-  saved: string;
-  moments: number;
-  shots: number;
-  answered: boolean;
-  /** The run did not complete. Distinct from a run that completed and found nothing to say:
-   *  one is a broken pipeline, the other is the archive answering honestly. */
-  failed?: boolean;
-}
-
 export interface AskResult {
   question: string;
-  /** Set by `/api/ask` on a live run: the id the result was saved under. */
-  saved_id?: string;
   plan: {
     sub_questions: string[];
     phrasings: string[];

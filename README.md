@@ -3,7 +3,7 @@
 # Ephemeris
 
 **A research agent over NASA's archival video.**
-Ask a question in plain English. Get a cited answer, ordered by when things actually happened,
+Explore a question in plain English. Get a cited answer, ordered by when things actually happened,
 plus an auto-edited evidence reel cut from the exact seconds that support it.
 
 [![VideoDB](https://img.shields.io/badge/built%20on-VideoDB-5b4ee9?style=flat-square)](https://videodb.io)
@@ -152,6 +152,10 @@ frame, so it survives an export.
 
 ## Interface
 
+The public showcase is intentionally read-only. Its curated question journeys are genuine
+Ephemeris runs, including their cited evidence, compiled reels, and 3D timelines. Run the CLI
+below locally to research a new question.
+
 A navigable solar system. Each retrieved moment stands on the body its scene concerns, rendered as
 the hardware the mission actually flew, and the camera moves through the decades as the reel plays.
 
@@ -160,7 +164,7 @@ the hardware the mission actually flew, and the camera moves through the decades
 - **Beacon colour is the date's provenance**, repeated in words on hover.
 - **The era scrubber** spans the years the moments *discuss*, over the archive's decade histogram.
   Undated moments are binned, not dropped.
-- **Every question asked is kept**, answered or refused, and reloads from a file read.
+- **Each prepared answer stays available**, with its cited evidence and reel ready to reload.
 
 ## Quality gates
 
