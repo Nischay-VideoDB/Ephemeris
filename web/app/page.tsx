@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { Answer } from "@/components/Answer";
 import { BodyPanel } from "@/components/BodyPanel";
@@ -8,7 +8,7 @@ import { EvidenceList } from "@/components/EvidenceList";
 import { Reel } from "@/components/Reel";
 import { Discarded, Timeline } from "@/components/Sidebar";
 import { Trace } from "@/components/Trace";
-import type { AskResult } from "@/lib/types";
+import type { AskResult, SavedAnswer } from "@/lib/types";
 import { indexReel } from "@/lib/reel";
 import { useStore } from "@/lib/store";
 
@@ -32,9 +32,50 @@ export default function Page() {
   const { result, setResult, autoFollow, setAutoFollow, selectMoment, activeEvidenceIndex } =
     useStore();
   const [preset, setPreset] = useState("water-mars");
+  const [question, setQuestion] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hud, setHud] = useState(true);
+  // Live reasoning steps for a question in flight. A run takes about ninety seconds, so
+  // the loop has to be visible while it works.
+  const [progress, setProgress] = useState<{ n: number; kind: string; summary: string; at: number }[]>([]);
+  const [elapsed, setElapsed] = useState(0);
+  // A finished run used to change nothing but the text inside one panel, ninety seconds after
+  // the button was pressed and usually below the fold. It was indistinguishable from a run that
+  // had silently failed. The answer sheet is scrolled to and flashed, and this receipt says the
+  // run landed.
+  const [landed, setLanded] = useState<{ seconds: number; moments: number; id?: string } | null>(null);
+  const answerRef = useRef<HTMLElement | null>(null);
+  // Runs saved to data/answers. Reloading one costs a file read instead of ninety seconds.
+  const [saved, setSaved] = useState<SavedAnswer[]>([]);
+  // How many exist, which is not how many are listed: the rest are one click away rather than
+  // lost. A question asked is kept whether or not the run that answered it succeeded.
+  const [savedTotal, setSavedTotal] = useState(0);
+
+  const loadSavedList = useCallback(async (limit?: number) => {
+    try {
+      const query = limit ? `?limit=${limit}` : "";
+      const response = await fetch(`/api/answers${query}`, { cache: "no-store" });
+      if (!response.ok) return;
+      const payload = await response.json();
+      setSaved(payload.answers ?? []);
+      setSavedTotal(payload.total ?? payload.answers?.length ?? 0);
+    } catch {
+      // A missing history is not worth an error banner over the answer itself.
+    }
+  }, []);
+
+  useEffect(() => {
+    void loadSavedList();
+  }, [loadSavedList]);
+
+  useEffect(() => {
+    if (!busy) return;
+    const started = Date.now();
+    setElapsed(0);
+    const timer = setInterval(() => setElapsed(Math.round((Date.now() - started) / 1000)), 500);
+    return () => clearInterval(timer);
+  }, [busy]);
 
   const loadPreset = useCallback(
     async (id: string) => {
@@ -58,6 +99,36 @@ export default function Page() {
     void loadPreset("water-mars");
   }, [loadPreset]);
 
+  const loadSaved = useCallback(
+    async (id: string) => {
+      setBusy(true);
+      setError(null);
+      setLanded(null);
+      try {
+        const response = await fetch(`/api/answers/${id}`, { cache: "no-store" });
+        if (!response.ok) throw new Error(`could not reload "${id}"`);
+        setResult((await response.json()) as AskResult);
+        setPreset("");
+      } catch (e) {
+        setError(e instanceof Error ? e.message : String(e));
+      } finally {
+        setBusy(false);
+      }
+    },
+    [setResult],
+  );
+
+  // Bring the new answer to the eye. The left column scrolls independently and the sheet is
+  // often out of view by the time a run finishes.
+  useEffect(() => {
+    if (!landed) return;
+    const sheet = answerRef.current;
+    sheet?.scrollIntoView({ behavior: "smooth", block: "start" });
+    sheet?.classList.add("landed");
+    const clear = setTimeout(() => sheet?.classList.remove("landed"), 2400);
+    return () => clearTimeout(clear);
+  }, [landed]);
+
   // H clears the sheets off the scene, for demoing or screen-recording the flight.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -68,6 +139,43 @@ export default function Page() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  async function runLive() {
+    const q = question.trim();
+    if (!q) return;
+    setBusy(true);
+    setError(null);
+    setProgress([]);
+    setLanded(null);
+    const started = Date.now();
+
+    try {
+      const response = await fetch("/api/ask", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ question: q }),
+      });
+
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(payload.detail ?? payload.error ?? `request failed (${response.status})`);
+      }
+      const answerResult = payload as AskResult;
+      setProgress(answerResult.trace ?? []);
+      setResult(answerResult);
+      setPreset("");
+      setLanded({
+        seconds: Math.round((Date.now() - started) / 1000),
+        moments: answerResult.evidence?.length ?? 0,
+        id: answerResult.saved_id,
+      });
+      void loadSavedList();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(false);
+    }
+  }
 
   // A citation [n] is the nth evidence item, not the nth shot. The reel drops a moment whose
   // source yields no usable clip, so the two lists are not interchangeable.
@@ -139,11 +247,99 @@ export default function Page() {
                 </button>
               ))}
             </div>
-            <p className="query-readonly">
-              This public showcase contains prepared, reproducible research journeys. Choose a
-              question above to explore its cited evidence, reel, and 3D timeline.
-            </p>
+            <div className="query-line">
+              <label htmlFor="q">Ask</label>
+              <input
+                id="q"
+                value={question}
+                placeholder="how did the instruments for finding water change?"
+                onChange={(e) => setQuestion(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && !busy && void runLive()}
+                disabled={busy}
+              />
+              <button className="run" onClick={() => void runLive()} disabled={busy || !question.trim()}>
+                {busy ? "running…" : "→"}
+              </button>
+            </div>
             {error && <div className="err">{error}</div>}
+
+            {busy && (
+              <div className="running">
+                <div className="running-head">
+                  <span className="spin" aria-hidden="true" />
+                  searching 1,484 scenes · {elapsed}s
+                  <span className="running-note">usually about 90s</span>
+                </div>
+                <ol className="running-steps">
+                  {progress.map((step) => (
+                    <li key={step.n}>
+                      <b>{step.kind}</b> {step.summary}
+                    </li>
+                  ))}
+                  {progress.length === 0 && <li className="waiting">planning the search…</li>}
+                  {/* Retrieval reports in a burst, then synthesis runs for half a minute with
+                      nothing to say. Without this the list looks stalled at the last step. */}
+                  {progress.length > 0 && progress[progress.length - 1].kind !== "synthesize" && (
+                    <li className="waiting">
+                      {progress[progress.length - 1].kind === "aggregate" ||
+                      progress[progress.length - 1].kind === "order"
+                        ? "reading the moments and writing the answer…"
+                        : "working…"}
+                    </li>
+                  )}
+                </ol>
+              </div>
+            )}
+
+            {!busy && landed && (
+              <div className="landed-note">
+                answered in {landed.seconds}s · {landed.moments} moments · reel compiled
+                {landed.id && <span className="landed-file"> · saved as {landed.id}.json</span>}
+              </div>
+            )}
+
+            {/* Every live run is kept, so a question asked once never has to be paid for twice. */}
+            {saved.length > 0 && (
+              <div className="saved-row">
+                {/* Short enough to sit in the gutter beside "Ask" and "Start". The count lives
+                    on the button that acts on it rather than swelling the label past its column. */}
+                <span className="saved-label">Asked</span>
+                <div className="saved-list">
+                  {saved.map((row) => {
+                    // Three outcomes worth telling apart: an answer, the archive saying it
+                    // holds nothing, and a run that broke. The middle one is a result, so it
+                    // is worded as one. Said in the margin rather than drawn as a badge: the
+                    // question is what is being scanned for, and it keeps its full width.
+                    const state = row.failed ? "failed" : row.answered ? "answered" : "empty";
+                    const note = { answered: `${row.moments} moments`, empty: "nothing found",
+                                   failed: "did not finish" }[state];
+                    return (
+                      <button
+                        key={row.id}
+                        className="saved-item"
+                        data-state={state}
+                        disabled={busy}
+                        onClick={() => void loadSaved(row.id)}
+                        title={`${row.question}\n${note} · ${new Date(row.saved).toLocaleString()}`}
+                      >
+                        <span className="saved-q">{row.question}</span>
+                        <span className="saved-meta">{note}</span>
+                      </button>
+                    );
+                  })}
+                  {savedTotal > saved.length && (
+                    <button
+                      className="saved-item saved-more"
+                      disabled={busy}
+                      onClick={() => void loadSavedList(500)}
+                    >
+                      <span className="saved-q">show all {savedTotal}</span>
+                      <span className="saved-meta">{savedTotal - saved.length} more</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="camera-strip">
@@ -196,7 +392,7 @@ export default function Page() {
           {result && (
             <>
               <div className="column left">
-                <section className="sheet">
+                <section className="sheet" ref={answerRef}>
                   <h2>Answer</h2>
                   <Answer answer={result.answer} onCite={handleCite} />
                 </section>

@@ -544,6 +544,16 @@ video {
 .ev-era { color: var(--ink); }
 .ev-text { font-size: 13.5px; color: var(--ink-dim); margin-top: 5px; }
 .ev-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); margin-top: 5px; word-break: break-all; }
+.evidence-source {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--accent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  font: 11px/1.5 var(--mono);
+  text-decoration: none;
+}
+.evidence-source:hover,
+.evidence-source:focus-visible { color: var(--ink); border-bottom-color: var(--ink); }
 
 .tag {
   font-family: var(--mono);

@@ -5,18 +5,12 @@ import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const web = resolve(here, "..");
-const apiDirectory = join(web, "app", "api");
-
-try {
-  await access(apiDirectory, constants.F_OK);
-  throw new Error("public showcase must not include Next API routes");
-} catch (error) {
-  if (error?.code !== "ENOENT") throw error;
-}
+const liveApi = join(web, "api", "index.py");
+await access(liveApi, constants.R_OK);
 
 const page = await readFile(join(web, "app", "page.tsx"), "utf8");
-if (page.includes("/api/")) {
-  throw new Error("public showcase page must not call an API route");
+if (!page.includes("/api/ask")) {
+  throw new Error("the live research form must call the production API");
 }
 
 const answerDirectory = join(web, "public", "answers");
@@ -45,4 +39,4 @@ for (const file of answerFiles) {
   inspect(JSON.parse(await readFile(join(answerDirectory, file), "utf8")), file);
 }
 
-console.log(`OK public showcase: ${answerFiles.length} prepared answers; no API surface or credentials`);
+console.log(`OK additive gallery: ${answerFiles.length} prepared answers plus live API; no prepared credentials`);

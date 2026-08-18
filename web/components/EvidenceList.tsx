@@ -48,6 +48,18 @@ export function EvidenceList({
               {item.published_year ? ` · published ${item.published_year}` : ""}
               {item.era_basis ? ` · basis ${item.era_basis}` : ""}
             </div>
+            {item.source_url && (
+              <a
+                className="evidence-source"
+                href={`${item.source_url}#t=${Math.max(0, item.start).toFixed(1)},${Math.max(item.start, item.end).toFixed(1)}`}
+                target="_blank"
+                rel="noreferrer"
+                style={{ display: "inline-block", marginTop: 8 }}
+                aria-label={`Play evidence ${n} in the original NASA footage`}
+              >
+                Play NASA source at {Math.floor(item.start / 60)}:{String(Math.floor(item.start % 60)).padStart(2, "0")}
+              </a>
+            )}
           </div>
         );
       })}

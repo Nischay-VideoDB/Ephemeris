@@ -132,7 +132,7 @@ export function Reel({ reel }: { reel?: ReelData }) {
           {reel?.error === "no evidence to compile"
             ? "No reel: nothing in the archive matched, so there was no footage to cut."
             : reel?.error
-              ? `Could not compile: ${reel.error}`
+              ? "Live research completed with timestamped evidence, but this borrowed read-only corpus cannot compile a new reel under the public account. Play any NASA source below, or open a prepared journey for a compiled reel."
               : "No reel for this answer."}
         </div>
       </section>

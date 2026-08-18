@@ -60,6 +60,11 @@ export interface Evidence {
   /** `dropped` when the extracted mission named a world this moment is not set on, so the
    *  label was removed rather than shown over footage of somewhere else. */
   mission_axis?: "scene" | "dropped" | "none";
+  /** Durable public master for the original NASA footage. Live runs use this
+   *  timestamped fallback when the borrowed VideoDB collection cannot compile
+   *  a new reel under the public account. */
+  source_url?: string;
+  source_title?: string;
 }
 
 export interface TraceStep {
@@ -138,8 +143,24 @@ export interface Rejected {
   }[];
 }
 
+/** One run saved under `data/answers`. Declared here rather than beside the file-reading code
+ *  so a client component can name the type without pulling `node:fs` into the browser bundle. */
+export interface SavedAnswer {
+  id: string;
+  question: string;
+  saved: string;
+  moments: number;
+  shots: number;
+  answered: boolean;
+  /** The run did not complete. Distinct from a run that completed and found nothing to say:
+   *  one is a broken pipeline, the other is the archive answering honestly. */
+  failed?: boolean;
+}
+
 export interface AskResult {
   question: string;
+  /** Set by `/api/ask` on a live run: the id the result was saved under. */
+  saved_id?: string;
   plan: {
     sub_questions: string[];
     phrasings: string[];

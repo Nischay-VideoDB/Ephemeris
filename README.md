@@ -152,9 +152,16 @@ frame, so it survives an export.
 
 ## Interface
 
-The public showcase is intentionally read-only. Its curated question journeys are genuine
-Ephemeris runs, including their cited evidence, compiled reels, and 3D timelines. Run the CLI
-below locally to research a new question.
+The public app at <https://ephemeris-lyart.vercel.app> keeps the curated journeys and also runs
+new questions through the real Ephemeris agent. Completed and failed live runs are stored in
+Azure PostgreSQL, so they survive serverless restarts and redeploys. Public runs are bounded per
+visitor and per day, validated, and idempotent.
+
+The shared NASA VideoDB corpus is public **read-only**. Live research, retrieval, synthesis, and
+timestamped evidence work under the public deployment, but a borrowed collection cannot always
+compile a new VideoDB reel. In that case the interface says so plainly and links every evidence
+row to the exact timestamp in the durable NASA source. The five prepared journeys retain their
+compiled, playable reels, so the gallery is additive rather than a replacement for the workflow.
 
 A navigable solar system. Each retrieved moment stands on the body its scene concerns, rendered as
 the hardware the mission actually flew, and the camera moves through the decades as the reel plays.

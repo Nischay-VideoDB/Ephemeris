@@ -1,0 +1,4 @@
+fastapi==0.117.1
+psycopg[binary]>=3.2,<4
+videodb==0.5.1
+python-dotenv>=1.0
