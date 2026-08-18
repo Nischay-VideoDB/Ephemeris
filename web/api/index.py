@@ -14,6 +14,7 @@ import sys
 import uuid
 from datetime import UTC, datetime
 from pathlib import Path
+from urllib.parse import quote, urlsplit, urlunsplit
 
 import psycopg
 from fastapi import FastAPI, HTTPException, Request
@@ -120,6 +121,20 @@ def _summary(row: dict) -> dict:
     }
 
 
+def _browser_safe_url(value: str) -> str:
+    """Percent-encode NASA path/query text without double-encoding escapes."""
+    parsed = urlsplit(value)
+    return urlunsplit(
+        (
+            parsed.scheme,
+            parsed.netloc,
+            quote(parsed.path, safe="/%:@"),
+            quote(parsed.query, safe="=&%:@/?+"),
+            quote(parsed.fragment, safe="%:@/?+"),
+        )
+    )
+
+
 def _enrich_sources(result: dict) -> dict:
     """Attach the public NASA master to every timestamped evidence item.
 
@@ -133,7 +148,7 @@ def _enrich_sources(result: dict) -> dict:
     for item in result.get("evidence") or []:
         source = sources.get(item.get("nasa_id")) or {}
         if source.get("mp4_url"):
-            item["source_url"] = source["mp4_url"]
+            item["source_url"] = _browser_safe_url(source["mp4_url"])
             item["source_title"] = source.get("title") or item.get("title")
     return result
 
